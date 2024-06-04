@@ -37,11 +37,11 @@ The features of this extension are supported via Pylance extension, which is ins
 
 * Tooltips showing the function description, signature and arguments.
 
-![Tooltips](https://github.com/altairengineering/HyperWorksPyAPI/images/gif1.gif?raw=true)
+![Tooltips](https://github.com/altairengineering/HyperWorksPyAPI/images/gif1.gif)
 
 * Autocompletion.
 
-![Autocompletion](https://github.com/altairengineering/HyperWorksPyAPI/images/gif2.gif?raw=true)
+![Autocompletion](https://github.com/altairengineering/HyperWorksPyAPI/images/gif2.gif)
 
 
 Other features as such as code navigation and syntax checking are supported through Pylance. 
