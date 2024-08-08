@@ -5,7 +5,7 @@
   "license": "MIT License",
   "publisher": "AltairEngineering",
   "description": "A Visual Code extension for HyperMesh, Simlab & Inspire Python APIs",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "files": [
     "models/**"
   ],
