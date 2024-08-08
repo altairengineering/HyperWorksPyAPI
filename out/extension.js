@@ -34,8 +34,7 @@ async function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('hw.hyperworks', () => {
         console.log('Command invoked hyperworksapis');
     }));
-    const hmmodels = path_1.default.join(context.extensionPath, 'models');
-    const simlabmodels = path_1.default.join(context.extensionPath, 'models', 'simlab');
+    const models = path_1.default.join(context.extensionPath, 'models');
     // Check if Python is installed
     const pythonExtension = vscode.extensions.getExtension('ms-python.python');
     if (!pythonExtension) {
@@ -59,7 +58,7 @@ async function activate(context) {
         // Set default source folders if no folders are configured
         if (extraSourceFolders.length === 0) {
             extraSourceFolders = [
-                hmmodels, simlabmodels
+                models
             ];
             // Save default source folders to settings.json
             await config.update('extraSourceFolders', extraSourceFolders, vscode.ConfigurationTarget.Global);

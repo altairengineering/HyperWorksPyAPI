@@ -468,7 +468,7 @@ def getTaskManager():
     Returns the Task Manager singleton object.
     
 """
-	pass
+	return Task()
 
 class gui:
 	pass
