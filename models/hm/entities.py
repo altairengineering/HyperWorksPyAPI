@@ -2,6 +2,8 @@ from typing import TypeVar
 class Model:
 	pass
 class hwdescriptor_module:
+	class Model:
+		pass
 	class Uid:
 		pass
 	class Identifier:
@@ -10,7 +12,7 @@ class hwdescriptor_module:
 		pass
 	class EntityFullType:
 		pass
-	class Model:
+	class uint_ptr:
 		pass
 class MDIObject:
 	pass
@@ -32,16 +34,15 @@ class EntityList:
 	pass
 class EntityFullType:
 	pass
-class hw_module:
-	class mdi:
-		class attribute:
-			class Action:
-				pass
-			class Attribute:
-				pass
+class mdi_module:
+	class attribute:
+		class Attribute:
+			pass
+		class Action:
+			pass
 
 class Accelerometer:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -147,6 +148,14 @@ class Accelerometer:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -180,7 +189,7 @@ class Accelerometer:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -199,7 +208,7 @@ class Accelerometer:
 		pass
 
 class Alefsiprojection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -305,6 +314,14 @@ class Alefsiprojection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -338,7 +355,7 @@ class Alefsiprojection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -357,7 +374,7 @@ class Alefsiprojection:
 		pass
 
 class Alereferencesystemcurve:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -463,6 +480,14 @@ class Alereferencesystemcurve:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -496,7 +521,7 @@ class Alereferencesystemcurve:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -515,7 +540,7 @@ class Alereferencesystemcurve:
 		pass
 
 class Alereferencesystemgroup:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -621,6 +646,14 @@ class Alereferencesystemgroup:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -654,7 +687,7 @@ class Alereferencesystemgroup:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -673,7 +706,7 @@ class Alereferencesystemgroup:
 		pass
 
 class Alereferencesystemnode:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -779,6 +812,14 @@ class Alereferencesystemnode:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -812,7 +853,7 @@ class Alereferencesystemnode:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -831,7 +872,7 @@ class Alereferencesystemnode:
 		pass
 
 class Alereferencesystemswitch:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -937,6 +978,14 @@ class Alereferencesystemswitch:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -970,7 +1019,7 @@ class Alereferencesystemswitch:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -989,7 +1038,7 @@ class Alereferencesystemswitch:
 		pass
 
 class Alesmoothing:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1095,6 +1144,14 @@ class Alesmoothing:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1128,7 +1185,7 @@ class Alesmoothing:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1147,7 +1204,7 @@ class Alesmoothing:
 		pass
 
 class Aletanktest:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1253,6 +1310,14 @@ class Aletanktest:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1286,7 +1351,7 @@ class Aletanktest:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1305,7 +1370,7 @@ class Aletanktest:
 		pass
 
 class Analysis:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1411,6 +1476,14 @@ class Analysis:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1444,7 +1517,7 @@ class Analysis:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1463,7 +1536,7 @@ class Analysis:
 		pass
 
 class Analysisparameter:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1569,6 +1642,14 @@ class Analysisparameter:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1602,7 +1683,7 @@ class Analysisparameter:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1621,7 +1702,7 @@ class Analysisparameter:
 		pass
 
 class Attachment:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1727,6 +1808,14 @@ class Attachment:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1760,7 +1849,7 @@ class Attachment:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1779,7 +1868,7 @@ class Attachment:
 		pass
 
 class Attachmentcontrol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -1885,6 +1974,14 @@ class Attachmentcontrol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -1918,7 +2015,7 @@ class Attachmentcontrol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -1937,7 +2034,7 @@ class Attachmentcontrol:
 		pass
 
 class Attachmentcontroldefault:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2043,6 +2140,14 @@ class Attachmentcontroldefault:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2076,7 +2181,7 @@ class Attachmentcontroldefault:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2095,7 +2200,7 @@ class Attachmentcontroldefault:
 		pass
 
 class Axisymmetry:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2201,6 +2306,14 @@ class Axisymmetry:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2234,7 +2347,7 @@ class Axisymmetry:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2253,7 +2366,7 @@ class Axisymmetry:
 		pass
 
 class Bag:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2359,6 +2472,14 @@ class Bag:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2392,7 +2513,7 @@ class Bag:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2411,7 +2532,7 @@ class Bag:
 		pass
 
 class Beamsectcol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2517,6 +2638,14 @@ class Beamsectcol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2550,7 +2679,7 @@ class Beamsectcol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2569,7 +2698,7 @@ class Beamsectcol:
 		pass
 
 class Beamsection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2675,6 +2804,14 @@ class Beamsection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2708,7 +2845,7 @@ class Beamsection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2727,7 +2864,7 @@ class Beamsection:
 		pass
 
 class Behavior:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2833,6 +2970,14 @@ class Behavior:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -2866,7 +3011,7 @@ class Behavior:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -2885,7 +3030,7 @@ class Behavior:
 		pass
 
 class Block:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -2991,6 +3136,14 @@ class Block:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3024,7 +3177,7 @@ class Block:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3043,7 +3196,7 @@ class Block:
 		pass
 
 class Body:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3149,6 +3302,14 @@ class Body:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3182,7 +3343,7 @@ class Body:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3201,7 +3362,7 @@ class Body:
 		pass
 
 class Box:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3307,6 +3468,14 @@ class Box:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3340,7 +3509,7 @@ class Box:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3359,7 +3528,7 @@ class Box:
 		pass
 
 class Card:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3465,6 +3634,14 @@ class Card:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3498,7 +3675,7 @@ class Card:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3517,7 +3694,7 @@ class Card:
 		pass
 
 class Chart:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3623,6 +3800,14 @@ class Chart:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3656,7 +3841,7 @@ class Chart:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3675,7 +3860,7 @@ class Chart:
 		pass
 
 class Clearance:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3781,6 +3966,14 @@ class Clearance:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3814,7 +4007,7 @@ class Clearance:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3833,7 +4026,7 @@ class Clearance:
 		pass
 
 class Collection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -3939,6 +4132,14 @@ class Collection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -3972,7 +4173,7 @@ class Collection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -3991,7 +4192,7 @@ class Collection:
 		pass
 
 class Collision:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4097,6 +4298,14 @@ class Collision:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4130,7 +4339,7 @@ class Collision:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4149,7 +4358,7 @@ class Collision:
 		pass
 
 class Comment:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4255,6 +4464,14 @@ class Comment:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4288,7 +4505,7 @@ class Comment:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4307,7 +4524,7 @@ class Comment:
 		pass
 
 class Component:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4413,6 +4630,14 @@ class Component:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4446,7 +4671,7 @@ class Component:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4465,7 +4690,7 @@ class Component:
 		pass
 
 class Configuration:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4571,6 +4796,14 @@ class Configuration:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4604,7 +4837,7 @@ class Configuration:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4623,7 +4856,7 @@ class Configuration:
 		pass
 
 class Connector:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4729,6 +4962,14 @@ class Connector:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4762,7 +5003,7 @@ class Connector:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4781,7 +5022,7 @@ class Connector:
 		pass
 
 class Connectorcontrol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -4887,6 +5128,14 @@ class Connectorcontrol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -4920,7 +5169,7 @@ class Connectorcontrol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -4939,7 +5188,7 @@ class Connectorcontrol:
 		pass
 
 class Connectorcontroldefault:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5045,6 +5294,14 @@ class Connectorcontroldefault:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5078,7 +5335,7 @@ class Connectorcontroldefault:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5097,7 +5354,7 @@ class Connectorcontroldefault:
 		pass
 
 class Connectorset:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5203,6 +5460,14 @@ class Connectorset:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5236,7 +5501,7 @@ class Connectorset:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5255,7 +5520,7 @@ class Connectorset:
 		pass
 
 class Constrainedextranode:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5361,6 +5626,14 @@ class Constrainedextranode:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5394,7 +5667,7 @@ class Constrainedextranode:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5413,7 +5686,7 @@ class Constrainedextranode:
 		pass
 
 class Constrainedrigidbody:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5519,6 +5792,14 @@ class Constrainedrigidbody:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5552,7 +5833,7 @@ class Constrainedrigidbody:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5571,7 +5852,7 @@ class Constrainedrigidbody:
 		pass
 
 class Constraint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5677,6 +5958,14 @@ class Constraint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5710,7 +5999,7 @@ class Constraint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5729,7 +6018,7 @@ class Constraint:
 		pass
 
 class Contactbehavior:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5835,6 +6124,14 @@ class Contactbehavior:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -5868,7 +6165,7 @@ class Contactbehavior:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -5887,7 +6184,7 @@ class Contactbehavior:
 		pass
 
 class Contactgroup:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -5993,6 +6290,14 @@ class Contactgroup:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6026,7 +6331,7 @@ class Contactgroup:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6045,7 +6350,7 @@ class Contactgroup:
 		pass
 
 class Contactsurf:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6151,6 +6456,14 @@ class Contactsurf:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6184,7 +6497,7 @@ class Contactsurf:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6203,7 +6516,7 @@ class Contactsurf:
 		pass
 
 class Controlvol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6309,6 +6622,14 @@ class Controlvol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6342,7 +6663,7 @@ class Controlvol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6361,7 +6682,7 @@ class Controlvol:
 		pass
 
 class Crosssection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6467,6 +6788,14 @@ class Crosssection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6500,7 +6829,7 @@ class Crosssection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6519,7 +6848,7 @@ class Crosssection:
 		pass
 
 class Curve:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6625,6 +6954,14 @@ class Curve:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6658,7 +6995,7 @@ class Curve:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6677,7 +7014,7 @@ class Curve:
 		pass
 
 class Damping:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6783,6 +7120,14 @@ class Damping:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6816,7 +7161,7 @@ class Damping:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6835,7 +7180,7 @@ class Damping:
 		pass
 
 class Ddval:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -6941,6 +7286,14 @@ class Ddval:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -6974,7 +7327,7 @@ class Ddval:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -6993,7 +7346,7 @@ class Ddval:
 		pass
 
 class Dequation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7099,6 +7452,14 @@ class Dequation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7132,7 +7493,7 @@ class Dequation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7151,7 +7512,7 @@ class Dequation:
 		pass
 
 class DesignpointImpactPoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7257,6 +7618,14 @@ class DesignpointImpactPoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7290,7 +7659,7 @@ class DesignpointImpactPoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7309,7 +7678,7 @@ class DesignpointImpactPoint:
 		pass
 
 class DesignpointTargetPoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7415,6 +7784,14 @@ class DesignpointTargetPoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7448,7 +7825,7 @@ class DesignpointTargetPoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7467,7 +7844,7 @@ class DesignpointTargetPoint:
 		pass
 
 class DesignpointUndefined:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7573,6 +7950,14 @@ class DesignpointUndefined:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7606,7 +7991,7 @@ class DesignpointUndefined:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7625,7 +8010,7 @@ class DesignpointUndefined:
 		pass
 
 class DesignpointmethodESAComp:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7731,6 +8116,14 @@ class DesignpointmethodESAComp:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7764,7 +8157,7 @@ class DesignpointmethodESAComp:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7783,7 +8176,7 @@ class DesignpointmethodESAComp:
 		pass
 
 class DesignpointmethodUndefined:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -7889,6 +8282,14 @@ class DesignpointmethodUndefined:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -7922,7 +8323,7 @@ class DesignpointmethodUndefined:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -7941,7 +8342,7 @@ class DesignpointmethodUndefined:
 		pass
 
 class DesignpointsetBeam:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8047,6 +8448,14 @@ class DesignpointsetBeam:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8080,7 +8489,7 @@ class DesignpointsetBeam:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8099,7 +8508,7 @@ class DesignpointsetBeam:
 		pass
 
 class DesignpointsetBeamJoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8205,6 +8614,14 @@ class DesignpointsetBeamJoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8238,7 +8655,7 @@ class DesignpointsetBeamJoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8257,7 +8674,7 @@ class DesignpointsetBeamJoint:
 		pass
 
 class DesignpointsetBeamMember:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8363,6 +8780,14 @@ class DesignpointsetBeamMember:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8396,7 +8821,7 @@ class DesignpointsetBeamMember:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8415,7 +8840,7 @@ class DesignpointsetBeamMember:
 		pass
 
 class DesignpointsetBeamShell:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8521,6 +8946,14 @@ class DesignpointsetBeamShell:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8554,7 +8987,7 @@ class DesignpointsetBeamShell:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8573,7 +9006,7 @@ class DesignpointsetBeamShell:
 		pass
 
 class DesignpointsetBeamShellMember:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8679,6 +9112,14 @@ class DesignpointsetBeamShellMember:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8712,7 +9153,7 @@ class DesignpointsetBeamShellMember:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8731,7 +9172,7 @@ class DesignpointsetBeamShellMember:
 		pass
 
 class DesignpointsetBeamShellSingle:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8837,6 +9278,14 @@ class DesignpointsetBeamShellSingle:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -8870,7 +9319,7 @@ class DesignpointsetBeamShellSingle:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -8889,7 +9338,7 @@ class DesignpointsetBeamShellSingle:
 		pass
 
 class DesignpointsetDummy:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -8995,6 +9444,14 @@ class DesignpointsetDummy:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9028,7 +9485,7 @@ class DesignpointsetDummy:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9047,7 +9504,7 @@ class DesignpointsetDummy:
 		pass
 
 class DesignpointsetGeneric:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9153,6 +9610,14 @@ class DesignpointsetGeneric:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9186,7 +9651,7 @@ class DesignpointsetGeneric:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9205,7 +9670,7 @@ class DesignpointsetGeneric:
 		pass
 
 class DesignpointsetInstrumentPanelImpactPoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9311,6 +9776,14 @@ class DesignpointsetInstrumentPanelImpactPoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9344,7 +9817,7 @@ class DesignpointsetInstrumentPanelImpactPoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9363,7 +9836,7 @@ class DesignpointsetInstrumentPanelImpactPoint:
 		pass
 
 class DesignpointsetPanelComposite:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9469,6 +9942,14 @@ class DesignpointsetPanelComposite:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9502,7 +9983,7 @@ class DesignpointsetPanelComposite:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9521,7 +10002,7 @@ class DesignpointsetPanelComposite:
 		pass
 
 class DesignpointsetPanelMetallic:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9627,6 +10108,14 @@ class DesignpointsetPanelMetallic:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9660,7 +10149,7 @@ class DesignpointsetPanelMetallic:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9679,7 +10168,7 @@ class DesignpointsetPanelMetallic:
 		pass
 
 class DesignpointsetPanelStiffened:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9785,6 +10274,14 @@ class DesignpointsetPanelStiffened:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9818,7 +10315,7 @@ class DesignpointsetPanelStiffened:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9837,7 +10334,7 @@ class DesignpointsetPanelStiffened:
 		pass
 
 class DesignpointsetPedestrian:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -9943,6 +10440,14 @@ class DesignpointsetPedestrian:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -9976,7 +10481,7 @@ class DesignpointsetPedestrian:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -9995,7 +10500,7 @@ class DesignpointsetPedestrian:
 		pass
 
 class DesignpointsetRivets:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10101,6 +10606,14 @@ class DesignpointsetRivets:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10134,7 +10647,7 @@ class DesignpointsetRivets:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10153,7 +10666,7 @@ class DesignpointsetRivets:
 		pass
 
 class DesignpointsetSprings:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10259,6 +10772,14 @@ class DesignpointsetSprings:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10292,7 +10813,7 @@ class DesignpointsetSprings:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10311,7 +10832,7 @@ class DesignpointsetSprings:
 		pass
 
 class Designvar:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10417,6 +10938,14 @@ class Designvar:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10450,7 +10979,7 @@ class Designvar:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10469,7 +10998,7 @@ class Designvar:
 		pass
 
 class Desvarlink:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10575,6 +11104,14 @@ class Desvarlink:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10608,7 +11145,7 @@ class Desvarlink:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10627,7 +11164,7 @@ class Desvarlink:
 		pass
 
 class Directmatrixinput:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10733,6 +11270,14 @@ class Directmatrixinput:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10766,7 +11311,7 @@ class Directmatrixinput:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10785,7 +11330,7 @@ class Directmatrixinput:
 		pass
 
 class Dobjref:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -10891,6 +11436,14 @@ class Dobjref:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -10924,7 +11477,7 @@ class Dobjref:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -10943,7 +11496,7 @@ class Dobjref:
 		pass
 
 class Domain:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11049,6 +11602,14 @@ class Domain:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11082,7 +11643,7 @@ class Domain:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11101,7 +11662,7 @@ class Domain:
 		pass
 
 class Dvprel:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11207,6 +11768,14 @@ class Dvprel:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11240,7 +11809,7 @@ class Dvprel:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11259,7 +11828,7 @@ class Dvprel:
 		pass
 
 class Element:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11365,6 +11934,14 @@ class Element:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11398,7 +11975,7 @@ class Element:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11417,7 +11994,7 @@ class Element:
 		pass
 
 class Elementbehavior:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11523,6 +12100,14 @@ class Elementbehavior:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11556,7 +12141,7 @@ class Elementbehavior:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11575,7 +12160,7 @@ class Elementbehavior:
 		pass
 
 class Elementcluster:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11681,6 +12266,14 @@ class Elementcluster:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11714,7 +12307,7 @@ class Elementcluster:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11733,7 +12326,7 @@ class Elementcluster:
 		pass
 
 class Encryption:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11839,6 +12432,14 @@ class Encryption:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -11872,7 +12473,7 @@ class Encryption:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -11891,7 +12492,7 @@ class Encryption:
 		pass
 
 class Enginefile:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -11997,6 +12598,14 @@ class Enginefile:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12030,7 +12639,7 @@ class Enginefile:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12049,7 +12658,7 @@ class Enginefile:
 		pass
 
 class Equation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12155,6 +12764,14 @@ class Equation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12188,7 +12805,7 @@ class Equation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12207,7 +12824,7 @@ class Equation:
 		pass
 
 class Exploration:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12313,6 +12930,14 @@ class Exploration:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12346,7 +12971,7 @@ class Exploration:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12365,7 +12990,7 @@ class Exploration:
 		pass
 
 class Face:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12471,6 +13096,14 @@ class Face:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12504,7 +13137,7 @@ class Face:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12523,7 +13156,7 @@ class Face:
 		pass
 
 class Failure:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12629,6 +13262,14 @@ class Failure:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12662,7 +13303,7 @@ class Failure:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12681,7 +13322,7 @@ class Failure:
 		pass
 
 class Feature:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12787,6 +13428,14 @@ class Feature:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12820,7 +13469,7 @@ class Feature:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12839,7 +13488,7 @@ class Feature:
 		pass
 
 class Field:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -12945,6 +13594,14 @@ class Field:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -12978,7 +13635,7 @@ class Field:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -12997,7 +13654,7 @@ class Field:
 		pass
 
 class Freebodygroup:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13103,6 +13760,14 @@ class Freebodygroup:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13136,7 +13801,7 @@ class Freebodygroup:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13155,7 +13820,7 @@ class Freebodygroup:
 		pass
 
 class Freebodysection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13261,6 +13926,14 @@ class Freebodysection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13294,7 +13967,7 @@ class Freebodysection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13313,7 +13986,7 @@ class Freebodysection:
 		pass
 
 class Frequency:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13419,6 +14092,14 @@ class Frequency:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13452,7 +14133,7 @@ class Frequency:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13471,7 +14152,7 @@ class Frequency:
 		pass
 
 class Frequencyset:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13577,6 +14258,14 @@ class Frequencyset:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13610,7 +14299,7 @@ class Frequencyset:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13629,7 +14318,7 @@ class Frequencyset:
 		pass
 
 class Friction:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13735,6 +14424,14 @@ class Friction:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13768,7 +14465,7 @@ class Friction:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13787,7 +14484,7 @@ class Friction:
 		pass
 
 class Geometricrepresentation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -13893,6 +14590,14 @@ class Geometricrepresentation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -13926,7 +14631,7 @@ class Geometricrepresentation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -13945,7 +14650,7 @@ class Geometricrepresentation:
 		pass
 
 class Group:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14051,6 +14756,14 @@ class Group:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14084,7 +14797,7 @@ class Group:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14103,7 +14816,7 @@ class Group:
 		pass
 
 class Handle:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14209,6 +14922,14 @@ class Handle:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14242,7 +14963,7 @@ class Handle:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14261,7 +14982,7 @@ class Handle:
 		pass
 
 class Hourglass:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14367,6 +15088,14 @@ class Hourglass:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14400,7 +15129,7 @@ class Hourglass:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14419,7 +15148,7 @@ class Hourglass:
 		pass
 
 class Initialstate:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14525,6 +15254,14 @@ class Initialstate:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14558,7 +15295,7 @@ class Initialstate:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14577,7 +15314,7 @@ class Initialstate:
 		pass
 
 class Integrationrule:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14683,6 +15420,14 @@ class Integrationrule:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14716,7 +15461,7 @@ class Integrationrule:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14735,7 +15480,7 @@ class Integrationrule:
 		pass
 
 class Interfacecomponent:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14841,6 +15586,14 @@ class Interfacecomponent:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -14874,7 +15627,7 @@ class Interfacecomponent:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -14893,7 +15646,7 @@ class Interfacecomponent:
 		pass
 
 class Interfacelinking:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -14999,6 +15752,14 @@ class Interfacelinking:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15032,7 +15793,7 @@ class Interfacelinking:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15051,7 +15812,7 @@ class Interfacelinking:
 		pass
 
 class Joint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15157,6 +15918,14 @@ class Joint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15190,7 +15959,7 @@ class Joint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15209,7 +15978,7 @@ class Joint:
 		pass
 
 class Laminate:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15315,6 +16084,14 @@ class Laminate:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15348,7 +16125,7 @@ class Laminate:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15367,7 +16144,7 @@ class Laminate:
 		pass
 
 class Legend:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15473,6 +16250,14 @@ class Legend:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15506,7 +16291,7 @@ class Legend:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15525,7 +16310,7 @@ class Legend:
 		pass
 
 class Line:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15631,6 +16416,14 @@ class Line:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15664,7 +16457,7 @@ class Line:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15683,7 +16476,7 @@ class Line:
 		pass
 
 class List:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15789,6 +16582,14 @@ class List:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15822,7 +16623,7 @@ class List:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15841,7 +16642,7 @@ class List:
 		pass
 
 class LoadAcceleration:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -15947,6 +16748,14 @@ class LoadAcceleration:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -15980,7 +16789,7 @@ class LoadAcceleration:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -15999,7 +16808,7 @@ class LoadAcceleration:
 		pass
 
 class LoadConstraint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16105,6 +16914,14 @@ class LoadConstraint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16138,7 +16955,7 @@ class LoadConstraint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16157,7 +16974,7 @@ class LoadConstraint:
 		pass
 
 class LoadFlux:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16263,6 +17080,14 @@ class LoadFlux:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16296,7 +17121,7 @@ class LoadFlux:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16315,7 +17140,7 @@ class LoadFlux:
 		pass
 
 class LoadForce:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16421,6 +17246,14 @@ class LoadForce:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16454,7 +17287,7 @@ class LoadForce:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16473,7 +17306,7 @@ class LoadForce:
 		pass
 
 class LoadMoment:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16579,6 +17412,14 @@ class LoadMoment:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16612,7 +17453,7 @@ class LoadMoment:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16631,7 +17472,7 @@ class LoadMoment:
 		pass
 
 class LoadPressure:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16737,6 +17578,14 @@ class LoadPressure:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16770,7 +17619,7 @@ class LoadPressure:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16789,7 +17638,7 @@ class LoadPressure:
 		pass
 
 class LoadTemperature:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -16895,6 +17744,14 @@ class LoadTemperature:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -16928,7 +17785,7 @@ class LoadTemperature:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -16947,7 +17804,7 @@ class LoadTemperature:
 		pass
 
 class LoadVelocity:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17053,6 +17910,14 @@ class LoadVelocity:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17086,7 +17951,7 @@ class LoadVelocity:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17105,7 +17970,7 @@ class LoadVelocity:
 		pass
 
 class Loadcol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17211,6 +18076,14 @@ class Loadcol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17244,7 +18117,7 @@ class Loadcol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17263,7 +18136,7 @@ class Loadcol:
 		pass
 
 class Loadstep:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17369,6 +18242,14 @@ class Loadstep:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17402,7 +18283,7 @@ class Loadstep:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17421,7 +18302,7 @@ class Loadstep:
 		pass
 
 class Material:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17527,6 +18408,14 @@ class Material:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17560,7 +18449,7 @@ class Material:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17579,7 +18468,7 @@ class Material:
 		pass
 
 class Materialbehavior:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17685,6 +18574,14 @@ class Materialbehavior:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17718,7 +18615,7 @@ class Materialbehavior:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17737,7 +18634,7 @@ class Materialbehavior:
 		pass
 
 class Mechanism:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -17843,6 +18740,14 @@ class Mechanism:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -17876,7 +18781,7 @@ class Mechanism:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -17895,7 +18800,7 @@ class Mechanism:
 		pass
 
 class Mechanismconstraint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18001,6 +18906,14 @@ class Mechanismconstraint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18034,7 +18947,7 @@ class Mechanismconstraint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18053,7 +18966,7 @@ class Mechanismconstraint:
 		pass
 
 class Member:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18159,6 +19072,14 @@ class Member:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18192,7 +19113,7 @@ class Member:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18211,7 +19132,7 @@ class Member:
 		pass
 
 class Memberjoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18317,6 +19238,14 @@ class Memberjoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18350,7 +19279,7 @@ class Memberjoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18369,7 +19298,7 @@ class Memberjoint:
 		pass
 
 class Memberpanel:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18475,6 +19404,14 @@ class Memberpanel:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18508,7 +19445,7 @@ class Memberpanel:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18527,7 +19464,7 @@ class Memberpanel:
 		pass
 
 class Membersection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18633,6 +19570,14 @@ class Membersection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18666,7 +19611,7 @@ class Membersection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18685,7 +19630,7 @@ class Membersection:
 		pass
 
 class Membersegment:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18791,6 +19736,14 @@ class Membersegment:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18824,7 +19777,7 @@ class Membersegment:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -18843,7 +19796,7 @@ class Membersegment:
 		pass
 
 class Meshcontrol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -18949,6 +19902,14 @@ class Meshcontrol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -18982,7 +19943,7 @@ class Meshcontrol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19001,7 +19962,7 @@ class Meshcontrol:
 		pass
 
 class Modelcheckcheck:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19107,6 +20068,14 @@ class Modelcheckcheck:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19140,7 +20109,7 @@ class Modelcheckcheck:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19159,7 +20128,7 @@ class Modelcheckcheck:
 		pass
 
 class Modelcheckcorrection:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19265,6 +20234,14 @@ class Modelcheckcorrection:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19298,7 +20275,7 @@ class Modelcheckcorrection:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19317,7 +20294,7 @@ class Modelcheckcorrection:
 		pass
 
 class Morphconstraint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19423,6 +20400,14 @@ class Morphconstraint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19456,7 +20441,7 @@ class Morphconstraint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19475,7 +20460,7 @@ class Morphconstraint:
 		pass
 
 class Morphvolume:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19581,6 +20566,14 @@ class Morphvolume:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19614,7 +20607,7 @@ class Morphvolume:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19633,7 +20626,7 @@ class Morphvolume:
 		pass
 
 class Nctlayer:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19739,6 +20732,14 @@ class Nctlayer:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19772,7 +20773,7 @@ class Nctlayer:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19791,7 +20792,7 @@ class Nctlayer:
 		pass
 
 class Node:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -19897,6 +20898,14 @@ class Node:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -19930,7 +20939,7 @@ class Node:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -19949,7 +20958,7 @@ class Node:
 		pass
 
 class Noisecontroltreatment:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20055,6 +21064,14 @@ class Noisecontroltreatment:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20088,7 +21105,7 @@ class Noisecontroltreatment:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20107,7 +21124,7 @@ class Noisecontroltreatment:
 		pass
 
 class Objective:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20213,6 +21230,14 @@ class Objective:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20246,7 +21271,7 @@ class Objective:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20265,7 +21290,7 @@ class Objective:
 		pass
 
 class Opticonstraint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20371,6 +21396,14 @@ class Opticonstraint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20404,7 +21437,7 @@ class Opticonstraint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20423,7 +21456,7 @@ class Opticonstraint:
 		pass
 
 class Opticontrol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20529,6 +21562,14 @@ class Opticontrol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20562,7 +21603,7 @@ class Opticontrol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20581,7 +21622,7 @@ class Opticontrol:
 		pass
 
 class Optidscreen:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20687,6 +21728,14 @@ class Optidscreen:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20720,7 +21769,7 @@ class Optidscreen:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20739,7 +21788,7 @@ class Optidscreen:
 		pass
 
 class Optiresponse:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -20845,6 +21894,14 @@ class Optiresponse:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -20878,7 +21935,7 @@ class Optiresponse:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -20897,7 +21954,7 @@ class Optiresponse:
 		pass
 
 class Outputblock:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21003,6 +22060,14 @@ class Outputblock:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21036,7 +22101,7 @@ class Outputblock:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21055,7 +22120,7 @@ class Outputblock:
 		pass
 
 class Outputrequest:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21161,6 +22226,14 @@ class Outputrequest:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21194,7 +22267,7 @@ class Outputrequest:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21213,7 +22286,7 @@ class Outputrequest:
 		pass
 
 class Panel:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21319,6 +22392,14 @@ class Panel:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21352,7 +22433,7 @@ class Panel:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21371,7 +22452,7 @@ class Panel:
 		pass
 
 class Parameter:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21477,6 +22558,14 @@ class Parameter:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21510,7 +22599,7 @@ class Parameter:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21529,7 +22618,7 @@ class Parameter:
 		pass
 
 class Part:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21635,6 +22724,14 @@ class Part:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21668,7 +22765,7 @@ class Part:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21687,7 +22784,7 @@ class Part:
 		pass
 
 class PartInstance:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21793,6 +22890,14 @@ class PartInstance:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21826,7 +22931,7 @@ class PartInstance:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -21845,7 +22950,7 @@ class PartInstance:
 		pass
 
 class PartPrototype:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -21951,6 +23056,14 @@ class PartPrototype:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -21984,7 +23097,7 @@ class PartPrototype:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22003,7 +23116,7 @@ class PartPrototype:
 		pass
 
 class PartRealizationFacets:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -22109,6 +23222,14 @@ class PartRealizationFacets:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22142,7 +23263,7 @@ class PartRealizationFacets:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22161,7 +23282,7 @@ class PartRealizationFacets:
 		pass
 
 class PartRepresentationDefinition:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -22267,6 +23388,14 @@ class PartRepresentationDefinition:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22300,7 +23429,7 @@ class PartRepresentationDefinition:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22319,7 +23448,7 @@ class PartRepresentationDefinition:
 		pass
 
 class PartRoot:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		"""
 PartRoot UID is same as model name
 """
@@ -22428,6 +23557,14 @@ PartRoot UID is same as model name
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22461,7 +23598,7 @@ PartRoot UID is same as model name
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22480,7 +23617,7 @@ PartRoot UID is same as model name
 		pass
 
 class Partset:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -22586,6 +23723,14 @@ class Partset:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22619,7 +23764,7 @@ class Partset:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22638,7 +23783,7 @@ class Partset:
 		pass
 
 class Perturbation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -22744,6 +23889,14 @@ class Perturbation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22777,7 +23930,7 @@ class Perturbation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22796,7 +23949,7 @@ class Perturbation:
 		pass
 
 class Physicalquantity:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -22902,6 +24055,14 @@ class Physicalquantity:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -22935,7 +24096,7 @@ class Physicalquantity:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -22954,7 +24115,7 @@ class Physicalquantity:
 		pass
 
 class Plot:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23060,6 +24221,14 @@ class Plot:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23093,7 +24262,7 @@ class Plot:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23112,7 +24281,7 @@ class Plot:
 		pass
 
 class PlotcontrolContour:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23218,6 +24387,14 @@ class PlotcontrolContour:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23251,7 +24428,7 @@ class PlotcontrolContour:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23270,7 +24447,7 @@ class PlotcontrolContour:
 		pass
 
 class PlotcontrolDeformed:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23376,6 +24553,14 @@ class PlotcontrolDeformed:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23409,7 +24594,7 @@ class PlotcontrolDeformed:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23428,7 +24613,7 @@ class PlotcontrolDeformed:
 		pass
 
 class PlotcontrolFBD:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23534,6 +24719,14 @@ class PlotcontrolFBD:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23567,7 +24760,7 @@ class PlotcontrolFBD:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23586,7 +24779,7 @@ class PlotcontrolFBD:
 		pass
 
 class PlotcontrolMarker:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23692,6 +24885,14 @@ class PlotcontrolMarker:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23725,7 +24926,7 @@ class PlotcontrolMarker:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23744,7 +24945,7 @@ class PlotcontrolMarker:
 		pass
 
 class PlotcontrolTensor:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -23850,6 +25051,14 @@ class PlotcontrolTensor:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -23883,7 +25092,7 @@ class PlotcontrolTensor:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -23902,7 +25111,7 @@ class PlotcontrolTensor:
 		pass
 
 class PlotcontrolVector:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24008,6 +25217,14 @@ class PlotcontrolVector:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24041,7 +25258,7 @@ class PlotcontrolVector:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24060,7 +25277,7 @@ class PlotcontrolVector:
 		pass
 
 class Ply:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24166,6 +25383,14 @@ class Ply:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24199,7 +25424,7 @@ class Ply:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24218,7 +25443,7 @@ class Ply:
 		pass
 
 class Point:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24324,6 +25549,14 @@ class Point:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24357,7 +25590,7 @@ class Point:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24376,7 +25609,7 @@ class Point:
 		pass
 
 class Polycage:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24482,6 +25715,14 @@ class Polycage:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24515,7 +25756,7 @@ class Polycage:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24534,7 +25775,7 @@ class Polycage:
 		pass
 
 class Position:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24640,6 +25881,14 @@ class Position:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24673,7 +25922,7 @@ class Position:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24692,7 +25941,7 @@ class Position:
 		pass
 
 class Pretensioner:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24798,6 +26047,14 @@ class Pretensioner:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24831,7 +26088,7 @@ class Pretensioner:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -24850,7 +26107,7 @@ class Pretensioner:
 		pass
 
 class Property:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -24956,6 +26213,14 @@ class Property:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -24989,7 +26254,7 @@ class Property:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25008,7 +26273,7 @@ class Property:
 		pass
 
 class Referencegeometry:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25114,6 +26379,14 @@ class Referencegeometry:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25147,7 +26420,7 @@ class Referencegeometry:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25166,7 +26439,7 @@ class Referencegeometry:
 		pass
 
 class Region:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25272,6 +26545,14 @@ class Region:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25305,7 +26586,7 @@ class Region:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25324,7 +26605,7 @@ class Region:
 		pass
 
 class Resource:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25430,6 +26711,14 @@ class Resource:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25463,7 +26752,7 @@ class Resource:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25482,7 +26771,7 @@ class Resource:
 		pass
 
 class Response:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25588,6 +26877,14 @@ class Response:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25621,7 +26918,7 @@ class Response:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25640,7 +26937,7 @@ class Response:
 		pass
 
 class Result:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25746,6 +27043,14 @@ class Result:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25779,7 +27084,7 @@ class Result:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25798,7 +27103,7 @@ class Result:
 		pass
 
 class Resultsimulation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -25904,6 +27209,14 @@ class Resultsimulation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -25937,7 +27250,7 @@ class Resultsimulation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -25956,7 +27269,7 @@ class Resultsimulation:
 		pass
 
 class Resultsubcase:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26062,6 +27375,14 @@ class Resultsubcase:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26095,7 +27416,671 @@ class Resultsubcase:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class ResultsubcaseEnvelope:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None, envEqns: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
+		pass
+
+	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def name_onupdate(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class ResultsubcaseRSS:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None, rssEqns: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
+		pass
+
+	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def name_onupdate(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class ResultsubcaseSteps:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None, stepsEqns: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
+		pass
+
+	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def name_onupdate(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class ResultsubcaseSuperposition:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None, lspEqns: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
+		pass
+
+	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def name_onupdate(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26114,7 +28099,7 @@ class Resultsubcase:
 		pass
 
 class Retractor:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26220,6 +28205,14 @@ class Retractor:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26253,7 +28246,7 @@ class Retractor:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26272,7 +28265,7 @@ class Retractor:
 		pass
 
 class Rigidbody:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26378,6 +28371,14 @@ class Rigidbody:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26411,7 +28412,7 @@ class Rigidbody:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26430,7 +28431,7 @@ class Rigidbody:
 		pass
 
 class Rigidwall:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26536,6 +28537,14 @@ class Rigidwall:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26569,7 +28578,7 @@ class Rigidwall:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26588,7 +28597,7 @@ class Rigidwall:
 		pass
 
 class Scenario:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26694,6 +28703,14 @@ class Scenario:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26727,7 +28744,7 @@ class Scenario:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26746,7 +28763,7 @@ class Scenario:
 		pass
 
 class Seamexcitation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -26852,6 +28869,14 @@ class Seamexcitation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -26885,7 +28910,7 @@ class Seamexcitation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -26904,7 +28929,7 @@ class Seamexcitation:
 		pass
 
 class Seamjunction:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27010,6 +29035,14 @@ class Seamjunction:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27043,7 +29076,7 @@ class Seamjunction:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27062,7 +29095,7 @@ class Seamjunction:
 		pass
 
 class Seamsubsystem:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27168,6 +29201,14 @@ class Seamsubsystem:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27201,7 +29242,7 @@ class Seamsubsystem:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27220,7 +29261,7 @@ class Seamsubsystem:
 		pass
 
 class Seasubsystem:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27326,6 +29367,14 @@ class Seasubsystem:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27359,7 +29408,7 @@ class Seasubsystem:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27378,7 +29427,7 @@ class Seasubsystem:
 		pass
 
 class Seatbelt:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27484,6 +29533,14 @@ class Seatbelt:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27517,7 +29574,7 @@ class Seatbelt:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27536,7 +29593,7 @@ class Seatbelt:
 		pass
 
 class Seatbeltcontrolpoint:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27642,6 +29699,14 @@ class Seatbeltcontrolpoint:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27675,7 +29740,7 @@ class Seatbeltcontrolpoint:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27694,7 +29759,7 @@ class Seatbeltcontrolpoint:
 		pass
 
 class Section:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27800,6 +29865,14 @@ class Section:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27833,7 +29906,7 @@ class Section:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -27852,7 +29925,7 @@ class Section:
 		pass
 
 class Sensor:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -27958,6 +30031,14 @@ class Sensor:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -27991,7 +30072,7 @@ class Sensor:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28010,7 +30091,7 @@ class Sensor:
 		pass
 
 class Sequence:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28116,6 +30197,14 @@ class Sequence:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -28149,7 +30238,7 @@ class Sequence:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28174,19 +30263,16 @@ class Session:
 	def chache_signals(self):
 		pass
 
-	def define_action(self,handle: int, action: hw_module.mdi.attribute.Action):
+	def define_action(self,handle: int, action: mdi_module.attribute.Action):
 		pass
 
-	def define_attribute(self,handle: int, attribute: hw_module.mdi.attribute.Attribute):
+	def define_attribute(self,handle: int, attribute: mdi_module.attribute.Attribute):
 		pass
 
-	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False):
+	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False, mixins="{}"):
 		pass
 
-	def define_uid_attribute(self,handle: int, attribute_name: str):
-		pass
-
-	def define_uid_attribute_versioning(self,handle: int, attribute_revision: str, attribute_branch: str):
+	def define_uid_attribute(self,handle: int, attribute_uid: str, attribute_revision: str, attribute_branch: str):
 		pass
 
 	def flush_signals(self):
@@ -28201,7 +30287,7 @@ class Session:
 	def get_entityfulltype_from_metaclass(self,handle: int):
 		pass
 
-	def get_ownership(self,owner_handle: int, child):
+	def get_propertysheetview_factory(self,adaptor: str):
 		pass
 
 	def get_uid_attributename(self,fulltype):
@@ -28217,12 +30303,6 @@ class Session:
 		pass
 
 	def getversion(self,handle: int):
-		pass
-
-	def has_any_ownership(self,owner_handle: int, child):
-		pass
-
-	def has_single_child_ownership(self,owner_handle: int, child):
 		pass
 
 	def instance(self):
@@ -28243,11 +30323,11 @@ class Session:
 	def remove_model(self,model: hwdescriptor_module.Model):
 		pass
 
-	def set_ownership(self,owner_handle: int, child, attribute_handle: int):
+	def set_ownership(self,owner_handle: int, child, attribute_handle: int, override: bool):
 		pass
 
 class Set:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28353,6 +30433,14 @@ class Set:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -28386,7 +30474,7 @@ class Set:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28405,7 +30493,7 @@ class Set:
 		pass
 
 class Shape:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28511,6 +30599,14 @@ class Shape:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -28544,7 +30640,7 @@ class Shape:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28563,7 +30659,7 @@ class Shape:
 		pass
 
 class Shape3d:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28669,6 +30765,14 @@ class Shape3d:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -28702,7 +30806,7 @@ class Shape3d:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28721,7 +30825,7 @@ class Shape3d:
 		pass
 
 class Skeleton:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28827,6 +30931,14 @@ class Skeleton:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -28860,7 +30972,7 @@ class Skeleton:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -28879,7 +30991,7 @@ class Skeleton:
 		pass
 
 class Sketch:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -28985,6 +31097,14 @@ class Sketch:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29018,7 +31138,7 @@ class Sketch:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29037,7 +31157,7 @@ class Sketch:
 		pass
 
 class Slipring:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29143,6 +31263,14 @@ class Slipring:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29176,7 +31304,7 @@ class Slipring:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29195,7 +31323,7 @@ class Slipring:
 		pass
 
 class Solid:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29301,6 +31429,14 @@ class Solid:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29334,7 +31470,7 @@ class Solid:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29353,7 +31489,7 @@ class Solid:
 		pass
 
 class Solvermass:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29459,6 +31595,14 @@ class Solvermass:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29492,7 +31636,7 @@ class Solvermass:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29511,7 +31655,7 @@ class Solvermass:
 		pass
 
 class Solverrepresentation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29617,6 +31761,14 @@ class Solverrepresentation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29650,7 +31802,7 @@ class Solverrepresentation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29669,7 +31821,7 @@ class Solverrepresentation:
 		pass
 
 class Solversetting:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29775,6 +31927,14 @@ class Solversetting:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29808,7 +31968,7 @@ class Solversetting:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29827,7 +31987,7 @@ class Solversetting:
 		pass
 
 class Solversubmodel:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -29933,6 +32093,14 @@ class Solversubmodel:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -29966,7 +32134,7 @@ class Solversubmodel:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -29985,7 +32153,7 @@ class Solversubmodel:
 		pass
 
 class Stateequation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30091,6 +32259,14 @@ class Stateequation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30124,7 +32300,7 @@ class Stateequation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30143,7 +32319,7 @@ class Stateequation:
 		pass
 
 class StructuralpropertyBeam:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30249,6 +32425,14 @@ class StructuralpropertyBeam:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30282,7 +32466,7 @@ class StructuralpropertyBeam:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30301,7 +32485,7 @@ class StructuralpropertyBeam:
 		pass
 
 class StructuralpropertyDummyTargets:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30407,6 +32591,14 @@ class StructuralpropertyDummyTargets:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30440,7 +32632,7 @@ class StructuralpropertyDummyTargets:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30459,7 +32651,7 @@ class StructuralpropertyDummyTargets:
 		pass
 
 class StructuralpropertyEjectionMitigationIP:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30565,6 +32757,14 @@ class StructuralpropertyEjectionMitigationIP:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30598,7 +32798,7 @@ class StructuralpropertyEjectionMitigationIP:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30617,7 +32817,7 @@ class StructuralpropertyEjectionMitigationIP:
 		pass
 
 class StructuralpropertyGeneric:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30723,6 +32923,14 @@ class StructuralpropertyGeneric:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30756,7 +32964,7 @@ class StructuralpropertyGeneric:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30775,7 +32983,7 @@ class StructuralpropertyGeneric:
 		pass
 
 class StructuralpropertyHeadForm:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -30881,6 +33089,14 @@ class StructuralpropertyHeadForm:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -30914,7 +33130,7 @@ class StructuralpropertyHeadForm:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -30933,7 +33149,7 @@ class StructuralpropertyHeadForm:
 		pass
 
 class StructuralpropertyInstrumentPanelIP:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31039,6 +33255,14 @@ class StructuralpropertyInstrumentPanelIP:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31072,7 +33296,7 @@ class StructuralpropertyInstrumentPanelIP:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31091,7 +33315,7 @@ class StructuralpropertyInstrumentPanelIP:
 		pass
 
 class StructuralpropertyLowerLegForm:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31197,6 +33421,14 @@ class StructuralpropertyLowerLegForm:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31230,7 +33462,7 @@ class StructuralpropertyLowerLegForm:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31249,7 +33481,7 @@ class StructuralpropertyLowerLegForm:
 		pass
 
 class StructuralpropertyPanelComposite:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31355,6 +33587,14 @@ class StructuralpropertyPanelComposite:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31388,7 +33628,7 @@ class StructuralpropertyPanelComposite:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31407,7 +33647,7 @@ class StructuralpropertyPanelComposite:
 		pass
 
 class StructuralpropertyPanelMetallic:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31513,6 +33753,14 @@ class StructuralpropertyPanelMetallic:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31546,7 +33794,7 @@ class StructuralpropertyPanelMetallic:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31565,7 +33813,7 @@ class StructuralpropertyPanelMetallic:
 		pass
 
 class StructuralpropertyRivet:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31671,6 +33919,14 @@ class StructuralpropertyRivet:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31704,7 +33960,7 @@ class StructuralpropertyRivet:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31723,7 +33979,7 @@ class StructuralpropertyRivet:
 		pass
 
 class StructuralpropertySpring:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31829,6 +34085,14 @@ class StructuralpropertySpring:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -31862,7 +34126,7 @@ class StructuralpropertySpring:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -31881,7 +34145,7 @@ class StructuralpropertySpring:
 		pass
 
 class StructuralpropertyUndefined:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -31987,6 +34251,14 @@ class StructuralpropertyUndefined:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32020,7 +34292,7 @@ class StructuralpropertyUndefined:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32039,7 +34311,7 @@ class StructuralpropertyUndefined:
 		pass
 
 class StructuralpropertyUpperLegForm:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32145,6 +34417,14 @@ class StructuralpropertyUpperLegForm:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32178,7 +34458,7 @@ class StructuralpropertyUpperLegForm:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32197,7 +34477,7 @@ class StructuralpropertyUpperLegForm:
 		pass
 
 class Study:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32303,6 +34583,14 @@ class Study:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32336,7 +34624,7 @@ class Study:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32355,7 +34643,7 @@ class Study:
 		pass
 
 class Subsystem:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32461,6 +34749,14 @@ class Subsystem:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32494,7 +34790,7 @@ class Subsystem:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32513,7 +34809,7 @@ class Subsystem:
 		pass
 
 class Subsystemconfiguration:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32619,6 +34915,14 @@ class Subsystemconfiguration:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32652,7 +34956,7 @@ class Subsystemconfiguration:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32671,7 +34975,7 @@ class Subsystemconfiguration:
 		pass
 
 class Subsystemset:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32777,6 +35081,14 @@ class Subsystemset:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32810,7 +35122,7 @@ class Subsystemset:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32829,7 +35141,7 @@ class Subsystemset:
 		pass
 
 class Surface:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -32935,6 +35247,14 @@ class Surface:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -32968,7 +35288,7 @@ class Surface:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -32987,7 +35307,7 @@ class Surface:
 		pass
 
 class Symmetry:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33093,6 +35413,14 @@ class Symmetry:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33126,7 +35454,7 @@ class Symmetry:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33145,7 +35473,7 @@ class Symmetry:
 		pass
 
 class Symmetrypivot:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33251,6 +35579,14 @@ class Symmetrypivot:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33284,7 +35620,7 @@ class Symmetrypivot:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33303,7 +35639,7 @@ class Symmetrypivot:
 		pass
 
 class Systcol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33409,6 +35745,14 @@ class Systcol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33442,7 +35786,7 @@ class Systcol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33461,7 +35805,7 @@ class Systcol:
 		pass
 
 class System:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33567,6 +35911,14 @@ class System:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33600,7 +35952,7 @@ class System:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33619,7 +35971,7 @@ class System:
 		pass
 
 class Table:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33725,6 +36077,14 @@ class Table:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33758,7 +36118,7 @@ class Table:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33777,7 +36137,7 @@ class Table:
 		pass
 
 class Tag:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -33883,6 +36243,14 @@ class Tag:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -33916,7 +36284,7 @@ class Tag:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -33935,7 +36303,7 @@ class Tag:
 		pass
 
 class Termination:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34041,6 +36409,14 @@ class Termination:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -34074,7 +36450,7 @@ class Termination:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34093,7 +36469,7 @@ class Termination:
 		pass
 
 class Timestepcontrol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34199,6 +36575,14 @@ class Timestepcontrol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -34232,7 +36616,7 @@ class Timestepcontrol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34251,7 +36635,7 @@ class Timestepcontrol:
 		pass
 
 class Title:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34357,6 +36741,14 @@ class Title:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -34390,7 +36782,7 @@ class Title:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34409,7 +36801,7 @@ class Title:
 		pass
 
 class Transformation:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34515,6 +36907,14 @@ class Transformation:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -34548,7 +36948,7 @@ class Transformation:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34567,7 +36967,7 @@ class Transformation:
 		pass
 
 class UpdateOccurrenceWorkflow:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34676,6 +37076,14 @@ class UpdateOccurrenceWorkflow:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getitems(self):
 		pass
 
@@ -34712,7 +37120,7 @@ class UpdateOccurrenceWorkflow:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34731,7 +37139,7 @@ class UpdateOccurrenceWorkflow:
 		pass
 
 class Vector:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34837,6 +37245,14 @@ class Vector:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -34870,7 +37286,7 @@ class Vector:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -34889,7 +37305,7 @@ class Vector:
 		pass
 
 class Vectorcol:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -34995,6 +37411,14 @@ class Vectorcol:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -35028,7 +37452,7 @@ class Vectorcol:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -35047,7 +37471,7 @@ class Vectorcol:
 		pass
 
 class Weldline:
-	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: MDIObject=None, ownership_attribute: hwdescriptor_module.Identifier = None, *args, **kwargs):
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
 		pass
 
 	def GetActionDefinition(self,identifier: Identifier):
@@ -35153,6 +37577,14 @@ class Weldline:
 	def getattributes(self,visible=True, editable=False):
 		pass
 
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
@@ -35186,7 +37618,7 @@ class Weldline:
 	def owner(self):
 		pass
 
-	def set_attribute_value(self,identifier: str, value: hwdescriptor_module.Value):
+	def set_attribute_value(self,identifier: str, value):
 		pass
 
 	def set_values(self,**kwds):
@@ -35223,6 +37655,9 @@ class mdihmmetaobject:
 	pass
 
 class plotcontrols:
+	pass
+
+class resultsubcases:
 	pass
 
 class structuralproperties:

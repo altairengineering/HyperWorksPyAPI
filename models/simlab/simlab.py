@@ -725,6 +725,15 @@ This function is used to get active database path.
 """
 	pass
 
+def getActiveSolutionName():
+	"""
+
+
+    This function is  used to return the name of the active solution.
+    
+"""
+	pass
+
 def getAllRootModelNames(pModelType):
 	pass
 
@@ -1114,6 +1123,12 @@ def getSupportEntitiesForSet(pSetName):
 """
 	pass
 
+def getUnitTypes():
+	"""
+This function returns the unit types names available for unit conversion
+"""
+	pass
+
 def getVertexPositionFromVertexID(pModelName, nVertexId):
 	"""
 
@@ -1189,11 +1204,11 @@ def plotgraph(*args):
 def printToLogFile(pInput):
 	pass
 
-def queryResults(pModelName, lNodeID, bNodeValuesforAllSimulations=False):
+def queryResults(*args):
 	"""
 
-    Input ->queryResults(Model name,Node ID,True(To view the query results for all simulations)/False(To view the query results for the current simulation)).
-    This function is used to query the results value for the given node ID.
+    Input ->queryResults(Model name,Entity ID,True(To view the query results for all simulations)/False(To view the query results for the current simulation),Entity(Node/Element)).
+    This function is used to query the results value for the given Entity ID.
     
 """
 	pass

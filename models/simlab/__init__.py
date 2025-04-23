@@ -137,6 +137,15 @@ This function is used to get active database path.
 """
 	pass
 
+def getActiveSolutionName():
+	"""
+
+
+    This function is  used to return the name of the active solution.
+    
+"""
+	pass
+
 def getAllRootModelNames(pModelType):
 	pass
 
@@ -526,6 +535,12 @@ def getSupportEntitiesForSet(pSetName):
 """
 	pass
 
+def getUnitTypes():
+	"""
+This function returns the unit types names available for unit conversion
+"""
+	pass
+
 def getVertexPositionFromVertexID(pModelName, nVertexId):
 	"""
 
@@ -599,7 +614,7 @@ def offsetPlane(PlanePoint1, PlanePoint2, PlanePoint3, dOffsetDistance):
 	pass
 
 class pauseprocess:
-	def __init__(self,message,pos: str="<hwui.uiPoint; proxy of <Swig Object of type uiPoint * at 0x000002A9D11BD2A0> >",title: str="SimLab",Button1: str="OK",Button2: str="Cancel"):
+	def __init__(self,message,pos: str="<hwui.uiPoint; proxy of <Swig Object of type uiPoint * at 0x00000196DCE61690> >",title: str="SimLab",Button1: str="OK",Button2: str="Cancel"):
 		"""
 This function is used for to pause the script and user can interact the user interface to do manual operations.
 
@@ -623,11 +638,11 @@ def popupmsg(msg):
 def printToLogFile(pInput):
 	pass
 
-def queryResults(pModelName, lNodeID, bNodeValuesforAllSimulations=False):
+def queryResults(*args):
 	"""
 
-    Input ->queryResults(Model name,Node ID,True(To view the query results for all simulations)/False(To view the query results for the current simulation)).
-    This function is used to query the results value for the given node ID.
+    Input ->queryResults(Model name,Entity ID,True(To view the query results for all simulations)/False(To view the query results for the current simulation),Entity(Node/Element)).
+    This function is used to query the results value for the given Entity ID.
     
 """
 	pass

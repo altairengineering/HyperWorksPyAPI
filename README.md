@@ -4,26 +4,30 @@ The HyperWorksPyAPI is a Visual Studio Code extension which provides syntax supp
 
 A tree structure of all availble modules is the following:
 ``` bash
-hm 
-└── hm.entities 
+hm
+└── hm.entities
 
-hw 
-├── hw.hv 
-├── hw.hg 
-└── hw.taskmanager 
+hw
+├── hw.hv
+├── hw.hg
+└── hw.taskmanager
 
-simlab 
-├── simlab.simlab 
-└── simlab.messageBox 
+report
+├── report.hwxpptxtypes
+└── report.hwxdocxtypes
 
-hwx 
-├── hwx.gui 
-├── hwx.inspire 
-│   ├── hwx.inspire.core 
-│   ├── hwx.inspire.math 
-│   └── hwx.inspire.motion 
-└── hwx.common 
-    └── hwx.common.math 
+simlab
+├── simlab.messagebox
+└── simlab.simlab
+
+hwx
+├── hwx.gui
+├── hwx.inspire
+│   ├── hwx.inspire.core
+│   ├── hwx.inspire.math
+│   └── hwx.inspire.motion
+└── hwx.common
+    └── hwx.common.math
 ```
 ## Quick Start 
 
@@ -50,5 +54,5 @@ Other features as such as code navigation and syntax checking are supported thro
 ## Questions and Support 
 
 <!--Users appreciate release notes as you update your extension. -->
-We encourage feedback. If you face any issues please reach out to [Altair HyperWorks Scripts & Customizations Community Forum.](https://community.altair.com/community?sys_id=3cf20c6d1b5f90501e9fa7562a4bcb79&view=sp&id=community_topic&table=sn_communities_topic) 
+We encourage feedback. If you face any issues please reach out to us via [Discussions - Altair Community.](https://community.altair.com/discussions) 
 

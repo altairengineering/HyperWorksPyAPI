@@ -21,132 +21,18 @@ class hwStringList:
 	pass
 class hwVariant:
 	pass
-class hwfdmImplicitEditIface:
-	pass
-class hwfdmImplicitGeomObject:
-	pass
-class hwfdmImplicitGeomObjectCollection:
-	pass
-class hwfdmFeatureAreaCollection:
-	pass
-class hwfdmOccurrence:
-	pass
-class hwfdmConstructionFeature:
-	pass
-class hwBox3d:
-	pass
-class hwTriple:
-	pass
-class DirectImplicitTransformInputBase:
-	pass
 class hwfdmAssemblyOccurrence:
 	pass
 class hwTripleList:
 	pass
 class hwSystem:
 	pass
+class hwTriple:
+	pass
 class hwfdmCreateSolidCylinderOptions:
 	pass
 class IPI_CF:
 	pass
-
-class ACos:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ACos operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ACosh:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ACosh operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ASin:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ASin operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ASinh:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ASinh operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ATan:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ATan operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ATan2:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ATan2 operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ATanh:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry ATanh operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
 
 class AbortException:
 	def __init__(self):
@@ -157,48 +43,6 @@ Exception used to exit code during an operation.
   already shown to the user in raiseProblem.
   
 """
-		pass
-
-class Abs:
-	def __init__(self,**kwds):
-		"""
-Implicit absolute operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Add:
-	def __init__(self,**kwds):
-		"""
-Implicit Add operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class AddVector:
-	def __init__(self,**kwds):
-		"""
-Implicit Vector Add operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class AlignedHole:
@@ -604,6 +448,16 @@ Measures the angle between three points.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -713,6 +567,17 @@ Measures the angle between three points.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -725,6 +590,13 @@ Measures the angle between three points.
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -872,6 +744,16 @@ Attribute to store arbitrary data structure including Named objects.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -1476,6 +1358,16 @@ An assembly is a list of parts.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -1650,6 +1542,17 @@ An assembly is a list of parts.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
 		"""
 		Finds and removes holes and pockets, and find raised areas such as lettering.
@@ -1738,6 +1641,26 @@ An assembly is a list of parts.
 		pass
 	@transparency.setter
 	def transparency(self):
+		pass
+
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -1915,6 +1838,16 @@ Python descriptor to set or get serializable values of Inspire objects.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -1976,29 +1909,6 @@ Contents:
   memoizeUntilObjectChanged
   memoizeUntilTypeChanged
 
-"""
-	pass
-
-class Axis:
-	def __init__(self,**kwds):
-		"""
-Create a axis implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class BODY_TYPES:
-	"""
-Built-in mutable sequence.
-
-If no argument is given, the constructor creates a new empty list.
-The argument must be an iterable if specified.
 """
 	pass
 
@@ -2185,6 +2095,16 @@ class BaseSystem:
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -2287,11 +2207,29 @@ class BaseSystem:
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
 	@type.setter
 	def type(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -2555,6 +2493,16 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -2694,6 +2642,17 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -2707,6 +2666,13 @@ Bead Pattern on supplied parts.
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -2727,26 +2693,6 @@ Bead Pattern on supplied parts.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Body:
-	def __init__(self,**kwds):
-		"""
-Base class for all implicit bodies.
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class BodyImplicit:
-	def __init__(self,cppName: str="",doc: str="", bodyType=None):
-		"""
-ImplicitBody
-"""
 		pass
 
 class Bool:
@@ -2873,6 +2819,16 @@ Store True or False
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -2886,13 +2842,6 @@ Store True or False
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class BoolImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-bool
-"""
 		pass
 
 class BoundaryCondition:
@@ -3135,6 +3084,16 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -3274,12 +3233,30 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Sets the design space positions of all the inspire parts to their 
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -3303,7 +3280,7 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		pass
 
 class Bushing:
-	def __init__(self,primaryFeatures, secondaryFeatures=[], location=None, **kwds):
+	def __init__(self,primaryFeatures, secondaryFeatures=[], location=None, loadCase=None, **kwds):
 		"""
 Create connections with multidirectional stiffness and mass properties
      between 2 set of surfaces between 2 parts. This helps capture the physics
@@ -3547,6 +3524,16 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def grounded(self):
 		pass
@@ -3670,6 +3657,17 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def stiffness(self):
 		pass
@@ -3689,6 +3687,13 @@ Create connections with multidirectional stiffness and mass properties
 		pass
 	@torquePreload.setter
 	def torquePreload(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -3959,6 +3964,16 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -4105,12 +4120,30 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Sets the design space positions of all the inspire parts to their 
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -4333,6 +4366,16 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -4414,6 +4457,24 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -4432,20 +4493,6 @@ Display analysis results at a point on a part or section plane.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Capsule:
-	def __init__(self,**kwds):
-		"""
-Create a Capsule implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Cavities:
@@ -4671,34 +4718,6 @@ class Cavity:
 	def type(self):
 		pass
 
-class Ceil:
-	def __init__(self,**kwds):
-		"""
-Implicit ceil operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Clamp:
-	def __init__(self,**kwds):
-		"""
-Implicit clamp operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
 class Color:
 	def __init__(self,default=(0, 0, 0), **kwds):
 		"""
@@ -4848,6 +4867,16 @@ Stores a color value as 3 RGB float values between 0 to 1
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -4861,23 +4890,6 @@ Stores a color value as 3 RGB float values between 0 to 1
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class Combine:
-	def __init__(self,**kwds):
-		"""
-The Combine tool is a Boolean Union operation between implicit bodies.
-  This tool creates a new body that envelopes any volume that falls within at
-  least one of bodies being combined. It is equivalent to a logical
-  OR / disjunction.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class CompositeAttribute:
@@ -5035,6 +5047,9 @@ class CompositeAttribute:
         Only passed when showing Triples 1 value at a time.
     
 		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -5320,11 +5335,76 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	@property
 	def currentRepresentation(self):
 		pass
 	@currentRepresentation.setter
 	def currentRepresentation(self):
+		pass
+
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+		"""
+		Deform parts within a specified region.
+
+  Args:
+    parts (list[Part]): Parts to be deformed.
+    deformType (str): Deform Type.
+      - TWIST
+      - BEND
+      - TAPER
+      - SHEAR
+      - STRETCH
+    deformAxis (str): Deform Axis.
+      - X
+      - Y
+      - Z
+    twistType (str): Twist Type.
+      - ANGLE
+      - TURNS
+    twistAngle (float | str): Twist angle to deform parts.
+    twistTurns (float | str): Number of Twist turns to deform parts.
+    twistSmoothing (float): Twist smoothing factor. Value from 0 to 1 is valid.
+    bendType (str): Blend Type.
+      - RADIUS
+      - ANGLE
+    bendRadius (float | str): Blend radius to deform parts.
+    bendAngle (float | str): Blend angle to deform parts.
+    taperFactor (float | str): Taper factor to deform parts.
+    shearAngle (float | str): Shear angle to deform parts.
+    stretchCurve (Part): Stretch curve to deform parts.
+    stretchAngle (float): Stretch angle to deform parts.
+    stretchCurveOffset (float | str): Stretch curve offset to deform parts.
+    stretchAlongCurve (bool): If True, Stretch along curve to deform parts
+      otherwise not.
+    stretchMoveToCurve (bool): If True, Stretch move to curve to deform parts
+      otherwise not.
+    stretchReverseCurve (bool): If True, Stretch reverse the curve to deform
+      parts otherwise not.
+    reapplyFillets (bool): If True, Reapply fillets to deform parts.
+    accuracy (float | str): Accuracy factor to deform parts. Value from 0 to 1
+      is valid.
+    eulerAngles (list[roll, pitch, yaw]): Euler angles in x,y,z direction to
+      deform parts.
+    origin (mat.Points): Origin values in x,y,z direction to deform parts.
+    trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
+    trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -5601,6 +5681,16 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -5647,6 +5737,13 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		pass
 	@ignoreFlexibility.setter
 	def ignoreFlexibility(self):
+		pass
+
+	@property
+	def instances(self):
+		pass
+	@instances.setter
+	def instances(self):
 		pass
 
 	def intersect(self,parts, createSolids=False, keepSourceParts=False):
@@ -5934,9 +6031,40 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		Translates and/or rotates a part. 
 
+Args:
+  part (Part): The part to move.
+  position (math.Matrix44): The position to move the part at.
+
+
+.. deprecated:: 2025
+   This will be removed in 2025.2. Use the move2 function instead
+		"""
+		pass
+
+	def move2(self,entities, moveMode="FREE", position=None, translateX="0", translateY="0", translateZ="0", alongLineMagnitude="0", rotateAngle="0", moveAxis=None):
+		"""
+		New move tool to Translates and/or rotates a part.
+
   Args:
-    part (Part): The part to move.
-    position (math.Matrix44): The position to move the part at.
+    entities (List[Part]): Entities to move.
+    moveMode (str): Move tool mode. Valid values are
+      - FREE
+      - TRANSLATE_GLOBAL
+      - TRANSLATE_ALONG_LINE
+      - ROTATE_ABOUT_AXIS
+    position (math.Matrix44): The position to move the parts at.
+    translateX (float | str): Value to translate in X direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateY (float | str): Value to translate in Y direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateZ (float | str): Value to translate in Z direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    alongLineMagnitude (float | None): Along line magnitude. Only valid for
+      TRANSLATE_ALONG_LINE move mode.
+    rotateAngle (float | str): Rotate angle. Only valid for ROTATE_ABOUT_AXIS
+      move mode.
+    moveAxis ( Feature | System): Feature curve that is linear, or feature area
+      that is cylindrical or Reference Axis or Plane.
   
 		"""
 		pass
@@ -6129,7 +6257,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def representations(self):
 		pass
 
-	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR"):
+	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR", manufacturingType="NONE", baseRadius=0.001, topRadius=0.001):
 		"""
 		Extrude rib geometry from a sketch to stiffen your model.
 
@@ -6152,6 +6280,14 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
     extensionType (str): Rib extension type.
      - LINEAR
      - NATURAL
+    manufacturingType (str): Manufacturing type.
+     - NONE
+     - THERMOSET
+     - THERMOPLASTIC
+     - CASTING
+     - CUSTOM
+    baseRadius (float | str): Base radius for rib creation.
+    topRadius (float | str): Top radius for rib creation.
   
 		"""
 		pass
@@ -6247,6 +6383,17 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def sheetThickness(self):
 		pass
@@ -6335,7 +6482,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
-	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True):
+	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True, cuttingSheetPart=None):
 		"""
 		Slices a set of solid objects with a cutting plane or cutting surface.
 
@@ -6347,6 +6494,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
     cutNormal (math.Vector): The normal of the cutting plane.
     surfaceFeature (FeatureArea): The surface to slice the enity accross.
     extendSurface (bool): Set Automatic extension On/Off for tool Surface.
+    cuttingSheetPart (Part): The cuting sheet part to slice the enity accross.
 
   Returns:
     Part: The new sliced part created.
@@ -6373,6 +6521,21 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		pass
 	@stressCalculation.setter
 	def stressCalculation(self):
+		pass
+
+	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
+		"""
+		Creates curves from two intersecting surfaces.
+
+  Args:
+    surface1 (list[Part]):  Set Surface1(target) parts.
+    surface2 (list[Part]): Set Surface2(tool) parts.
+    combineCurves (bool): If True, combine curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -6427,6 +6590,19 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
 	def trimAndSplit(self,targets, tools, direction, trim=True, keepType="EXTERIOR", vectorDirection=None, extendProjection=True, trimExtents="THROUGH_ALL", extractProjection=False, surfaceNormal=None, resultAsSurface=False):
 		"""
 		Formerly known as projectAndSplit. It removes part of a surface or solid by
@@ -6466,6 +6642,13 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		pass
 
 	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
 	def visible(self):
 		pass
 	@visible.setter
@@ -6490,20 +6673,6 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Cone:
-	def __init__(self,**kwds):
-		"""
-Create a Cone implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Config:
@@ -6693,6 +6862,16 @@ Config is a container class which would hold other entities
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -6758,6 +6937,24 @@ Config is a container class which would hold other entities
       **kwds: Set attributes in one go.
     
 		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -6999,6 +7196,16 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -7066,6 +7273,24 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -7084,20 +7309,6 @@ Connectors link points, edges, or faces to each other.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Constant:
-	def __init__(self,**kwds):
-		"""
-Implicit constant.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Constraint:
@@ -7379,6 +7590,16 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def hinge(self):
 		pass
@@ -7542,6 +7763,17 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def sliding(self):
 		pass
@@ -7553,6 +7785,13 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		Update the position by multiplying input M44 matrix.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -7604,6 +7843,13 @@ Connection between two parts by the contact of features.
 		pass
 
 	@property
+	def clearance(self):
+		pass
+	@clearance.setter
+	def clearance(self):
+		pass
+
+	@property
 	def connectionRadius(self):
 		pass
 	@connectionRadius.setter
@@ -7652,6 +7898,20 @@ Connection between two parts by the contact of features.
 		pass
 	@features.setter
 	def features(self):
+		pass
+
+	@property
+	def frictionalValue(self):
+		pass
+	@frictionalValue.setter
+	def frictionalValue(self):
+		pass
+
+	@property
+	def gapTolerance(self):
+		pass
+	@gapTolerance.setter
+	def gapTolerance(self):
 		pass
 
 	def getAllChildren(self,type=None, **kwds):
@@ -7771,6 +8031,13 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
+	def getFoundGapOrPenetration(self):
+		"""
+		Returns found gap or penetration for the contacts.
+    
+		"""
+		pass
+
 	def getGuiAttributeNames(self):
 		"""
 		Return list of the attribute names that are in the gui
@@ -7820,6 +8087,16 @@ Connection between two parts by the contact of features.
 
     Returns:
       str: Returns the attribute value
+    
+		"""
+		pass
+
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
     
 		"""
 		pass
@@ -7881,6 +8158,13 @@ Connection between two parts by the contact of features.
 		pass
 
 	@property
+	def penetrationTolerance(self):
+		pass
+	@penetrationTolerance.setter
+	def penetrationTolerance(self):
+		pass
+
+	@property
 	def primaryFeatures(self):
 		pass
 	@primaryFeatures.setter
@@ -7892,6 +8176,13 @@ Connection between two parts by the contact of features.
 		pass
 	@primaryPart.setter
 	def primaryPart(self):
+		pass
+
+	@property
+	def resolution(self):
+		pass
+	@resolution.setter
+	def resolution(self):
 		pass
 
 	@property
@@ -7953,11 +8244,29 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solver(self):
 		pass
 	@solver.setter
 	def solver(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -8273,22 +8582,6 @@ Compute contact based joint information from the contacts features
 		"""
 		pass
 
-class ConvertToImplicit:
-	def __init__(self,**kwds):
-		"""
-The Convert tool accepts geometry in BRep or surface mesh formats and
-  converts into Altair's implicit geometry format. The output is typically a
-  Signed Distance Field (SDF) for the converted geometry.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
 class Core:
 	"""
 
@@ -8296,118 +8589,6 @@ The Inspire core data model.
 
 """
 	pass
-
-class Cos:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry Cos operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Create2D:
-	def __init__(self,**kwds):
-		"""
-Implicit 2D Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Create3D:
-	def __init__(self,**kwds):
-		"""
-Implicit 3D Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Create4D:
-	def __init__(self,**kwds):
-		"""
-Implicit 4D Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Cross:
-	def __init__(self,**kwds):
-		"""
-Implicit Cross Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Cuboid:
-	def __init__(self,**kwds):
-		"""
-Create a Cuboid implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class CustomBounds:
-	def __init__(self,**kwds):
-		"""
-Custom Bounds for custom implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Cylinder:
-	def __init__(self,**kwds):
-		"""
-Create a Cylindrical implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
 
 class Deprecated:
 	def __init__(self,alias=None, cast=None, default=None):
@@ -8544,6 +8725,16 @@ Mark the existence of old/deprecated attributes.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -8750,6 +8941,16 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def inbrowser(self):
 		pass
@@ -8845,11 +9046,29 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -8870,23 +9089,6 @@ Base class for GeneralObjects that don't exist anymore
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Difference:
-	def __init__(self,**kwds):
-		"""
-The Difference tool is used to cut 'tool' implicit bodies from 'target'
-  implicit bodies. This tool creates a new implicit body that envelopes any
-  volume that falls within any target but NOT within any tools. It is
-  equivalent to a logical NOT / negation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Direction:
@@ -9030,6 +9232,16 @@ Specify a direction relative to another entity.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -9299,6 +9511,16 @@ Displacement constraints can be applied to a model to limit deflections in
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def hasLowerBound(self):
 		pass
@@ -9466,6 +9688,17 @@ Displacement constraints can be applied to a model to limit deflections in
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Update the position by multiplying input M44 matrix.
@@ -9477,6 +9710,13 @@ Displacement constraints can be applied to a model to limit deflections in
 		pass
 	@upperBound.setter
 	def upperBound(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -9497,48 +9737,6 @@ Displacement constraints can be applied to a model to limit deflections in
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Distance:
-	def __init__(self,**kwds):
-		"""
-Implicit Distance Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Divide:
-	def __init__(self,**kwds):
-		"""
-Implicit Divide operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Dot:
-	def __init__(self,**kwds):
-		"""
-Implicit Dot Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Double:
@@ -9663,6 +9861,16 @@ Store float value with units.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -9938,6 +10146,16 @@ Draw Directions Shape Control.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -10126,6 +10344,17 @@ Draw Directions Shape Control.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -10139,6 +10368,13 @@ Draw Directions Shape Control.
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -10164,7 +10400,7 @@ Draw Directions Shape Control.
 class DummyInit:
 	def __init__(self):
 		"""
-<property object at 0x0000020F55E19D10>
+<property object at 0x00000176027893B0>
 """
 		pass
 
@@ -10176,20 +10412,6 @@ def DumpDebugInfoByObjs(namedEnts, debugType, fileNameWithPath, recursive=False)
 
 def DumpModelFEQAInfo(model, criteriaType, fileNameWithPath, feQAInfo):
 	pass
-
-class E:
-	def __init__(self,**kwds):
-		"""
-Implicit Euler's number.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
 
 class EnforcedDisplacement:
 	def __init__(self,features, location=None, direction=None, magnitude=0.001,name: str="", isRemote=False, **kwds):
@@ -10427,6 +10649,16 @@ class EnforcedDisplacement:
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -10573,10 +10805,28 @@ class EnforcedDisplacement:
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Update the position by multiplying input M44 matrix.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -10722,6 +10972,16 @@ Store a string with a predefined list of allowed values and labels
 	def raiseValueError(self,values, value):
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -10741,13 +11001,6 @@ Store a string with a predefined list of allowed values and labels
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class EnumImplicit:
-	def __init__(self,enum, *args, **kwds):
-		"""
-Enum
-"""
 		pass
 
 class EnumUnion:
@@ -10913,6 +11166,9 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -10934,20 +11190,6 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
-class EqualTo:
-	def __init__(self,**kwds):
-		"""
-Implicit equal to operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
 class Extrude:
 	"""
 
@@ -10963,7 +11205,7 @@ class FEAnalysisResults:
 	pass
 
 class Fastener:
-	def __init__(self,connection=None, direction=(0, 0, 1),name: str="", **kwds):
+	def __init__(self,connection=None, direction=(0, 0, 1),name: str="", loadCase=None, **kwds):
 		"""
 Fasten two or more parts together.
 
@@ -11245,6 +11487,16 @@ Fasten two or more parts together.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def grounded(self):
 		pass
@@ -11368,6 +11620,17 @@ Fasten two or more parts together.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def shearForce(self):
 		pass
@@ -11387,6 +11650,13 @@ Fasten two or more parts together.
 		pass
 	@type.setter
 	def type(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -11433,7 +11703,7 @@ Features are what gives shape to a Part.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -11441,11 +11711,15 @@ Features are what gives shape to a Part.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -11453,6 +11727,10 @@ Features are what gives shape to a Part.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -11513,15 +11791,27 @@ Features are what gives shape to a Part.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -11784,7 +12074,7 @@ Features are what gives shape to a Part.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -11808,6 +12098,15 @@ Features are what gives shape to a Part.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -12026,7 +12325,7 @@ Represents the surface or area of a part.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -12034,11 +12333,15 @@ Represents the surface or area of a part.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -12046,6 +12349,10 @@ Represents the surface or area of a part.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -12106,9 +12413,34 @@ Represents the surface or area of a part.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -12122,9 +12454,9 @@ Represents the surface or area of a part.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -12134,14 +12466,14 @@ Represents the surface or area of a part.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -12149,6 +12481,12 @@ Represents the surface or area of a part.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -12458,7 +12796,7 @@ Represents the surface or area of a part.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -12482,6 +12820,15 @@ Represents the surface or area of a part.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -12774,7 +13121,7 @@ Feature that is a flat face that can not be simply characterized.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -12782,11 +13129,15 @@ Feature that is a flat face that can not be simply characterized.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -12794,6 +13145,10 @@ Feature that is a flat face that can not be simply characterized.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -12854,9 +13209,34 @@ Feature that is a flat face that can not be simply characterized.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -12870,9 +13250,9 @@ Feature that is a flat face that can not be simply characterized.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -12882,14 +13262,14 @@ Feature that is a flat face that can not be simply characterized.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -12897,6 +13277,12 @@ Feature that is a flat face that can not be simply characterized.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -13206,7 +13592,7 @@ Feature that is a flat face that can not be simply characterized.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -13230,6 +13616,15 @@ Feature that is a flat face that can not be simply characterized.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -13522,7 +13917,7 @@ Represents the circumferences of a part.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -13530,11 +13925,15 @@ Represents the circumferences of a part.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -13542,6 +13941,10 @@ Represents the circumferences of a part.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -13628,15 +14031,27 @@ Represents the circumferences of a part.
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -13963,7 +14378,7 @@ Represents the circumferences of a part.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -13987,6 +14402,15 @@ Represents the circumferences of a part.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -14024,7 +14448,7 @@ Represents the circumferences of a part.
 		"""
 		pass
 
-	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0"):
+	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0", customElevationType="FREE", entityReferenceDirection=None, entityReferenceAxis=None, freeDirection=None):
 		"""
 		Create a copy of one or more curves at a specifies distance from the source
   curves This tool can be used on both 2D and 3D curves.
@@ -14046,6 +14470,13 @@ Represents the circumferences of a part.
       - NORMAL
       - CUSTOM
     elevationDistance (float): Elevation distance for the offset curve.
+    customElevationType (str): Custom Elevation Type.
+      - ENTITY_REFERENCE
+      - FREE
+    entityReferenceDirection (FeatureLinear): Entity reference direction for
+      offset curve.
+    entityReferenceAxis (Axis): Entity reference Axis for offset curve.
+    freeDirection (math.Vector) : User defined direction for offset curve.
 
   Returns:
     Part: New part created.
@@ -14064,8 +14495,30 @@ Represents the circumferences of a part.
 		"""
 		Creates patches to fill in specified missing surfaces.
 
+Args:
+  features (list[Feature]): Features to be patched.
+
+Returns:
+  list[Part]: New parts created.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the patch2 function instead
+		"""
+		pass
+
+	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
+		"""
+		New Patch tool - Creates patches to fill in specified missing surfaces.
+
   Args:
     features (list[Feature]): Features to be patched.
+    internalCurves (list[Feature]): Internal curves for patch.
+    globalContinuity (str): Global continuity for patch.
+      - POSITION
+      - TANGENT
+      - CURVATURE
+    mergeResult (bool): If True, merge the results otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -14182,6 +14635,30 @@ Represents the circumferences of a part.
 		"""
 		pass
 
+	def simplifyCurves(self,curves, method="FIT_BY_TOLERANCE", tolerance=1e-05, numberOfPoints=10, degree=3, joinCurves=True):
+		"""
+		Simplify one or more curves by changing the number of control points and
+  inverting their sequence, joining multiple curves, or by applying an arc
+  length parametrization.
+
+  Args:
+    curves (list[Part]): Curves used in simplify curves operation.
+    method (str): Simplify Curves method.
+      - FIT_BY_TOLERANCE
+      - FIT_BY_NUMBER_OF_POINTS
+      - REDUCE_POINTS
+      - ARC_LENGTH_PARAMETERIZATION
+    tolerance (float | str): Tolerance factor for simplify curves.
+    numberOfPoints (float | str): Number of points to simplify curves.
+    degree (int | str): Degree to simplify curves. Value from 1 to 5 is valid.
+    joinCurves (bool): If True, join curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
+		pass
+
 	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
@@ -14276,7 +14753,7 @@ Cone shaped feature.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -14284,11 +14761,15 @@ Cone shaped feature.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -14296,6 +14777,10 @@ Cone shaped feature.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -14356,9 +14841,34 @@ Cone shaped feature.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -14372,9 +14882,9 @@ Cone shaped feature.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -14384,14 +14894,14 @@ Cone shaped feature.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -14399,6 +14909,12 @@ Cone shaped feature.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -14708,7 +15224,7 @@ Cone shaped feature.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -14732,6 +15248,15 @@ Cone shaped feature.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -15017,7 +15542,7 @@ Features that are curves.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -15025,11 +15550,15 @@ Features that are curves.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -15037,6 +15566,10 @@ Features that are curves.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -15123,15 +15656,27 @@ Features that are curves.
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -15458,7 +16003,7 @@ Features that are curves.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -15482,6 +16027,15 @@ Features that are curves.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -15512,7 +16066,7 @@ Features that are curves.
 		"""
 		pass
 
-	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0"):
+	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0", customElevationType="FREE", entityReferenceDirection=None, entityReferenceAxis=None, freeDirection=None):
 		"""
 		Create a copy of one or more curves at a specifies distance from the source
   curves This tool can be used on both 2D and 3D curves.
@@ -15534,6 +16088,13 @@ Features that are curves.
       - NORMAL
       - CUSTOM
     elevationDistance (float): Elevation distance for the offset curve.
+    customElevationType (str): Custom Elevation Type.
+      - ENTITY_REFERENCE
+      - FREE
+    entityReferenceDirection (FeatureLinear): Entity reference direction for
+      offset curve.
+    entityReferenceAxis (Axis): Entity reference Axis for offset curve.
+    freeDirection (math.Vector) : User defined direction for offset curve.
 
   Returns:
     Part: New part created.
@@ -15552,8 +16113,30 @@ Features that are curves.
 		"""
 		Creates patches to fill in specified missing surfaces.
 
+Args:
+  features (list[Feature]): Features to be patched.
+
+Returns:
+  list[Part]: New parts created.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the patch2 function instead
+		"""
+		pass
+
+	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
+		"""
+		New Patch tool - Creates patches to fill in specified missing surfaces.
+
   Args:
     features (list[Feature]): Features to be patched.
+    internalCurves (list[Feature]): Internal curves for patch.
+    globalContinuity (str): Global continuity for patch.
+      - POSITION
+      - TANGENT
+      - CURVATURE
+    mergeResult (bool): If True, merge the results otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -15659,6 +16242,30 @@ Features that are curves.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
+  
+		"""
+		pass
+
+	def simplifyCurves(self,curves, method="FIT_BY_TOLERANCE", tolerance=1e-05, numberOfPoints=10, degree=3, joinCurves=True):
+		"""
+		Simplify one or more curves by changing the number of control points and
+  inverting their sequence, joining multiple curves, or by applying an arc
+  length parametrization.
+
+  Args:
+    curves (list[Part]): Curves used in simplify curves operation.
+    method (str): Simplify Curves method.
+      - FIT_BY_TOLERANCE
+      - FIT_BY_NUMBER_OF_POINTS
+      - REDUCE_POINTS
+      - ARC_LENGTH_PARAMETERIZATION
+    tolerance (float | str): Tolerance factor for simplify curves.
+    numberOfPoints (float | str): Number of points to simplify curves.
+    degree (int | str): Degree to simplify curves. Value from 1 to 5 is valid.
+    joinCurves (bool): If True, join curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
   
 		"""
 		pass
@@ -15743,7 +16350,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -15751,11 +16358,15 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -15763,6 +16374,10 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -15849,15 +16464,27 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -16184,7 +16811,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -16208,6 +16835,15 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -16238,7 +16874,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		pass
 
-	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0"):
+	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0", customElevationType="FREE", entityReferenceDirection=None, entityReferenceAxis=None, freeDirection=None):
 		"""
 		Create a copy of one or more curves at a specifies distance from the source
   curves This tool can be used on both 2D and 3D curves.
@@ -16260,6 +16896,13 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
       - NORMAL
       - CUSTOM
     elevationDistance (float): Elevation distance for the offset curve.
+    customElevationType (str): Custom Elevation Type.
+      - ENTITY_REFERENCE
+      - FREE
+    entityReferenceDirection (FeatureLinear): Entity reference direction for
+      offset curve.
+    entityReferenceAxis (Axis): Entity reference Axis for offset curve.
+    freeDirection (math.Vector) : User defined direction for offset curve.
 
   Returns:
     Part: New part created.
@@ -16278,8 +16921,30 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		Creates patches to fill in specified missing surfaces.
 
+Args:
+  features (list[Feature]): Features to be patched.
+
+Returns:
+  list[Part]: New parts created.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the patch2 function instead
+		"""
+		pass
+
+	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
+		"""
+		New Patch tool - Creates patches to fill in specified missing surfaces.
+
   Args:
     features (list[Feature]): Features to be patched.
+    internalCurves (list[Feature]): Internal curves for patch.
+    globalContinuity (str): Global continuity for patch.
+      - POSITION
+      - TANGENT
+      - CURVATURE
+    mergeResult (bool): If True, merge the results otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -16385,6 +17050,30 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
+  
+		"""
+		pass
+
+	def simplifyCurves(self,curves, method="FIT_BY_TOLERANCE", tolerance=1e-05, numberOfPoints=10, degree=3, joinCurves=True):
+		"""
+		Simplify one or more curves by changing the number of control points and
+  inverting their sequence, joining multiple curves, or by applying an arc
+  length parametrization.
+
+  Args:
+    curves (list[Part]): Curves used in simplify curves operation.
+    method (str): Simplify Curves method.
+      - FIT_BY_TOLERANCE
+      - FIT_BY_NUMBER_OF_POINTS
+      - REDUCE_POINTS
+      - ARC_LENGTH_PARAMETERIZATION
+    tolerance (float | str): Tolerance factor for simplify curves.
+    numberOfPoints (float | str): Number of points to simplify curves.
+    degree (int | str): Degree to simplify curves. Value from 1 to 5 is valid.
+    joinCurves (bool): If True, join curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
   
 		"""
 		pass
@@ -16485,7 +17174,7 @@ Feature that is a cylindrical face.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -16493,11 +17182,15 @@ Feature that is a cylindrical face.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -16505,6 +17198,10 @@ Feature that is a cylindrical face.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -16565,9 +17262,34 @@ Feature that is a cylindrical face.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -16581,9 +17303,9 @@ Feature that is a cylindrical face.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -16593,14 +17315,14 @@ Feature that is a cylindrical face.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -16608,6 +17330,12 @@ Feature that is a cylindrical face.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -16924,7 +17652,7 @@ Feature that is a cylindrical face.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -16948,6 +17676,15 @@ Feature that is a cylindrical face.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17240,7 +17977,7 @@ Line features like a polygon edges.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -17248,11 +17985,15 @@ Line features like a polygon edges.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -17260,6 +18001,10 @@ Line features like a polygon edges.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -17346,15 +18091,27 @@ Line features like a polygon edges.
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -17681,7 +18438,7 @@ Line features like a polygon edges.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -17705,6 +18462,15 @@ Line features like a polygon edges.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17735,7 +18501,7 @@ Line features like a polygon edges.
 		"""
 		pass
 
-	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0"):
+	def offsetCurves(self,curve, offsetDistance=0.01, extensionType="NATURAL", symmetry=False, endOptions="OPEN", elevationType="NONE", elevationDistance="0.0", customElevationType="FREE", entityReferenceDirection=None, entityReferenceAxis=None, freeDirection=None):
 		"""
 		Create a copy of one or more curves at a specifies distance from the source
   curves This tool can be used on both 2D and 3D curves.
@@ -17757,6 +18523,13 @@ Line features like a polygon edges.
       - NORMAL
       - CUSTOM
     elevationDistance (float): Elevation distance for the offset curve.
+    customElevationType (str): Custom Elevation Type.
+      - ENTITY_REFERENCE
+      - FREE
+    entityReferenceDirection (FeatureLinear): Entity reference direction for
+      offset curve.
+    entityReferenceAxis (Axis): Entity reference Axis for offset curve.
+    freeDirection (math.Vector) : User defined direction for offset curve.
 
   Returns:
     Part: New part created.
@@ -17775,8 +18548,30 @@ Line features like a polygon edges.
 		"""
 		Creates patches to fill in specified missing surfaces.
 
+Args:
+  features (list[Feature]): Features to be patched.
+
+Returns:
+  list[Part]: New parts created.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the patch2 function instead
+		"""
+		pass
+
+	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
+		"""
+		New Patch tool - Creates patches to fill in specified missing surfaces.
+
   Args:
     features (list[Feature]): Features to be patched.
+    internalCurves (list[Feature]): Internal curves for patch.
+    globalContinuity (str): Global continuity for patch.
+      - POSITION
+      - TANGENT
+      - CURVATURE
+    mergeResult (bool): If True, merge the results otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -17886,6 +18681,30 @@ Line features like a polygon edges.
 		"""
 		pass
 
+	def simplifyCurves(self,curves, method="FIT_BY_TOLERANCE", tolerance=1e-05, numberOfPoints=10, degree=3, joinCurves=True):
+		"""
+		Simplify one or more curves by changing the number of control points and
+  inverting their sequence, joining multiple curves, or by applying an arc
+  length parametrization.
+
+  Args:
+    curves (list[Part]): Curves used in simplify curves operation.
+    method (str): Simplify Curves method.
+      - FIT_BY_TOLERANCE
+      - FIT_BY_NUMBER_OF_POINTS
+      - REDUCE_POINTS
+      - ARC_LENGTH_PARAMETERIZATION
+    tolerance (float | str): Tolerance factor for simplify curves.
+    numberOfPoints (float | str): Number of points to simplify curves.
+    degree (int | str): Degree to simplify curves. Value from 1 to 5 is valid.
+    joinCurves (bool): If True, join curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
+		pass
+
 	def simplifyImprints(self,entity):
 		"""
 		Finds and removes imprints from a part.
@@ -17901,7 +18720,7 @@ Line features like a polygon edges.
 		"""
 		pass
 
-	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True):
+	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True, cuttingSheetPart=None):
 		"""
 		Slices a set of solid objects with a cutting plane or cutting surface.
 
@@ -17913,6 +18732,7 @@ Line features like a polygon edges.
     cutNormal (math.Vector): The normal of the cutting plane.
     surfaceFeature (FeatureArea): The surface to slice the enity accross.
     extendSurface (bool): Set Automatic extension On/Off for tool Surface.
+    cuttingSheetPart (Part): The cuting sheet part to slice the enity accross.
 
   Returns:
     Part: The new sliced part created.
@@ -18173,6 +18993,16 @@ Measures the length of a feature.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -18268,6 +19098,17 @@ Measures the length of a feature.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -18280,6 +19121,13 @@ Measures the length of a feature.
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -18332,7 +19180,7 @@ Features that are flat face.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -18340,11 +19188,15 @@ Features that are flat face.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -18352,6 +19204,10 @@ Features that are flat face.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -18412,9 +19268,34 @@ Features that are flat face.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -18428,9 +19309,9 @@ Features that are flat face.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -18440,14 +19321,14 @@ Features that are flat face.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -18455,6 +19336,12 @@ Features that are flat face.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -18782,7 +19669,7 @@ Features that are flat face.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -18806,6 +19693,15 @@ Features that are flat face.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19098,7 +19994,7 @@ Features that are points.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -19106,11 +20002,15 @@ Features that are points.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -19118,6 +20018,10 @@ Features that are points.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -19178,15 +20082,27 @@ Features that are points.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -19475,7 +20391,7 @@ Features that are points.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -19499,6 +20415,15 @@ Features that are points.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19717,7 +20642,7 @@ Feature that is a Spherical face.
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -19725,11 +20650,15 @@ Feature that is a Spherical face.
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -19737,6 +20666,10 @@ Feature that is a Spherical face.
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -19797,9 +20730,34 @@ Feature that is a Spherical face.
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def deleteFaces(self,features):
 		"""
 		Deletes the specified faces from the part.
+
+Args:
+  features (list[Feature]): Features to be removed.
+
+
+.. deprecated:: 2024
+   This will be removed in 2024.2. Use the deleteFaces2 function instead
+		"""
+		pass
+
+	def deleteFaces2(self,features):
+		"""
+		New delete faces which deletes the specified faces from the part.
 
   Args:
     features (list[Feature]): Features to be removed.
@@ -19813,9 +20771,9 @@ Feature that is a Spherical face.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -19825,14 +20783,14 @@ Feature that is a Spherical face.
 		"""
 		pass
 
-	def draft(self,features, direction, neutralPlane, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False):
+	def draft(self,features=None, direction="SINGLE", neutralPlane=None, angle1=3.0, angle2=3.0, flipDrawDirection1=False, flipDrawDirection2=False, draftType="NEUTRAL_PLANE", pullDirection=None, partingLines=None, otherFace=False):
 		"""
 		Add draft to one or more faces of a part when designing a product that is
      manufactured using injection molding.
 
   Args:
     features (list[FeatureArea]): Faces to Draft.
-    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRY.
+    direction (str): The Draft direction. Valid values are: SINGLE, BOTH and SYMMETRIC.
     neutralPlane (FeaturePlanar, Plane): A reference plane or an existing face
      in the model. neutralPlane can not be same as draft feature.
     angle1 (float): The angle1 of draft.
@@ -19840,6 +20798,12 @@ Feature that is a Spherical face.
     flipDrawDirection1 (bool): If True, flips the draw direction of draft in single direction.
     flipDrawDirection2 (bool): If True, flips the draw direction of draft.
       Applicable for BOTH direction.
+    draftType (str): The Draft type. Valid values are: NEUTRAL_PLANE, PARTING_LINE.
+    pullDirection (FeatureLinear | FeaturePlanar): The draft will occur in this
+      direction.
+    partingLines (FeatureLinear): Lines where the draft would start.
+    otherFace (bool): If True, draft the other face along the parting line
+      otherwise not.
   
 		"""
 		pass
@@ -20149,7 +21113,7 @@ Feature that is a Spherical face.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -20173,6 +21137,15 @@ Feature that is a Spherical face.
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -20459,7 +21432,7 @@ class FeatureVolume:
 	def cg(self):
 		pass
 
-	def chamferByAngle(self,feature, angle=45, dist=0.003):
+	def chamferByAngle(self,feature, angle=45, dist=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a Linear/Planar feature.
 
@@ -20467,11 +21440,15 @@ class FeatureVolume:
     feature (Feature): Feature that needs to be chamfer.
     angle (float): Chamfer angle from the edge.
     dist (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
 
-	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003):
+	def chamferByDistance(self,feature, dist1=0.003, dist2=0.003, swapChamferSides=False, tangentPropagation=False):
 		"""
 		Creates chamfer on a linear or planar feature.
 
@@ -20479,6 +21456,10 @@ class FeatureVolume:
     feature (Feature): Feature that needs to be chamfer.
     dist1 (float): Chamfer distance from the edge.
     dist2 (float): Chamfer distance from the edge.
+    swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
+      not.
+    tangentPropagation (bool): If True, Clicking an edge will also select all
+      its tangent edges otherwise not.
   
 		"""
 		pass
@@ -20539,15 +21520,27 @@ class FeatureVolume:
 	def connectedPoints(self):
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def divideCurve(self,curve, divisionPoints, uniformDivision=False):
 		"""
 		Divide a curve by inserting points along the curve.
 
     Args:
       curve (FeatureCurve): Curve to divide.
-      divisionPoints((listlist[float], bool)): List of divisionPoints (length
-        ratio or length along the curve) and the bool value depicts position
-        ratio. If True, Divide the curve on length ratio otherwise
+      divisionPoints((listlist[float | str], bool)): List of divisionPoints
+        (length ratio or length along the curve) and the bool value depicts
+        position ratio. If True, Divide the curve on length ratio otherwise
         division occurs at length along the curve.
       uniformDivision (bool): If True, Curve is uniformly divided.
 
@@ -20810,7 +21803,7 @@ class FeatureVolume:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -20834,6 +21827,15 @@ class FeatureVolume:
     mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
       parts supplied in mergeTargets.
     mergeParts (Part): Parts to be merged with sweep operation.
+    profileContinuity ((tupleFeature, str)): Tuple of 2 values. First value
+      will be the feature on which continuity will be applied and the second
+      value is continuity type mentioned below.
+        - NONE
+        - SURFACE
+        - MAGNITUDE
+    profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
+      value will be the feature on which continuity will be applied and the
+      second value is magnitude.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21224,6 +22226,16 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -21305,6 +22317,24 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -21323,75 +22353,6 @@ FeaturesConnector are generally used to connect two or more features together.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Field:
-	def __init__(self,**kwds):
-		"""
-The Field tool is used to construct a field from a source that is not yet
-  described in a field format and/or remap field values to different ranges. A
-  field is a 3D grid, and each grid point contains a signed scalar value.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class FieldImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-Field (Returns Field Reference)
-"""
-		pass
-
-class Fillet:
-	def __init__(self,**kwds):
-		"""
-The Fillet tool applies a circular fillet of defined radius to sharp
-  edges in an implicit body. It can be separately applied to convex and
-  concave edges. Unlike traditional CAD, the fillet effect will be applied to
-  any qualifying edges in the model rather than those that are manually
-  selected by a user.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class FloatDataImplicit:
-	def __init__(self,cppName,units: str="length",doc: str=""):
-		"""
-float
-"""
-		pass
-
-class FloatImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-float
-"""
-		pass
-
-class FloorDivision:
-	def __init__(self,**kwds):
-		"""
-Implicit Floor Division operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Force:
@@ -21636,6 +22597,16 @@ A force is a push or a pull in a particular direction on a part, and is a
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -21782,10 +22753,28 @@ A force is a push or a pull in a particular direction on a part, and is a
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Update the position by multiplying input M44 matrix.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -21806,20 +22795,6 @@ A force is a push or a pull in a particular direction on a part, and is a
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Fraction:
-	def __init__(self,**kwds):
-		"""
-Implicit fraction operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class GLoad:
@@ -22062,6 +23037,16 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -22208,12 +23193,30 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Sets the design space positions of all the inspire parts to their 
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -22437,6 +23440,16 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Shape Explorer.
@@ -22545,6 +23558,17 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -22563,6 +23587,13 @@ Optimize the thickness of a design space.
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -22851,6 +23882,16 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def inbrowser(self):
 		pass
@@ -23003,11 +24044,29 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -23217,6 +24276,16 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def inbrowser(self):
 		pass
@@ -23312,11 +24381,29 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -23558,6 +24645,16 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -23625,6 +24722,24 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -23643,51 +24758,6 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class GeneralStrutLattice:
-	def __init__(self,**kwds):
-		"""
-Strut lattices are constructed from nodes and these nodes are connected
-  by beams. Typically, there is a base unit cell that is tiled/patterned in
-  one, two, or three dimensions to form the overall lattices structure. A
-  popular example is the Body Centred Cubic lattice.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class GreaterOrEqualTo:
-	def __init__(self,**kwds):
-		"""
-Implicit greater or equal to operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class GreaterThan:
-	def __init__(self,**kwds):
-		"""
-Implicit greater than operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Gui:
@@ -24414,20 +25484,6 @@ Holes found in the model. The items in the list are HoleData.
 		"""
 		pass
 
-class ImplIf:
-	def __init__(self,**kwds):
-		"""
-Implicit if operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
 class Implicit:
 	def __init__(self,assembly=None):
 		"""
@@ -24740,38 +25796,23 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def cg(self):
 		pass
 
-	def circularPattern(self,input, axis, angle=60, count=3, equalSpacing=False, instances=False, symmetry=False, axisReverse=False, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None):
+	def circularPattern(self,body, vector=None, equalSpacing=False, angle=60, count=2):
 		"""
-		Circular Pattern parts or faces around an axis.
+		The Circular Pattern operation takes a user-selected body and distributes
+    multiple identical instances according to circular patterning rules.
 
-  Args:
-    input (list[Part] | list[FeatureArea]): Parts or Features to create circular
-      pattern.
-    axis (math.Vector | FeatureCurve | Axis): Axis is a reference line, edge,
-      or axis to which the pattern will be parallel.
-    angle (float): Angle within which the copies are equally spaced.
-    count (int): Number of copies.
-    equalSpacing (bool): If True, equally space the copies within a specified
-      Angle.
-    instances (bool): If True, any changes to part or face will apply to all
-      instances.
-    symmetry (bool): Symmetry in Direction 1.
-    axisReverse (bool): Reverse the axis in Direction 1.
-    result (str): Result type of circular pattern.
-      - COMBINE
-      - SUBTRACT
-      - INTERSECT
-      - NEW_PART
-    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
-      parts supplied in mergeParts.
-    mergeParts (list[Part]): Parts to be merged with circular pattern.
-    copiesToSkip (dict{Part: list[indicesToSkip]}): Set copies to skip. It's
-      basically a dictionary which contains Part as a key and list of indices to
-      skip as values.
+    Args:
+      body (Body): Implicit body, use bodies property to get all
+        bodies from implicit part.
+      vector(FeatureRefAxis): Implicit FeatureRefAxis body, use bodies
+        property to get all bodies from implicit part.
+      equalSpacing (bool): If True, pattern are equally spaced otherwise not.
+      angle (float | str): Angle for circular pattern.
+      count(float | str): Number of copies.
 
-  Returns:
-  list[Part]: List of parts created.
-  
+    Returns:
+      CircularPattern: The newly created CircularPattern object.
+    
 		"""
 		pass
 
@@ -24838,6 +25879,46 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def concentratedMasses(self):
 		pass
 
+	def conform(self,conformType="SURFACE", uCurve=None, vCurve=None, wCurve=None, curveUInvert=False, curveVInvert=False, curveWInvert=False, surfaceType="SURFACE", surface=None, surfaceUVFlip=False, surfaceUInvert=False, surfaceVInvert=False, volumeType="SURFACECURVE", volumeSurface=None, volumeSurfaceUVFlip=False, volumeSurfaceUInvert=False, volumeSurfaceVInvert=False):
+		"""
+		Creates an Implicit conform body.
+
+    Args:
+      conformType (str): Conform Type for implicit.
+        - CURVE
+        - SURFACE
+        - VOLUME
+      uCurve (geometry.FeatureCurve): FeatureCurve for U curve in conform body.
+      vCurve (geometry.FeatureCurve): FeatureCurve for V curve in conform body.
+      wCurve (geometry.FeatureCurve): FeatureCurve for W curve in conform body.
+      curveUInvert (bool): If True invert the U curve, otherwise not.
+      curveVInvert (bool): If True invert the V curve, otherwise not.
+      curveWInvert (bool): If True invert the W curve, otherwise not.
+      surfaceType (str): Surface Type.
+        - SURFACE
+        - CURVES
+      surface (geometry.FeatureArea): FeatureArea for surface in conform body.
+      surfaceUVFlip (bool): If True invert the UV surface, otherwise not.
+      surfaceUInvert (bool): If True invert the U surface, otherwise not.
+      surfaceVInvert (bool): If True invert the V surface, otherwise not.
+       volumeType (str): Volume Type.
+        - SURFACECURVE
+        - CURVES
+      volumeSurface (geometry.FeatureArea): FeatureArea for  volume surface in
+        conform body.
+      volumeSurfaceUVFlip (bool): If True invert the UV  volume surface,
+        otherwise not.
+      volumeSurfaceUInvert (bool): If True invert the U volume surface,
+        otherwise not.
+      volumeSurfaceVInvert (bool): If True invert the V volume surface,
+        otherwise not.
+
+    Returns:
+      Conform: The newly created Conform object.
+    
+		"""
+		pass
+
 	def constant(self,value):
 		"""
 		Implicit constant.
@@ -24864,6 +25945,41 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
+	def convertGenericResult(self,part, run, loadCase, resultType, simidx="0"):
+		"""
+		The Convert tool accepts result part and converts into Altair's implicit
+    geometry format. The output is typically a Signed Distance Field (SDF) for
+    the converted geometry.
+
+    Args:
+      part (Part): Part to be converted in implicit object.
+      run (OptiStruct): Analysis/Optimization to convert the generic result.
+      loadCase (str): Load Case name to convert the generic result.
+      resultType (str): Result type name to convert the generic result.
+      simidx (int): This represents simulation step index. Inspire structure
+        analysis results and fluids the no of steps is 1 so the index will be 0.
+
+    Returns:
+      ConvertGenericResult: The newly created ConvertGenericResult object.
+    
+		"""
+		pass
+
+	def convertResultToDensity(self,part):
+		"""
+		The Convert tool accepts result part from OptiStruct and converts into
+    Altair's implicit geometry format. The output is typically a Signed Distance
+    Field (SDF) for the converted geometry.
+
+    Args:
+      part (Part): Part to be converted in implicit object.
+
+    Returns:
+      ConvertResultToDensity: The newly created ConvertResultToDensity object.
+    
+		"""
+		pass
+
 	def convertToImplicit(self,part):
 		"""
 		The Convert tool accepts geometry in BRep or surface mesh formats and
@@ -24875,6 +25991,37 @@ Implicit modelling represents geometry as a field and is highly efficient
 
     Returns:
       ConvertToImplicit: The newly created ConvertToImplicit object.
+    
+		"""
+		pass
+
+	def convertToImplicitEdges(self,edges):
+		"""
+		The Convert tool accepts geometry in edge or feature curve formats and
+    converts into Altair's implicit geometry format. The output is typically a
+    Signed Distance Field (SDF) for the converted geometry.
+
+    Args:
+      edges (list[FeatureCurve]): Edges to be converted in implicit object.
+
+    Returns:
+      ConvertToImplicitEdges: The newly created ConvertToImplicitEdges object.
+    
+		"""
+		pass
+
+	def convertToImplicitSurfaces(self,surfaces):
+		"""
+		The Convert tool accepts geometry in surface or feature area formats and
+    converts into Altair's implicit geometry format. The output is typically a
+    Signed Distance Field (SDF) for the converted geometry.
+
+    Args:
+      surfaces (list[FeatureArea]): Surfaces to be converted in implicit object.
+
+    Returns:
+      ConvertToImplicitSurfaces: The newly created ConvertToImplicitSurfaces
+        object.
     
 		"""
 		pass
@@ -25094,7 +26241,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def createField(self,drivingObject, inputRangeMin="0", inputRangeMax=1, clamp=False, unitType="Unitless", outputRangeMin="0", outputRangeMax=1):
+	def createField(self,drivingObject, inputRangeMin="0", inputRangeMax=1, clamp=False, unitType="Unitless", outputRangeMin="0", outputRangeMax=1, unsigned=False):
 		"""
 		The Field tool is used to construct a field from a source that is not yet
     described in a field format and/or remap field values to different ranges. A
@@ -25114,6 +26261,9 @@ Implicit modelling represents geometry as a field and is highly efficient
         - Percent
       outputRangeMin (float | str): Minimum output range.
       outputRangeMax (float | str): Maximum output range.
+      unsigned (bool): If true, it allows positive field values from the driving
+        object, otherwise the field from the driving function can have both
+        negative and positive values.
 
     Returns:
       Field: The newly created Field object.
@@ -25178,7 +26328,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def createPlane(self,positionX="0", positionY="0", positionZ="0", normalX="0", normalY="0", normalZ="0"):
+	def createPlane(self,positionX="0", positionY="0", positionZ="0", normalX="0", normalY="0", normalZ=1):
 		"""
 		Tool to create plane implicit body.
 
@@ -25233,6 +26383,18 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	def createTorus(self,innerRadius=0.02, outerRadius=0.05, originX="0", originY="0", originZ="0"):
 		"""
 		Tool to create torus implicit body.
@@ -25271,6 +26433,59 @@ Implicit modelling represents geometry as a field and is highly efficient
 		pass
 	@currentRepresentation.setter
 	def currentRepresentation(self):
+		pass
+
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+		"""
+		Deform parts within a specified region.
+
+  Args:
+    parts (list[Part]): Parts to be deformed.
+    deformType (str): Deform Type.
+      - TWIST
+      - BEND
+      - TAPER
+      - SHEAR
+      - STRETCH
+    deformAxis (str): Deform Axis.
+      - X
+      - Y
+      - Z
+    twistType (str): Twist Type.
+      - ANGLE
+      - TURNS
+    twistAngle (float | str): Twist angle to deform parts.
+    twistTurns (float | str): Number of Twist turns to deform parts.
+    twistSmoothing (float): Twist smoothing factor. Value from 0 to 1 is valid.
+    bendType (str): Blend Type.
+      - RADIUS
+      - ANGLE
+    bendRadius (float | str): Blend radius to deform parts.
+    bendAngle (float | str): Blend angle to deform parts.
+    taperFactor (float | str): Taper factor to deform parts.
+    shearAngle (float | str): Shear angle to deform parts.
+    stretchCurve (Part): Stretch curve to deform parts.
+    stretchAngle (float): Stretch angle to deform parts.
+    stretchCurveOffset (float | str): Stretch curve offset to deform parts.
+    stretchAlongCurve (bool): If True, Stretch along curve to deform parts
+      otherwise not.
+    stretchMoveToCurve (bool): If True, Stretch move to curve to deform parts
+      otherwise not.
+    stretchReverseCurve (bool): If True, Stretch reverse the curve to deform
+      parts otherwise not.
+    reapplyFillets (bool): If True, Reapply fillets to deform parts.
+    accuracy (float | str): Accuracy factor to deform parts. Value from 0 to 1
+      is valid.
+    eulerAngles (list[roll, pitch, yaw]): Euler angles in x,y,z direction to
+      deform parts.
+    origin (mat.Points): Origin values in x,y,z direction to deform parts.
+    trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
+    trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -25399,6 +26614,218 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
+	def edgeSetAngleFilter(self,body, filterName="Filter", retain=False, angleReference=None, angleValue="LESS_THAN", lowerAngle=45, lowerAngleField=None, upperAngle=60, upperAngleField=None):
+		"""
+		Filter edges from the Point-Edge set by checking their angle relative to
+    a reference feature against an (in)equality or range constraint.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the edge set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      angleReference (Axis | Line | Plane): Implicit body, use bodies property
+        to get all bodies from implicit part.
+      angleValue (str): Angle value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerAngle (float | str): Lower angle for edge set.
+      lowerAngleField (Field): Lower angle field input, if lowerAngle is not
+        provided.
+      upperAngle (float | str): Upper angle for edge set.
+      upperAngleField (Field): Upper angle field input, if upperAngle is not
+        provided.
+
+    Returns:
+      EdgeSetAngleFilter: The newly created EdgeSetAngleFilter
+        object.
+    
+		"""
+		pass
+
+	def edgeSetBoundingBodyFilter(self,body, filterName="Filter", retain=False, boundingBody=None, nodeCheck="ALL", midpointCheck=True):
+		"""
+		Filter edges from the Point-Edge set by checking if either end or an
+    optional mid-point along the edge fall outside a bounding body.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the edge set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      boundingBody (Body): Implicit body, use bodies property to get all bodies
+        from implicit part.
+      nodeCheck (str): Nodecheck values.
+        - ALL
+        - ANY
+      midpointCheck (bool): If True, its on otherwise off.
+
+    Returns:
+      EdgeSetBoundingBodyFilter: The newly created EdgeSetBoundingBodyFilter
+        object.
+    
+		"""
+		pass
+
+	def edgeSetFieldValueFilter(self,body, filterName="Filter", retain=False, referenceValue="0", referenceField=None, fieldValue="LESS_THAN", nodeCheck="ALL", midpointCheck=True, lowerValue=0.05, lowerValueField=None, upperValue=0.1, upperValueField=None):
+		"""
+		Filter edges from the Point-Edge set by interrogating the field value at
+    either end or an optional mid-point along the edge against a user-specified
+    field, and applying (in)equality or range constraints to determine whether
+    to keep/remove points.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the edge set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      referenceValue (float | str): Implicit reference value for point edge set
+        filter.
+      referenceField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      fieldValue (str): Field value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      nodeCheck (str): Nodecheck values.
+        - ALL
+        - ANY
+      midpointCheck (bool): If True, its on otherwise off.
+      lowerValue (float | str): Lower value for edge set.
+      lowerValueField (Field): Lower value field input, if lowerValue is not
+        provided.
+      upperValue (float | str): Upper value for edge set.
+      upperValueField (Field): Upper value field input, if upperValue is not
+        provided.
+
+    Returns:
+      EdgeSetFieldValueFilter: The newly created EdgeSetFieldValueFilter
+        object.
+    
+		"""
+		pass
+
+	def edgeSetLengthFilter(self,body, filterName="Filter", retain=False, lengthValue="LESS_THAN", lowerLength=0.01, lowerLengthField=None, upperLength=0.02, upperLengthField=None):
+		"""
+		Filter edges from the Point-Edge set by checking their length against an
+    (in)equality or range constraint.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the edge set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      lengthValue (str): Length value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerLength (float | str): Lower length for edge set.
+      lowerLengthField (Field): Lower length field input, if lowerLength is not
+        provided.
+      upperLength (float | str): Upper length for edge set.
+      upperLengthField (Field): Upper length field input, if upperLength is not
+        provided.
+
+    Returns:
+      EdgeSetLengthFilter: The newly created EdgeSetLengthFilter
+        object.
+    
+		"""
+		pass
+
+	def edgeSetManufacturabilityFilter(self,body, filterName="Filter", retain=False, angleReference=None, angleValue="LESS_THAN", lengthValue="LESS_THAN", lowerLength=0.01, lowerLengthField=None, upperLength=0.02, upperLengthField=None, lowerAngle=45, lowerAngleField=None, upperAngle=60, upperAngleField=None):
+		"""
+		Filter edges from the Point-Edge set using a combined length and angle
+    filter that considers maximum self-supporting edge length at a given angle
+    of overhang with respect to a reference feature.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the edge set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      angleReference (Axis | Line | Plane): Implicit body, use bodies property
+        to get all bodies from implicit part.
+      angleValue (str): Angle value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lengthValue (str): Length value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerLength (float | str): Lower length for edge set.
+      lowerLengthField (Field): Lower length field input, if lowerLength is not
+        provided.
+      upperLength (float | str): Upper length for edge set.
+      upperLengthField (Field): Upper length field input, if upperLength is not
+        provided.
+      lowerAngle (float | str): Lower angle for edge set.
+      lowerAngleField (Field): Lower angle field input, if lowerAngle is not
+        provided.
+      upperAngle (float | str): Upper angle for edge set.
+      upperAngleField (Field): Upper angle field input, if upperAngle is not
+        provided.
+
+    Returns:
+      EdgeSetManufacturabilityFilter: The newly created
+        EdgeSetManufacturabilityFilter object.
+    
+		"""
+		pass
+
+	def edgeSetTrimmingEdgeFilter(self,body, filterName="Filter", retain=False, boundingBody=None):
+		"""
+		Filter edges from the Point-Edge set by trimming if they fall outside a
+    bounding body.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      boundingBody (Body): Implicit body, use bodies property to get all bodies
+        from implicit part.
+
+    Returns:
+      EdgeSetTrimmingEdgeFilter: The newly created EdgeSetTrimmingEdgeFilter
+        object.
+    
+		"""
+		pass
+
 	def edit(self):
 		"""
 		Contextmanager to group multiple updates for performance.
@@ -25424,6 +26851,91 @@ Implicit modelling represents geometry as a field and is highly efficient
 
     Returns:
       EqualTo: The newly created EqualTo object.
+    
+		"""
+		pass
+
+	def featureRefAxis(self,feature):
+		"""
+		Takes a ParaSolid/BRep axis and creates a reference for this to be
+    used inside Implicit Modeling. This reference is used during the
+    construction of a UVW coordinate space that is later used in the creation of
+    a Conformal Lattice. The axis will provide the U, V or W component of this
+    conformal coordinate system.
+
+    Args:
+      feature (FeatureLinear): FeatureLinear to be used in implicit object.
+
+    Returns:
+      FeatureRefAxis: The newly created FeatureRefAxis object.
+    
+		"""
+		pass
+
+	def featureRefCurve(self,feature):
+		"""
+		Takes a ParaSolid/BRep curve and creates a reference for this to be used
+    inside Implicit Modeling. This reference is used during the construction of
+    a UVW coordinate space that is later used in the creation of a Conformal
+    Lattice. The curve will provide the U, V or W component of this conformal
+    coordinate system.
+
+    Args:
+      feature (FeatureCurve): FeatureCurve to be used in implicit object.
+
+    Returns:
+      FeatureRefCurve: The newly created FeatureRefCurve object.
+    
+		"""
+		pass
+
+	def featureRefPlane(self,feature):
+		"""
+		Takes a ParaSolid/BRep plane and creates a reference for this to be
+    used inside Implicit Modeling. This reference is used during the
+    construction of a UVW coordinate space that is later used in the creation of
+    a Conformal Lattice. The plane will provide the U and V components of this
+    conformal coordinate system.
+
+    Args:
+      feature (FeaturePlanar): FeaturePlanar to be used in implicit object.
+
+    Returns:
+      FeatureRefPlane: The newly created FeatureRefPlane object.
+    
+		"""
+		pass
+
+	def featureRefPoint(self,feature):
+		"""
+		Takes a ParaSolid/BRep point and creates a reference for this to be
+    used inside Implicit Modeling. This reference is used during the
+    construction of a UVW coordinate space that is later used in the creation of
+    a Conformal Lattice. The point will provide the U and V components of this
+    conformal coordinate system.
+
+    Args:
+      feature (FeaturePoint): FeaturePoint to be used in implicit object.
+
+    Returns:
+      FeatureRefPoint: The newly created FeatureRefPoint object.
+    
+		"""
+		pass
+
+	def featureRefSurface(self,feature):
+		"""
+		Takes a ParaSolid/BRep surface and creates a reference for this to be
+    used inside Implicit Modeling. This reference is used during the
+    construction of a UVW coordinate space that is later used in the creation of
+    a Conformal Lattice. The surface will provide the U and V components of this
+    conformal coordinate system.
+
+    Args:
+      feature (FeatureArea): FeatureArea to be used in implicit object.
+
+    Returns:
+      FeatureRefSurface: The newly created FeatureRefSurface object.
     
 		"""
 		pass
@@ -25775,6 +27287,16 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def greaterOrEqualTo(self,bodyA, bodyB):
 		"""
 		Implicit greater or equal to operation.
@@ -25871,6 +27393,13 @@ Implicit modelling represents geometry as a field and is highly efficient
       ImplIf: The newly created ImplIf object.
     
 		"""
+		pass
+
+	@property
+	def instances(self):
+		pass
+	@instances.setter
+	def instances(self):
 		pass
 
 	def intersect(self,targets, tools, transition="SHARP", transitionValue=0.002, transitionField=None):
@@ -26010,45 +27539,37 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def linearPattern(self,input, direction1, direction2=(0, 0, 0), bothDirection=False, spacing1="0.0", count1=3, spacing2="0.0", count2=3, instances=False, symmetry1=False, symmetry2=False, reverseDir1=False, reverseDir2=False, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None, seedOnly=False):
+	def linearPattern(self,body, conform=None, direction="ONE", vector1=None, spacing1=0.1, count1=2, vector2=None, spacing2=0.1, count2=2, spacing3=0.1, count3=2):
 		"""
-		Linear Pattern parts or faces along a direction.
+		The Linear Pattern operation takes a user-selected body and distributes
+    multiple identical instances according to linear patterning rules.
 
-  Args:
-    input (list[Part] | list[FeatureArea]): Parts or Features to create linear
-      pattern.
-    direction1 (math.Vector | FeatureCurve | Axis): Direction can be a 
-      reference line, edge, or axis to which the pattern will be parallel.
-    direction2 (math.Vector | FeatureCurve | Axis): Direction can be a 
-      reference line, edge, or axis to which the pattern will be parallel.
-    bothDirection (bool): If True, sets in both direction otherwise single
-      direction.
-    spacing1 (float): Distance between two copies.
-    count1 (int): Number of copies.
-    spacing2 (float): Distance between two copies.
-    count2 (int): Number of copies.
-    instances (bool): If True, any changes to part or face will apply to all
-      instances.
-    symmetry1 (bool): Symmetry in Direction 1.
-    symmetry2 (bool): Symmetry in Direction 2.
-    reverseDir1 (bool): Reverse the pattern direction in Direction 1.
-    reverseDir2 (bool): Reverse the pattern direction in Direction 2.
-    result (str): Result type of linear pattern.
-      - COMBINE
-      - SUBTRACT
-      - INTERSECT
-      - NEW_PART
-    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
-      parts supplied in mergeParts.
-    mergeParts (list[Part]): Parts to be merged with linear pattern.
-    copiesToSkip ((dict{Part: list[tuplex,y)]}): Set copies to skip. Here x and
-      y are the indices in 2D space of copy , which needs to be skipped.
-    seedOnly (bool): If True, pattern the entities only along the first row and
-      first column.
+    Args:
+      body (Body): Implicit body, use bodies property to get all
+        bodies from implicit part.
+      conform (Conform): Implicit Conform body, use bodies property to get all
+        bodies from implicit part.
+      direction(str): The linear pattern direction1.
+        - ONE
+        - TWO
+        - THREE
+      vector1 (FeatureRefAxis): Implicit FeatureRefAxis body, use bodies
+        property to get all bodies from implicit part.
+      spacing1 (float | str): Space between the linear pattern copies in
+        direction1.
+      count1 (float | str): Number of copies in direction1.
+      vector2 (FeatureRefAxis): Implicit FeatureRefAxis body, use bodies
+        property to get all bodies from implicit part.
+      spacing2 (float | str): Space between the linear pattern copies in
+        direction2.
+      count2 (float | str): Number of copies in direction2.
+      spacing3 (float | str): Space between the linear pattern copies in
+        direction3.
+      count3 (float | str): Number of copies in direction3.
 
-  Returns:
-  list[Part]: List of parts created.
-  
+    Returns:
+      LinearPattern: The newly created LinearPattern object.
+    
 		"""
 		pass
 
@@ -26190,22 +27711,26 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def minThickness(self):
 		pass
 
-	def mirror(self,entity, planeOrigin=None, planeNormal=None, keep=True):
+	def mirror(self,body, plane=None, originX="0", originY="0", originZ="0", normalX="0", normalY="0", normalZ=1):
 		"""
-		Mirrors part across a symmetry plane.
+		The mirror operation takes an implicit body and mirrors it across an
+    arbitrary plane in 3D.
 
-  If entity is a Part, the planeOrigin and planeNormal need to be passed
+    Args:
+      body (Body): Implicit body, use bodies property to get all bodies from
+        implicit part.
+      plane (Plane): Implicit plane, use bodies property to get all bodies from
+        implicit part.
+      originX (float | str): Origin value in X direction.
+      originY (float | str): Origin value in Y direction.
+      originZ (float | str): Origin value in Z direction.
+      normalX (float | str): Normal value in X direction.
+      normalY (float | str): Normal value in Y direction.
+      normalZ (float | str): Normal value in Z direction.
 
-  Args:
-    entity (Part | FeaturePlanar): Part from which a mirror part needs to be created
-      or a Planar feature which needs to be mirrored across the plane
-    planeOrigin (math.Point): The origin of the symmetry plane.
-    planeNormal (math.Vector): The normal of the symmetry plane.
-    keep (bool): If True it keeps the original part, if False it removes it.
-
-  Returns:
-    Part: New mirrored part created.
-  
+    Returns:
+      Mirror: The newly created Mirror object.
+    
 		"""
 		pass
 
@@ -26299,9 +27824,40 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		Translates and/or rotates a part. 
 
+Args:
+  part (Part): The part to move.
+  position (math.Matrix44): The position to move the part at.
+
+
+.. deprecated:: 2025
+   This will be removed in 2025.2. Use the move2 function instead
+		"""
+		pass
+
+	def move2(self,entities, moveMode="FREE", position=None, translateX="0", translateY="0", translateZ="0", alongLineMagnitude="0", rotateAngle="0", moveAxis=None):
+		"""
+		New move tool to Translates and/or rotates a part.
+
   Args:
-    part (Part): The part to move.
-    position (math.Matrix44): The position to move the part at.
+    entities (List[Part]): Entities to move.
+    moveMode (str): Move tool mode. Valid values are
+      - FREE
+      - TRANSLATE_GLOBAL
+      - TRANSLATE_ALONG_LINE
+      - ROTATE_ABOUT_AXIS
+    position (math.Matrix44): The position to move the parts at.
+    translateX (float | str): Value to translate in X direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateY (float | str): Value to translate in Y direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateZ (float | str): Value to translate in Z direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    alongLineMagnitude (float | None): Along line magnitude. Only valid for
+      TRANSLATE_ALONG_LINE move mode.
+    rotateAngle (float | str): Rotate angle. Only valid for ROTATE_ABOUT_AXIS
+      move mode.
+    moveAxis ( Feature | System): Feature curve that is linear, or feature area
+      that is cylindrical or Reference Axis or Plane.
   
 		"""
 		pass
@@ -26454,7 +28010,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def planarLattice(self,body, unitCellType="HEXAGON", solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, thickness=0.005, thicknessField=None, unitCellSize=False, uniform=True, unitCellSizeX=4, unitCellSizeXField=None, unitCellSizeY=4, unitCellSizeYField=None, planeVectorX="0", planeVectorY="0", planeVectorZ=1, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None):
+	def planarLattice(self,body, unitCellType="HEXAGON", solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, thickness=0.005, thicknessField=None, unitCellSize=False, uniform=True, unitCellSizeX=4, unitCellSizeXField=None, unitCellSizeY=4, unitCellSizeYField=None, planeVectorX="0", planeVectorY="0", planeVectorZ=1, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, conformTo=None, unitCellName=None, nodes=None, connectivity=None):
 		"""
 		Planar lattices are 2.5 dimensional cellular structures, with a clearly
     defined 2D cross-section that is drawn or extruded along the third
@@ -26470,6 +28026,7 @@ Implicit modelling represents geometry as a field and is highly efficient
         - TRIANGLE
         - ISOGRID
         - CIRCLE
+        - CUSTOM_UNIT_CELL
       coordinateSystemType (str): Planar Lattice Layout.
         - CARTESIAN
         - CYLINDRICAL
@@ -26524,6 +28081,13 @@ Implicit modelling represents geometry as a field and is highly efficient
         - CHAMFER
       distance (float | str): Distance for outer body options.
       distanceField (Field): Distance field input, if distance is not provided.
+      conformTo (Conform): Implicit Conform body, use bodies property to get all
+        bodies from implicit part.
+      unitCellName (str): Name of the custom unit cell for planar lattice.
+      nodes (list[math.Point]): Node list of the custom unit cell for planar
+        lattice.
+      connectivity (list[int]): Connectivity of the custom unit cell for planar
+        lattice.
 
     Returns:
       PlanarLattice: The newly created PlanarLattice object.
@@ -26531,7 +28095,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def pointCloud(self,points, weights, interpolation="INVERSE_DISTANCE", exponent=2):
+	def pointCloud(self,points, weights, interpolation="INVERSE_DISTANCE", exponent=2, backgroundEnable=False, backgroundValue="0.0", backgroundField=None, pointBehaviour="BUMP", radii=None, falloffs=None):
 		"""
 		Create a custom implicit field or geometry from a set of points with
     scalar values attached to them.
@@ -26547,9 +28111,18 @@ Implicit modelling represents geometry as a field and is highly efficient
         - NEAREST_NEIGHBOURS (The value in the field will correspond to the
             value associated with the closest point. This creates hard
             boundaries similar to Voronoi cells).
-      exponent (float): The exponent used for the inverse distance interpolation
+      exponent (float | str): The exponent used for the inverse distance interpolation
        1 / (Distance^Exponent). A larger value will produce a gentler gradient
        between points.
+      backgroundEnable (bool): If True, Background value is enabled otherwise not.
+      backgroundValue (float | str): Background value for point cloud.
+      backgroundField (Body): Background field input if backgroundValue is not
+        provided.
+      pointBehaviour (str): Point Behaviour for point cloud.
+        - BUMP
+        - SET
+      radii (List[float]): List of radius values.
+      falloffs (List[float]): List of falloff values.
 
     Returns:
       PointCloud: The newly created PointCloud object.
@@ -26558,7 +28131,25 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def pointEdgeSet(self,body, pointsGenerationMethod="UNIFORM_RANDOM", containment=True, seed="0", pointCount=200, minSpacing=0.02, minSpacingField=None, pointSet=None, edgesGenerationMethod="VALENCE", valence=4.0, valenceField=None, edgeSet=None):
+	def pointCloudPattern(self,body, pointCloud=None):
+		"""
+		The PointCloud Pattern operation takes a user-selected body and
+    distributes multiple identical instances according to PointCloud patterning
+    rules.
+
+    Args:
+      body (Body): Implicit body, use bodies property to get all
+        bodies from implicit part.
+      pointCloud(PointCloud): Implicit PointCloud body, use bodies
+        property to get all bodies from implicit part.
+
+    Returns:
+      PointCloudPattern: The newly created PointCloudPattern object.
+    
+		"""
+		pass
+
+	def pointEdgeSet(self,body, pointsGenerationMethod="UNIFORM_RANDOM", containment=True, seed="0", pointCount=200, minSpacing=0.02, minSpacingField=None, pointSet=None, edgesGenerationMethod="VALENCE", valence=4.0, valenceField=None, edgeSet=None, voronoiType="DELAUNAY", points="MESH_VERTICES", uSpacing=0.1, vSpacing=0.1, edges="MESH_EDGES", startDistance=-0.02, startDistanceField=None, endDistance=0.02, endDistanceField=None):
 		"""
 		A point-edge set is a graph comprising points that are (optionally)
     connected by edges. Point-edge sets can be thickened into strut lattices.
@@ -26569,6 +28160,7 @@ Implicit modelling represents geometry as a field and is highly efficient
       pointsGenerationMethod (str): Points Generation Method.
         - UNIFORM_RANDOM
         - MIN_SPACING
+        - FROM_PART_MESH
         - IMPORT
       containment (bool): If true, containment is 'Body' otherwise 'Bound'.
       seed (float | str): Seed value for point set.
@@ -26581,15 +28173,127 @@ Implicit modelling represents geometry as a field and is highly efficient
       edgesGenerationMethod (str): Edges Generation Method.
         - POINT_CLOUD
         - VALENCE
-        - DELAUNAY
+        - VORONOI
+        - FROM_PART_MESH
         - IMPORT
       valence (float | str): Valence value for edge set.
-      valenceField (Field): Valence field input, if valenceField is not provided.
+      valenceField (Field): Valence field input, if valence is not provided.
       edgeSet (list[int]): A list of positional coordinates contained
         within the point set.
+      voronoiType (str): Voronoi Type.
+        - DELAUNAY
+        - VORONOI
+      points (bool): Points values are.
+        - MESH_VERTICES
+        - SAMPLE_UV
+      uSpacing (float | str): U spacing for point set.
+      vSpacing (float | str): V spacing for point set.
+      edges (bool): Edges values are.
+        - MESH_EDGES
+        - NORMAL_AT_POINT
+      startDistance (float | str): Start distance for normal at a point edges.
+      startDistanceField (Field): Start distance field input, if startDistance
+        is not provided.
+      endDistance (float | str): End distance for normal at a point edges.
+      endDistanceField (Field): End distance field input, if endDistance
+        is not provided.
 
     Returns:
       PointEdgeSet: The newly created PointEdgeSet object.
+    
+		"""
+		pass
+
+	def pointSetBoundingBodyFilter(self,body, filterName="Filter", retain=False, boundingBody=None):
+		"""
+		Filter points from the Point-Edge set by checking if they fall inside a
+    bounding body.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      boundingBody (Body): Implicit body, use bodies property to get all bodies
+        from implicit part.
+
+    Returns:
+      PointSetBoundingBodyFilter: The newly created PointSetBoundingBodyFilter
+        object.
+    
+		"""
+		pass
+
+	def pointSetFieldValueFilter(self,body, filterName="Filter", retain=False, referenceValue="0", referenceField=None, fieldValue="LESS_THAN", lowerValue=0.05, lowerValueField=None, upperValue=0.1, upperValueField=None):
+		"""
+		Filter points from the Point-Edge set by interrogating the field value at
+    the point's location in a user-specified field, and applying (in)equality or
+    range constraints to determine whether to keep/remove points.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      referenceValue (float | str): Implicit reference value for point set filter.
+      referenceField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      fieldValue (str): Field value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerValue (float | str): Lower value for point set.
+      lowerValueField (Field): Lower value field input, if lowerValue is not
+        provided.
+      upperValue (float | str): Upper value for point set.
+      upperValueField (Field): Upper value field input, if upperValue is not
+        provided.
+
+    Returns:
+      PointSetFieldValueFilter: The newly created PointSetFieldValueFilter
+        object.
+    
+		"""
+		pass
+
+	def pointSetValenceFilter(self,body, filterName="Filter", retain=False, valenceValue="LESS_THAN", valence=0.05, valenceField=None, upperValue=0.1, upperValueField=None):
+		"""
+		Filter points from the Point-Edge set by checking the number of edges
+    incident on that point, and applying (in)equality or range constraints to
+    determine whether to keep/remove points.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      valenceValue (str): Valence value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      valence (float | str): Valence value for point set.
+      valenceField (Field): Valence value field input, if valence is not
+        provided.
+      upperValue (float | str): Upper value for point set.
+      upperValueField (Field): Upper value field input, if upperValue is not
+        provided.
+
+    Returns:
+      PointSetValenceFilter: The newly created PointSetValenceFilter
+        object.
     
 		"""
 		pass
@@ -26652,6 +28356,51 @@ Implicit modelling represents geometry as a field and is highly efficient
   Returns:
   list[Part]: List of parts created.
   
+		"""
+		pass
+
+	def refAxis(self,reference):
+		"""
+		Takes a geometry system axis and creates a reference for this to be
+    used inside Implicit Modeling.
+
+    Args:
+      reference (geometry.Axis): Geometry system axis to be used in implicit
+        object.
+
+    Returns:
+      RefAxis: The newly created RefAxis object.
+    
+		"""
+		pass
+
+	def refPlane(self,reference):
+		"""
+		Takes a geometry system plane and creates a reference for this to be
+    used inside Implicit Modeling.
+
+    Args:
+      reference (geometry.Plane): Geometry system plane to be used in implicit
+        object.
+
+    Returns:
+      RefPlane: The newly created RefPlane object.
+    
+		"""
+		pass
+
+	def refPoint(self,reference):
+		"""
+		Takes a geometry system point and creates a reference for this to be
+    used inside Implicit Modeling.
+
+    Args:
+      reference (geometry.Point): Geometry system point to be used in implicit
+        object.
+
+    Returns:
+      RefPoint: The newly created RefPoint object.
+    
 		"""
 		pass
 
@@ -26725,7 +28474,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def representations(self):
 		pass
 
-	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR"):
+	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR", manufacturingType="NONE", baseRadius=0.001, topRadius=0.001):
 		"""
 		Extrude rib geometry from a sketch to stiffen your model.
 
@@ -26748,6 +28497,14 @@ Implicit modelling represents geometry as a field and is highly efficient
     extensionType (str): Rib extension type.
      - LINEAR
      - NATURAL
+    manufacturingType (str): Manufacturing type.
+     - NONE
+     - THERMOSET
+     - THERMOPLASTIC
+     - CASTING
+     - CUSTOM
+    baseRadius (float | str): Base radius for rib creation.
+    topRadius (float | str): Top radius for rib creation.
   
 		"""
 		pass
@@ -26840,6 +28597,17 @@ Implicit modelling represents geometry as a field and is highly efficient
     
     Args:
       **kwds: Set attributes in one go.
+    
+		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
     
 		"""
 		pass
@@ -26960,7 +28728,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True):
+	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True, cuttingSheetPart=None):
 		"""
 		Slices a set of solid objects with a cutting plane or cutting surface.
 
@@ -26972,6 +28740,7 @@ Implicit modelling represents geometry as a field and is highly efficient
     cutNormal (math.Vector): The normal of the cutting plane.
     surfaceFeature (FeatureArea): The surface to slice the enity accross.
     extendSurface (bool): Set Automatic extension On/Off for tool Surface.
+    cuttingSheetPart (Part): The cuting sheet part to slice the enity accross.
 
   Returns:
     Part: The new sliced part created.
@@ -27044,7 +28813,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def stochasticStrutLattice(self,body, hollow=False, solidRegion=False, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None):
+	def stochasticStrutLattice(self,body, hollow=False, solidRegion=False, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, boolean=False, booleanType="COMBINE", shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, targetBody=None, transition="SHARP", distance=0.01, distanceField=None):
 		"""
 		Stochastic lattice is built by thickening a point-edge set, which is a
     graph of points that are connected by edges. If the points are randomly
@@ -27052,8 +28821,8 @@ Implicit modelling represents geometry as a field and is highly efficient
     stochastic (randomized) lattice structure.
 
     Args:
-      body (PointEdgeSet): PointEdgeSet body, use bodies property to get all
-        bodies from implicit part.
+      body (PointEdgeSet | PointEdgeSetFilter): PointEdgeSet body, use bodies
+        property to get all bodies from implicit part.
       hollow (bool): if True, Stochastic surface type will be hollow otherwise
         solid.
       solidRegion (bool): if True, solid region of strut is inverted otherwise
@@ -27065,11 +28834,18 @@ Implicit modelling represents geometry as a field and is highly efficient
         is hollow.
       strutInnerDiameterField (Field): Stochastic inner diameter field input, if
         stochastic is not provided.
-      shell (bool): It's a outer body option. If True, outer body of stochastic
+      shell (bool): It's an outer body option. If True, outer body of stochastic
         lattice will be shell otherwise not.
-      combine (bool): It's a outer body option. If True, outer body of stochastic
-        lattice will be combine otherwise not. At a time only one option can be
-        true among combine and shell option.
+      boolean (bool):If true, It's an outer body option. Outer body of stochastic
+        lattice will be combine/subtract/intersect otherwise not. At a time only
+        one option can be true among boolean and shell option.
+      booleanType (str): It's an outer body option. If boolean is True, Outer
+        body of stochastic lattice will be combine/subtract/intersect otherwise
+        not. At a time only one option can be true among boolean and shell
+        option. Valid choices are
+          - COMBINE
+          - INTERSECT
+          - SUBTRACT
       shellDirection (str): Shell Direction.
         - OUTWARD
         - INWARD
@@ -27084,7 +28860,7 @@ Implicit modelling represents geometry as a field and is highly efficient
       shellThicknessOutField (Field): Shell outward thickness field input, if
         shellThicknessOut is not provided.
       trimmingBody (Body): Trim implicit body for stochastic lattice.
-      combineBody (Body): Combine implicit body for stochastic lattice.
+      targetBody (Body): Target implicit body for stochastic lattice.
       transition (str): Transition type for outer body options.
         - SHARP
         - FILLET
@@ -27112,7 +28888,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def stressCalculation(self):
 		pass
 
-	def strutLattice(self,body, unitCellType="CORNERDIAGONAL", hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeY=4, cellSizeZ=4, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, unitCellName=None, nodes=None, connectivity=None):
+	def strutLattice(self,body, unitCellType="BODYCENTEREDCUBIC", hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeY=4, cellSizeZ=4, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, unitCellName=None, nodes=None, connectivity=None, conformTo=None):
 		"""
 		Strut lattices are constructed from nodes and these nodes are connected
     by beams. Typically, there is a base unit cell that is tiled/patterned in
@@ -27123,13 +28899,18 @@ Implicit modelling represents geometry as a field and is highly efficient
       body (Body): Implicit body, use bodies property to get all bodies from
         implicit part.
       unitCellType (str): UnitCellType for strut lattice.
-        - CORNERDIAGONAL
-        - FACECENTRE
-        - FACEDIAGONAL
-        - FACEEDGE
+        - BODYCENTEREDCUBIC
+        - FACECENTEREDPRIMITIVE
+        - FACECENTEREDCUBIC
+        - CUBICPRIMITIVE
+        - ISOTRUSS
         - OCTAGON
         - HEXTRUSS
-        - TETRAKAIDECAHEDRONEDGE
+        - KELVINCELL
+        - FLOURITE
+        - DIAMOND
+        - TRUNCATEDCUBE
+        - OCTET
         - CUSTOM_UNIT_CELL
       hollow (bool): if True, Strut surface type will be hollow otherwise
         solid.
@@ -27190,6 +28971,8 @@ Implicit modelling represents geometry as a field and is highly efficient
         lattice.
       connectivity (list[int]): Connectivity of the custom unit cell for strut
         lattice.
+      conformTo (Conform): Implicit Conform body, use bodies property to get all
+        bodies from implicit part.
 
     Returns:
       StrutLattice: The newly created StrutLattice object.
@@ -27213,7 +28996,22 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def surfaceLattice(self,body, unitCellType="GYROID", surfaceType=True, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, density=0.5, densityField=None, bias=0.5, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeXField=None, cellSizeY=4, cellSizeYField=None, cellSizeZ=4, cellSizeZField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None):
+	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
+		"""
+		Creates curves from two intersecting surfaces.
+
+  Args:
+    surface1 (list[Part]):  Set Surface1(target) parts.
+    surface2 (list[Part]): Set Surface2(tool) parts.
+    combineCurves (bool): If True, combine curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
+		pass
+
+	def surfaceLattice(self,body, unitCellType="GYROID", surfaceType=True, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, density=0.5, densityField=None, bias=0.5, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeXField=None, cellSizeY=4, cellSizeYField=None, cellSizeZ=4, cellSizeZField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, conformTo=None, default=False, extentsMinX=None, extentsMinY=None, extentsMinZ=None, extentsMaxX=None, extentsMaxY=None, extentsMaxZ=None):
 		"""
 		Surface lattices are cellular structures constructed from one or
     sometimes two surfaces. Rather than tiling/patterning a base unit cell, the
@@ -27295,6 +29093,15 @@ Implicit modelling represents geometry as a field and is highly efficient
         - CHAMFER
       distance (float | str): Distance for outer body options.
       distanceField (Field): Distance field input, if distance is not provided.
+      conformTo (Conform): Implicit Conform body, use bodies property to get all
+        bodies from implicit part.
+      default (bool): If True, use extents option otherwise not.
+      extentsMinX (float | str): Minimum extents value in X direction.
+      extentsMinY (float | str): Minimum extents value in Y direction.
+      extentsMinZ (float | str): Minimum extents value in Z direction.
+      extentsMaxX (float | str): Maximum extents value in X direction.
+      extentsMaxY (float | str): Maximum extents value in Y direction.
+      extentsMaxZ (float | str): Maximum extents value in Z direction.
 
     Returns:
       SurfaceLattice: The newly created SurfaceLattice object.
@@ -27368,6 +29175,19 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
 	def trimAndSplit(self,targets, tools, direction, trim=True, keepType="EXTERIOR", vectorDirection=None, extendProjection=True, trimExtents="THROUGH_ALL", extractProjection=False, surfaceNormal=None, resultAsSurface=False):
 		"""
 		Formerly known as projectAndSplit. It removes part of a surface or solid by
@@ -27404,6 +29224,13 @@ Implicit modelling represents geometry as a field and is highly efficient
   list[Part]: List of parts created.
   
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	def vectorElement(self,bodyA, index):
@@ -27483,48 +29310,6 @@ Implicit modelling represents geometry as a field and is highly efficient
       ZRef: The newly created ZRef object.
     
 		"""
-		pass
-
-class ImplicitMathBinaryOperation:
-	def __init__(self,**kwds):
-		"""
-Implicit math operations base class.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ImplicitMathTernaryOperation:
-	def __init__(self,**kwds):
-		"""
-Implicit math operations base class.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ImplicitMathUnaryOperation:
-	def __init__(self,**kwds):
-		"""
-Implicit math trignometry operations base class.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Inertia:
@@ -27675,6 +29460,16 @@ Inertial attributes is used to store any inertial values.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -27699,6 +29494,9 @@ class InspireAnalysisResults:
 		pass
 	@collectionType.setter
 	def collectionType(self):
+		pass
+
+	def getConnectionResults(self,run=None, stage=None, subcase=None, step=None):
 		pass
 
 	def getResultTypeId(self,name):
@@ -27875,6 +29673,16 @@ Store integer value
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -27888,44 +29696,6 @@ Store integer value
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class IntListImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-list[int]
-"""
-		pass
-
-class Intersect:
-	def __init__(self,**kwds):
-		"""
-The Intersection tool is used to find volumes of overlap between two or
-  more implicit bodies.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Invert:
-	def __init__(self,**kwds):
-		"""
-The Invert tool swaps the convention of 'inside' and 'outside' for an
-  implicit body by reversing the sign of all scalar values in the underlying
-  field.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Ip:
@@ -27951,6 +29721,48 @@ class Ip:
 		pass
 	@is_invalid.setter
 	def is_invalid(self):
+		pass
+
+	@property
+	def ixx(self):
+		pass
+	@ixx.setter
+	def ixx(self):
+		pass
+
+	@property
+	def ixy(self):
+		pass
+	@ixy.setter
+	def ixy(self):
+		pass
+
+	@property
+	def ixz(self):
+		pass
+	@ixz.setter
+	def ixz(self):
+		pass
+
+	@property
+	def iyy(self):
+		pass
+	@iyy.setter
+	def iyy(self):
+		pass
+
+	@property
+	def iyz(self):
+		pass
+	@iyz.setter
+	def iyz(self):
+		pass
+
+	@property
+	def izz(self):
+		pass
+	@izz.setter
+	def izz(self):
 		pass
 
 class JobManager:
@@ -28139,7 +29951,7 @@ class JobManager:
 		pass
 
 class Joint:
-	def __init__(self,connection=None,name: str="", **kwds):
+	def __init__(self,connection=None,name: str="", loadCase=None, **kwds):
 		"""
 Joint connect parts together while allowing movement at the joint location.
 
@@ -28437,6 +30249,9 @@ Joint connect parts together while allowing movement at the joint location.
 	def exponent(self):
 		pass
 
+	def extendLimitKwds(self,jointKwds):
+		pass
+
 	@property
 	def featureLists(self):
 		pass
@@ -28449,6 +30264,13 @@ Joint connect parts together while allowing movement at the joint location.
 		pass
 	@features.setter
 	def features(self):
+		pass
+
+	@property
+	def flipParts(self):
+		pass
+	@flipParts.setter
+	def flipParts(self):
 		pass
 
 	@property
@@ -28668,6 +30490,16 @@ Joint connect parts together while allowing movement at the joint location.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def graphicScale(self):
 		pass
@@ -28781,6 +30613,195 @@ Joint connect parts together while allowing movement at the joint location.
 		pass
 	@layerDepth.setter
 	def layerDepth(self):
+		pass
+
+	@property
+	def limit(self):
+		pass
+	@limit.setter
+	def limit(self):
+		pass
+
+	@property
+	def limit1Rot(self):
+		pass
+	@limit1Rot.setter
+	def limit1Rot(self):
+		pass
+
+	@property
+	def limit1RotDir1(self):
+		pass
+	@limit1RotDir1.setter
+	def limit1RotDir1(self):
+		pass
+
+	@property
+	def limit1RotDir2(self):
+		pass
+	@limit1RotDir2.setter
+	def limit1RotDir2(self):
+		pass
+
+	@property
+	def limit1Trans(self):
+		pass
+	@limit1Trans.setter
+	def limit1Trans(self):
+		pass
+
+	@property
+	def limit1TransDir1(self):
+		pass
+	@limit1TransDir1.setter
+	def limit1TransDir1(self):
+		pass
+
+	@property
+	def limit1TransDir2(self):
+		pass
+	@limit1TransDir2.setter
+	def limit1TransDir2(self):
+		pass
+
+	@property
+	def limit2Rot(self):
+		pass
+	@limit2Rot.setter
+	def limit2Rot(self):
+		pass
+
+	@property
+	def limit2RotDir1(self):
+		pass
+	@limit2RotDir1.setter
+	def limit2RotDir1(self):
+		pass
+
+	@property
+	def limit2RotDir2(self):
+		pass
+	@limit2RotDir2.setter
+	def limit2RotDir2(self):
+		pass
+
+	@property
+	def limit2Trans(self):
+		pass
+	@limit2Trans.setter
+	def limit2Trans(self):
+		pass
+
+	@property
+	def limit2TransDir1(self):
+		pass
+	@limit2TransDir1.setter
+	def limit2TransDir1(self):
+		pass
+
+	@property
+	def limit2TransDir2(self):
+		pass
+	@limit2TransDir2.setter
+	def limit2TransDir2(self):
+		pass
+
+	@property
+	def limit3Rot(self):
+		pass
+	@limit3Rot.setter
+	def limit3Rot(self):
+		pass
+
+	@property
+	def limit3RotDir1(self):
+		pass
+	@limit3RotDir1.setter
+	def limit3RotDir1(self):
+		pass
+
+	@property
+	def limit3RotDir2(self):
+		pass
+	@limit3RotDir2.setter
+	def limit3RotDir2(self):
+		pass
+
+	@property
+	def limit3Trans(self):
+		pass
+	@limit3Trans.setter
+	def limit3Trans(self):
+		pass
+
+	@property
+	def limit3TransDir1(self):
+		pass
+	@limit3TransDir1.setter
+	def limit3TransDir1(self):
+		pass
+
+	@property
+	def limit3TransDir2(self):
+		pass
+	@limit3TransDir2.setter
+	def limit3TransDir2(self):
+		pass
+
+	@property
+	def limitRotDamping(self):
+		pass
+	@limitRotDamping.setter
+	def limitRotDamping(self):
+		pass
+
+	@property
+	def limitRotExponent(self):
+		pass
+	@limitRotExponent.setter
+	def limitRotExponent(self):
+		pass
+
+	@property
+	def limitRotPenetrationDepth(self):
+		pass
+	@limitRotPenetrationDepth.setter
+	def limitRotPenetrationDepth(self):
+		pass
+
+	@property
+	def limitRotStiffness(self):
+		pass
+	@limitRotStiffness.setter
+	def limitRotStiffness(self):
+		pass
+
+	@property
+	def limitTransDamping(self):
+		pass
+	@limitTransDamping.setter
+	def limitTransDamping(self):
+		pass
+
+	@property
+	def limitTransExponent(self):
+		pass
+	@limitTransExponent.setter
+	def limitTransExponent(self):
+		pass
+
+	@property
+	def limitTransPenetrationDepth(self):
+		pass
+	@limitTransPenetrationDepth.setter
+	def limitTransPenetrationDepth(self):
+		pass
+
+	@property
+	def limitTransStiffness(self):
+		pass
+	@limitTransStiffness.setter
+	def limitTransStiffness(self):
 		pass
 
 	@property
@@ -28952,6 +30973,17 @@ Joint connect parts together while allowing movement at the joint location.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def shearForce(self):
 		pass
@@ -28964,6 +30996,13 @@ Joint connect parts together while allowing movement at the joint location.
 		pass
 	@shearStiffness.setter
 	def shearStiffness(self):
+		pass
+
+	@property
+	def showAsFace(self):
+		pass
+	@showAsFace.setter
+	def showAsFace(self):
 		pass
 
 	@property
@@ -29009,6 +31048,13 @@ Joint connect parts together while allowing movement at the joint location.
 		pass
 
 	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
 	def viscousCoefficient(self):
 		pass
 	@viscousCoefficient.setter
@@ -29033,20 +31079,6 @@ Joint connect parts together while allowing movement at the joint location.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Length:
-	def __init__(self,**kwds):
-		"""
-Implicit Length Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class LengthMeasure:
@@ -29256,6 +31288,16 @@ Measures the length between two points.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -29365,6 +31407,17 @@ Measures the length between two points.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def system(self):
 		pass
@@ -29387,6 +31440,13 @@ Measures the length between two points.
 		pass
 
 	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
 	def visible(self):
 		pass
 	@visible.setter
@@ -29404,48 +31464,6 @@ Measures the length between two points.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class LessOrEqualTo:
-	def __init__(self,**kwds):
-		"""
-Implicit less or equal to operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class LessThan:
-	def __init__(self,**kwds):
-		"""
-Implicit less than operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Line:
-	def __init__(self,**kwds):
-		"""
-Create a line implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class List:
@@ -29567,6 +31585,16 @@ Store a list of values in a single attribute.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -29836,6 +31864,16 @@ Store list of lists of values in a single attribute.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -30054,6 +32092,16 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -30141,6 +32189,24 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -30159,13 +32225,6 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class LocalTransformImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-math.Matrix44
-"""
 		pass
 
 class Location:
@@ -30338,6 +32397,16 @@ Store a location relative to another entity.
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -30597,6 +32666,16 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -30684,6 +32763,17 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def stress(self):
 		pass
@@ -30703,6 +32793,13 @@ A material is the physical substance that a part is made of, such as steel,
 		pass
 	@thermalExpansion.setter
 	def thermalExpansion(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -30730,20 +32827,6 @@ A material is the physical substance that a part is made of, such as steel,
 		pass
 	@youngModulus.setter
 	def youngModulus(self):
-		pass
-
-class Max:
-	def __init__(self,**kwds):
-		"""
-Implicit max operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Measure:
@@ -30938,6 +33021,16 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -31026,6 +33119,17 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -31038,6 +33142,13 @@ Measures the distance between two points, the length of a feature or an angle be
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -31272,6 +33383,16 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -31353,6 +33474,24 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -31375,34 +33514,6 @@ Create mesh controls to assign an element size to parts or faces.
 
 class MetaClass:
 	def __init__(self):
-		pass
-
-class Min:
-	def __init__(self,**kwds):
-		"""
-Implicit min operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Mod:
-	def __init__(self,**kwds):
-		"""
-Implicit Mod operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Model:
@@ -32037,6 +34148,12 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		pass
 
+	def getFilePath(self):
+		"""
+		Returns absolute path of the model.
+		"""
+		pass
+
 	def getGuiAttributeNames(self):
 		"""
 		Return list of the attribute names that are in the gui
@@ -32114,6 +34231,16 @@ The active Inspire model. Model is a subclass of Assembly class.
 
     Returns:
       str: Returns the attribute value
+    
+		"""
+		pass
+
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
     
 		"""
 		pass
@@ -32403,17 +34530,16 @@ The active Inspire model. Model is a subclass of Assembly class.
 
 	def save(self,file, selected=[]):
 		"""
-		Save the active model to the path specified in file. 
+		Save the model to the path specified in file.
+
     If selected only these get saved, similar to save selected in the 
     Inspire application.
 
     Args:
-      file (str) : File name and path, where the file needs to be saved.
-      selected (Assembly, list[Assembly], list[Part], Part): An assembly 
-        or a list of assemblies or part or a list of parts to save.
-
-    Returns:
-      bool : True, if file save is successful else False.
+      file (str): File name and path, where the file needs to be saved.
+      selected (list[Part | Assembly]): Subset of parts/assemblies to save.
+        File type must be compatible with the Parts.
+        Parasolid can be converted to stl but not vice versa.
     
 		"""
 		pass
@@ -32439,6 +34565,17 @@ The active Inspire model. Model is a subclass of Assembly class.
     
     Args:
       **kwds: Set attributes in one go.
+    
+		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
     
 		"""
 		pass
@@ -32584,6 +34721,19 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
 	def updateContacts(self,solver="OptiStruct", parts=None, searchDistance=None, visibleOnly=True, ignoreGroups="rigid ground", useExistingSearchDistances=True, penetrationTolerance=None, useExistingPenetrationTolerance=True, resolution="Low", useExistingResolution=True):
 		"""
 		Create or update contacts in model to account for part creation or
@@ -32616,6 +34766,13 @@ The active Inspire model. Model is a subclass of Assembly class.
       bool : True, if contacts where updated successfully else False.
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -32746,35 +34903,6 @@ Listens to the data model for object creation, modification and deletion.
       part (Named)
     
 		"""
-		pass
-
-class Morph:
-	def __init__(self,**kwds):
-		"""
-The Morph tool performs a morphing operation between two implicit
-  bodies.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Multiply:
-	def __init__(self,**kwds):
-		"""
-Implicit Multiply operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Named:
@@ -32964,6 +35092,16 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -33031,6 +35169,24 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -33049,20 +35205,6 @@ Base class for all data model objects except Features.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Normalize:
-	def __init__(self,**kwds):
-		"""
-Implicit Normalize Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Occurrence:
@@ -33348,6 +35490,16 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -33515,6 +35667,17 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
 		"""
 		Finds and removes holes and pockets, and find raised areas such as lettering.
@@ -33598,6 +35761,26 @@ Base class for Model, Assembly and Part.
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -33623,22 +35806,6 @@ Base class for Model, Assembly and Part.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Offset:
-	def __init__(self,**kwds):
-		"""
-The Offset tool can be used to inwardly (negative) or outwardly
-  (positive) offset the surface of an implicit body. The surface always moves
-  in a direction that is normal to the original surface.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class OptiStructAnalysis:
@@ -33839,6 +36006,16 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Analysis Explorer.
@@ -33944,6 +36121,17 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -33956,6 +36144,13 @@ Run structural analysis using OptiStruct
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -34183,6 +36378,16 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Analysis Explorer.
@@ -34288,6 +36493,17 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -34300,6 +36516,13 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -34372,16 +36595,8 @@ class OrderedSet:
 	def update(self,it):
 		pass
 
-class OriginImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-list[x,y,z]
-"""
-		pass
-
-class Parameter:
-	def __init__(self,cppName: str="",doc: str=""):
-		pass
+class ParameterManager:
+	pass
 
 class Part:
 	def __init__(self,parent=None, **kwds):
@@ -34614,11 +36829,76 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	@property
 	def currentRepresentation(self):
 		pass
 	@currentRepresentation.setter
 	def currentRepresentation(self):
+		pass
+
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+		"""
+		Deform parts within a specified region.
+
+  Args:
+    parts (list[Part]): Parts to be deformed.
+    deformType (str): Deform Type.
+      - TWIST
+      - BEND
+      - TAPER
+      - SHEAR
+      - STRETCH
+    deformAxis (str): Deform Axis.
+      - X
+      - Y
+      - Z
+    twistType (str): Twist Type.
+      - ANGLE
+      - TURNS
+    twistAngle (float | str): Twist angle to deform parts.
+    twistTurns (float | str): Number of Twist turns to deform parts.
+    twistSmoothing (float): Twist smoothing factor. Value from 0 to 1 is valid.
+    bendType (str): Blend Type.
+      - RADIUS
+      - ANGLE
+    bendRadius (float | str): Blend radius to deform parts.
+    bendAngle (float | str): Blend angle to deform parts.
+    taperFactor (float | str): Taper factor to deform parts.
+    shearAngle (float | str): Shear angle to deform parts.
+    stretchCurve (Part): Stretch curve to deform parts.
+    stretchAngle (float): Stretch angle to deform parts.
+    stretchCurveOffset (float | str): Stretch curve offset to deform parts.
+    stretchAlongCurve (bool): If True, Stretch along curve to deform parts
+      otherwise not.
+    stretchMoveToCurve (bool): If True, Stretch move to curve to deform parts
+      otherwise not.
+    stretchReverseCurve (bool): If True, Stretch reverse the curve to deform
+      parts otherwise not.
+    reapplyFillets (bool): If True, Reapply fillets to deform parts.
+    accuracy (float | str): Accuracy factor to deform parts. Value from 0 to 1
+      is valid.
+    eulerAngles (list[roll, pitch, yaw]): Euler angles in x,y,z direction to
+      deform parts.
+    origin (mat.Points): Origin values in x,y,z direction to deform parts.
+    trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
+    trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -34895,6 +37175,16 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -34941,6 +37231,13 @@ A geometric object made up of any combination of solids, surfaces, and
 		pass
 	@ignoreFlexibility.setter
 	def ignoreFlexibility(self):
+		pass
+
+	@property
+	def instances(self):
+		pass
+	@instances.setter
+	def instances(self):
 		pass
 
 	def intersect(self,parts, createSolids=False, keepSourceParts=False):
@@ -35228,9 +37525,40 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		Translates and/or rotates a part. 
 
+Args:
+  part (Part): The part to move.
+  position (math.Matrix44): The position to move the part at.
+
+
+.. deprecated:: 2025
+   This will be removed in 2025.2. Use the move2 function instead
+		"""
+		pass
+
+	def move2(self,entities, moveMode="FREE", position=None, translateX="0", translateY="0", translateZ="0", alongLineMagnitude="0", rotateAngle="0", moveAxis=None):
+		"""
+		New move tool to Translates and/or rotates a part.
+
   Args:
-    part (Part): The part to move.
-    position (math.Matrix44): The position to move the part at.
+    entities (List[Part]): Entities to move.
+    moveMode (str): Move tool mode. Valid values are
+      - FREE
+      - TRANSLATE_GLOBAL
+      - TRANSLATE_ALONG_LINE
+      - ROTATE_ABOUT_AXIS
+    position (math.Matrix44): The position to move the parts at.
+    translateX (float | str): Value to translate in X direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateY (float | str): Value to translate in Y direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateZ (float | str): Value to translate in Z direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    alongLineMagnitude (float | None): Along line magnitude. Only valid for
+      TRANSLATE_ALONG_LINE move mode.
+    rotateAngle (float | str): Rotate angle. Only valid for ROTATE_ABOUT_AXIS
+      move mode.
+    moveAxis ( Feature | System): Feature curve that is linear, or feature area
+      that is cylindrical or Reference Axis or Plane.
   
 		"""
 		pass
@@ -35413,7 +37741,7 @@ A geometric object made up of any combination of solids, surfaces, and
 	def representations(self):
 		pass
 
-	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR"):
+	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR", manufacturingType="NONE", baseRadius=0.001, topRadius=0.001):
 		"""
 		Extrude rib geometry from a sketch to stiffen your model.
 
@@ -35436,6 +37764,14 @@ A geometric object made up of any combination of solids, surfaces, and
     extensionType (str): Rib extension type.
      - LINEAR
      - NATURAL
+    manufacturingType (str): Manufacturing type.
+     - NONE
+     - THERMOSET
+     - THERMOPLASTIC
+     - CASTING
+     - CUSTOM
+    baseRadius (float | str): Base radius for rib creation.
+    topRadius (float | str): Top radius for rib creation.
   
 		"""
 		pass
@@ -35531,6 +37867,17 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def sheetThickness(self):
 		pass
@@ -35619,7 +37966,7 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
-	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True):
+	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True, cuttingSheetPart=None):
 		"""
 		Slices a set of solid objects with a cutting plane or cutting surface.
 
@@ -35631,6 +37978,7 @@ A geometric object made up of any combination of solids, surfaces, and
     cutNormal (math.Vector): The normal of the cutting plane.
     surfaceFeature (FeatureArea): The surface to slice the enity accross.
     extendSurface (bool): Set Automatic extension On/Off for tool Surface.
+    cuttingSheetPart (Part): The cuting sheet part to slice the enity accross.
 
   Returns:
     Part: The new sliced part created.
@@ -35657,6 +38005,21 @@ A geometric object made up of any combination of solids, surfaces, and
 		pass
 	@stressCalculation.setter
 	def stressCalculation(self):
+		pass
+
+	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
+		"""
+		Creates curves from two intersecting surfaces.
+
+  Args:
+    surface1 (list[Part]):  Set Surface1(target) parts.
+    surface2 (list[Part]): Set Surface2(tool) parts.
+    combineCurves (bool): If True, combine curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -35711,6 +38074,19 @@ A geometric object made up of any combination of solids, surfaces, and
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
 	def trimAndSplit(self,targets, tools, direction, trim=True, keepType="EXTERIOR", vectorDirection=None, extendProjection=True, trimExtents="THROUGH_ALL", extractProjection=False, surfaceNormal=None, resultAsSurface=False):
 		"""
 		Formerly known as projectAndSplit. It removes part of a surface or solid by
@@ -35750,6 +38126,13 @@ A geometric object made up of any combination of solids, surfaces, and
 		pass
 
 	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
 	def visible(self):
 		pass
 	@visible.setter
@@ -35774,13 +38157,6 @@ A geometric object made up of any combination of solids, surfaces, and
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class PartImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-Part
-"""
 		pass
 
 class PartOccurrence:
@@ -36102,6 +38478,16 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -36276,6 +38662,17 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
 		"""
 		Finds and removes holes and pockets, and find raised areas such as lettering.
@@ -36357,6 +38754,26 @@ Base class for Part and Sketch Part.
 		pass
 	@transparency.setter
 	def transparency(self):
+		pass
+
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -36669,6 +39086,16 @@ PartsConnectors are generally used to connect two or more parts together.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def grounded(self):
 		pass
@@ -36792,6 +39219,17 @@ PartsConnectors are generally used to connect two or more parts together.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def shearForce(self):
 		pass
@@ -36814,6 +39252,13 @@ PartsConnectors are generally used to connect two or more parts together.
 		pass
 
 	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
 	def visible(self):
 		pass
 	@visible.setter
@@ -36831,136 +39276,6 @@ PartsConnectors are generally used to connect two or more parts together.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Pellet:
-	def __init__(self,**kwds):
-		"""
-Create a Pellet implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Pi:
-	def __init__(self,**kwds):
-		"""
-Implicit pi.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Pipe:
-	def __init__(self,**kwds):
-		"""
-Create a Pipe implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class PlanarLattice:
-	def __init__(self,**kwds):
-		"""
-Planar lattices are 2.5 dimensional cellular structures, with a clearly
-  defined 2D cross-section that is drawn or extruded along the third
-  dimension. A popular example is a honeycomb structure.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Plane:
-	def __init__(self,**kwds):
-		"""
-Create a plane implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Point:
-	def __init__(self,**kwds):
-		"""
-Create a point implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class PointCloud:
-	def __init__(self,**kwds):
-		"""
-Create a custom implicit field or geometry from a set of points with scalar
-  values attached to them.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class PointEdgeSet:
-	def __init__(self,**kwds):
-		"""
-A point-edge set is a graph comprising points that are (optionally)
-  connected by edges. Point-edge sets can be thickened into strut lattices.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class PointImplicit:
-	def __init__(self,cppName,units: str="length",doc: str=""):
-		"""
-math.Point
-"""
-		pass
-
-class PointsImplicit:
-	def __init__(self,cppName,units: str="length",doc: str=""):
-		"""
-list[math.Point]
-"""
 		pass
 
 class PolyMesh:
@@ -37313,11 +39628,76 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
+	def createTag(self,input, name: str="", value: str=""):
+		"""
+		Creates tag for any geometry part or feature.
+
+  Args:
+    input (list[Part | Feature]): Entities to create a tag.
+    name (str): Name of the tag.
+    value (str): Value of the tag.
+  
+		"""
+		pass
+
 	@property
 	def currentRepresentation(self):
 		pass
 	@currentRepresentation.setter
 	def currentRepresentation(self):
+		pass
+
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+		"""
+		Deform parts within a specified region.
+
+  Args:
+    parts (list[Part]): Parts to be deformed.
+    deformType (str): Deform Type.
+      - TWIST
+      - BEND
+      - TAPER
+      - SHEAR
+      - STRETCH
+    deformAxis (str): Deform Axis.
+      - X
+      - Y
+      - Z
+    twistType (str): Twist Type.
+      - ANGLE
+      - TURNS
+    twistAngle (float | str): Twist angle to deform parts.
+    twistTurns (float | str): Number of Twist turns to deform parts.
+    twistSmoothing (float): Twist smoothing factor. Value from 0 to 1 is valid.
+    bendType (str): Blend Type.
+      - RADIUS
+      - ANGLE
+    bendRadius (float | str): Blend radius to deform parts.
+    bendAngle (float | str): Blend angle to deform parts.
+    taperFactor (float | str): Taper factor to deform parts.
+    shearAngle (float | str): Shear angle to deform parts.
+    stretchCurve (Part): Stretch curve to deform parts.
+    stretchAngle (float): Stretch angle to deform parts.
+    stretchCurveOffset (float | str): Stretch curve offset to deform parts.
+    stretchAlongCurve (bool): If True, Stretch along curve to deform parts
+      otherwise not.
+    stretchMoveToCurve (bool): If True, Stretch move to curve to deform parts
+      otherwise not.
+    stretchReverseCurve (bool): If True, Stretch reverse the curve to deform
+      parts otherwise not.
+    reapplyFillets (bool): If True, Reapply fillets to deform parts.
+    accuracy (float | str): Accuracy factor to deform parts. Value from 0 to 1
+      is valid.
+    eulerAngles (list[roll, pitch, yaw]): Euler angles in x,y,z direction to
+      deform parts.
+    origin (mat.Points): Origin values in x,y,z direction to deform parts.
+    trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
+    trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -37639,6 +40019,16 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -37685,6 +40075,13 @@ Create free-form solid geometry that is smooth and continuous.
 		pass
 	@ignoreFlexibility.setter
 	def ignoreFlexibility(self):
+		pass
+
+	@property
+	def instances(self):
+		pass
+	@instances.setter
+	def instances(self):
 		pass
 
 	def intersect(self,parts, createSolids=False, keepSourceParts=False):
@@ -37980,9 +40377,40 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		Translates and/or rotates a part. 
 
+Args:
+  part (Part): The part to move.
+  position (math.Matrix44): The position to move the part at.
+
+
+.. deprecated:: 2025
+   This will be removed in 2025.2. Use the move2 function instead
+		"""
+		pass
+
+	def move2(self,entities, moveMode="FREE", position=None, translateX="0", translateY="0", translateZ="0", alongLineMagnitude="0", rotateAngle="0", moveAxis=None):
+		"""
+		New move tool to Translates and/or rotates a part.
+
   Args:
-    part (Part): The part to move.
-    position (math.Matrix44): The position to move the part at.
+    entities (List[Part]): Entities to move.
+    moveMode (str): Move tool mode. Valid values are
+      - FREE
+      - TRANSLATE_GLOBAL
+      - TRANSLATE_ALONG_LINE
+      - ROTATE_ABOUT_AXIS
+    position (math.Matrix44): The position to move the parts at.
+    translateX (float | str): Value to translate in X direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateY (float | str): Value to translate in Y direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    translateZ (float | str): Value to translate in Z direction. Only valid for
+      TRANSLATE_GLOBAL move mode.
+    alongLineMagnitude (float | None): Along line magnitude. Only valid for
+      TRANSLATE_ALONG_LINE move mode.
+    rotateAngle (float | str): Rotate angle. Only valid for ROTATE_ABOUT_AXIS
+      move mode.
+    moveAxis ( Feature | System): Feature curve that is linear, or feature area
+      that is cylindrical or Reference Axis or Plane.
   
 		"""
 		pass
@@ -38200,7 +40628,7 @@ Create free-form solid geometry that is smooth and continuous.
 	def representations(self):
 		pass
 
-	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR"):
+	def rib(self,sketch, targetPart, ribThickness=0.01, flipMaterialDirection=False, offsetDirection="MID", ribDirection="NORMAL", draftAngle="0", reverseDraftDirection=False, extensionType="LINEAR", manufacturingType="NONE", baseRadius=0.001, topRadius=0.001):
 		"""
 		Extrude rib geometry from a sketch to stiffen your model.
 
@@ -38223,6 +40651,14 @@ Create free-form solid geometry that is smooth and continuous.
     extensionType (str): Rib extension type.
      - LINEAR
      - NATURAL
+    manufacturingType (str): Manufacturing type.
+     - NONE
+     - THERMOSET
+     - THERMOPLASTIC
+     - CASTING
+     - CUSTOM
+    baseRadius (float | str): Base radius for rib creation.
+    topRadius (float | str): Top radius for rib creation.
   
 		"""
 		pass
@@ -38325,6 +40761,17 @@ Create free-form solid geometry that is smooth and continuous.
     
     Args:
       **kwds: Set attributes in one go.
+    
+		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
     
 		"""
 		pass
@@ -38442,7 +40889,7 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
-	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True):
+	def slice(self,targets, cutOrigin=None, cutNormal=None, surfaceFeature=None, extendSurface=True, cuttingSheetPart=None):
 		"""
 		Slices a set of solid objects with a cutting plane or cutting surface.
 
@@ -38454,6 +40901,7 @@ Create free-form solid geometry that is smooth and continuous.
     cutNormal (math.Vector): The normal of the cutting plane.
     surfaceFeature (FeatureArea): The surface to slice the enity accross.
     extendSurface (bool): Set Automatic extension On/Off for tool Surface.
+    cuttingSheetPart (Part): The cuting sheet part to slice the enity accross.
 
   Returns:
     Part: The new sliced part created.
@@ -38497,6 +40945,21 @@ Create free-form solid geometry that is smooth and continuous.
 		pass
 	@stressCalculation.setter
 	def stressCalculation(self):
+		pass
+
+	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
+		"""
+		Creates curves from two intersecting surfaces.
+
+  Args:
+    surface1 (list[Part]):  Set Surface1(target) parts.
+    surface2 (list[Part]): Set Surface2(tool) parts.
+    combineCurves (bool): If True, combine curves otherwise not.
+
+  Returns:
+    list[Part]: New parts created.
+  
+		"""
 		pass
 
 	@property
@@ -38551,6 +41014,19 @@ Create free-form solid geometry that is smooth and continuous.
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
 	def trimAndSplit(self,targets, tools, direction, trim=True, keepType="EXTERIOR", vectorDirection=None, extendProjection=True, trimExtents="THROUGH_ALL", extractProjection=False, surfaceNormal=None, resultAsSurface=False):
 		"""
 		Formerly known as projectAndSplit. It removes part of a surface or solid by
@@ -38587,6 +41063,13 @@ Create free-form solid geometry that is smooth and continuous.
   list[Part]: List of parts created.
   
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -38818,6 +41301,16 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Analysis Explorer.
@@ -38909,6 +41402,17 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -38921,6 +41425,13 @@ Modify the location of cage points (defined by Shape variables) to
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -39081,6 +41592,16 @@ Store a Matrix44
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -39100,27 +41621,6 @@ Store a Matrix44
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class PositionImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-math.Matrix44
-"""
-		pass
-
-class Power:
-	def __init__(self,**kwds):
-		"""
-Implicit Power operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Pressure:
@@ -39365,6 +41865,16 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -39525,6 +42035,17 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -39538,6 +42059,13 @@ A pressure is a distributed force that acts perpendicular to every point
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -39812,13 +42340,6 @@ Info about an error or warning. Shown to user in the gui.ProblemDialog.
 """
 		pass
 
-class RatioDataImplicit:
-	def __init__(self,cppName,doc: str=""):
-		"""
-float
-"""
-		pass
-
 def ReadHwCfdData(fileName,readMode: str="discard"):
 	"""
 Fetch data and create new stl part/s for given data.
@@ -39942,6 +42463,16 @@ Store a Named entity or Feature.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -39957,33 +42488,8 @@ Store a Named entity or Feature.
 	def usingUnits(self,units):
 		pass
 
-class ReferenceBodyImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-Implicit Body
-"""
-		pass
-
 class ReferenceTracker:
 	pass
-
-class Remap:
-	def __init__(self,**kwds):
-		"""
-Remap is a general field of scalar values into a signed distance field.
-  After a remap, each position in the field will have a scalar value that is
-  the signed distance to the closest point on the object being modelled
-  (surface, point, line, etc.). Negative field values are on the inside of the
-  model and positive field values are on the outside.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
 
 class ResultsCollectionType:
 	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
@@ -40026,6 +42532,9 @@ class ResultsFormatOptions:
 	def IsConvertValue(self):
 		pass
 
+	def IsRemoveTrailingZeros(self):
+		pass
+
 	def IsShowUnits(self):
 		pass
 
@@ -40038,7 +42547,7 @@ class ResultsFormatOptions:
 	def Precision(self):
 		pass
 
-	def RemoveTrailingZeros(self):
+	def RemoveTrailingZeros(self,remove: bool):
 		pass
 
 	def SetContext(self,context: int):
@@ -40057,9 +42566,6 @@ class ResultsFormatOptions:
 		pass
 
 	def SetPrecision(self,precision: int):
-		pass
-
-	def SetRemoveTrailingZeros(self,remove: bool):
 		pass
 
 	def SetUnits(self,units: hwString):
@@ -40178,6 +42684,13 @@ Group of parts which don't move relative to each other and are realized to
       parts (list[Part]) : List of part or parts to remove from the rigid group.
     
 		"""
+		pass
+
+	@property
+	def flexible(self):
+		pass
+	@flexible.setter
+	def flexible(self):
 		pass
 
 	def getAllChildren(self,type=None, **kwds):
@@ -40343,6 +42856,16 @@ Group of parts which don't move relative to each other and are realized to
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -40462,6 +42985,24 @@ Group of parts which don't move relative to each other and are realized to
       **kwds: Set attributes in one go.
     
 		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -40738,6 +43279,16 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -40877,12 +43428,30 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Sets the design space positions of all the inspire parts to their 
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -41035,6 +43604,16 @@ class RotationalDampingTriple:
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -41166,6 +43745,16 @@ class RotationalStiffnessTriple:
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -41179,20 +43768,6 @@ class RotationalStiffnessTriple:
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class Scale:
-	def __init__(self,**kwds):
-		"""
-Implicit Scale Vector creation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class SectionPlane:
@@ -41402,6 +43977,16 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -41483,11 +44068,29 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def thickness(self):
 		pass
 	@thickness.setter
 	def thickness(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -41714,6 +44317,16 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -41788,6 +44401,24 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -41806,20 +44437,6 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Sign:
-	def __init__(self,**kwds):
-		"""
-Implicit sign operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class SimSolidAnalysis:
@@ -41990,6 +44607,20 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
+	def getReactionForces(self,loadCases=None, parts=None):
+		"""
+		Returns the reaction forces for simsolid analysis.
+
+    Args:
+      loadCases (list[LoadCase]): Load Cases to get the reaction forces
+      parts (list[Part]): Parts to get the reaction forces.
+
+    Returns:
+      Dictionary of all the force and moment.
+    
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -42016,6 +44647,16 @@ Run structural analysis using SimSolid
 
     Returns:
       str: Returns the attribute value
+    
+		"""
+		pass
+
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
     
 		"""
 		pass
@@ -42125,6 +44766,17 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -42137,6 +44789,13 @@ Run structural analysis using SimSolid
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -42164,20 +44823,6 @@ Run structural analysis using SimSolid
 		pass
 	@workingDir.setter
 	def workingDir(self):
-		pass
-
-class Sin:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry Sin operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class SingleHole:
@@ -42656,7 +45301,7 @@ Inspire version of the core Sketch class. Redefines the initialization to
 		"""
 		pass
 
-	def circularPattern(self,entities, point, copy, angle, symmetry):
+	def circularPattern(self,entities, point, copy, angle, symmetry, createDimension=True, equalSpacing=False):
 		"""
 		Pattern sketch entities around a point.
 
@@ -42666,6 +45311,8 @@ Inspire version of the core Sketch class. Redefines the initialization to
       copy (int): Number of copies.
       angle (float):Distance between two copies in direction 1.
       symmetry (bool): Symmetry in Direction 1.
+      createDimension (bool): If True, dimension is added otherwise not.
+      equalSpacing (bool): If True, equally space the copies otherwise not.
 
     Returns:
       CircularPattern: CircularPattern Object.
@@ -42777,6 +45424,12 @@ Inspire version of the core Sketch class. Redefines the initialization to
 		"""
 		pass
 
+	def getActive(self):
+		"""
+		Sketch currently being edited in the gui.
+		"""
+		pass
+
 	def getDimensionVariableName(self,dimension):
 		"""
 		Gets the variable of a dimension.
@@ -42852,6 +45505,18 @@ Inspire version of the core Sketch class. Redefines the initialization to
 	def hasSpline(self,uid):
 		"""
 		Returns True if sketch contains a Point with the specified id, False otherwise.
+    
+		"""
+		pass
+
+	def intersect(self,input):
+		"""
+		Extract curves resulting from the intersection of the sketch plane with
+    selected parts or surfaces.
+
+    Args:
+      input (list[Parts | FeaturePlanar]): List of Parts or Features to intersect.
+
     
 		"""
 		pass
@@ -43014,6 +45679,17 @@ Inspire version of the core Sketch class. Redefines the initialization to
 		"""
 		pass
 
+	def project(self,input):
+		"""
+		Project selected geometry onto the sketch plane as construction geometry.
+
+    Args:
+      input (list[Feature]): List of Features to project on sketch.
+
+    
+		"""
+		pass
+
 	def realize(self):
 		"""
 		Return this sketch as an Inspire Part. This allows to do push/pull on it.
@@ -43135,6 +45811,13 @@ Inspire version of the core Sketch class. Redefines the initialization to
 		Evaluates and populates the sketch.
     
 		"""
+		pass
+
+	@property
+	def workplane(self):
+		pass
+	@workplane.setter
+	def workplane(self):
 		pass
 
 class SketchPart:
@@ -43456,6 +46139,16 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def ground(self):
 		pass
@@ -43630,6 +46323,17 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
 		"""
 		Finds and removes holes and pockets, and find raised areas such as lettering.
@@ -43713,6 +46417,26 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 	def transparency(self):
 		pass
 
+	def triangleMeshInfo(self,local=True):
+		"""
+		Returns triangle mesh info (nodes/vertices and elems/facets). For UDB
+    rep, if a part contains solid elems then it returns just outer skin mesh.
+
+    Args:
+      local (bool): If True, It returns nodes//vertices of triangular mesh with
+        local co-ordinates of part otherwise global.
+
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -43740,42 +46464,8 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
-class Smooth:
-	def __init__(self,**kwds):
-		"""
-The Smooth tool is used to reduce the size of, or remove, unwanted small
-  and/or sharp features in an implicit body. It is analogous to �blurring� in
-  digital image processing. It operates by moving a window through the
-  underlying field, performing filtering operations on the field values that
-  fall within the window. Example smoothing filters include Mean, Median,
-  Gaussian and Laplacian. Each of these have relative pros and cons, giving
-  different smoothing effects.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
 class SmoothBatchModeCleanup:
 	def __init__(self):
-		pass
-
-class Sphere:
-	def __init__(self,**kwds):
-		"""
-Create a Spherical implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class Spider:
@@ -43997,6 +46687,16 @@ Creates bonding connection between two or more parts by features separated
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -44100,6 +46800,24 @@ Creates bonding connection between two or more parts by features separated
       **kwds: Set attributes in one go.
     
 		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -44325,6 +47043,16 @@ Spot welds two or more parts together.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -44420,6 +47148,24 @@ Spot welds two or more parts together.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -44445,51 +47191,6 @@ Spot welds two or more parts together.
 		pass
 	@weldGroup.setter
 	def weldGroup(self):
-		pass
-
-class Sqrt:
-	def __init__(self,**kwds):
-		"""
-Implicit sqrt operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Step:
-	def __init__(self,**kwds):
-		"""
-Implicit step operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class StochasticStrutLattice:
-	def __init__(self,**kwds):
-		"""
-Stochastic lattice is built by thickening a point-edge set, which is a
-  graph of points that are connected by edges. If the points are randomly
-  arranged and/or the edges between them are randomly created, this creates a
-  stochastic (randomized) lattice structure.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class String:
@@ -44640,6 +47341,16 @@ Store string value
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -44653,62 +47364,6 @@ Store string value
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class StringImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-str
-"""
-		pass
-
-class StrutLattice:
-	def __init__(self,**kwds):
-		"""
-Strut lattices are constructed from nodes and these nodes are connected
-  by beams. Typically, there is a base unit cell that is tiled/patterned in
-  one, two, or three dimensions to form the overall lattices structure. A
-  popular example is the Body Centred Cubic lattice.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class Subtract:
-	def __init__(self,**kwds):
-		"""
-Implicit Subtract operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class SurfaceLattice:
-	def __init__(self,**kwds):
-		"""
-Surface lattices are cellular structures constructed from one or
-  sometimes two surfaces. Rather than tiling/patterning a base unit cell, the
-  natural repetition of the surfaces creates a lattice-like structure
-  automatically. Popular examples are Triply Periodic Minimal Surfaces (TPMS),
-  such as the Gyroid.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class SymmetryConstraint:
@@ -44966,6 +47621,16 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -45077,6 +47742,18 @@ Symmetry and Cyclic Shape Controls.
 	def sectors(self):
 		pass
 
+	def setPlaneNormal(self,planeType, normal):
+		"""
+		Sets the plane normal local to the occurrence.
+
+    Args:
+      planeType (str): Plane type will be FIRST_PLANE or SECOND_PLANE or
+        THIRD_PLANE etc.
+      normal (math.Vector): Normal Vector.
+    
+		"""
+		pass
+
 	def setSystem(self,system):
 		"""
 		Associate system to a boundary condition.
@@ -45112,6 +47789,17 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -45125,6 +47813,13 @@ Symmetry and Cyclic Shape Controls.
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -45334,6 +48029,16 @@ Information about an optimization
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	@property
 	def imported(self):
 		pass
@@ -45415,6 +48120,17 @@ Information about an optimization
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -45427,6 +48143,13 @@ Information about an optimization
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -45645,6 +48368,16 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -45722,7 +48455,7 @@ System defines an orthonormal, right-handed coordinate system.
 	def position(self):
 		pass
 
-	def roatate(self,angle, axis="X"):
+	def rotate(self,angle, axis="X"):
 		"""
 		Rotate system along given axis at given angle.
 
@@ -45761,11 +48494,29 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
 	@type.setter
 	def type(self):
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -45786,27 +48537,6 @@ System defines an orthonormal, right-handed coordinate system.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Tan:
-	def __init__(self,**kwds):
-		"""
-Implicit Trigonometry Tan operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class TargetsImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-list[ImplicitBody]
-"""
 		pass
 
 class Temperature:
@@ -46047,6 +48777,16 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -46186,12 +48926,30 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Sets the design space positions of all the inspire parts to their 
     position in the current analysis frame.    
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -46212,13 +48970,6 @@ Creates temperature load on supplied parts.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class ToolsImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-list[ImplicitBody]
-"""
 		pass
 
 class TopographyAndGaugeOptimization:
@@ -46419,6 +49170,16 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Shape Explorer.
@@ -46527,6 +49288,17 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -46545,6 +49317,13 @@ Concurrently run a topography and gauge optimization.
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -46776,6 +49555,16 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Shape Explorer.
@@ -46884,6 +49673,17 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -46902,6 +49702,13 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -47131,6 +49938,16 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importResults(self,showExplorer=True):
 		"""
 		Make results available in the Shape Explorer.
@@ -47239,6 +50056,17 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -47257,6 +50085,13 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -47525,6 +50360,16 @@ A torque is a twisting force.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def importLoads(self,csvFile):
 		"""
 		Imports boundary conditions to the active model from a csv file.
@@ -47671,10 +50516,28 @@ A torque is a twisting force.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
 	def updatePosition(self,m44):
 		"""
 		Update the position by multiplying input M44 matrix.
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
 		pass
 
 	@property
@@ -47695,20 +50558,6 @@ A torque is a twisting force.
       bool: True, if value was set else false.
     
 		"""
-		pass
-
-class Torus:
-	def __init__(self,**kwds):
-		"""
-Create a Torus implicit body.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
 		pass
 
 class TranslationalDampingTriple:
@@ -47823,6 +50672,16 @@ class TranslationalDampingTriple:
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -47954,6 +50813,16 @@ class TranslationalStiffnessTriple:
       prop (hwt::Property): Property Editor interface.
       component (int): 0, 1, 2
         Only passed when showing Triples 1 value at a time.
+    
+		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
     
 		"""
 		pass
@@ -48095,6 +50964,16 @@ Store 3 float values.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -48108,20 +50987,6 @@ Store 3 float values.
 		pass
 
 	def usingUnits(self,units):
-		pass
-
-class TrippleListImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-list[math.Point]
-"""
-		pass
-
-class UnitlessFloatDataImplicit:
-	def __init__(self,cppName: str="",doc: str=""):
-		"""
-float
-"""
 		pass
 
 class Units:
@@ -48246,6 +51111,12 @@ Utility class used to convert values from one set of units to another.
     Returns:
       float: The converted value.
     
+		"""
+		pass
+
+	def getAllUnits(self):
+		"""
+		Returns all the unit formulas for given unit system.
 		"""
 		pass
 
@@ -48650,6 +51521,9 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def setGuiValue(self,obj, value, component):
+		pass
+
 	def setInCoreValue(self,obj, value):
 		pass
 
@@ -48952,10 +51826,7 @@ class Variable:
 	def getDisplayName(self,obj):
 		pass
 
-	def getGuiValue(self,obj, **kwds):
-		"""
-		Returns the formatted variable value, as shown in the Property Editor.
-		"""
+	def getGuiValue(self,obj, format="modeling"):
 		pass
 
 	def getInCoreValue(self,obj):
@@ -48983,19 +51854,6 @@ class Variable:
 		pass
 
 	def populateGuiValue(self,obj, prop):
-		"""
-		Override to customize, prop.value, displayValue, allowedValues.
-    
-    The prop.value type determines which editor widget used:
-    - bool -> checkbox
-    - str  -> line edit
-    - hwtypes.Color -> color picker
-    
-    Setting prop.allowedValues yields a ComboBox.
-    
-    prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
 		pass
 
 	def populatePropertyEditor(self,obj, prop, **kwds):
@@ -49009,6 +51867,9 @@ class Variable:
         Only passed when showing Triples 1 value at a time.
     
 		"""
+		pass
+
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -49031,27 +51892,6 @@ class Variable:
 		pass
 	@varName.setter
 	def varName(self):
-		pass
-
-class VectorElement:
-	def __init__(self,**kwds):
-		"""
-Implicit vector element operation.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class WeightsImplicit:
-	def __init__(self,cppName,units: str="length",doc: str=""):
-		"""
-list[Float]
-"""
 		pass
 
 class WeldGroup:
@@ -49255,6 +52095,16 @@ Group of Welds.
 		"""
 		pass
 
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
@@ -49336,6 +52186,24 @@ Group of Welds.
 		"""
 		pass
 
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
 	@property
 	def visible(self):
 		pass
@@ -49368,48 +52236,6 @@ class XAXIS:
 A mathematical represenation of a Vector in 3D space.
 """
 	pass
-
-class XRef:
-	def __init__(self,**kwds):
-		"""
-Implicit X Reference.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class YRef:
-	def __init__(self,**kwds):
-		"""
-Implicit Y Reference.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
-
-class ZRef:
-	def __init__(self,**kwds):
-		"""
-Implicit Z Reference.
-  
-"""
-		pass
-
-	def getParameters(self):
-		pass
-
-	def store(self):
-		pass
 
 class abc:
 	"""
@@ -49513,9 +52339,6 @@ def contextmanager(func):
 """
 	pass
 
-def convertToBaseUnit(value,unit: str="length"):
-	pass
-
 def convertToTriangleMesh(parts):
 	"""
 Convert Parts to triangle mesh.
@@ -49523,60 +52346,6 @@ Convert Parts to triangle mesh.
   Args:
     parts (list[Part]): Parts to be converted in triangle mesh.
   
-"""
-	pass
-
-class copy:
-	"""
-Generic (shallow and deep) copying operations.
-
-Interface summary:
-
-        import copy
-
-        x = copy.copy(y)        # make a shallow copy of y
-        x = copy.deepcopy(y)    # make a deep copy of y
-
-For module specific errors, copy.Error is raised.
-
-The difference between shallow and deep copying is only relevant for
-compound objects (objects that contain other objects, like lists or
-class instances).
-
-- A shallow copy constructs a new compound object and then (to the
-  extent possible) inserts *the same objects* into it that the
-  original contains.
-
-- A deep copy constructs a new compound object and then, recursively,
-  inserts *copies* into it of the objects found in the original.
-
-Two problems often exist with deep copy operations that don't exist
-with shallow copy operations:
-
- a) recursive objects (compound objects that, directly or indirectly,
-    contain a reference to themselves) may cause a recursive loop
-
- b) because deep copy copies *everything* it may copy too much, e.g.
-    administrative data structures that should be shared even between
-    copies
-
-Python's deep copy operation avoids these problems by:
-
- a) keeping a table of objects already copied during the current
-    copying pass
-
- b) letting user-defined classes override the copying operation or the
-    set of components copied
-
-This version does not copy types like module, class, function, method,
-nor stack trace, stack frame, nor file, socket, window, nor array, nor
-any similar types.
-
-Classes can use the same interfaces to control copying that they use
-to control pickling: they can define methods called __getinitargs__(),
-__getstate__() and __setstate__().  See the documentation for module
-"pickle" for information on these methods.
-
 """
 	pass
 
@@ -49682,6 +52451,12 @@ def getClient():
 def getCurrentResultsExplorer():
 	"""
  Get the active Results Explorer object or None 
+"""
+	pass
+
+def getInfoFromLastVariableChange():
+	"""
+Returns object modified/Created when the variable value change.
 """
 	pass
 
@@ -49821,104 +52596,6 @@ Temporarily make objects stand out, particularly useful to see features.
 class hwcont:
 	pass
 
-class hwfdmImplicitEditIface:
-	def __init__(self,other: hwfdmImplicitEditIface):
-		pass
-
-	def AddNewObject(self,*args):
-		pass
-
-	def EndEdit(self,accept: bool):
-		pass
-
-	def EraseObject(self,obj: hwfdmImplicitGeomObject, eraseChildren: bool = True):
-		pass
-
-	def FindObjectByCompoundId(self,id: hwString):
-		pass
-
-	def GetAllObjects(self,objects: hwfdmImplicitGeomObjectCollection, onlyValid: bool):
-		pass
-
-	def GetBodies(self,bodies: hwfdmImplicitGeomObjectCollection):
-		pass
-
-	def GetBodiesFromFeatureAreas(self,featureAreas: hwfdmFeatureAreaCollection, bodies: hwfdmImplicitGeomObjectCollection):
-		pass
-
-	def GetGraphicsInfo(self):
-		pass
-
-	def GetInstance(self,*args):
-		pass
-
-	def GetPart(self):
-		pass
-
-	def GetUniversalIdentifier(self,occurrence: hwfdmOccurrence):
-		pass
-
-	def GetVoxelSize(self):
-		pass
-
-	def HackyDoo(self):
-		pass
-
-	def HideBody(self,body: hwfdmImplicitGeomObject):
-		pass
-
-	def IsOpenedForEdit(self):
-		pass
-
-	def ModifyObject(self,*args):
-		pass
-
-	def OpenForEdit(self):
-		pass
-
-	def OpenMathObject(self,uuid: hwString):
-		pass
-
-	def RemoveTransformFromObject(self,obj: hwfdmImplicitGeomObject):
-		pass
-
-	def ResetObjectName(self,obj: hwfdmImplicitGeomObject, newName: hwString):
-		pass
-
-	def SaveMultifabPartID(self,partID: int , voidID: int , voxelSize: float , bounds: hwBox3d, fn: hwString):
-		pass
-
-	def SaveMultifabSDF(self,voxelSize: float , bounds: hwBox3d, fn: hwString):
-		pass
-
-	def SaveXML(self,fn: hwString):
-		pass
-
-	def SetBodyColor(self,body: hwfdmImplicitGeomObject, rgb: hwTriple, alpha: float):
-		pass
-
-	def SetObjectLocalTransform(self,obj: hwfdmImplicitGeomObject, transformInput: DirectImplicitTransformInputBase):
-		pass
-
-	def SetObjectTransform(self,obj: hwfdmImplicitGeomObject, transformInput: DirectImplicitTransformInputBase):
-		pass
-
-	def SetVoxelSize(self,voxelSize: float):
-		pass
-
-	def ShowBody(self,body: hwfdmImplicitGeomObject):
-		pass
-
-	def ShowHideToggleBody(self,body: hwfdmImplicitGeomObject):
-		pass
-
-	@property
-	def thisown(self):
-		pass
-	@thisown.setter
-	def thisown(self):
-		pass
-
 class hwfdmcore:
 	pass
 
@@ -50033,9 +52710,6 @@ class ipMgr:
 	def CreateCircularPattern(self):
 		pass
 
-	def CreateCloseHoles(self):
-		pass
-
 	def CreateConvertToGeometry(self):
 		pass
 
@@ -50045,7 +52719,13 @@ class ipMgr:
 	def CreateConvertToTriangleMesh(self):
 		pass
 
+	def CreateDeform(self):
+		pass
+
 	def CreateDeleteAssemblies(self):
+		pass
+
+	def CreateDeleteFace(self):
 		pass
 
 	def CreateDeleteParts(self):
@@ -50123,6 +52803,9 @@ class ipMgr:
 	def CreateMove(self):
 		pass
 
+	def CreateMove2(self):
+		pass
+
 	def CreateMultiSweep(self):
 		pass
 
@@ -50148,6 +52831,9 @@ class ipMgr:
 		pass
 
 	def CreatePatch(self):
+		pass
+
+	def CreatePatch2(self):
 		pass
 
 	def CreatePatternAlongCurve(self):
@@ -50207,6 +52893,9 @@ class ipMgr:
 	def CreateShrinkwrap(self):
 		pass
 
+	def CreateSimplifyCurves(self):
+		pass
+
 	def CreateSimplifyHoles(self):
 		pass
 
@@ -50247,6 +52936,9 @@ class ipMgr:
 		pass
 
 	def CreateSpunOutline(self):
+		pass
+
+	def CreateSurfaceIntersection(self):
 		pass
 
 	def CreateSweep(self):
@@ -50581,6 +53273,117 @@ Shows an error or warning in the inspire.gui.ProblemDialog.
 """
 	pass
 
+class re:
+	"""
+Support for regular expressions (RE).
+
+This module provides regular expression matching operations similar to
+those found in Perl.  It supports both 8-bit and Unicode strings; both
+the pattern and the strings being processed can contain null bytes and
+characters outside the US ASCII range.
+
+Regular expressions can contain both special and ordinary characters.
+Most ordinary characters, like "A", "a", or "0", are the simplest
+regular expressions; they simply match themselves.  You can
+concatenate ordinary characters, so last matches the string 'last'.
+
+The special characters are:
+    "."      Matches any character except a newline.
+    "^"      Matches the start of the string.
+    "$"      Matches the end of the string or just before the newline at
+             the end of the string.
+    "*"      Matches 0 or more (greedy) repetitions of the preceding RE.
+             Greedy means that it will match as many repetitions as possible.
+    "+"      Matches 1 or more (greedy) repetitions of the preceding RE.
+    "?"      Matches 0 or 1 (greedy) of the preceding RE.
+    *?,+?,?? Non-greedy versions of the previous three special characters.
+    {m,n}    Matches from m to n repetitions of the preceding RE.
+    {m,n}?   Non-greedy version of the above.
+    "\\"     Either escapes special characters or signals a special sequence.
+    []       Indicates a set of characters.
+             A "^" as the first character indicates a complementing set.
+    "|"      A|B, creates an RE that will match either A or B.
+    (...)    Matches the RE inside the parentheses.
+             The contents can be retrieved or matched later in the string.
+    (?aiLmsux) The letters set the corresponding flags defined below.
+    (?:...)  Non-grouping version of regular parentheses.
+    (?P<name>...) The substring matched by the group is accessible by name.
+    (?P=name)     Matches the text matched earlier by the group named name.
+    (?#...)  A comment; ignored.
+    (?=...)  Matches if ... matches next, but doesn't consume the string.
+    (?!...)  Matches if ... doesn't match next.
+    (?<=...) Matches if preceded by ... (must be fixed length).
+    (?<!...) Matches if not preceded by ... (must be fixed length).
+    (?(id/name)yes|no) Matches yes pattern if the group with id/name matched,
+                       the (optional) no pattern otherwise.
+
+The special sequences consist of "\\" and a character from the list
+below.  If the ordinary character is not on the list, then the
+resulting RE will match the second character.
+    \number  Matches the contents of the group of the same number.
+    \A       Matches only at the start of the string.
+    \Z       Matches only at the end of the string.
+    \b       Matches the empty string, but only at the start or end of a word.
+    \B       Matches the empty string, but not at the start or end of a word.
+    \d       Matches any decimal digit; equivalent to the set [0-9] in
+             bytes patterns or string patterns with the ASCII flag.
+             In string patterns without the ASCII flag, it will match the whole
+             range of Unicode digits.
+    \D       Matches any non-digit character; equivalent to [^\d].
+    \s       Matches any whitespace character; equivalent to [ \t\n\r\f\v] in
+             bytes patterns or string patterns with the ASCII flag.
+             In string patterns without the ASCII flag, it will match the whole
+             range of Unicode whitespace characters.
+    \S       Matches any non-whitespace character; equivalent to [^\s].
+    \w       Matches any alphanumeric character; equivalent to [a-zA-Z0-9_]
+             in bytes patterns or string patterns with the ASCII flag.
+             In string patterns without the ASCII flag, it will match the
+             range of Unicode alphanumeric characters (letters plus digits
+             plus underscore).
+             With LOCALE, it will match the set [0-9_] plus characters defined
+             as letters for the current locale.
+    \W       Matches the complement of \w.
+    \\       Matches a literal backslash.
+
+This module exports the following functions:
+    match     Match a regular expression pattern to the beginning of a string.
+    fullmatch Match a regular expression pattern to all of a string.
+    search    Search a string for the presence of a pattern.
+    sub       Substitute occurrences of a pattern found in a string.
+    subn      Same as sub, but also return the number of substitutions made.
+    split     Split a string by the occurrences of a pattern.
+    findall   Find all occurrences of a pattern in a string.
+    finditer  Return an iterator yielding a Match object for each match.
+    compile   Compile a pattern into a Pattern object.
+    purge     Clear the regular expression cache.
+    escape    Backslash all non-alphanumerics in a string.
+
+Each function other than purge and escape can take an optional 'flags' argument
+consisting of one or more of the following module constants, joined by "|".
+A, L, and U are mutually exclusive.
+    A  ASCII       For string patterns, make \w, \W, \b, \B, \d, \D
+                   match the corresponding ASCII character categories
+                   (rather than the whole Unicode categories, which is the
+                   default).
+                   For bytes patterns, this flag is the only available
+                   behaviour and needn't be specified.
+    I  IGNORECASE  Perform case-insensitive matching.
+    L  LOCALE      Make \w, \W, \b, \B, dependent on the current locale.
+    M  MULTILINE   "^" matches the beginning of lines (after a newline)
+                   as well as the string.
+                   "$" matches the end of lines (before a newline) as well
+                   as the end of the string.
+    S  DOTALL      "." matches any character at all, including the newline.
+    X  VERBOSE     Ignore whitespace and comments for nicer looking RE's.
+    U  UNICODE     For compatibility only. Ignored for string patterns (it
+                   is the default), and forbidden for bytes patterns.
+
+This module also defines an exception 'error'.
+
+
+"""
+	pass
+
 def redrawView(processEvents=False):
 	"""
 Forces a redraw of the active graphics window.
@@ -50853,7 +53656,7 @@ Get or set data model values in specified unit system.
       base: The default units when none is specified (MKS).
       gui: User selected units for display in the gui.
       solver: Used for converting numbers when exporting to a solver.
-        Comes from: inspire.getSetting("Inspire/Units/Units/Model units")
+        Comes from: inspire.getSetting("Unity/Mbd/Run Options/Run Options/Solver units")
       MKS, CGS, IPS,...: Name of system.
         See inspire.getUnits().gui.getSystemNames() for all options.
 
@@ -50864,7 +53667,7 @@ Get or set data model values in specified unit system.
 	pass
 
 class virtualMethodDecorator:
-	def __init__(self,default=None,exceptions: str="(<class Exception>,)"):
+	def __init__(self,default=None,exceptions: str=("<class Exception>")):
 		"""
 Decorate overloaded virtual methods to handle Python Exceptions
 

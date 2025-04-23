@@ -338,6 +338,20 @@ A 4x4 orthonormal Matrix.
 		"""
 		pass
 
+	@property
+	def phi(self):
+		pass
+	@phi.setter
+	def phi(self):
+		pass
+
+	@property
+	def psi(self):
+		pass
+	@psi.setter
+	def psi(self):
+		pass
+
 	def pt(self,x, y=None, z=None):
 		"""
 		Multiplies with a Point.
@@ -485,6 +499,13 @@ A 4x4 orthonormal Matrix.
       Matrix44: A reference to the instance Matrix44 object on which it was called.
     
 		"""
+		pass
+
+	@property
+	def theta(self):
+		pass
+	@theta.setter
+	def theta(self):
 		pass
 
 	def translate(self,x="0", y=None, z=None):

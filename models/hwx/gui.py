@@ -1,64 +1,73 @@
 from typing import TypeVar
-var0=TypeVar('uiAction',str)
-var1=TypeVar('uiActionList',str)
-var2=TypeVar('uiWidget',str)
-var3=TypeVar('char const *',str)
-var4=TypeVar('uiPoint',str)
-var5=TypeVar('hwTSignal',str)
-var6=TypeVar('bool const',str)
-var7=TypeVar('uiObject',str)
-var8=TypeVar('unsigned int',str)
-var9=TypeVar('uiWidget::GeomMgrStartXHintEnum',str)
-var10=TypeVar('uiRect',str)
-var11=TypeVar('ui::InputMethodQuery',str)
-var12=TypeVar('uiStringList',str)
-var13=TypeVar('hwString const &',str)
-var14=TypeVar('uiPaintEvent',str)
-var15=TypeVar('uiString',str)
-var16=TypeVar('ui::Alignment',str)
-var17=TypeVar('uiColorGroup::ColorRole',str)
-var18=TypeVar('uiWidget::BadgeAlignmentEnum',str)
-var19=TypeVar('hwt::Color const &',str)
-var20=TypeVar('ui::ContextMenuPolicy',str)
-var21=TypeVar('uiCursor',str)
-var22=TypeVar('uiSize',str)
-var23=TypeVar('uiPixmap',str)
-var24=TypeVar('uiWidget::FocusPolicyEnum',str)
-var25=TypeVar('hwt::Font const &',str)
-var26=TypeVar('uiFrame::Shadow',str)
-var27=TypeVar('uiFrame::Shape',str)
-var28=TypeVar('uiLayout',str)
-var29=TypeVar('uiBitmap',str)
-var30=TypeVar('ui::BackgroundMode',str)
-var31=TypeVar('uiPalette',str)
-var32=TypeVar('ui::WindowModality',str)
-var33=TypeVar('double',str)
-var34=TypeVar('QWidget',str)
-var35=TypeVar('bool *',str)
-var36=TypeVar('std::vector< hwString >::value_type const &',str)
-var37=TypeVar('std::vector< hwString >::size_type',str)
-var38=TypeVar('_hwStringList_vector',str)
-var39=TypeVar('uiModelIndex',str)
-var40=TypeVar('uiPainter',str)
-var41=TypeVar('uiAbstractItemView::SelectionFlag',str)
-var42=TypeVar('uiAbstractItemView::DragDropModeEnum',str)
-var43=TypeVar('uiAbstractItemView::EditTriggersType',str)
-var44=TypeVar('uiAbstractItemDelegate',str)
+var0=TypeVar('char const *',str)
+var1=TypeVar('hwTSignal',str)
+var2=TypeVar('bool const',str)
+var3=TypeVar('uiObject',str)
+var4=TypeVar('uiButton',str)
+var5=TypeVar('hwString const &',str)
+var6=TypeVar('uiString',str)
+var7=TypeVar('uiAction',str)
+var8=TypeVar('uiActionList',str)
+var9=TypeVar('uiWidget',str)
+var10=TypeVar('uiPoint',str)
+var11=TypeVar('unsigned int',str)
+var12=TypeVar('uiWidget::GeomMgrStartXHintEnum',str)
+var13=TypeVar('uiRect',str)
+var14=TypeVar('ui::InputMethodQuery',str)
+var15=TypeVar('uiStringList',str)
+var16=TypeVar('uiPaintEvent',str)
+var17=TypeVar('ui::Alignment',str)
+var18=TypeVar('ui::WidgetFlags',str)
+var19=TypeVar('uiColorGroup::ColorRole',str)
+var20=TypeVar('uiWidget::BadgeAlignmentEnum',str)
+var21=TypeVar('hwt::Color const &',str)
+var22=TypeVar('ui::ContextMenuPolicy',str)
+var23=TypeVar('uiCursor',str)
+var24=TypeVar('uiSize',str)
+var25=TypeVar('uiPixmap',str)
+var26=TypeVar('uiWidget::FocusPolicyEnum',str)
+var27=TypeVar('hwt::Font const &',str)
+var28=TypeVar('uiFrame::Shadow',str)
+var29=TypeVar('uiFrame::Shape',str)
+var30=TypeVar('uiLayout',str)
+var31=TypeVar('uiBitmap',str)
+var32=TypeVar('ui::BackgroundMode',str)
+var33=TypeVar('uiPalette',str)
+var34=TypeVar('ui::WindowModality',str)
+var35=TypeVar('double',str)
+var36=TypeVar('QWidget',str)
+var37=TypeVar('bool *',str)
+var38=TypeVar('uiModelIndex',str)
+var39=TypeVar('uiMimeData',str)
+var40=TypeVar('ui::DropAction',str)
+var41=TypeVar('ui::Orientation',str)
+var42=TypeVar('uiModelIndexList',str)
+var43=TypeVar('ui::CaseSensitivity',str)
+var44=TypeVar('uiRegExp',str)
 var45=TypeVar('uiAbstractItemModel',str)
-var46=TypeVar('uiAbstractItemView::SelectionBehaviorType',str)
-var47=TypeVar('uiAbstractItemView::SelectionModeType',str)
-var48=TypeVar('ui::Orientation',str)
-var49=TypeVar('uiSortFilterHandler *',str)
-var50=TypeVar('QModelIndex const &',str)
-var51=TypeVar('Object',str)
-var52=TypeVar('ObjectList',str)
-var53=TypeVar('Property',str)
-var54=TypeVar('VariantList',str)
-var55=TypeVar('FileElement',str)
-var56=TypeVar('size_t',str)
-var57=TypeVar('bool const &',str)
-var58=TypeVar('Variant',str)
-var59=TypeVar('ObjectRenderer',str)
+var46=TypeVar('QAbstractItemModel &',str)
+var47=TypeVar('uiLayoutItem',str)
+var48=TypeVar('std::vector< hwString >::value_type const &',str)
+var49=TypeVar('std::vector< hwString >::size_type',str)
+var50=TypeVar('_hwStringList_vector',str)
+var51=TypeVar('uiPainter',str)
+var52=TypeVar('uiAbstractItemView::SelectionFlag',str)
+var53=TypeVar('uiAbstractItemView::DragDropModeEnum',str)
+var54=TypeVar('uiAbstractItemView::EditTriggersType',str)
+var55=TypeVar('uiAbstractItemDelegate',str)
+var56=TypeVar('uiAbstractItemView::SelectionBehaviorType',str)
+var57=TypeVar('uiAbstractItemView::SelectionModeType',str)
+var58=TypeVar('uiSortFilterHandler *',str)
+var59=TypeVar('QModelIndex const &',str)
+var60=TypeVar('Object',str)
+var61=TypeVar('ObjectList',str)
+var62=TypeVar('Property',str)
+var63=TypeVar('VariantList',str)
+var64=TypeVar('FileElement',str)
+var65=TypeVar('size_t',str)
+var66=TypeVar('bool const &',str)
+var67=TypeVar('Variant',str)
+var68=TypeVar('ObjectRenderer',str)
 
 class Action:
 	def __init__(self,parent=None,name: str="", **kwds):
@@ -967,6 +976,9 @@ class Bool:
 	def init(self,i, name):
 		pass
 
+	def less_than(self,lhs, rhs):
+		pass
+
 	def setProperty(self,prop, row):
 		pass
 
@@ -1339,7 +1351,7 @@ A PushButton.
 		pass
 
 class ButtonBase:
-	def __init__(self):
+	def __init__(self,*args):
 		"""
 Abstract base class for all buttons.
 """
@@ -1649,7 +1661,7 @@ Abstract base class for all buttons.
 		pass
 
 class ButtonGroup:
-	def __init__(self,buttons, **kwds):
+	def __init__(self,buttons):
 		"""
 A ButtonGroup is a group of mutually exclusive buttons.
 
@@ -1658,246 +1670,203 @@ A ButtonGroup is a group of mutually exclusive buttons.
 """
 		pass
 
-	@property
-	def active(self):
-		pass
-	@active.setter
-	def active(self):
+	def AdvancedToolTipId(self):
 		pass
 
-	def addChildren(self,children):
-		"""
-		Add child widgets/layouts into this widget.
-    
-    Widget children get layed out using a VBoxLayout.
-
-    Typically, you'll pass the parent/children into the constructor instead of
-    calling this function directly.
-
-    Args:
-      children (list[Widget] | Layout)
-    
-		"""
+	def AsConcreteListener(self):
 		pass
 
-	@property
-	def advancedTooltip(self):
-		pass
-	@advancedTooltip.setter
-	def advancedTooltip(self):
+	def AsListener(self):
 		pass
 
-	@property
-	def children(self):
-		pass
-	@children.setter
-	def children(self):
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
 		pass
 
-	@property
-	def command(self):
-		pass
-	@command.setter
-	def command(self):
+	def Children(self):
 		pass
 
-	@property
-	def descendents(self):
-		pass
-	@descendents.setter
-	def descendents(self):
+	def ClassName(self):
 		pass
 
-	def destroy(self):
-		"""
-		Deletes this and all its children.
-		"""
+	def Color0(self):
 		pass
 
-	def enableGlobalActions(self,enable):
-		"""
-		Sets the state of Global Actions.
-
-    Disable the global actions to get key events.
-
-    Args:
-      enable (bool): Determines whether to enable or disable global actions.
-    
-		"""
+	def Color1(self):
 		pass
 
-	@property
-	def enabled(self):
-		pass
-	@enabled.setter
-	def enabled(self):
+	def ColorBlack(self):
 		pass
 
-	@property
-	def font(self):
-		pass
-	@font.setter
-	def font(self):
+	def ColorBlue(self):
 		pass
 
-	def get(self):
+	def ColorCyan(self):
 		pass
 
-	def getMousePosition(self):
-		"""
-		Returns the mouse position.
-		"""
+	def ColorDarkBlue(self):
 		pass
 
-	def getRelativeMousePosition(self):
-		"""
-		Returns the mouse position relative to this widget.
-		"""
+	def ColorDarkCyan(self):
 		pass
 
-	@property
-	def height(self):
-		pass
-	@height.setter
-	def height(self):
+	def ColorDarkGray(self):
 		pass
 
-	@property
-	def helpTopic(self):
-		pass
-	@helpTopic.setter
-	def helpTopic(self):
+	def ColorDarkGreen(self):
 		pass
 
-	def hide(self):
-		"""
-		Hides the widget.
-		"""
+	def ColorDarkMagenta(self):
 		pass
 
-	@property
-	def layout(self):
-		pass
-	@layout.setter
-	def layout(self):
+	def ColorDarkRed(self):
 		pass
 
-	@property
-	def maximumHeight(self):
-		pass
-	@maximumHeight.setter
-	def maximumHeight(self):
+	def ColorDarkYellow(self):
 		pass
 
-	@property
-	def maximumWidth(self):
-		pass
-	@maximumWidth.setter
-	def maximumWidth(self):
+	def ColorGray(self):
 		pass
 
-	@property
-	def minimumHeight(self):
-		pass
-	@minimumHeight.setter
-	def minimumHeight(self):
+	def ColorGreen(self):
 		pass
 
-	@property
-	def minimumWidth(self):
-		pass
-	@minimumWidth.setter
-	def minimumWidth(self):
+	def ColorLightGray(self):
 		pass
 
-	@property
-	def name(self):
-		pass
-	@name.setter
-	def name(self):
+	def ColorMagenta(self):
 		pass
 
-	def onCommand(self,event=None):
+	def ColorRed(self):
 		pass
 
-	@property
-	def parent(self):
-		pass
-	@parent.setter
-	def parent(self):
+	def ColorTransparent(self):
 		pass
 
-	def saveAsPng(self,fname):
-		"""
-		Saves the widget as a .png file.
-
-    Args:
-      fname (str): The file name for the .png
-
-    Returns:
-      bool : True if it was saved succesfully, False otherwise. 
-    
-		"""
+	def ColorWhite(self):
 		pass
 
-	def set(self,v):
+	def ColorYellow(self):
 		pass
 
-	def setF1HelpTopic(self,helptopic):
-		"""
-		Popup web-browser helps when the user hits F1 when over this.
-
-    Args:
-      helptopic (str): Topic name user needs help in.
-    
-		"""
+	def Count(self):
 		pass
 
-	def setProperties(self,kwds):
-		"""
-		Internal method called from constructors.
-		"""
+	def DeleteLater(self):
 		pass
 
-	def show(self):
-		"""
-		Shows the widget.
-		"""
+	def Disconnect(self,sender: var1, force: var2 = False):
+		pass
+
+	def DisconnectAll(self,force: var2 = False):
+		pass
+
+	def DownCast(self,o: var3):
+		pass
+
+	def EventInfo(self):
+		pass
+
+	def Find(self,id: int):
+		pass
+
+	def Id(self,button: var4):
+		pass
+
+	def Insert(self,button: var4, id: int = -1):
+		pass
+
+	def IsA(self,classType: var0):
+		pass
+
+	def IsChildOf(self,parent: var3):
+		pass
+
+	def IsExclusive(self):
+		pass
+
+	def IsRadioButtonExclusive(self):
+		pass
+
+	def IsWidgetType(self):
+		pass
+
+	def Name(self):
+		pass
+
+	def ObjectFromUUID(self,uuid: var5):
+		pass
+
+	def OnAboutToShowAdvancedToolTip(self):
+		pass
+
+	def OnClick(self):
+		pass
+
+	def OnDebugMessage(self):
+		pass
+
+	def OnDestroy(self):
+		pass
+
+	def OnDestroyItem(self):
+		pass
+
+	def OnFatalMessage(self):
+		pass
+
+	def OnPress(self):
+		pass
+
+	def OnRelease(self):
+		pass
+
+	def OnTraceMessage(self):
+		pass
+
+	def Parent(self):
+		pass
+
+	def Remove(self,button: var4):
+		pass
+
+	def Selected(self):
+		pass
+
+	def SelectedId(self):
+		pass
+
+	def Sender(self):
+		pass
+
+	def SetAdvancedToolTipId(self,uuid: var6):
+		pass
+
+	def SetButton(self,id: int):
+		pass
+
+	def SetExclusive(self,arg0: bool):
+		pass
+
+	def SetName(self,name: var6):
+		pass
+
+	def SetRadioButtonExclusive(self,arg0: bool):
+		pass
+
+	def SetUUID(self,uuid: var5):
+		pass
+
+	def SignalName(self,*args):
+		pass
+
+	def UUID(self):
 		pass
 
 	@property
-	def size(self):
+	def thisown(self):
 		pass
-	@size.setter
-	def size(self):
-		pass
-
-	@property
-	def tooltip(self):
-		pass
-	@tooltip.setter
-	def tooltip(self):
-		pass
-
-	@property
-	def value(self):
-		pass
-	@value.setter
-	def value(self):
-		pass
-
-	@property
-	def visible(self):
-		pass
-	@visible.setter
-	def visible(self):
-		pass
-
-	@property
-	def width(self):
-		pass
-	@width.setter
-	def width(self):
+	@thisown.setter
+	def thisown(self):
 		pass
 
 class CheckBox:
@@ -2456,6 +2425,9 @@ class Col:
 		pass
 
 	def init(self,i, name):
+		pass
+
+	def less_than(self,lhs, rhs):
 		pass
 
 	def setProperty(self,prop, row):
@@ -3520,7 +3492,7 @@ A Frame containing a ComboBox and subframes associated with each value
 		pass
 
 class Container:
-	def __init__(self):
+	def __init__(self,*args):
 		"""
 Base class for all Dialog, ActionDialog, DockWindow, MicroDialog and GuideBar.
   
@@ -3785,13 +3757,13 @@ A Dialog that prompts for read/write csv file names.
 """
 		pass
 
-	def getOpenFileName(self,filter: str="Comma Separated Values *.csv", remember:str="write_csv", **kwds):
+	def getOpenFileName(self,filter: str="Comma Separated Values *.csv", remember:  str="write_csv", **kwds):
 		"""
 		Returns the csv filename opened.
 		"""
 		pass
 
-	def getSaveFileName(self,filter: str="Comma Separated Values *.csv", remember:str="write_csv", **kwds):
+	def getSaveFileName(self,filter: str="Comma Separated Values *.csv", remember:  str="write_csv", **kwds):
 		"""
 		Returns the csv filename saved.
 		"""
@@ -4168,7 +4140,7 @@ A top-level window mostly used for short-term tasks and brief communications
 		pass
 
 class DialogBase:
-	def __init__(self):
+	def __init__(self,*args):
 		pass
 
 	@property
@@ -4853,6 +4825,13 @@ A widget that can display/edit a double.
 		"""
 		pass
 
+	@property
+	def echoMode(self):
+		pass
+	@echoMode.setter
+	def echoMode(self):
+		pass
+
 	def enableGlobalActions(self,enable):
 		"""
 		Sets the state of Global Actions.
@@ -5094,6 +5073,9 @@ class Enum:
 		pass
 
 	def init(self,i, name):
+		pass
+
+	def less_than(self,lhs, rhs):
 		pass
 
 	def setProperty(self,prop, row):
@@ -5890,6 +5872,9 @@ class Float:
 		pass
 
 	def init(self,i, name):
+		pass
+
+	def less_than(self,lhs, rhs):
 		pass
 
 	def setProperty(self,prop, row):
@@ -10170,6 +10155,16 @@ Baseclass implementing custom __dir__ to hide swig methods.
 """
 		pass
 
+class HasProperties:
+	def __init__(self):
+		pass
+
+	def setProperties(self,kwds):
+		"""
+		Internal method called from constructors.
+		"""
+		pass
+
 class IconLabel:
 	def __init__(self,icon, helptopic=None, **kwds):
 		"""
@@ -10446,6 +10441,9 @@ class Int:
 	def init(self,i, name):
 		pass
 
+	def less_than(self,lhs, rhs):
+		pass
+
 	def setProperty(self,prop, row):
 		pass
 
@@ -10517,6 +10515,13 @@ A widget that can display/edit an integer.
 		"""
 		Deletes this and all its children.
 		"""
+		pass
+
+	@property
+	def echoMode(self):
+		pass
+	@echoMode.setter
+	def echoMode(self):
 		pass
 
 	def enableGlobalActions(self,enable):
@@ -11465,6 +11470,13 @@ A LineEdit Widget that can display/edit a string.
 		"""
 		Deletes this and all its children.
 		"""
+		pass
+
+	@property
+	def echoMode(self):
+		pass
+	@echoMode.setter
+	def echoMode(self):
 		pass
 
 	def enableGlobalActions(self,enable):
@@ -16036,13 +16048,13 @@ class ScrollLayout:
 	def Actions(self):
 		pass
 
-	def AddAction(self,action: var0):
+	def AddAction(self,action: var7):
 		pass
 
-	def AddActions(self,actions: var1):
+	def AddActions(self,actions: var8):
 		pass
 
-	def AddChild(self,child: var2, x: int = 0, y: int = 0):
+	def AddChild(self,child: var9, x: int = 0, y: int = 0):
 		pass
 
 	def AdjustSize(self):
@@ -16096,7 +16108,7 @@ class ScrollLayout:
 	def Caption(self):
 		pass
 
-	def Child(self,objName: var3, inheritsClass: var3 = None, recursiveSearch: bool = True):
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
 		pass
 
 	def ChildAt(self,*args):
@@ -16174,6 +16186,9 @@ class ScrollLayout:
 	def ColorRed(self):
 		pass
 
+	def ColorTransparent(self):
+		pass
+
 	def ColorWhite(self):
 		pass
 
@@ -16186,7 +16201,7 @@ class ScrollLayout:
 	def ContentsRect(self):
 		pass
 
-	def ContentsToViewport(self,p: var4):
+	def ContentsToViewport(self,p: var10):
 		pass
 
 	def ContentsWidth(self):
@@ -16213,10 +16228,10 @@ class ScrollLayout:
 	def DeleteLater(self):
 		pass
 
-	def Disconnect(self,sender: var5, force: var6 = False):
+	def Disconnect(self,sender: var1, force: var2 = False):
 		pass
 
-	def DisconnectAll(self,force: var6 = False):
+	def DisconnectAll(self,force: var2 = False):
 		pass
 
 	def DluHeight(self,*args):
@@ -16234,7 +16249,7 @@ class ScrollLayout:
 	def DluWidth(self,*args):
 		pass
 
-	def DownCast(self,o: var7):
+	def DownCast(self,o: var3):
 		pass
 
 	def DumpTree(self):
@@ -16243,7 +16258,7 @@ class ScrollLayout:
 	def EnsureVisible(self,x: int, y: int, xmargin: int = 50, ymargin: int = 50):
 		pass
 
-	def EnsureWidgetVisible(self,childWidget: var2, xmargin: int = 50, ymargin: int = 50):
+	def EnsureWidgetVisible(self,childWidget: var9, xmargin: int = 50, ymargin: int = 50):
 		pass
 
 	def EraseColor(self):
@@ -16261,7 +16276,7 @@ class ScrollLayout:
 	def ExcludeOverrideCursor(self):
 		pass
 
-	def Find(self,winId: var8):
+	def Find(self,winId: var11):
 		pass
 
 	def FindBackgroundDarkness(self):
@@ -16330,7 +16345,7 @@ class ScrollLayout:
 	def GeomMgrShowTopLeft(self):
 		pass
 
-	def GeomMgrStartX(self,hint: var9, firstItemWidth: int):
+	def GeomMgrStartX(self,hint: var12, firstItemWidth: int):
 		pass
 
 	def GeomMgrStartXHint(self):
@@ -16345,7 +16360,7 @@ class ScrollLayout:
 	def Geometry(self):
 		pass
 
-	def Grab(self,rect: var10):
+	def Grab(self,rect: var13):
 		pass
 
 	def GrabKeyboard(self):
@@ -16363,7 +16378,7 @@ class ScrollLayout:
 	def HasBadge(self):
 		pass
 
-	def HasChild(self,child: var2):
+	def HasChild(self,child: var9):
 		pass
 
 	def HasFocus(self):
@@ -16396,16 +16411,16 @@ class ScrollLayout:
 	def IconText(self):
 		pass
 
-	def InputMethodQuery(self,query: var11):
+	def InputMethodQuery(self,query: var14):
 		pass
 
-	def InsertAction(self,before: var0, action: var0):
+	def InsertAction(self,before: var7, action: var7):
 		pass
 
-	def InsertActions(self,before: var0, actions: var1):
+	def InsertActions(self,before: var7, actions: var8):
 		pass
 
-	def IsA(self,classType: var3):
+	def IsA(self,classType: var0):
 		pass
 
 	def IsAction(self,id: int = 0):
@@ -16414,7 +16429,7 @@ class ScrollLayout:
 	def IsActiveWindow(self):
 		pass
 
-	def IsChildOf(self,parent: var7):
+	def IsChildOf(self,parent: var3):
 		pass
 
 	def IsConnectedTo(self,*args):
@@ -16432,7 +16447,7 @@ class ScrollLayout:
 	def IsEnabled(self):
 		pass
 
-	def IsEnabledTo(self,ancestor: var2):
+	def IsEnabledTo(self,ancestor: var9):
 		pass
 
 	def IsFullScreen(self):
@@ -16471,7 +16486,7 @@ class ScrollLayout:
 	def IsVisible(self):
 		pass
 
-	def IsVisibleTo(self,ancestor: var2):
+	def IsVisibleTo(self,ancestor: var9):
 		pass
 
 	def IsWidgetType(self):
@@ -16495,25 +16510,25 @@ class ScrollLayout:
 	def Lower(self):
 		pass
 
-	def MapFrom(self,parent: var2, pos: var4):
+	def MapFrom(self,parent: var9, pos: var10):
 		pass
 
-	def MapFromGlobal(self,pos: var4):
+	def MapFromGlobal(self,pos: var10):
 		pass
 
-	def MapFromParent(self,pos: var4):
+	def MapFromParent(self,pos: var10):
 		pass
 
-	def MapTo(self,parent: var2, pos: var4):
+	def MapTo(self,parent: var9, pos: var10):
 		pass
 
-	def MapToGlobal(self,pos: var4):
+	def MapToGlobal(self,pos: var10):
 		pass
 
-	def MapToParent(self,pos: var4):
+	def MapToParent(self,pos: var10):
 		pass
 
-	def MaxWidthOfStrings(self,strings: var12):
+	def MaxWidthOfStrings(self,strings: var15):
 		pass
 
 	def MaximumHeight(self):
@@ -16558,7 +16573,7 @@ class ScrollLayout:
 	def NeedsVerticalScrollBar(self):
 		pass
 
-	def ObjectFromUUID(self,uuid: var13):
+	def ObjectFromUUID(self,uuid: var5):
 		pass
 
 	def OnAboutToShow(self):
@@ -16675,7 +16690,7 @@ class ScrollLayout:
 	def OnPaint(self):
 		pass
 
-	def OnPaintHandler(self,event: var14):
+	def OnPaintHandler(self,event: var16):
 		pass
 
 	def OnResize(self):
@@ -16729,7 +16744,7 @@ class ScrollLayout:
 	def ParentWidget(self,*args):
 		pass
 
-	def ParentWidgetBelow(self,widget: var2):
+	def ParentWidgetBelow(self,widget: var9):
 		pass
 
 	def PixelHeight(self,pixels: int):
@@ -16762,10 +16777,10 @@ class ScrollLayout:
 	def ReleaseMouse(self):
 		pass
 
-	def RemoveAction(self,action: var0):
+	def RemoveAction(self,action: var7):
 		pass
 
-	def RemoveChild(self,child: var2):
+	def RemoveChild(self,child: var9):
 		pass
 
 	def RemoveConnection(self,*args):
@@ -16807,13 +16822,16 @@ class ScrollLayout:
 	def SetActiveWindow(self):
 		pass
 
-	def SetAdvancedToolTipId(self,uuid: var15):
+	def SetAdvancedToolTipId(self,uuid: var6):
 		pass
 
-	def SetAlignment(self,arg2: var16):
+	def SetAlignment(self,arg2: var17):
 		pass
 
 	def SetAllowHiddenScrollBars(self,state: bool):
+		pass
+
+	def SetAttribute(self,flags: var18, on: bool = True):
 		pass
 
 	def SetAutoFillBackground(self,arg2: bool):
@@ -16825,13 +16843,13 @@ class ScrollLayout:
 	def SetBackgroundMode(self,*args):
 		pass
 
-	def SetBackgroundRole(self,role: var17):
+	def SetBackgroundRole(self,role: var19):
 		pass
 
-	def SetBadgeAlignment(self,align: var18):
+	def SetBadgeAlignment(self,align: var20):
 		pass
 
-	def SetBadgeColor(self,color: var19):
+	def SetBadgeColor(self,color: var21):
 		pass
 
 	def SetBaseSize(self,*args):
@@ -16843,7 +16861,7 @@ class ScrollLayout:
 	def SetCanResize(self,canResize: bool):
 		pass
 
-	def SetCaption(self,name: var15):
+	def SetCaption(self,name: var6):
 		pass
 
 	def SetConnection(self,*args):
@@ -16852,13 +16870,13 @@ class ScrollLayout:
 	def SetContentsPos(self,x: int, y: int):
 		pass
 
-	def SetContextMenuPolicy(self,policy: var20):
+	def SetContextMenuPolicy(self,policy: var22):
 		pass
 
-	def SetCursor(self,cursor: var21):
+	def SetCursor(self,cursor: var23):
 		pass
 
-	def SetCustomSizeHint(self,size: var22):
+	def SetCustomSizeHint(self,size: var24):
 		pass
 
 	def SetDisabled(self,state: bool = True):
@@ -16870,13 +16888,13 @@ class ScrollLayout:
 	def SetEnabled(self,state: bool = True):
 		pass
 
-	def SetEraseColor(self,color: var19):
+	def SetEraseColor(self,color: var21):
 		pass
 
-	def SetErasePixmap(self,pixmap: var23):
+	def SetErasePixmap(self,pixmap: var25):
 		pass
 
-	def SetEventPropagation(self,propagate: var6):
+	def SetEventPropagation(self,propagate: var2):
 		pass
 
 	def SetExcludeOverrideCursor(self,excludeOverrideCursor: bool):
@@ -16894,28 +16912,28 @@ class ScrollLayout:
 	def SetFocus(self):
 		pass
 
-	def SetFocusPolicy(self,policy: var24):
+	def SetFocusPolicy(self,policy: var26):
 		pass
 
-	def SetFocusProxy(self,widget: var2):
+	def SetFocusProxy(self,widget: var9):
 		pass
 
-	def SetFont(self,font: var25):
+	def SetFont(self,font: var27):
 		pass
 
 	def SetForceBackgroundPainting(self,state: bool):
 		pass
 
-	def SetForegroundRole(self,role: var17):
+	def SetForegroundRole(self,role: var19):
 		pass
 
-	def SetFrameRect(self,rect: var10):
+	def SetFrameRect(self,rect: var13):
 		pass
 
-	def SetFrameShadow(self,shadow: var26):
+	def SetFrameShadow(self,shadow: var28):
 		pass
 
-	def SetFrameShape(self,shape: var27):
+	def SetFrameShape(self,shape: var29):
 		pass
 
 	def SetFrameStyle(self,style: int):
@@ -16936,7 +16954,7 @@ class ScrollLayout:
 	def SetGeomMgrShowTopLeft(self,showTopLeft: bool):
 		pass
 
-	def SetGeomMgrStartXHint(self,hint: var9):
+	def SetGeomMgrStartXHint(self,hint: var12):
 		pass
 
 	def SetGeomMgrXOffset(self,xOffset: int):
@@ -16957,7 +16975,7 @@ class ScrollLayout:
 	def SetHidden(self,hide: bool):
 		pass
 
-	def SetIcon(self,pixmap: var23):
+	def SetIcon(self,pixmap: var25):
 		pass
 
 	def SetInputMethodEnabled(self,state: bool):
@@ -16966,13 +16984,13 @@ class ScrollLayout:
 	def SetIsContainer(self,state: bool):
 		pass
 
-	def SetLayout(self,layout: var28):
+	def SetLayout(self,layout: var30):
 		pass
 
 	def SetLineWidth(self,width: int):
 		pass
 
-	def SetMask(self,bitmap: var29):
+	def SetMask(self,bitmap: var31):
 		pass
 
 	def SetMaximumHeight(self,h: int):
@@ -16999,22 +17017,22 @@ class ScrollLayout:
 	def SetMouseTracking(self,enable: bool):
 		pass
 
-	def SetName(self,name: var15):
+	def SetName(self,name: var6):
 		pass
 
-	def SetOverrideBackgroundMode(self,mode: var30):
+	def SetOverrideBackgroundMode(self,mode: var32):
 		pass
 
-	def SetPalette(self,palette: var31):
+	def SetPalette(self,palette: var33):
 		pass
 
-	def SetPaletteBackgroundColor(self,color: var19):
+	def SetPaletteBackgroundColor(self,color: var21):
 		pass
 
-	def SetPaletteBackgroundPixmap(self,pixmap: var23):
+	def SetPaletteBackgroundPixmap(self,pixmap: var25):
 		pass
 
-	def SetPaletteForegroundColor(self,color: var19):
+	def SetPaletteForegroundColor(self,color: var21):
 		pass
 
 	def SetShown(self,show: bool):
@@ -17029,7 +17047,7 @@ class ScrollLayout:
 	def SetStyle(self,*args):
 		pass
 
-	def SetTabOrder(self,first: var2, second: var2):
+	def SetTabOrder(self,first: var9, second: var9):
 		pass
 
 	def SetToolTip(self,*args):
@@ -17038,7 +17056,7 @@ class ScrollLayout:
 	def SetTransparentBackground(self):
 		pass
 
-	def SetUUID(self,uuid: var13):
+	def SetUUID(self,uuid: var5):
 		pass
 
 	def SetUpdatesEnabled(self,state: bool):
@@ -17056,34 +17074,37 @@ class ScrollLayout:
 	def SetUsesBackingStore(self,state: bool):
 		pass
 
+	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
+		pass
+
 	def SetVScrollBarMode(self,arg0: int):
 		pass
 
-	def SetViewport(self,viewport: var2):
+	def SetViewport(self,viewport: var9):
 		pass
 
-	def SetWhatsThis(self,text: var15):
+	def SetWhatsThis(self,text: var6):
 		pass
 
-	def SetWidget(self,widget: var2):
+	def SetWidget(self,widget: var9):
 		pass
 
 	def SetWidgetResizable(self,resizable: bool):
 		pass
 
-	def SetWidthForWidestString(self,strings: var12, horizMargin: int = 0):
+	def SetWidthForWidestString(self,strings: var15, horizMargin: int = 0):
 		pass
 
-	def SetWindowModality(self,windowModality: var32):
+	def SetWindowModality(self,windowModality: var34):
 		pass
 
 	def SetWindowModified(self,value: bool):
 		pass
 
-	def SetWindowOpacity(self,level: var33):
+	def SetWindowOpacity(self,level: var35):
 		pass
 
-	def SetWindowState(self,windowState: var8):
+	def SetWindowState(self,windowState: var11):
 		pass
 
 	def Show(self):
@@ -17116,7 +17137,7 @@ class ScrollLayout:
 	def SizePolicy(self):
 		pass
 
-	def StackUnder(self,widget: var2):
+	def StackUnder(self,widget: var9):
 		pass
 
 	def Style(self):
@@ -17125,7 +17146,7 @@ class ScrollLayout:
 	def TestAndDrawBadge(self):
 		pass
 
-	def TestWFlags(self,flags: var8):
+	def TestWFlags(self,flags: var11):
 		pass
 
 	def ToolTip(self,*args):
@@ -17170,6 +17191,9 @@ class ScrollLayout:
 	def UseHighlightColor(self):
 		pass
 
+	def UsesMicroDialogBorderSettings(self):
+		pass
+
 	def UsesUnityStyle(self):
 		pass
 
@@ -17182,7 +17206,7 @@ class ScrollLayout:
 	def Viewport(self):
 		pass
 
-	def ViewportToContents(self,vp: var4):
+	def ViewportToContents(self,vp: var10):
 		pass
 
 	def VisibleHeight(self):
@@ -17215,7 +17239,7 @@ class ScrollLayout:
 	def WindowState(self):
 		pass
 
-	def Wrap(self,widget: var34, createdWidget: var35 = None):
+	def Wrap(self,widget: var36, createdWidget: var37 = None):
 		pass
 
 	def X(self):
@@ -17838,6 +17862,363 @@ A Slider Widget.
 	def width(self):
 		pass
 
+class SortFilterModel:
+	def __init__(self,model, columns):
+		pass
+
+	def AdvancedToolTipId(self):
+		pass
+
+	def AsConcreteListener(self):
+		pass
+
+	def AsListener(self):
+		pass
+
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
+		pass
+
+	def Children(self):
+		pass
+
+	def ClassName(self):
+		pass
+
+	def Color0(self):
+		pass
+
+	def Color1(self):
+		pass
+
+	def ColorBlack(self):
+		pass
+
+	def ColorBlue(self):
+		pass
+
+	def ColorCyan(self):
+		pass
+
+	def ColorDarkBlue(self):
+		pass
+
+	def ColorDarkCyan(self):
+		pass
+
+	def ColorDarkGray(self):
+		pass
+
+	def ColorDarkGreen(self):
+		pass
+
+	def ColorDarkMagenta(self):
+		pass
+
+	def ColorDarkRed(self):
+		pass
+
+	def ColorDarkYellow(self):
+		pass
+
+	def ColorGray(self):
+		pass
+
+	def ColorGreen(self):
+		pass
+
+	def ColorLightGray(self):
+		pass
+
+	def ColorMagenta(self):
+		pass
+
+	def ColorRed(self):
+		pass
+
+	def ColorTransparent(self):
+		pass
+
+	def ColorWhite(self):
+		pass
+
+	def ColorYellow(self):
+		pass
+
+	def ColumnCount(self,parent: var38):
+		pass
+
+	def CountRowsOfIndex(self,index: var38):
+		pass
+
+	def Data(self,index: var38, role: int):
+		pass
+
+	def DataChanged(self,topLeft: var38, bottomRight: var38):
+		pass
+
+	def DeleteLater(self):
+		pass
+
+	def Disconnect(self,sender: var1, force: var2 = False):
+		pass
+
+	def DisconnectAll(self,force: var2 = False):
+		pass
+
+	def DownCast(self,o: var3):
+		pass
+
+	def DropMimeData(self,data: var39, action: var40, row: int, column: int, parent: var38):
+		pass
+
+	def DynamicSortFilter(self):
+		pass
+
+	def EventInfo(self):
+		pass
+
+	def FilterAcceptsColumn(self,sourceColumn: int, sourceParent: var38):
+		pass
+
+	def FilterAcceptsRow(self,sourceRow: int, sourceParent: var38):
+		pass
+
+	def FilterCaseSensitivity(self):
+		pass
+
+	def FilterKeyColumn(self):
+		pass
+
+	def FilterRegExp(self):
+		pass
+
+	def Flags(self,index):
+		pass
+
+	def HasIndex(self,row: int, col: int, parent: var38):
+		pass
+
+	def HeaderData(self,section: int, orientation: var41, role: int):
+		pass
+
+	def HeaderDataChanged(self,orientation: var41, first: int, last: int):
+		pass
+
+	def Index(self,row: int, col: int, parent: var38):
+		pass
+
+	def InsertColumns(self,position: int, cols: int, index: var38):
+		pass
+
+	def InsertRows(self,position: int, rows: int, index: var38):
+		pass
+
+	def Invalidate(self):
+		pass
+
+	def InvalidateFilter(self):
+		pass
+
+	def IsA(self,classType: var0):
+		pass
+
+	def IsChildOf(self,parent: var3):
+		pass
+
+	def IsWidgetType(self):
+		pass
+
+	def LayoutAboutToBeChanged(self):
+		pass
+
+	def LayoutChanged(self):
+		pass
+
+	def LessThan(self,lhs, rhs):
+		pass
+
+	def MapFromSource(self,sourceIndex: var38):
+		pass
+
+	def MapToSource(self,proxyIndex: var38):
+		pass
+
+	def MimeData(self,indices: var42):
+		pass
+
+	def MimeTypes(self):
+		pass
+
+	def Name(self):
+		pass
+
+	def ObjectFromUUID(self,uuid: var5):
+		pass
+
+	def OnAboutToShowAdvancedToolTip(self):
+		pass
+
+	def OnColumnMoved(self):
+		pass
+
+	def OnColumnsInserted(self):
+		pass
+
+	@property
+	def OnColumnsInsertedMap_(self):
+		pass
+	@OnColumnsInsertedMap_.setter
+	def OnColumnsInsertedMap_(self):
+		pass
+
+	def OnColumnsRemoved(self):
+		pass
+
+	@property
+	def OnColumnsRemovedMap_(self):
+		pass
+	@OnColumnsRemovedMap_.setter
+	def OnColumnsRemovedMap_(self):
+		pass
+
+	@property
+	def OnColumnssMovedMap_(self):
+		pass
+	@OnColumnssMovedMap_.setter
+	def OnColumnssMovedMap_(self):
+		pass
+
+	def OnDataChanged(self):
+		pass
+
+	@property
+	def OnDataChangedMap_(self):
+		pass
+	@OnDataChangedMap_.setter
+	def OnDataChangedMap_(self):
+		pass
+
+	def OnDebugMessage(self):
+		pass
+
+	def OnDestroy(self):
+		pass
+
+	def OnDestroyItem(self):
+		pass
+
+	def OnFatalMessage(self):
+		pass
+
+	def OnRowsInserted(self):
+		pass
+
+	@property
+	def OnRowsInsertedMap_(self):
+		pass
+	@OnRowsInsertedMap_.setter
+	def OnRowsInsertedMap_(self):
+		pass
+
+	def OnRowsMoved(self):
+		pass
+
+	@property
+	def OnRowsMovedMap_(self):
+		pass
+	@OnRowsMovedMap_.setter
+	def OnRowsMovedMap_(self):
+		pass
+
+	def OnRowsRemoved(self):
+		pass
+
+	@property
+	def OnRowsRemovedMap_(self):
+		pass
+	@OnRowsRemovedMap_.setter
+	def OnRowsRemovedMap_(self):
+		pass
+
+	def OnTraceMessage(self):
+		pass
+
+	def Parent(self):
+		pass
+
+	def RemoveColumns(self,position: int, cols: int, index: var38):
+		pass
+
+	def RemoveRows(self,position: int, rows: int, index: var38):
+		pass
+
+	def RowCount(self,parent: var38):
+		pass
+
+	def Sender(self):
+		pass
+
+	def SetAdvancedToolTipId(self,uuid: var6):
+		pass
+
+	def SetData(self,*args):
+		pass
+
+	def SetDynamicSortFilter(self,enable: bool):
+		pass
+
+	def SetFilterCaseSensitivity(self,cs: var43):
+		pass
+
+	def SetFilterKeyColumn(self,column: int):
+		pass
+
+	def SetFilterRegExp(self,regExp: var44):
+		pass
+
+	def SetHeaderData(self,*args):
+		pass
+
+	def SetName(self,name: var6):
+		pass
+
+	def SetSourceModel(self,model: var45):
+		pass
+
+	def SetSupportedDragActions(self,actions: int):
+		pass
+
+	def SetUUID(self,uuid: var5):
+		pass
+
+	def SignalName(self,*args):
+		pass
+
+	def Sort(self,*args):
+		pass
+
+	def SourceModel(self):
+		pass
+
+	def SupportedDragActions(self):
+		pass
+
+	def SupportedDropActions(self):
+		pass
+
+	def UUID(self):
+		pass
+
+	def Wrap(self,model: var46):
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
 class SpacerItem:
 	def __init__(self,width, height,spacing: str="horizontal", **kwds):
 		"""
@@ -17845,121 +18226,46 @@ A Widget that adds a horizontal and vertical spacer.
 """
 		pass
 
-	@property
-	def active(self):
-		pass
-	@active.setter
-	def active(self):
+	def Alignment(self):
 		pass
 
-	def addChildren(self,children):
-		"""
-		Add child widgets/layouts into this widget.
-    
-    Widget children get layed out using a VBoxLayout.
-
-    Typically, you'll pass the parent/children into the constructor instead of
-    calling this function directly.
-
-    Args:
-      children (list[Widget] | Layout)
-    
-		"""
+	def ChangeSize(self,*args):
 		pass
 
-	@property
-	def advancedTooltip(self):
-		pass
-	@advancedTooltip.setter
-	def advancedTooltip(self):
+	def ClassName(self):
 		pass
 
-	@property
-	def children(self):
-		pass
-	@children.setter
-	def children(self):
+	def DownCast(self,o: var30):
 		pass
 
-	@property
-	def command(self):
-		pass
-	@command.setter
-	def command(self):
+	def Expanding(self):
 		pass
 
-	@property
-	def descendents(self):
-		pass
-	@descendents.setter
-	def descendents(self):
+	def HasHeightForWidth(self):
 		pass
 
-	def destroy(self):
-		"""
-		Deletes this and all its children.
-		"""
+	def HeightForWidth(self,w: int):
 		pass
 
-	def enableGlobalActions(self,enable):
-		"""
-		Sets the state of Global Actions.
-
-    Disable the global actions to get key events.
-
-    Args:
-      enable (bool): Determines whether to enable or disable global actions.
-    
-		"""
+	def Invalidate(self):
 		pass
 
-	@property
-	def enabled(self):
-		pass
-	@enabled.setter
-	def enabled(self):
+	def IsA(self,classType: var0):
 		pass
 
-	@property
-	def font(self):
-		pass
-	@font.setter
-	def font(self):
+	def IsEmpty(self):
 		pass
 
-	def get(self):
+	def Layout(self):
 		pass
 
-	def getMousePosition(self):
-		"""
-		Returns the mouse position.
-		"""
+	def SetAlignment(self,a: int):
 		pass
 
-	def getRelativeMousePosition(self):
-		"""
-		Returns the mouse position relative to this widget.
-		"""
+	def SetGeometry(self,arg2: var13):
 		pass
 
-	@property
-	def height(self):
-		pass
-	@height.setter
-	def height(self):
-		pass
-
-	@property
-	def helpTopic(self):
-		pass
-	@helpTopic.setter
-	def helpTopic(self):
-		pass
-
-	def hide(self):
-		"""
-		Hides the widget.
-		"""
+	def Widget(self):
 		pass
 
 	def isEmpty(self):
@@ -17969,58 +18275,13 @@ A Widget that adds a horizontal and vertical spacer.
 		pass
 
 	@property
-	def layout(self):
+	def p_layoutitem(self):
 		pass
-	@layout.setter
-	def layout(self):
-		pass
-
-	@property
-	def maximumHeight(self):
-		pass
-	@maximumHeight.setter
-	def maximumHeight(self):
+	@p_layoutitem.setter
+	def p_layoutitem(self):
 		pass
 
-	@property
-	def maximumWidth(self):
-		pass
-	@maximumWidth.setter
-	def maximumWidth(self):
-		pass
-
-	@property
-	def minimumHeight(self):
-		pass
-	@minimumHeight.setter
-	def minimumHeight(self):
-		pass
-
-	@property
-	def minimumWidth(self):
-		pass
-	@minimumWidth.setter
-	def minimumWidth(self):
-		pass
-
-	@property
-	def name(self):
-		pass
-	@name.setter
-	def name(self):
-		pass
-
-	def onCommand(self,event=None):
-		pass
-
-	@property
-	def parent(self):
-		pass
-	@parent.setter
-	def parent(self):
-		pass
-
-	def resize(self,width, height, spacing: str ='horizontal'):
+	def resize(self,width, height, spacing: str = "horizontal"):
 		"""
 		Resize the spacer item is empty.
 
@@ -18032,77 +18293,11 @@ A Widget that adds a horizontal and vertical spacer.
 		"""
 		pass
 
-	def saveAsPng(self,fname):
-		"""
-		Saves the widget as a .png file.
-
-    Args:
-      fname (str): The file name for the .png
-
-    Returns:
-      bool : True if it was saved succesfully, False otherwise. 
-    
-		"""
-		pass
-
-	def set(self,v):
-		pass
-
-	def setF1HelpTopic(self,helptopic):
-		"""
-		Popup web-browser helps when the user hits F1 when over this.
-
-    Args:
-      helptopic (str): Topic name user needs help in.
-    
-		"""
-		pass
-
-	def setProperties(self,kwds):
-		"""
-		Internal method called from constructors.
-		"""
-		pass
-
-	def show(self):
-		"""
-		Shows the widget.
-		"""
-		pass
-
 	@property
-	def size(self):
+	def thisown(self):
 		pass
-	@size.setter
-	def size(self):
-		pass
-
-	@property
-	def tooltip(self):
-		pass
-	@tooltip.setter
-	def tooltip(self):
-		pass
-
-	@property
-	def value(self):
-		pass
-	@value.setter
-	def value(self):
-		pass
-
-	@property
-	def visible(self):
-		pass
-	@visible.setter
-	def visible(self):
-		pass
-
-	@property
-	def width(self):
-		pass
-	@width.setter
-	def width(self):
+	@thisown.setter
+	def thisown(self):
 		pass
 
 class SpinBox:
@@ -19160,6 +19355,9 @@ class String:
 		pass
 
 	def init(self,i, name):
+		pass
+
+	def less_than(self,lhs, rhs):
 		pass
 
 	def setProperty(self,prop, row):
@@ -21948,13 +22146,6 @@ An item in a Tree.
 """
 		pass
 
-	@property
-	def active(self):
-		pass
-	@active.setter
-	def active(self):
-		pass
-
 	def add(self,text, icon=None, **kwds):
 		"""
 		Adds a TreeItem to the Tree.
@@ -21969,35 +22160,6 @@ An item in a Tree.
 		"""
 		pass
 
-	def addChildren(self,children):
-		"""
-		Add child widgets/layouts into this widget.
-    
-    Widget children get layed out using a VBoxLayout.
-
-    Typically, you'll pass the parent/children into the constructor instead of
-    calling this function directly.
-
-    Args:
-      children (list[Widget] | Layout)
-    
-		"""
-		pass
-
-	@property
-	def advancedTooltip(self):
-		pass
-	@advancedTooltip.setter
-	def advancedTooltip(self):
-		pass
-
-	@property
-	def children(self):
-		pass
-	@children.setter
-	def children(self):
-		pass
-
 	def clear(self):
 		"""
 		Removes all the children from the tree.
@@ -22010,26 +22172,6 @@ An item in a Tree.
 		"""
 		pass
 
-	@property
-	def command(self):
-		pass
-	@command.setter
-	def command(self):
-		pass
-
-	@property
-	def descendents(self):
-		pass
-	@descendents.setter
-	def descendents(self):
-		pass
-
-	def destroy(self):
-		"""
-		Deletes this and all its children.
-		"""
-		pass
-
 	def enableEdit(self,col, edit=True):
 		"""
 		Makes a column of a tree item editable.
@@ -22038,18 +22180,6 @@ An item in a Tree.
       col (int): Column index needs to be make editable.
       edit (bool): If True, column is editable else not.
 
-    
-		"""
-		pass
-
-	def enableGlobalActions(self,enable):
-		"""
-		Sets the state of Global Actions.
-
-    Disable the global actions to get key events.
-
-    Args:
-      enable (bool): Determines whether to enable or disable global actions.
     
 		"""
 		pass
@@ -22073,51 +22203,9 @@ An item in a Tree.
 		"""
 		pass
 
-	@property
-	def font(self):
-		pass
-	@font.setter
-	def font(self):
-		pass
-
-	def get(self):
-		pass
-
 	def getChildren(self):
 		"""
 		Overloaded Widget method for 'children' property.
-		"""
-		pass
-
-	def getMousePosition(self):
-		"""
-		Returns the mouse position.
-		"""
-		pass
-
-	def getRelativeMousePosition(self):
-		"""
-		Returns the mouse position relative to this widget.
-		"""
-		pass
-
-	@property
-	def height(self):
-		pass
-	@height.setter
-	def height(self):
-		pass
-
-	@property
-	def helpTopic(self):
-		pass
-	@helpTopic.setter
-	def helpTopic(self):
-		pass
-
-	def hide(self):
-		"""
-		Hides the widget.
 		"""
 		pass
 
@@ -22128,74 +22216,9 @@ An item in a Tree.
 	def icon(self):
 		pass
 
-	@property
-	def layout(self):
-		pass
-	@layout.setter
-	def layout(self):
-		pass
-
-	@property
-	def maximumHeight(self):
-		pass
-	@maximumHeight.setter
-	def maximumHeight(self):
-		pass
-
-	@property
-	def maximumWidth(self):
-		pass
-	@maximumWidth.setter
-	def maximumWidth(self):
-		pass
-
-	@property
-	def minimumHeight(self):
-		pass
-	@minimumHeight.setter
-	def minimumHeight(self):
-		pass
-
-	@property
-	def minimumWidth(self):
-		pass
-	@minimumWidth.setter
-	def minimumWidth(self):
-		pass
-
-	@property
-	def name(self):
-		pass
-	@name.setter
-	def name(self):
-		pass
-
-	def onCommand(self,event=None):
-		pass
-
-	@property
-	def parent(self):
-		pass
-	@parent.setter
-	def parent(self):
-		pass
-
 	def remove(self):
 		"""
 		Removes the item from the Tree.
-		"""
-		pass
-
-	def saveAsPng(self,fname):
-		"""
-		Saves the widget as a .png file.
-
-    Args:
-      fname (str): The file name for the .png
-
-    Returns:
-      bool : True if it was saved succesfully, False otherwise. 
-    
 		"""
 		pass
 
@@ -22220,36 +22243,10 @@ An item in a Tree.
 	def selected(self):
 		pass
 
-	def set(self,v):
-		pass
-
-	def setF1HelpTopic(self,helptopic):
-		"""
-		Popup web-browser helps when the user hits F1 when over this.
-
-    Args:
-      helptopic (str): Topic name user needs help in.
-    
-		"""
-		pass
-
 	def setProperties(self,kwds):
 		"""
 		Internal method called from constructors.
 		"""
-		pass
-
-	def show(self):
-		"""
-		Shows the widget.
-		"""
-		pass
-
-	@property
-	def size(self):
-		pass
-	@size.setter
-	def size(self):
 		pass
 
 	@property
@@ -22267,24 +22264,10 @@ An item in a Tree.
 		pass
 
 	@property
-	def value(self):
-		pass
-	@value.setter
-	def value(self):
-		pass
-
-	@property
 	def visible(self):
 		pass
 	@visible.setter
 	def visible(self):
-		pass
-
-	@property
-	def width(self):
-		pass
-	@width.setter
-	def width(self):
 		pass
 
 class VBoxLayout:
@@ -23436,7 +23419,7 @@ A Splitter with vertical orientation.
 		pass
 
 class Widget:
-	def __init__(self):
+	def __init__(self,*args):
 		"""
 Abstract base class for all widgets.
   
@@ -23728,6 +23711,12 @@ A WidgetStack is used to display one widget at a time, generally depending
 		pass
 	@children.setter
 	def children(self):
+		pass
+
+	def clear(self):
+		"""
+		Removes all the widgets
+		"""
 		pass
 
 	@property
@@ -24238,10 +24227,10 @@ class hwStringList:
 	def __init__(self,*args):
 		pass
 
-	def append(self,x: var36):
+	def append(self,x: var48):
 		pass
 
-	def assign(self,n: var37, x: var36):
+	def assign(self,n: var49, x: var48):
 		pass
 
 	def back(self):
@@ -24283,7 +24272,7 @@ class hwStringList:
 	def pop_back(self):
 		pass
 
-	def push_back(self,x: var36):
+	def push_back(self,x: var48):
 		pass
 
 	def rbegin(self):
@@ -24292,7 +24281,7 @@ class hwStringList:
 	def rend(self):
 		pass
 
-	def reserve(self,n: var37):
+	def reserve(self,n: var49):
 		pass
 
 	def resize(self,*args):
@@ -24301,7 +24290,7 @@ class hwStringList:
 	def size(self):
 		pass
 
-	def swap(self,v: var38):
+	def swap(self,v: var50):
 		pass
 
 	@property
@@ -24666,6 +24655,98 @@ Return the string translated into the users language
 """
 	pass
 
+class ui:
+	def __init__(self,*args, **kwargs):
+		pass
+
+	def AsConcreteListener(self):
+		pass
+
+	def AsListener(self):
+		pass
+
+	def Color0(self):
+		pass
+
+	def Color1(self):
+		pass
+
+	def ColorBlack(self):
+		pass
+
+	def ColorBlue(self):
+		pass
+
+	def ColorCyan(self):
+		pass
+
+	def ColorDarkBlue(self):
+		pass
+
+	def ColorDarkCyan(self):
+		pass
+
+	def ColorDarkGray(self):
+		pass
+
+	def ColorDarkGreen(self):
+		pass
+
+	def ColorDarkMagenta(self):
+		pass
+
+	def ColorDarkRed(self):
+		pass
+
+	def ColorDarkYellow(self):
+		pass
+
+	def ColorGray(self):
+		pass
+
+	def ColorGreen(self):
+		pass
+
+	def ColorLightGray(self):
+		pass
+
+	def ColorMagenta(self):
+		pass
+
+	def ColorRed(self):
+		pass
+
+	def ColorTransparent(self):
+		pass
+
+	def ColorWhite(self):
+		pass
+
+	def ColorYellow(self):
+		pass
+
+	def Disconnect(self,sender: var1, force: var2 = False):
+		pass
+
+	def DisconnectAll(self,force: var2 = False):
+		pass
+
+	def ObjectFromUUID(self,uuid: var5):
+		pass
+
+	def SetUUID(self,uuid: var5):
+		pass
+
+	def UUID(self):
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
 class uiAbstractItemView:
 	def __init__(self,*args):
 		pass
@@ -24679,13 +24760,13 @@ class uiAbstractItemView:
 	def Actions(self):
 		pass
 
-	def AddAction(self,action: var0):
+	def AddAction(self,action: var7):
 		pass
 
-	def AddActions(self,actions: var1):
+	def AddActions(self,actions: var8):
 		pass
 
-	def AddChild(self,child: var2, x: int = 0, y: int = 0):
+	def AddChild(self,child: var9, x: int = 0, y: int = 0):
 		pass
 
 	def AdjustSize(self):
@@ -24739,10 +24820,10 @@ class uiAbstractItemView:
 	def Caption(self):
 		pass
 
-	def CellGeometry(self,index: var39):
+	def CellGeometry(self,index: var38):
 		pass
 
-	def Child(self,objName: var3, inheritsClass: var3 = None, recursiveSearch: bool = True):
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
 		pass
 
 	def ChildAt(self,*args):
@@ -24769,7 +24850,7 @@ class uiAbstractItemView:
 	def Close(self,alsoDelete: bool = False):
 		pass
 
-	def ClosePersistentEditor(self,index: var39):
+	def ClosePersistentEditor(self,index: var38):
 		pass
 
 	def Color0(self):
@@ -24826,6 +24907,9 @@ class uiAbstractItemView:
 	def ColorRed(self):
 		pass
 
+	def ColorTransparent(self):
+		pass
+
 	def ColorWhite(self):
 		pass
 
@@ -24838,7 +24922,7 @@ class uiAbstractItemView:
 	def ContentsRect(self):
 		pass
 
-	def ContentsToViewport(self,p: var4):
+	def ContentsToViewport(self,p: var10):
 		pass
 
 	def ContentsWidth(self):
@@ -24868,10 +24952,10 @@ class uiAbstractItemView:
 	def DeleteLater(self):
 		pass
 
-	def Disconnect(self,sender: var5, force: var6 = False):
+	def Disconnect(self,sender: var1, force: var2 = False):
 		pass
 
-	def DisconnectAll(self,force: var6 = False):
+	def DisconnectAll(self,force: var2 = False):
 		pass
 
 	def DluHeight(self,*args):
@@ -24889,7 +24973,7 @@ class uiAbstractItemView:
 	def DluWidth(self,*args):
 		pass
 
-	def DownCast(self,o: var7):
+	def DownCast(self,o: var3):
 		pass
 
 	def DragDropMode(self):
@@ -24898,19 +24982,19 @@ class uiAbstractItemView:
 	def DragEnabled(self):
 		pass
 
-	def DrawHighlightIndicators(self,p: var40, rect: var10, index: var39):
+	def DrawHighlightIndicators(self,p: var51, rect: var13, index: var38):
 		pass
 
 	def DumpTree(self):
 		pass
 
-	def Edit(self,index: var39):
+	def Edit(self,index: var38):
 		pass
 
 	def EditTriggers(self):
 		pass
 
-	def EnsureWidgetVisible(self,childWidget: var2, xmargin: int = 50, ymargin: int = 50):
+	def EnsureWidgetVisible(self,childWidget: var9, xmargin: int = 50, ymargin: int = 50):
 		pass
 
 	def EraseColor(self):
@@ -24928,7 +25012,7 @@ class uiAbstractItemView:
 	def ExcludeOverrideCursor(self):
 		pass
 
-	def Find(self,winId: var8):
+	def Find(self,winId: var11):
 		pass
 
 	def FindBackgroundDarkness(self):
@@ -24997,7 +25081,7 @@ class uiAbstractItemView:
 	def GeomMgrShowTopLeft(self):
 		pass
 
-	def GeomMgrStartX(self,hint: var9, firstItemWidth: int):
+	def GeomMgrStartX(self,hint: var12, firstItemWidth: int):
 		pass
 
 	def GeomMgrStartXHint(self):
@@ -25015,7 +25099,7 @@ class uiAbstractItemView:
 	def GetPrehighlightRow(self):
 		pass
 
-	def Grab(self,rect: var10):
+	def Grab(self,rect: var13):
 		pass
 
 	def GrabKeyboard(self):
@@ -25033,7 +25117,7 @@ class uiAbstractItemView:
 	def HasBadge(self):
 		pass
 
-	def HasChild(self,child: var2):
+	def HasChild(self,child: var9):
 		pass
 
 	def HasFocus(self):
@@ -25072,22 +25156,22 @@ class uiAbstractItemView:
 	def IconText(self):
 		pass
 
-	def IndexAt(self,point: var4):
+	def IndexAt(self,point: var10):
 		pass
 
-	def IndexWidget(self,index: var39):
+	def IndexWidget(self,index: var38):
 		pass
 
-	def InputMethodQuery(self,query: var11):
+	def InputMethodQuery(self,query: var14):
 		pass
 
-	def InsertAction(self,before: var0, action: var0):
+	def InsertAction(self,before: var7, action: var7):
 		pass
 
-	def InsertActions(self,before: var0, actions: var1):
+	def InsertActions(self,before: var7, actions: var8):
 		pass
 
-	def IsA(self,classType: var3):
+	def IsA(self,classType: var0):
 		pass
 
 	def IsAction(self,id: int = 0):
@@ -25096,7 +25180,7 @@ class uiAbstractItemView:
 	def IsActiveWindow(self):
 		pass
 
-	def IsChildOf(self,parent: var7):
+	def IsChildOf(self,parent: var3):
 		pass
 
 	def IsConnectedTo(self,*args):
@@ -25114,7 +25198,7 @@ class uiAbstractItemView:
 	def IsEnabled(self):
 		pass
 
-	def IsEnabledTo(self,ancestor: var2):
+	def IsEnabledTo(self,ancestor: var9):
 		pass
 
 	def IsFullScreen(self):
@@ -25123,7 +25207,7 @@ class uiAbstractItemView:
 	def IsHidden(self):
 		pass
 
-	def IsIndexSelected(self,index: var39):
+	def IsIndexSelected(self,index: var38):
 		pass
 
 	def IsInputMethodEnabled(self):
@@ -25138,7 +25222,7 @@ class uiAbstractItemView:
 	def IsModal(self):
 		pass
 
-	def IsPersistentEditorOpen(self,index: var39):
+	def IsPersistentEditorOpen(self,index: var38):
 		pass
 
 	def IsPopup(self):
@@ -25159,7 +25243,7 @@ class uiAbstractItemView:
 	def IsVisible(self):
 		pass
 
-	def IsVisibleTo(self,ancestor: var2):
+	def IsVisibleTo(self,ancestor: var9):
 		pass
 
 	def IsWidgetType(self):
@@ -25189,25 +25273,25 @@ class uiAbstractItemView:
 	def Lower(self):
 		pass
 
-	def MapFrom(self,parent: var2, pos: var4):
+	def MapFrom(self,parent: var9, pos: var10):
 		pass
 
-	def MapFromGlobal(self,pos: var4):
+	def MapFromGlobal(self,pos: var10):
 		pass
 
-	def MapFromParent(self,pos: var4):
+	def MapFromParent(self,pos: var10):
 		pass
 
-	def MapTo(self,parent: var2, pos: var4):
+	def MapTo(self,parent: var9, pos: var10):
 		pass
 
-	def MapToGlobal(self,pos: var4):
+	def MapToGlobal(self,pos: var10):
 		pass
 
-	def MapToParent(self,pos: var4):
+	def MapToParent(self,pos: var10):
 		pass
 
-	def MaxWidthOfStrings(self,strings: var12):
+	def MaxWidthOfStrings(self,strings: var15):
 		pass
 
 	def MaximumHeight(self):
@@ -25237,7 +25321,7 @@ class uiAbstractItemView:
 	def Model(self):
 		pass
 
-	def ModelIndex(self,row: int, col: int, parentIndex: var39):
+	def ModelIndex(self,row: int, col: int, parentIndex: var38):
 		pass
 
 	def MouseGrabber(self):
@@ -25258,7 +25342,7 @@ class uiAbstractItemView:
 	def NeedsVerticalScrollBar(self):
 		pass
 
-	def ObjectFromUUID(self,uuid: var13):
+	def ObjectFromUUID(self,uuid: var5):
 		pass
 
 	def OnAboutToShow(self):
@@ -25451,7 +25535,7 @@ class uiAbstractItemView:
 	def OnPaint(self):
 		pass
 
-	def OnPaintHandler(self,event: var14):
+	def OnPaintHandler(self,event: var16):
 		pass
 
 	def OnPressedIndex(self):
@@ -25508,7 +25592,7 @@ class uiAbstractItemView:
 	def OnWinIdChange(self):
 		pass
 
-	def OpenPersistentEditor(self,index: var39):
+	def OpenPersistentEditor(self,index: var38):
 		pass
 
 	def OverrideBackgroundMode(self):
@@ -25541,7 +25625,7 @@ class uiAbstractItemView:
 	def ParentWidget(self,*args):
 		pass
 
-	def ParentWidgetBelow(self,widget: var2):
+	def ParentWidgetBelow(self,widget: var9):
 		pass
 
 	def PixelHeight(self,pixels: int):
@@ -25574,10 +25658,10 @@ class uiAbstractItemView:
 	def ReleaseMouse(self):
 		pass
 
-	def RemoveAction(self,action: var0):
+	def RemoveAction(self,action: var7):
 		pass
 
-	def RemoveChild(self,child: var2):
+	def RemoveChild(self,child: var9):
 		pass
 
 	def RemoveConnection(self,*args):
@@ -25616,10 +25700,10 @@ class uiAbstractItemView:
 	def SelectAll(self):
 		pass
 
-	def SelectIndex(self,index: var39, flag: var41):
+	def SelectIndex(self,index: var38, flag: var52):
 		pass
 
-	def SelectIndexes(self,start: var39, last: var39, flag: var41):
+	def SelectIndexes(self,start: var38, last: var38, flag: var52):
 		pass
 
 	def SelectedIndexes(self):
@@ -25643,13 +25727,16 @@ class uiAbstractItemView:
 	def SetActiveWindow(self):
 		pass
 
-	def SetAdvancedToolTipId(self,uuid: var15):
+	def SetAdvancedToolTipId(self,uuid: var6):
 		pass
 
-	def SetAlignment(self,arg2: var16):
+	def SetAlignment(self,arg2: var17):
 		pass
 
 	def SetAllowHiddenScrollBars(self,state: bool):
+		pass
+
+	def SetAttribute(self,flags: var18, on: bool = True):
 		pass
 
 	def SetAutoFillBackground(self,arg2: bool):
@@ -25661,13 +25748,13 @@ class uiAbstractItemView:
 	def SetBackgroundMode(self,*args):
 		pass
 
-	def SetBackgroundRole(self,role: var17):
+	def SetBackgroundRole(self,role: var19):
 		pass
 
-	def SetBadgeAlignment(self,align: var18):
+	def SetBadgeAlignment(self,align: var20):
 		pass
 
-	def SetBadgeColor(self,color: var19):
+	def SetBadgeColor(self,color: var21):
 		pass
 
 	def SetBaseSize(self,*args):
@@ -25679,7 +25766,7 @@ class uiAbstractItemView:
 	def SetCanResize(self,canResize: bool):
 		pass
 
-	def SetCaption(self,name: var15):
+	def SetCaption(self,name: var6):
 		pass
 
 	def SetConnection(self,*args):
@@ -25688,22 +25775,22 @@ class uiAbstractItemView:
 	def SetContentsPos(self,x: int, y: int):
 		pass
 
-	def SetContextMenuPolicy(self,policy: var20):
+	def SetContextMenuPolicy(self,policy: var22):
 		pass
 
-	def SetCurrentIndex(self,index: var39):
+	def SetCurrentIndex(self,index: var38):
 		pass
 
-	def SetCursor(self,cursor: var21):
+	def SetCursor(self,cursor: var23):
 		pass
 
-	def SetCustomSizeHint(self,size: var22):
+	def SetCustomSizeHint(self,size: var24):
 		pass
 
 	def SetDisabled(self,state: bool = True):
 		pass
 
-	def SetDragDropMode(self,behavior: var42):
+	def SetDragDropMode(self,behavior: var53):
 		pass
 
 	def SetDragEnabled(self,enable: bool):
@@ -25715,19 +25802,19 @@ class uiAbstractItemView:
 	def SetDropShadow(self,state: bool):
 		pass
 
-	def SetEditTriggers(self,trigger: var43):
+	def SetEditTriggers(self,trigger: var54):
 		pass
 
 	def SetEnabled(self,state: bool = True):
 		pass
 
-	def SetEraseColor(self,color: var19):
+	def SetEraseColor(self,color: var21):
 		pass
 
-	def SetErasePixmap(self,pixmap: var23):
+	def SetErasePixmap(self,pixmap: var25):
 		pass
 
-	def SetEventPropagation(self,propagate: var6):
+	def SetEventPropagation(self,propagate: var2):
 		pass
 
 	def SetExcludeOverrideCursor(self,excludeOverrideCursor: bool):
@@ -25745,28 +25832,28 @@ class uiAbstractItemView:
 	def SetFocus(self):
 		pass
 
-	def SetFocusPolicy(self,policy: var24):
+	def SetFocusPolicy(self,policy: var26):
 		pass
 
-	def SetFocusProxy(self,widget: var2):
+	def SetFocusProxy(self,widget: var9):
 		pass
 
-	def SetFont(self,font: var25):
+	def SetFont(self,font: var27):
 		pass
 
 	def SetForceBackgroundPainting(self,state: bool):
 		pass
 
-	def SetForegroundRole(self,role: var17):
+	def SetForegroundRole(self,role: var19):
 		pass
 
-	def SetFrameRect(self,rect: var10):
+	def SetFrameRect(self,rect: var13):
 		pass
 
-	def SetFrameShadow(self,shadow: var26):
+	def SetFrameShadow(self,shadow: var28):
 		pass
 
-	def SetFrameShape(self,shape: var27):
+	def SetFrameShape(self,shape: var29):
 		pass
 
 	def SetFrameStyle(self,style: int):
@@ -25787,7 +25874,7 @@ class uiAbstractItemView:
 	def SetGeomMgrShowTopLeft(self,showTopLeft: bool):
 		pass
 
-	def SetGeomMgrStartXHint(self,hint: var9):
+	def SetGeomMgrStartXHint(self,hint: var12):
 		pass
 
 	def SetGeomMgrXOffset(self,xOffset: int):
@@ -25808,13 +25895,13 @@ class uiAbstractItemView:
 	def SetHidden(self,hide: bool):
 		pass
 
-	def SetIcon(self,pixmap: var23):
+	def SetIcon(self,pixmap: var25):
 		pass
 
-	def SetIconSize(self,size: var22):
+	def SetIconSize(self,size: var24):
 		pass
 
-	def SetIndexWidget(self,index: var39, widget: var2):
+	def SetIndexWidget(self,index: var38, widget: var9):
 		pass
 
 	def SetInputMethodEnabled(self,state: bool):
@@ -25823,19 +25910,19 @@ class uiAbstractItemView:
 	def SetIsContainer(self,state: bool):
 		pass
 
-	def SetItemDelegate(self,delegate: var44):
+	def SetItemDelegate(self,delegate: var55):
 		pass
 
-	def SetItemDelegateForColumn(self,column: int, delegate: var44):
+	def SetItemDelegateForColumn(self,column: int, delegate: var55):
 		pass
 
-	def SetLayout(self,layout: var28):
+	def SetLayout(self,layout: var30):
 		pass
 
 	def SetLineWidth(self,width: int):
 		pass
 
-	def SetMask(self,bitmap: var29):
+	def SetMask(self,bitmap: var31):
 		pass
 
 	def SetMaximumHeight(self,h: int):
@@ -25865,31 +25952,31 @@ class uiAbstractItemView:
 	def SetMouseTracking(self,enable: bool):
 		pass
 
-	def SetName(self,name: var15):
+	def SetName(self,name: var6):
 		pass
 
-	def SetOverrideBackgroundMode(self,mode: var30):
+	def SetOverrideBackgroundMode(self,mode: var32):
 		pass
 
-	def SetPalette(self,palette: var31):
+	def SetPalette(self,palette: var33):
 		pass
 
-	def SetPaletteBackgroundColor(self,color: var19):
+	def SetPaletteBackgroundColor(self,color: var21):
 		pass
 
-	def SetPaletteBackgroundPixmap(self,pixmap: var23):
+	def SetPaletteBackgroundPixmap(self,pixmap: var25):
 		pass
 
-	def SetPaletteForegroundColor(self,color: var19):
+	def SetPaletteForegroundColor(self,color: var21):
 		pass
 
 	def SetPrehighlightRow(self,row: int):
 		pass
 
-	def SetSelectionBehavior(self,mode: var46):
+	def SetSelectionBehavior(self,mode: var56):
 		pass
 
-	def SetSelectionMode(self,mode: var47):
+	def SetSelectionMode(self,mode: var57):
 		pass
 
 	def SetShown(self,show: bool):
@@ -25907,7 +25994,7 @@ class uiAbstractItemView:
 	def SetTabKeyNavigation(self,b: bool):
 		pass
 
-	def SetTabOrder(self,first: var2, second: var2):
+	def SetTabOrder(self,first: var9, second: var9):
 		pass
 
 	def SetToolTip(self,*args):
@@ -25916,7 +26003,7 @@ class uiAbstractItemView:
 	def SetTransparentBackground(self):
 		pass
 
-	def SetUUID(self,uuid: var13):
+	def SetUUID(self,uuid: var5):
 		pass
 
 	def SetUpdatesEnabled(self,state: bool):
@@ -25934,34 +26021,37 @@ class uiAbstractItemView:
 	def SetUsesBackingStore(self,state: bool):
 		pass
 
+	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
+		pass
+
 	def SetVScrollBarMode(self,arg0: int):
 		pass
 
-	def SetViewport(self,viewport: var2):
+	def SetViewport(self,viewport: var9):
 		pass
 
-	def SetWhatsThis(self,text: var15):
+	def SetWhatsThis(self,text: var6):
 		pass
 
-	def SetWidget(self,widget: var2):
+	def SetWidget(self,widget: var9):
 		pass
 
 	def SetWidgetResizable(self,resizable: bool):
 		pass
 
-	def SetWidthForWidestString(self,strings: var12, horizMargin: int = 0):
+	def SetWidthForWidestString(self,strings: var15, horizMargin: int = 0):
 		pass
 
-	def SetWindowModality(self,windowModality: var32):
+	def SetWindowModality(self,windowModality: var34):
 		pass
 
 	def SetWindowModified(self,value: bool):
 		pass
 
-	def SetWindowOpacity(self,level: var33):
+	def SetWindowOpacity(self,level: var35):
 		pass
 
-	def SetWindowState(self,windowState: var8):
+	def SetWindowState(self,windowState: var11):
 		pass
 
 	def Show(self):
@@ -25997,7 +26087,7 @@ class uiAbstractItemView:
 	def SizePolicy(self):
 		pass
 
-	def StackUnder(self,widget: var2):
+	def StackUnder(self,widget: var9):
 		pass
 
 	def Style(self):
@@ -26009,7 +26099,7 @@ class uiAbstractItemView:
 	def TestAndDrawBadge(self):
 		pass
 
-	def TestWFlags(self,flags: var8):
+	def TestWFlags(self,flags: var11):
 		pass
 
 	def ToolTip(self,*args):
@@ -26048,13 +26138,16 @@ class uiAbstractItemView:
 	def UpdateGeometry(self):
 		pass
 
-	def UpdateIndex(self,index: var39):
+	def UpdateIndex(self,index: var38):
 		pass
 
 	def UseAlternateColor(self):
 		pass
 
 	def UseHighlightColor(self):
+		pass
+
+	def UsesMicroDialogBorderSettings(self):
 		pass
 
 	def UsesUnityStyle(self):
@@ -26069,7 +26162,7 @@ class uiAbstractItemView:
 	def Viewport(self):
 		pass
 
-	def ViewportToContents(self,vp: var4):
+	def ViewportToContents(self,vp: var10):
 		pass
 
 	def VisibleHeight(self):
@@ -26102,7 +26195,7 @@ class uiAbstractItemView:
 	def WindowState(self):
 		pass
 
-	def Wrap(self,widget: var34, createdWidget: var35 = None):
+	def Wrap(self,widget: var36, createdWidget: var37 = None):
 		pass
 
 	def X(self):
@@ -26131,13 +26224,13 @@ class uiHeader:
 	def Actions(self):
 		pass
 
-	def AddAction(self,action: var0):
+	def AddAction(self,action: var7):
 		pass
 
-	def AddActions(self,actions: var1):
+	def AddActions(self,actions: var8):
 		pass
 
-	def AddChild(self,child: var2, x: int = 0, y: int = 0):
+	def AddChild(self,child: var9, x: int = 0, y: int = 0):
 		pass
 
 	def AddLabel(self,*args):
@@ -26200,10 +26293,10 @@ class uiHeader:
 	def Caption(self):
 		pass
 
-	def CellGeometry(self,index: var39):
+	def CellGeometry(self,index: var38):
 		pass
 
-	def Child(self,objName: var3, inheritsClass: var3 = None, recursiveSearch: bool = True):
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
 		pass
 
 	def ChildAt(self,*args):
@@ -26230,7 +26323,7 @@ class uiHeader:
 	def Close(self,alsoDelete: bool = False):
 		pass
 
-	def ClosePersistentEditor(self,index: var39):
+	def ClosePersistentEditor(self,index: var38):
 		pass
 
 	def Color0(self):
@@ -26287,6 +26380,9 @@ class uiHeader:
 	def ColorRed(self):
 		pass
 
+	def ColorTransparent(self):
+		pass
+
 	def ColorWhite(self):
 		pass
 
@@ -26299,7 +26395,7 @@ class uiHeader:
 	def ContentsRect(self):
 		pass
 
-	def ContentsToViewport(self,p: var4):
+	def ContentsToViewport(self,p: var10):
 		pass
 
 	def ContentsWidth(self):
@@ -26338,10 +26434,10 @@ class uiHeader:
 	def DeleteLater(self):
 		pass
 
-	def Disconnect(self,sender: var5, force: var6 = False):
+	def Disconnect(self,sender: var1, force: var2 = False):
 		pass
 
-	def DisconnectAll(self,force: var6 = False):
+	def DisconnectAll(self,force: var2 = False):
 		pass
 
 	def DluHeight(self,*args):
@@ -26359,7 +26455,7 @@ class uiHeader:
 	def DluWidth(self,*args):
 		pass
 
-	def DownCast(self,o: var7):
+	def DownCast(self,o: var3):
 		pass
 
 	def DragDropMode(self):
@@ -26368,13 +26464,13 @@ class uiHeader:
 	def DragEnabled(self):
 		pass
 
-	def DrawHighlightIndicators(self,p: var40, rect: var10, index: var39):
+	def DrawHighlightIndicators(self,p: var51, rect: var13, index: var38):
 		pass
 
 	def DumpTree(self):
 		pass
 
-	def Edit(self,index: var39):
+	def Edit(self,index: var38):
 		pass
 
 	def EditTriggers(self):
@@ -26383,7 +26479,7 @@ class uiHeader:
 	def EnableFilterButtons(self,enable: bool):
 		pass
 
-	def EnsureWidgetVisible(self,childWidget: var2, xmargin: int = 50, ymargin: int = 50):
+	def EnsureWidgetVisible(self,childWidget: var9, xmargin: int = 50, ymargin: int = 50):
 		pass
 
 	def EraseColor(self):
@@ -26401,7 +26497,7 @@ class uiHeader:
 	def ExcludeOverrideCursor(self):
 		pass
 
-	def Find(self,winId: var8):
+	def Find(self,winId: var11):
 		pass
 
 	def FindBackgroundDarkness(self):
@@ -26470,7 +26566,7 @@ class uiHeader:
 	def GeomMgrShowTopLeft(self):
 		pass
 
-	def GeomMgrStartX(self,hint: var9, firstItemWidth: int):
+	def GeomMgrStartX(self,hint: var12, firstItemWidth: int):
 		pass
 
 	def GeomMgrStartXHint(self):
@@ -26491,7 +26587,7 @@ class uiHeader:
 	def GetResizeMode(self,logicalIndex: int):
 		pass
 
-	def Grab(self,rect: var10):
+	def Grab(self,rect: var13):
 		pass
 
 	def GrabKeyboard(self):
@@ -26509,7 +26605,7 @@ class uiHeader:
 	def HasBadge(self):
 		pass
 
-	def HasChild(self,child: var2):
+	def HasChild(self,child: var9):
 		pass
 
 	def HasFocus(self):
@@ -26557,22 +26653,22 @@ class uiHeader:
 	def IconText(self):
 		pass
 
-	def IndexAt(self,point: var4):
+	def IndexAt(self,point: var10):
 		pass
 
-	def IndexWidget(self,index: var39):
+	def IndexWidget(self,index: var38):
 		pass
 
-	def InputMethodQuery(self,query: var11):
+	def InputMethodQuery(self,query: var14):
 		pass
 
-	def InsertAction(self,before: var0, action: var0):
+	def InsertAction(self,before: var7, action: var7):
 		pass
 
-	def InsertActions(self,before: var0, actions: var1):
+	def InsertActions(self,before: var7, actions: var8):
 		pass
 
-	def IsA(self,classType: var3):
+	def IsA(self,classType: var0):
 		pass
 
 	def IsAction(self,id: int = 0):
@@ -26581,7 +26677,7 @@ class uiHeader:
 	def IsActiveWindow(self):
 		pass
 
-	def IsChildOf(self,parent: var7):
+	def IsChildOf(self,parent: var3):
 		pass
 
 	def IsClickEnabled(self,section: int = -1):
@@ -26602,7 +26698,7 @@ class uiHeader:
 	def IsEnabled(self):
 		pass
 
-	def IsEnabledTo(self,ancestor: var2):
+	def IsEnabledTo(self,ancestor: var9):
 		pass
 
 	def IsFullScreen(self):
@@ -26611,7 +26707,7 @@ class uiHeader:
 	def IsHidden(self):
 		pass
 
-	def IsIndexSelected(self,index: var39):
+	def IsIndexSelected(self,index: var38):
 		pass
 
 	def IsInputMethodEnabled(self):
@@ -26629,7 +26725,7 @@ class uiHeader:
 	def IsMovingEnabled(self):
 		pass
 
-	def IsPersistentEditorOpen(self,index: var39):
+	def IsPersistentEditorOpen(self,index: var38):
 		pass
 
 	def IsPopup(self):
@@ -26668,7 +26764,7 @@ class uiHeader:
 	def IsVisible(self):
 		pass
 
-	def IsVisibleTo(self,ancestor: var2):
+	def IsVisibleTo(self,ancestor: var9):
 		pass
 
 	def IsWidgetType(self):
@@ -26704,31 +26800,31 @@ class uiHeader:
 	def Lower(self):
 		pass
 
-	def MapFrom(self,parent: var2, pos: var4):
+	def MapFrom(self,parent: var9, pos: var10):
 		pass
 
-	def MapFromGlobal(self,pos: var4):
+	def MapFromGlobal(self,pos: var10):
 		pass
 
-	def MapFromParent(self,pos: var4):
+	def MapFromParent(self,pos: var10):
 		pass
 
-	def MapTo(self,parent: var2, pos: var4):
+	def MapTo(self,parent: var9, pos: var10):
 		pass
 
-	def MapToGlobal(self,pos: var4):
+	def MapToGlobal(self,pos: var10):
 		pass
 
 	def MapToIndex(self,section: int):
 		pass
 
-	def MapToParent(self,pos: var4):
+	def MapToParent(self,pos: var10):
 		pass
 
 	def MapToSection(self,index: int):
 		pass
 
-	def MaxWidthOfStrings(self,strings: var12):
+	def MaxWidthOfStrings(self,strings: var15):
 		pass
 
 	def MaximumHeight(self):
@@ -26761,7 +26857,7 @@ class uiHeader:
 	def Model(self):
 		pass
 
-	def ModelIndex(self,row: int, col: int, parentIndex: var39):
+	def ModelIndex(self,row: int, col: int, parentIndex: var38):
 		pass
 
 	def MouseGrabber(self):
@@ -26785,7 +26881,7 @@ class uiHeader:
 	def NeedsVerticalScrollBar(self):
 		pass
 
-	def ObjectFromUUID(self,uuid: var13):
+	def ObjectFromUUID(self,uuid: var5):
 		pass
 
 	def Offset(self):
@@ -26987,7 +27083,7 @@ class uiHeader:
 	def OnPaint(self):
 		pass
 
-	def OnPaintHandler(self,event: var14):
+	def OnPaintHandler(self,event: var16):
 		pass
 
 	def OnPressed(self):
@@ -27059,7 +27155,7 @@ class uiHeader:
 	def OnWinIdChange(self):
 		pass
 
-	def OpenPersistentEditor(self,index: var39):
+	def OpenPersistentEditor(self,index: var38):
 		pass
 
 	def Orientation(self):
@@ -27077,7 +27173,7 @@ class uiHeader:
 	def OwnPalette(self):
 		pass
 
-	def PaintSection(self,painter: var40, rect: var10, logicalIndex: int):
+	def PaintSection(self,painter: var51, rect: var13, logicalIndex: int):
 		pass
 
 	def Palette(self):
@@ -27098,7 +27194,7 @@ class uiHeader:
 	def ParentWidget(self,*args):
 		pass
 
-	def ParentWidgetBelow(self,widget: var2):
+	def ParentWidgetBelow(self,widget: var9):
 		pass
 
 	def PixelHeight(self,pixels: int):
@@ -27131,10 +27227,10 @@ class uiHeader:
 	def ReleaseMouse(self):
 		pass
 
-	def RemoveAction(self,action: var0):
+	def RemoveAction(self,action: var7):
 		pass
 
-	def RemoveChild(self,child: var2):
+	def RemoveChild(self,child: var9):
 		pass
 
 	def RemoveConnection(self,*args):
@@ -27167,7 +27263,7 @@ class uiHeader:
 	def ResizeSection(self,section: int, s: int):
 		pass
 
-	def RestoreState(self,state: var15):
+	def RestoreState(self,state: var6):
 		pass
 
 	def SaveState(self):
@@ -27200,10 +27296,10 @@ class uiHeader:
 	def SelectAll(self):
 		pass
 
-	def SelectIndex(self,index: var39, flag: var41):
+	def SelectIndex(self,index: var38, flag: var52):
 		pass
 
-	def SelectIndexes(self,start: var39, last: var39, flag: var41):
+	def SelectIndexes(self,start: var38, last: var38, flag: var52):
 		pass
 
 	def SelectedIndexes(self):
@@ -27227,13 +27323,16 @@ class uiHeader:
 	def SetActiveWindow(self):
 		pass
 
-	def SetAdvancedToolTipId(self,uuid: var15):
+	def SetAdvancedToolTipId(self,uuid: var6):
 		pass
 
-	def SetAlignment(self,arg2: var16):
+	def SetAlignment(self,arg2: var17):
 		pass
 
 	def SetAllowHiddenScrollBars(self,state: bool):
+		pass
+
+	def SetAttribute(self,flags: var18, on: bool = True):
 		pass
 
 	def SetAutoFillBackground(self,arg2: bool):
@@ -27245,13 +27344,13 @@ class uiHeader:
 	def SetBackgroundMode(self,*args):
 		pass
 
-	def SetBackgroundRole(self,role: var17):
+	def SetBackgroundRole(self,role: var19):
 		pass
 
-	def SetBadgeAlignment(self,align: var18):
+	def SetBadgeAlignment(self,align: var20):
 		pass
 
-	def SetBadgeColor(self,color: var19):
+	def SetBadgeColor(self,color: var21):
 		pass
 
 	def SetBaseSize(self,*args):
@@ -27263,7 +27362,7 @@ class uiHeader:
 	def SetCanResize(self,canResize: bool):
 		pass
 
-	def SetCaption(self,name: var15):
+	def SetCaption(self,name: var6):
 		pass
 
 	def SetClickEnabled(self,enable: bool, section: int = -1):
@@ -27275,19 +27374,19 @@ class uiHeader:
 	def SetContentsPos(self,x: int, y: int):
 		pass
 
-	def SetContextMenuPolicy(self,policy: var20):
+	def SetContextMenuPolicy(self,policy: var22):
 		pass
 
-	def SetCurrentIndex(self,index: var39):
+	def SetCurrentIndex(self,index: var38):
 		pass
 
-	def SetCursor(self,cursor: var21):
+	def SetCursor(self,cursor: var23):
 		pass
 
-	def SetCustomSizeHint(self,size: var22):
+	def SetCustomSizeHint(self,size: var24):
 		pass
 
-	def SetDefaultAlignment(self,align: var16):
+	def SetDefaultAlignment(self,align: var17):
 		pass
 
 	def SetDefaultSectionSize(self,size: int):
@@ -27296,7 +27395,7 @@ class uiHeader:
 	def SetDisabled(self,state: bool = True):
 		pass
 
-	def SetDragDropMode(self,behavior: var42):
+	def SetDragDropMode(self,behavior: var53):
 		pass
 
 	def SetDragEnabled(self,enable: bool):
@@ -27308,19 +27407,19 @@ class uiHeader:
 	def SetDropShadow(self,state: bool):
 		pass
 
-	def SetEditTriggers(self,trigger: var43):
+	def SetEditTriggers(self,trigger: var54):
 		pass
 
 	def SetEnabled(self,state: bool = True):
 		pass
 
-	def SetEraseColor(self,color: var19):
+	def SetEraseColor(self,color: var21):
 		pass
 
-	def SetErasePixmap(self,pixmap: var23):
+	def SetErasePixmap(self,pixmap: var25):
 		pass
 
-	def SetEventPropagation(self,propagate: var6):
+	def SetEventPropagation(self,propagate: var2):
 		pass
 
 	def SetExcludeOverrideCursor(self,excludeOverrideCursor: bool):
@@ -27338,28 +27437,28 @@ class uiHeader:
 	def SetFocus(self):
 		pass
 
-	def SetFocusPolicy(self,policy: var24):
+	def SetFocusPolicy(self,policy: var26):
 		pass
 
-	def SetFocusProxy(self,widget: var2):
+	def SetFocusProxy(self,widget: var9):
 		pass
 
-	def SetFont(self,font: var25):
+	def SetFont(self,font: var27):
 		pass
 
 	def SetForceBackgroundPainting(self,state: bool):
 		pass
 
-	def SetForegroundRole(self,role: var17):
+	def SetForegroundRole(self,role: var19):
 		pass
 
-	def SetFrameRect(self,rect: var10):
+	def SetFrameRect(self,rect: var13):
 		pass
 
-	def SetFrameShadow(self,shadow: var26):
+	def SetFrameShadow(self,shadow: var28):
 		pass
 
-	def SetFrameShape(self,shape: var27):
+	def SetFrameShape(self,shape: var29):
 		pass
 
 	def SetFrameStyle(self,style: int):
@@ -27380,7 +27479,7 @@ class uiHeader:
 	def SetGeomMgrShowTopLeft(self,showTopLeft: bool):
 		pass
 
-	def SetGeomMgrStartXHint(self,hint: var9):
+	def SetGeomMgrStartXHint(self,hint: var12):
 		pass
 
 	def SetGeomMgrXOffset(self,xOffset: int):
@@ -27404,13 +27503,13 @@ class uiHeader:
 	def SetHighlightSections(self,highlight: bool):
 		pass
 
-	def SetIcon(self,pixmap: var23):
+	def SetIcon(self,pixmap: var25):
 		pass
 
-	def SetIconSize(self,size: var22):
+	def SetIconSize(self,size: var24):
 		pass
 
-	def SetIndexWidget(self,index: var39, widget: var2):
+	def SetIndexWidget(self,index: var38, widget: var9):
 		pass
 
 	def SetInputMethodEnabled(self,state: bool):
@@ -27419,25 +27518,25 @@ class uiHeader:
 	def SetIsContainer(self,state: bool):
 		pass
 
-	def SetItemDelegate(self,delegate: var44):
+	def SetItemDelegate(self,delegate: var55):
 		pass
 
-	def SetItemDelegateForColumn(self,column: int, delegate: var44):
+	def SetItemDelegateForColumn(self,column: int, delegate: var55):
 		pass
 
 	def SetLabel(self,*args):
 		pass
 
-	def SetLabelDirection(self,direction: var48, section: int = -1):
+	def SetLabelDirection(self,direction: var41, section: int = -1):
 		pass
 
-	def SetLayout(self,layout: var28):
+	def SetLayout(self,layout: var30):
 		pass
 
 	def SetLineWidth(self,width: int):
 		pass
 
-	def SetMask(self,bitmap: var29):
+	def SetMask(self,bitmap: var31):
 		pass
 
 	def SetMaximumHeight(self,h: int):
@@ -27473,25 +27572,25 @@ class uiHeader:
 	def SetMovingEnabled(self,enable: bool):
 		pass
 
-	def SetName(self,name: var15):
+	def SetName(self,name: var6):
 		pass
 
 	def SetOffset(self,pos: int):
 		pass
 
-	def SetOverrideBackgroundMode(self,mode: var30):
+	def SetOverrideBackgroundMode(self,mode: var32):
 		pass
 
-	def SetPalette(self,palette: var31):
+	def SetPalette(self,palette: var33):
 		pass
 
-	def SetPaletteBackgroundColor(self,color: var19):
+	def SetPaletteBackgroundColor(self,color: var21):
 		pass
 
-	def SetPaletteBackgroundPixmap(self,pixmap: var23):
+	def SetPaletteBackgroundPixmap(self,pixmap: var25):
 		pass
 
-	def SetPaletteForegroundColor(self,color: var19):
+	def SetPaletteForegroundColor(self,color: var21):
 		pass
 
 	def SetPrehighlightRow(self,row: int):
@@ -27503,7 +27602,7 @@ class uiHeader:
 	def SetResizeMode(self,*args):
 		pass
 
-	def SetSectionAdvancedToolTipId(self,logicalIndex: int, uuid: var15):
+	def SetSectionAdvancedToolTipId(self,logicalIndex: int, uuid: var6):
 		pass
 
 	def SetSectionAlignment(self,section: int, alignment: int):
@@ -27515,10 +27614,10 @@ class uiHeader:
 	def SetSectionChecked(self,logicalIndex: int, checked: bool):
 		pass
 
-	def SetSelectionBehavior(self,mode: var46):
+	def SetSelectionBehavior(self,mode: var56):
 		pass
 
-	def SetSelectionMode(self,mode: var47):
+	def SetSelectionMode(self,mode: var57):
 		pass
 
 	def SetShown(self,show: bool):
@@ -27533,7 +27632,7 @@ class uiHeader:
 	def SetSortFilterEnabled(self,logicalIndex: int, enabled: bool):
 		pass
 
-	def SetSortFilterHandler(self,handler: var49):
+	def SetSortFilterHandler(self,handler: var58):
 		pass
 
 	def SetSortIndicator(self,section: int, order: int):
@@ -27554,16 +27653,16 @@ class uiHeader:
 	def SetTabKeyNavigation(self,b: bool):
 		pass
 
-	def SetTabOrder(self,first: var2, second: var2):
+	def SetTabOrder(self,first: var9, second: var9):
 		pass
 
-	def SetToolTip(self,section: int, tooltip: var15):
+	def SetToolTip(self,section: int, tooltip: var6):
 		pass
 
 	def SetTransparentBackground(self):
 		pass
 
-	def SetUUID(self,uuid: var13):
+	def SetUUID(self,uuid: var5):
 		pass
 
 	def SetUpdatesEnabled(self,state: bool):
@@ -27581,34 +27680,37 @@ class uiHeader:
 	def SetUsesBackingStore(self,state: bool):
 		pass
 
+	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
+		pass
+
 	def SetVScrollBarMode(self,arg0: int):
 		pass
 
-	def SetViewport(self,viewport: var2):
+	def SetViewport(self,viewport: var9):
 		pass
 
-	def SetWhatsThis(self,text: var15):
+	def SetWhatsThis(self,text: var6):
 		pass
 
-	def SetWidget(self,widget: var2):
+	def SetWidget(self,widget: var9):
 		pass
 
 	def SetWidgetResizable(self,resizable: bool):
 		pass
 
-	def SetWidthForWidestString(self,strings: var12, horizMargin: int = 0):
+	def SetWidthForWidestString(self,strings: var15, horizMargin: int = 0):
 		pass
 
-	def SetWindowModality(self,windowModality: var32):
+	def SetWindowModality(self,windowModality: var34):
 		pass
 
 	def SetWindowModified(self,value: bool):
 		pass
 
-	def SetWindowOpacity(self,level: var33):
+	def SetWindowOpacity(self,level: var35):
 		pass
 
-	def SetWindowState(self,windowState: var8):
+	def SetWindowState(self,windowState: var11):
 		pass
 
 	def Show(self):
@@ -27653,7 +27755,7 @@ class uiHeader:
 	def SortIndicatorSection(self):
 		pass
 
-	def StackUnder(self,widget: var2):
+	def StackUnder(self,widget: var9):
 		pass
 
 	def StretchLastSection(self):
@@ -27671,7 +27773,7 @@ class uiHeader:
 	def TestAndDrawBadge(self):
 		pass
 
-	def TestWFlags(self,flags: var8):
+	def TestWFlags(self,flags: var11):
 		pass
 
 	def ToolTip(self,*args):
@@ -27710,13 +27812,16 @@ class uiHeader:
 	def UpdateGeometry(self):
 		pass
 
-	def UpdateIndex(self,index: var39):
+	def UpdateIndex(self,index: var38):
 		pass
 
 	def UseAlternateColor(self):
 		pass
 
 	def UseHighlightColor(self):
+		pass
+
+	def UsesMicroDialogBorderSettings(self):
 		pass
 
 	def UsesUnityStyle(self):
@@ -27731,7 +27836,7 @@ class uiHeader:
 	def Viewport(self):
 		pass
 
-	def ViewportToContents(self,vp: var4):
+	def ViewportToContents(self,vp: var10):
 		pass
 
 	def VisibleHeight(self):
@@ -27764,7 +27869,7 @@ class uiHeader:
 	def WindowState(self):
 		pass
 
-	def Wrap(self,widget: var34, createdWidget: var35 = None):
+	def Wrap(self,widget: var36, createdWidget: var37 = None):
 		pass
 
 	def X(self):
@@ -27799,13 +27904,19 @@ class uiModelIndex:
 	def Model(self):
 		pass
 
+	def Parent(self):
+		pass
+
 	def PyInternalPointer(self):
 		pass
 
 	def Row(self):
 		pass
 
-	def Wrap(self,impl: var50):
+	def SiblingAtColumn(self,column: int):
+		pass
+
+	def Wrap(self,impl: var59):
 		pass
 
 	@property
@@ -27825,13 +27936,13 @@ class uiObject:
 	def ChildCount(self):
 		pass
 
-	def ChildIndex(self,child: var51):
+	def ChildIndex(self,child: var60):
 		pass
 
 	def ClassName(self):
 		pass
 
-	def Copy(self,parent: var51):
+	def Copy(self,parent: var60):
 		pass
 
 	def Delete(self):
@@ -27840,7 +27951,7 @@ class uiObject:
 	def DeleteAllChildren(self):
 		pass
 
-	def EliminateChildren(self,arg1: var52):
+	def EliminateChildren(self,arg1: var61):
 		pass
 
 	def EmitBeginDestroy(self,*args):
@@ -27858,7 +27969,7 @@ class uiObject:
 	def EmitModified(self,*args):
 		pass
 
-	def EmitRequested(self,arg0: var53):
+	def EmitRequested(self,arg0: var62):
 		pass
 
 	def EmitSelected(self):
@@ -27870,19 +27981,19 @@ class uiObject:
 	def EmitUnselected(self):
 		pass
 
-	def ExecuteMethod(self,name: var13, parameters: var54):
+	def ExecuteMethod(self,name: var5, parameters: var63):
 		pass
 
-	def FillAndGetProperty(self,arg2: var53):
+	def FillAndGetProperty(self,arg2: var62):
 		pass
 
-	def FillProperty(self,arg2: var53):
+	def FillProperty(self,arg2: var62):
 		pass
 
-	def GenerateName(self,prefix: var13):
+	def GenerateName(self,prefix: var5):
 		pass
 
-	def GetByFullName(self,fullName: var13):
+	def GetByFullName(self,fullName: var5):
 		pass
 
 	def GetChild(self,*args):
@@ -27891,7 +28002,7 @@ class uiObject:
 	def GetChildren(self,*args):
 		pass
 
-	def GetCurrentObjectFromType(self,type: var13):
+	def GetCurrentObjectFromType(self,type: var5):
 		pass
 
 	def GetFullName(self):
@@ -27918,7 +28029,7 @@ class uiObject:
 	def GetRenderer(self):
 		pass
 
-	def IsA(self,arg0: var13):
+	def IsA(self,arg0: var5):
 		pass
 
 	def OnAddProperty(self):
@@ -27933,37 +28044,394 @@ class uiObject:
 	def OnSetProperty(self):
 		pass
 
-	def Read(self,arg0: var55):
+	def Read(self,arg0: var64):
 		pass
 
-	def RemoveProperty(self,name: var13):
+	def RemoveProperty(self,name: var5):
 		pass
 
-	def SetBit(self,bit: var56, flag: var57):
+	def SetBit(self,bit: var65, flag: var66):
 		pass
 
-	def SetName(self,arg2: var13):
+	def SetName(self,arg2: var5):
 		pass
 
-	def SetNamePropertyName(self,name: var13):
+	def SetNamePropertyName(self,name: var5):
 		pass
 
-	def SetParent(self,parent: var51, index: int = -1):
+	def SetParent(self,parent: var60, index: int = -1):
 		pass
 
 	def SetProperty(self,*args, **kwds):
 		pass
 
-	def SetPropertyValue(self,name: var13, value: var58):
+	def SetPropertyValue(self,name: var5, value: var67):
 		pass
 
-	def SetRenderer(self,renderer: var59):
+	def SetRenderer(self,renderer: var68):
 		pass
 
-	def TestBit(self,bit: var56):
+	def TestBit(self,bit: var65):
 		pass
 
-	def Write(self,arg0: var55):
+	def Write(self,arg0: var64):
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class uiSortFilterProxyModel:
+	def __init__(self,*args):
+		pass
+
+	def AdvancedToolTipId(self):
+		pass
+
+	def AsConcreteListener(self):
+		pass
+
+	def AsListener(self):
+		pass
+
+	def Child(self,objName: var0, inheritsClass: var0 = None, recursiveSearch: bool = True):
+		pass
+
+	def Children(self):
+		pass
+
+	def ClassName(self):
+		pass
+
+	def Color0(self):
+		pass
+
+	def Color1(self):
+		pass
+
+	def ColorBlack(self):
+		pass
+
+	def ColorBlue(self):
+		pass
+
+	def ColorCyan(self):
+		pass
+
+	def ColorDarkBlue(self):
+		pass
+
+	def ColorDarkCyan(self):
+		pass
+
+	def ColorDarkGray(self):
+		pass
+
+	def ColorDarkGreen(self):
+		pass
+
+	def ColorDarkMagenta(self):
+		pass
+
+	def ColorDarkRed(self):
+		pass
+
+	def ColorDarkYellow(self):
+		pass
+
+	def ColorGray(self):
+		pass
+
+	def ColorGreen(self):
+		pass
+
+	def ColorLightGray(self):
+		pass
+
+	def ColorMagenta(self):
+		pass
+
+	def ColorRed(self):
+		pass
+
+	def ColorTransparent(self):
+		pass
+
+	def ColorWhite(self):
+		pass
+
+	def ColorYellow(self):
+		pass
+
+	def ColumnCount(self,parent: var38):
+		pass
+
+	def CountRowsOfIndex(self,index: var38):
+		pass
+
+	def Data(self,index: var38, role: int):
+		pass
+
+	def DataChanged(self,topLeft: var38, bottomRight: var38):
+		pass
+
+	def DeleteLater(self):
+		pass
+
+	def Disconnect(self,sender: var1, force: var2 = False):
+		pass
+
+	def DisconnectAll(self,force: var2 = False):
+		pass
+
+	def DownCast(self,o: var3):
+		pass
+
+	def DropMimeData(self,data: var39, action: var40, row: int, column: int, parent: var38):
+		pass
+
+	def DynamicSortFilter(self):
+		pass
+
+	def EventInfo(self):
+		pass
+
+	def FilterAcceptsColumn(self,sourceColumn: int, sourceParent: var38):
+		pass
+
+	def FilterAcceptsRow(self,sourceRow: int, sourceParent: var38):
+		pass
+
+	def FilterCaseSensitivity(self):
+		pass
+
+	def FilterKeyColumn(self):
+		pass
+
+	def FilterRegExp(self):
+		pass
+
+	def Flags(self,index: var38):
+		pass
+
+	def HasIndex(self,row: int, col: int, parent: var38):
+		pass
+
+	def HeaderData(self,section: int, orientation: var41, role: int):
+		pass
+
+	def HeaderDataChanged(self,orientation: var41, first: int, last: int):
+		pass
+
+	def Index(self,row: int, col: int, parent: var38):
+		pass
+
+	def InsertColumns(self,position: int, cols: int, index: var38):
+		pass
+
+	def InsertRows(self,position: int, rows: int, index: var38):
+		pass
+
+	def Invalidate(self):
+		pass
+
+	def InvalidateFilter(self):
+		pass
+
+	def IsA(self,classType: var0):
+		pass
+
+	def IsChildOf(self,parent: var3):
+		pass
+
+	def IsWidgetType(self):
+		pass
+
+	def LayoutAboutToBeChanged(self):
+		pass
+
+	def LayoutChanged(self):
+		pass
+
+	def LessThan(self,left: var38, right: var38):
+		pass
+
+	def MapFromSource(self,sourceIndex: var38):
+		pass
+
+	def MapToSource(self,proxyIndex: var38):
+		pass
+
+	def MimeData(self,indices: var42):
+		pass
+
+	def MimeTypes(self):
+		pass
+
+	def Name(self):
+		pass
+
+	def ObjectFromUUID(self,uuid: var5):
+		pass
+
+	def OnAboutToShowAdvancedToolTip(self):
+		pass
+
+	def OnColumnMoved(self):
+		pass
+
+	def OnColumnsInserted(self):
+		pass
+
+	@property
+	def OnColumnsInsertedMap_(self):
+		pass
+	@OnColumnsInsertedMap_.setter
+	def OnColumnsInsertedMap_(self):
+		pass
+
+	def OnColumnsRemoved(self):
+		pass
+
+	@property
+	def OnColumnsRemovedMap_(self):
+		pass
+	@OnColumnsRemovedMap_.setter
+	def OnColumnsRemovedMap_(self):
+		pass
+
+	@property
+	def OnColumnssMovedMap_(self):
+		pass
+	@OnColumnssMovedMap_.setter
+	def OnColumnssMovedMap_(self):
+		pass
+
+	def OnDataChanged(self):
+		pass
+
+	@property
+	def OnDataChangedMap_(self):
+		pass
+	@OnDataChangedMap_.setter
+	def OnDataChangedMap_(self):
+		pass
+
+	def OnDebugMessage(self):
+		pass
+
+	def OnDestroy(self):
+		pass
+
+	def OnDestroyItem(self):
+		pass
+
+	def OnFatalMessage(self):
+		pass
+
+	def OnRowsInserted(self):
+		pass
+
+	@property
+	def OnRowsInsertedMap_(self):
+		pass
+	@OnRowsInsertedMap_.setter
+	def OnRowsInsertedMap_(self):
+		pass
+
+	def OnRowsMoved(self):
+		pass
+
+	@property
+	def OnRowsMovedMap_(self):
+		pass
+	@OnRowsMovedMap_.setter
+	def OnRowsMovedMap_(self):
+		pass
+
+	def OnRowsRemoved(self):
+		pass
+
+	@property
+	def OnRowsRemovedMap_(self):
+		pass
+	@OnRowsRemovedMap_.setter
+	def OnRowsRemovedMap_(self):
+		pass
+
+	def OnTraceMessage(self):
+		pass
+
+	def Parent(self):
+		pass
+
+	def RemoveColumns(self,position: int, cols: int, index: var38):
+		pass
+
+	def RemoveRows(self,position: int, rows: int, index: var38):
+		pass
+
+	def RowCount(self,parent: var38):
+		pass
+
+	def Sender(self):
+		pass
+
+	def SetAdvancedToolTipId(self,uuid: var6):
+		pass
+
+	def SetData(self,*args):
+		pass
+
+	def SetDynamicSortFilter(self,enable: bool):
+		pass
+
+	def SetFilterCaseSensitivity(self,cs: var43):
+		pass
+
+	def SetFilterKeyColumn(self,column: int):
+		pass
+
+	def SetFilterRegExp(self,regExp: var44):
+		pass
+
+	def SetHeaderData(self,*args):
+		pass
+
+	def SetName(self,name: var6):
+		pass
+
+	def SetSourceModel(self,model: var45):
+		pass
+
+	def SetSupportedDragActions(self,actions: int):
+		pass
+
+	def SetUUID(self,uuid: var5):
+		pass
+
+	def SignalName(self,*args):
+		pass
+
+	def Sort(self,*args):
+		pass
+
+	def SourceModel(self):
+		pass
+
+	def SupportedDragActions(self):
+		pass
+
+	def SupportedDropActions(self):
+		pass
+
+	def UUID(self):
+		pass
+
+	def Wrap(self,model: var46):
 		pass
 
 	@property

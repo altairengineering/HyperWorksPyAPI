@@ -1,13 +1,15 @@
 from typing import TypeVar
+class list:
+	pass
 class Any:
 	pass
 class hw_module:
 	class page:
 		class Page:
 			pass
-		class window:
-			class Window:
-				pass
+	class window:
+		class Window:
+			pass
 
 class AnimationTool:
 	def __init__(self,page=None, **kwargs):
@@ -143,6 +145,333 @@ Internal indicator of special typing constructs.
 """
 		pass
 
+class BarPlotWindow:
+	def __init__(self):
+		"""
+
+    Class representing a BarPlot Window. Gets a BarPlot Window for the given page.
+    
+"""
+		pass
+
+	@property
+	def axisGradient(self):
+		pass
+	@axisGradient.setter
+	def axisGradient(self):
+		pass
+
+	@property
+	def backgroundColor(self):
+		pass
+	@backgroundColor.setter
+	def backgroundColor(self):
+		pass
+
+	@property
+	def barCategoryLabelAngle(self):
+		pass
+	@barCategoryLabelAngle.setter
+	def barCategoryLabelAngle(self):
+		pass
+
+	@property
+	def barCategoryValues(self):
+		pass
+	@barCategoryValues.setter
+	def barCategoryValues(self):
+		pass
+
+	@property
+	def barContributionLabel(self):
+		pass
+	@barContributionLabel.setter
+	def barContributionLabel(self):
+		pass
+
+	@property
+	def barGap(self):
+		pass
+	@barGap.setter
+	def barGap(self):
+		pass
+
+	def barGetValues(self):
+		"""
+		
+        Method to retrieve the category values and the bar curve data in the bar plot window.
+        
+        :return: A dictionary containing the category values and curve data.
+
+        - The key "category" maps to a list of category values.
+        - Each curve's name maps to a list of float values representing the curve's y-values.
+
+        :rtype: dict
+        
+		"""
+		pass
+
+	@property
+	def barLabelFont(self):
+		pass
+	@barLabelFont.setter
+	def barLabelFont(self):
+		pass
+
+	@property
+	def barLabelFontSize(self):
+		pass
+	@barLabelFontSize.setter
+	def barLabelFontSize(self):
+		pass
+
+	@property
+	def barLabelFormat(self):
+		pass
+	@barLabelFormat.setter
+	def barLabelFormat(self):
+		pass
+
+	@property
+	def barLabelPrecision(self):
+		pass
+	@barLabelPrecision.setter
+	def barLabelPrecision(self):
+		pass
+
+	@property
+	def barLabelVisibility(self):
+		pass
+	@barLabelVisibility.setter
+	def barLabelVisibility(self):
+		pass
+
+	@property
+	def barOrientation(self):
+		pass
+	@barOrientation.setter
+	def barOrientation(self):
+		pass
+
+	def barSetCategoryValue(self,startValOrIndex: str|int, CategoryValOrlist: str|list):
+		"""
+		
+        Method to set or update the category values in the category value list at the specified value or index for the bar plot window.
+        
+        :param startValOrIndex: [str, list]
+        
+        - The starting value or index in the category values list.
+        - If a string is provided, the method searches for this value in the category values list.
+        - If an integer is provided, it is used directly as the starting index.
+
+        :param CategoryValOrList: [str, list]
+        
+        - The new category value(s) to be set.
+        - If a string is provided, it replaces the category value at the specified index.
+        - If a list of strings is provided, the values in the list replace the category values starting at the specified index.
+        
+		"""
+		pass
+
+	@property
+	def barStyle(self):
+		pass
+	@barStyle.setter
+	def barStyle(self):
+		pass
+
+	@property
+	def cursorAlwaysVisible(self):
+		pass
+	@cursorAlwaysVisible.setter
+	def cursorAlwaysVisible(self):
+		pass
+
+	def delete(self,entity, objOrId):
+		"""
+		
+        Method to delete an entity.
+        
+        :param entity: Entity class.
+        :type entity: class
+        :param objOrId: Entity object, entity ID, list of entity objects, list of entity IDs, or **all**.
+        :type objOrId: Union[Entity, int, list, str]
+        
+		"""
+		pass
+
+	def draw(self):
+		"""
+		Method to draw the window.
+		"""
+		pass
+
+	def erase(self):
+		"""
+		Method to erase window content.
+		"""
+		pass
+
+	def fit(self,x=True, y=True):
+		"""
+		
+        Method to adjust the view to fit the curves in the plot window.
+        
+        :param x: If True, the curves will be fitted along *x* axis.
+        :type x: bool
+        :param y: If True, the curves will be fitted along *y* axis.
+        :type y: bool
+        
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
+	@property
+	def graphicsHeight(self):
+		pass
+	@graphicsHeight.setter
+	def graphicsHeight(self):
+		pass
+
+	@property
+	def graphicsWidth(self):
+		pass
+	@graphicsWidth.setter
+	def graphicsWidth(self):
+		pass
+
+	@property
+	def gridLineColor(self):
+		pass
+	@gridLineColor.setter
+	def gridLineColor(self):
+		pass
+
+	@property
+	def gridLineTransparency(self):
+		pass
+	@gridLineTransparency.setter
+	def gridLineTransparency(self):
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	def isEmpty(self):
+		"""
+		
+        Method to check if window is empty.
+        
+        :return: Returns True if window is empty.
+        :rtype: bool
+        
+		"""
+		pass
+
+	@property
+	def lock(self):
+		pass
+	@lock.setter
+	def lock(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def publishFormat(self):
+		pass
+	@publishFormat.setter
+	def publishFormat(self):
+		pass
+
+	@property
+	def publishWindow(self):
+		pass
+	@publishWindow.setter
+	def publishWindow(self):
+		pass
+
+	def recalculate(self):
+		"""
+		Method to recalculate the curves in the window.
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set window attributes.
+        
+        :param kwargs: Attributes
+        :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	def update(self):
+		"""
+		Method to recalculate the curves, fit the curves along both *x* and *y* axis, and redraw the window.
+		"""
+		pass
+
+	@property
+	def zeroLineColor(self):
+		pass
+	@zeroLineColor.setter
+	def zeroLineColor(self):
+		pass
+
 class CaptureImageTool:
 	def __init__(self,*args, **kwargs):
 		"""
@@ -206,6 +535,106 @@ class CaptureImageTool:
         :type kwargs: dict
         
 		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def width(self):
+		pass
+	@width.setter
+	def width(self):
+		pass
+
+class CaptureVideoTool:
+	def __init__(self,*args, **kwargs):
+		"""
+
+    Class representing the Capture Video Tool. Provides user with tools to define and capture video.
+    
+    :param kwargs: Attributes of the Capture Video Tool object.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	@property
+	def area(self):
+		pass
+	@area.setter
+	def area(self):
+		pass
+
+	@property
+	def bottom(self):
+		pass
+	@bottom.setter
+	def bottom(self):
+		pass
+
+	def capture(self):
+		"""
+		Method to capture the video and save it as a file. If the file name is not specified, the name will be set to *untitled*
+        followed by an incremental value (e.g. *untitled1.avi*).
+		"""
+		pass
+
+	@property
+	def dimension(self):
+		pass
+	@dimension.setter
+	def dimension(self):
+		pass
+
+	@property
+	def file(self):
+		pass
+	@file.setter
+	def file(self):
+		pass
+
+	@property
+	def height(self):
+		pass
+	@height.setter
+	def height(self):
+		pass
+
+	@property
+	def left(self):
+		pass
+	@left.setter
+	def left(self):
+		pass
+
+	@property
+	def right(self):
+		pass
+	@right.setter
+	def right(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the CaptureVideoTool attributes.
+        
+        :param kwargs: Attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def top(self):
+		pass
+	@top.setter
+	def top(self):
 		pass
 
 	@property
@@ -348,6 +777,30 @@ class ComplexPlotWindow:
 		"""
 		pass
 
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
 	@property
 	def graphicsHeight(self):
 		pass
@@ -445,6 +898,19 @@ class ComplexPlotWindow:
 		"""
 		pass
 
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
 	@property
 	def swapAxis(self):
 		pass
@@ -533,6 +999,30 @@ class HyperGraph3DWindow:
 		"""
 		pass
 
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
 	@property
 	def graphicsHeight(self):
 		pass
@@ -585,6 +1075,19 @@ class HyperGraph3DWindow:
         
         :param kwargs: Attributes
         :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
         
 		"""
 		pass
@@ -660,6 +1163,30 @@ class HyperGraphWindow:
         :type x: bool
         :param y: If True, the curves will be fitted along *y* axis.
         :type y: bool
+        
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
         
 		"""
 		pass
@@ -754,6 +1281,19 @@ class HyperGraphWindow:
 		"""
 		pass
 
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -765,13 +1305,6 @@ class HyperGraphWindow:
 		"""
 		Method to recalculate the curves, fit the curves along both *x* and *y* axis, and redraw the window.
 		"""
-		pass
-
-	@property
-	def zeroLineColor(self):
-		pass
-	@zeroLineColor.setter
-	def zeroLineColor(self):
 		pass
 
 class HyperMeshWindow:
@@ -787,6 +1320,30 @@ class HyperMeshWindow:
 	def erase(self):
 		"""
 		Method to erase window content.
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
 		"""
 		pass
 
@@ -842,6 +1399,19 @@ class HyperMeshWindow:
         
         :param kwargs: Attributes
         :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
         
 		"""
 		pass
@@ -934,6 +1504,17 @@ class HyperViewWindow:
 		"""
 		pass
 
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getModel(self,id: int):
 		"""
 		Method to get the model object.
@@ -965,6 +1546,19 @@ class HyperViewWindow:
         :type type: int
         :return: Model object.
         :rtype: Model
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
         
 		"""
 		pass
@@ -1047,6 +1641,19 @@ class HyperViewWindow:
         
         :param kwargs: Attributes
         :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
         
 		"""
 		pass
@@ -1191,6 +1798,271 @@ class Page:
 	def titleAsDisplayed(self):
 		pass
 
+class PolarPlotWindow:
+	def __init__(self):
+		"""
+
+    Class representing a PolarPlot Window. Gets a PolarPlot Window for the given page.
+    
+"""
+		pass
+
+	@property
+	def axisGradient(self):
+		pass
+	@axisGradient.setter
+	def axisGradient(self):
+		pass
+
+	@property
+	def backgroundColor(self):
+		pass
+	@backgroundColor.setter
+	def backgroundColor(self):
+		pass
+
+	@property
+	def cursorAlwaysVisible(self):
+		pass
+	@cursorAlwaysVisible.setter
+	def cursorAlwaysVisible(self):
+		pass
+
+	def delete(self,entity, objOrId):
+		"""
+		
+        Method to delete an entity.
+        
+        :param entity: Entity class.
+        :type entity: class
+        :param objOrId: Entity object, entity ID, list of entity objects, list of entity IDs, or **all**.
+        :type objOrId: Union[Entity, int, list, str]
+        
+		"""
+		pass
+
+	def draw(self):
+		"""
+		Method to draw the window.
+		"""
+		pass
+
+	def erase(self):
+		"""
+		Method to erase window content.
+		"""
+		pass
+
+	def fit(self,x=True, y=True):
+		"""
+		
+        Method to adjust the view to fit the curves in the plot window.
+        
+        :param x: If True, the curves will be fitted along *x* axis.
+        :type x: bool
+        :param y: If True, the curves will be fitted along *y* axis.
+        :type y: bool
+        
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
+	@property
+	def graphicsHeight(self):
+		pass
+	@graphicsHeight.setter
+	def graphicsHeight(self):
+		pass
+
+	@property
+	def graphicsWidth(self):
+		pass
+	@graphicsWidth.setter
+	def graphicsWidth(self):
+		pass
+
+	@property
+	def gridLineColor(self):
+		pass
+	@gridLineColor.setter
+	def gridLineColor(self):
+		pass
+
+	@property
+	def gridLineTransparency(self):
+		pass
+	@gridLineTransparency.setter
+	def gridLineTransparency(self):
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	def isEmpty(self):
+		"""
+		
+        Method to check if window is empty.
+        
+        :return: Returns True if window is empty.
+        :rtype: bool
+        
+		"""
+		pass
+
+	@property
+	def lock(self):
+		pass
+	@lock.setter
+	def lock(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def polarMode(self):
+		pass
+	@polarMode.setter
+	def polarMode(self):
+		pass
+
+	@property
+	def publishFormat(self):
+		pass
+	@publishFormat.setter
+	def publishFormat(self):
+		pass
+
+	@property
+	def publishWindow(self):
+		pass
+	@publishWindow.setter
+	def publishWindow(self):
+		pass
+
+	@property
+	def quadrantLineColor(self):
+		pass
+	@quadrantLineColor.setter
+	def quadrantLineColor(self):
+		pass
+
+	def recalculate(self):
+		"""
+		Method to recalculate the curves in the window.
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set window attributes.
+        
+        :param kwargs: Attributes
+        :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
+	@property
+	def tiptotailCurveList(self):
+		pass
+	@tiptotailCurveList.setter
+	def tiptotailCurveList(self):
+		pass
+
+	@property
+	def tiptotailLineStyle(self):
+		pass
+	@tiptotailLineStyle.setter
+	def tiptotailLineStyle(self):
+		pass
+
+	@property
+	def tiptotailLineThickness(self):
+		pass
+	@tiptotailLineThickness.setter
+	def tiptotailLineThickness(self):
+		pass
+
+	@property
+	def tiptotailSelectionMethod(self):
+		pass
+	@tiptotailSelectionMethod.setter
+	def tiptotailSelectionMethod(self):
+		pass
+
+	def tiptotailUsePrefence(self):
+		"""
+		
+        Method to set the tip-to-tail use preference.
+        
+		"""
+		pass
+
+	@property
+	def tiptotailVectorCount(self):
+		pass
+	@tiptotailVectorCount.setter
+	def tiptotailVectorCount(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	def update(self):
+		"""
+		Method to recalculate the curves, fit the curves along both *x* and *y* axis, and redraw the window.
+		"""
+		pass
+
 class Session:
 	def __init__(self):
 		"""
@@ -1224,8 +2096,9 @@ class Session:
 	def get(self,tag, id: Any = None, label: str = None, title: str = None, page: int|hw_module.page.Page = None, window: int|hw_module.window.Window = None, model=None, curve: Any = None, reference: str = None, labelAsDisplayed: str = None, name: str = None, curveLabelAsDisplayed: str = None, curveLabel: str = None, operation: str = None):
 		"""
 		
-        Method to get an entity object of class Page, Window, Model, Result, ResultDefinitionScalar, ResultDefinitionVector, ResultDefinitionTensor, ResultDefinitionIso, ResultDisplayIso, LegendScalar, LegendTensor, LegendVector,
-        Note, CurveXY, DatumHorizontal, DatumVertical, AxisHorizontal, AxisVertical, Header, Footer, MathXY,SectionCutPlanar,SectionCutSpherical.
+        Method to get an entity object of class Page, Window, Model, Result, ResultDefinitionScalar, ResultDefinitionVector, ResultDefinitionTensor, ResultDefinitionIso, ResultDisplayIso, LegendScalar, LegendTensor, LegendVector, Note, CurveXY, CurveComplex, CurvePolar, CurveBar ,DatumHorizontal, DatumVertical, 
+        AxisHorizontal, AxisVertical, Header, Footer, MathXY, SectionCutPlanar, SectionCutSpherical, MeasureStaticMinMax, MeasureDynamicMinMax, MeasurePosition, MeasureDistanceBetween, MeasureDistanceIncremental, MeasureDisplacementRelative, MeasureDistanceMinimum, MeasureAngleBetween, 
+        MeasureAngleRelative, MeasureAngleIncremental, MeasureCircleRadius, MeasureContourElemental, MeasureYawPitchRoll, MeasureContourNodal, MeasureNodePath, MeasureContourComponent.
         
         :param tag: The class of the entity to get.
         :type tag: class
@@ -1248,6 +2121,16 @@ class Session:
         :param model: Model specified either as a Model object or ID.
         :type model: Union[Model, int]
 
+        
+		"""
+		pass
+
+	def getHWversion(self,detail=2):
+		"""
+		Method to get the Hyperworks version.
+
+        :param detail: Value to show detail HW version details.Default is 2.
+        :type detail: str
         
 		"""
 		pass
@@ -1363,6 +2246,13 @@ Internal indicator of special typing constructs.
 """
 		pass
 
+class VideoType:
+	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
+		"""
+An enumeration.
+"""
+		pass
+
 class Window:
 	def __init__(self,page=None, window=None, id=None):
 		"""
@@ -1391,6 +2281,30 @@ class Window:
 	def erase(self):
 		"""
 		Method to erase window content.
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
 		"""
 		pass
 
@@ -1446,6 +2360,19 @@ class Window:
         
         :param kwargs: Attributes
         :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
         
 		"""
 		pass
@@ -1553,6 +2480,30 @@ class XYPlotWindow:
 		"""
 		pass
 
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
 	@property
 	def graphicsHeight(self):
 		pass
@@ -1650,6 +2601,19 @@ class XYPlotWindow:
 		"""
 		pass
 
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -1678,6 +2642,12 @@ class XYPlotWindow:
 		pass
 
 class animation:
+	pass
+
+def appinfo(str):
+	pass
+
+class assembly:
 	pass
 
 class capturetool:
@@ -1712,6 +2682,12 @@ def evalTcl(command: str):
 class font:
 	pass
 
+class hg:
+	pass
+
+class hv:
+	pass
+
 class hwi:
 	pass
 
@@ -1723,9 +2699,6 @@ class hwiimport:
 		pass
 
 class hwtypes:
-	pass
-
-class mdi:
 	pass
 
 class os:
@@ -1762,6 +2735,9 @@ class page:
 	pass
 
 class pathlib:
+	pass
+
+class pg:
 	pass
 
 class re:
@@ -1875,6 +2851,9 @@ This module also defines an exception 'error'.
 """
 	pass
 
+class report:
+	pass
+
 class sess:
 	pass
 
@@ -1956,6 +2935,9 @@ setrecursionlimit() -- set the max recursion depth for the interpreter
 settrace() -- set the global debug tracing function
 
 """
+	pass
+
+class taskmanager:
 	pass
 
 class utils:

@@ -6,14 +6,6 @@ class HasMethodsToHide:
 class ParameterManager:
 	pass
 
-class Sketch:
-	"""
-
-The Sketch data model.
-
-"""
-	pass
-
 class SwigPatches:
 	"""
 
@@ -147,6 +139,12 @@ Utility class used to convert values from one set of units to another.
     Returns:
       float: The converted value.
     
+		"""
+		pass
+
+	def getAllUnits(self):
+		"""
+		Returns all the unit formulas for given unit system.
 		"""
 		pass
 
@@ -313,21 +311,7 @@ class collections:
 class enum:
 	pass
 
-class io:
-	pass
-
-class math:
-	pass
-
 class parameterManager:
-	pass
-
-class physics:
-	"""
-
-A series of math utilities on Inertia Tensor.
-
-"""
 	pass
 
 class settings:
@@ -475,7 +459,7 @@ settrace() -- set the global debug tracing function
 	pass
 
 class virtualMethodDecorator:
-	def __init__(self,default=None,exceptions: str="(<class Exception>,)"):
+	def __init__(self,default=None,exceptions: str="<class Exception>"):
 		"""
 Decorate overloaded virtual methods to handle Python Exceptions
 

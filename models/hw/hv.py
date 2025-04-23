@@ -10,10 +10,11 @@ class hw_module:
 		class resultdefinition:
 			class ResultDefinition:
 				pass
-			class ResultPlotType:
-				pass
 		class entity:
 			class Node:
+				pass
+		class collection:
+			class Collection:
 				pass
 		class legend:
 			class ResultPlotType:
@@ -50,7 +51,7 @@ Internal indicator of special typing constructs.
 		pass
 
 class Collection:
-	def __init__(self,type: str = None, model: hw_module.hv.model.Model = None, populate: bool = True):
+	def __init__(self,type: str = None, model: hw_module.hv.model.Model = None, populate: bool = True, **kwargs):
 		"""
 
     A class representing Collection (Selection set) of entities.
@@ -81,7 +82,7 @@ class Collection:
 
 	def addByAttached(self,visible: bool = True):
 		"""
-		Method to add entities to a collection by attached.
+		Method to add entities to a collection by Sets.
 
         :param visible: All or displayed entities. Default is True (displayed).
         :type visible: bool
@@ -170,6 +171,17 @@ class Collection:
 		"""
 		pass
 
+	def addBySet(self,sset: list|str|int = None):
+		"""
+		Method to add entities by Set objects, names or ids. Single entities or lists are supported.
+
+        :param sset: Set, set name or set id. 
+        :type cname: Union[str, list]
+
+        
+		"""
+		pass
+
 	def addDisplayed(self):
 		"""
 		Method to add displayed entities to a collection.
@@ -177,6 +189,9 @@ class Collection:
 		pass
 
 	def clear(self):
+		"""
+		Method to clear all entities.
+		"""
 		pass
 
 	@property
@@ -215,6 +230,9 @@ class Collection:
 		pass
 
 	def getSize(self):
+		"""
+		Method to get the number of all entites.
+		"""
 		pass
 
 	@property
@@ -222,6 +240,17 @@ class Collection:
 		pass
 	@model.setter
 	def model(self):
+		pass
+
+	def removeBySet(self,sset: list|str|int = None):
+		"""
+		Method to add remove entities by Set objects, names or ids. Single entities or lists are supported.
+
+        :param sset: Set, set name or set id. 
+        :type cname: Union[str, list]
+
+        
+		"""
 		pass
 
 	def reverse(self,visible: bool = True):
@@ -395,6 +424,157 @@ class Entity:
 """
 		pass
 
+class ExportModelGLB:
+	def __init__(self,page=None, window=None,file: str="", **kwargs):
+		"""
+
+    A class representing exporting the model in GLB format.
+    
+    :param page: Page of the model, default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param window: Window of the model,default is the active window.
+    :type window: Union[Window, int]
+
+    :param file: GLB file name that you want to export. No default value.
+    :type file: str
+
+    :param kwargs: Param to set other attributes of ExportModelGLB class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	@property
+	def animation(self):
+		pass
+	@animation.setter
+	def animation(self):
+		pass
+
+	def export(self):
+		"""
+		Method to export the model. If the file name is not specified, the name will be set to *untitled*
+        followed by an incremental value (e.g. *untitled1.glb*).
+        
+        
+		"""
+		pass
+
+	@property
+	def file(self):
+		pass
+	@file.setter
+	def file(self):
+		pass
+
+	@property
+	def modelHierarchy(self):
+		pass
+	@modelHierarchy.setter
+	def modelHierarchy(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def results(self):
+		pass
+	@results.setter
+	def results(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the ExportModelGLB attributes.
+		"""
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class ExportModelGLBinPPT:
+	def __init__(self,page=None, window=None,file: str="", **kwargs):
+		"""
+
+    A class representing exporting the model glb in PPTX format.
+    
+    :param page: Page of the model, default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param window: Window of the model,default is the active window.
+    :type window: Union[Window, int]
+
+    :param file: PPTX file name that you want to export. No default value.
+    :type file: str
+
+    :param kwargs: Param to set other attributes of ExportModelGLBinPPT class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def export(self):
+		"""
+		Method to export the model. If the file name is not specified, the name will be set to *untitled*
+        followed by an incremental value (e.g. *untitled1.pptx*).
+        
+        
+		"""
+		pass
+
+	@property
+	def file(self):
+		pass
+	@file.setter
+	def file(self):
+		pass
+
+	@property
+	def modelHierarchy(self):
+		pass
+	@modelHierarchy.setter
+	def modelHierarchy(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def results(self):
+		pass
+	@results.setter
+	def results(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the ExportModelGLBinPPT attributes.
+		"""
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
 class ExportModelH3D:
 	def __init__(self,page=None, window=None,file: str="", **kwargs):
 		"""
@@ -530,8 +710,215 @@ class ExportModelH3D:
 	def window(self):
 		pass
 
+class ExportModelH3DinHTML:
+	def __init__(self,page=None, window=None,file: str="", **kwargs):
+		"""
+
+    A class representing exporting the model in HTML format.
+    
+    :param page: Page of the model, default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param window: Window of the model,default is the active window.
+    :type window: Union[Window, int]
+
+    :param file: HTML file name that you want to export. No default value.
+    :type file: str
+
+    :param kwargs: Param to set other attributes of ExportModelH3DinHTML class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	@property
+	def animation(self):
+		pass
+	@animation.setter
+	def animation(self):
+		pass
+
+	@property
+	def entityAttributes(self):
+		pass
+	@entityAttributes.setter
+	def entityAttributes(self):
+		pass
+
+	def export(self):
+		"""
+		Method to export the model. If the file name is not specified, the name will be set to *untitled*
+        followed by an incremental value (e.g. *untitled1.html*).
+        
+        
+		"""
+		pass
+
+	@property
+	def file(self):
+		pass
+	@file.setter
+	def file(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def results(self):
+		pass
+	@results.setter
+	def results(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the ExportModelH3DinHTML attributes.
+		"""
+		pass
+
+	@property
+	def viewAttributes(self):
+		pass
+	@viewAttributes.setter
+	def viewAttributes(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class ExportModelH3DinPPT:
+	def __init__(self,page=None, window=None,file: str="", **kwargs):
+		"""
+
+    A class representing exporting the model in H3D in PPT format.
+    
+    :param page: Page of the model, default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param window: Window of the model,default is the active window.
+    :type window: Union[Window, int]
+
+    :param file: H3D file name that you want to export. No default value.
+    :type file: str
+
+    :param kwargs: Param to set other attributes of ExportModelH3D class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	@property
+	def allModels(self):
+		pass
+	@allModels.setter
+	def allModels(self):
+		pass
+
+	@property
+	def animation(self):
+		pass
+	@animation.setter
+	def animation(self):
+		pass
+
+	@property
+	def compressOutput(self):
+		pass
+	@compressOutput.setter
+	def compressOutput(self):
+		pass
+
+	@property
+	def compressionLoss(self):
+		pass
+	@compressionLoss.setter
+	def compressionLoss(self):
+		pass
+
+	@property
+	def entityAttributes(self):
+		pass
+	@entityAttributes.setter
+	def entityAttributes(self):
+		pass
+
+	def export(self):
+		"""
+		Method to export the model. If the file name is not specified, the name will be set to *untitled*
+        followed by an incremental value (e.g. *untitled1.pptx*).
+        
+        
+		"""
+		pass
+
+	@property
+	def file(self):
+		pass
+	@file.setter
+	def file(self):
+		pass
+
+	@property
+	def includeMaskedElements(self):
+		pass
+	@includeMaskedElements.setter
+	def includeMaskedElements(self):
+		pass
+
+	@property
+	def includeSets(self):
+		pass
+	@includeSets.setter
+	def includeSets(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def results(self):
+		pass
+	@results.setter
+	def results(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the ExportModelH3DinPPT attributes.
+		"""
+		pass
+
+	@property
+	def viewAttributes(self):
+		pass
+	@viewAttributes.setter
+	def viewAttributes(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
 class FilterByPlane:
-	def __init__(self,normal: str='y', base=0, width=0.1):
+	def __init__(self,normal:str=" y", base="0", width=0.1):
 		"""
 
     A class representing the Filter by plane option for displayed entities, which can be used in the addByFilter method of a collection.
@@ -570,7 +957,7 @@ class FilterByPlane:
 		pass
 
 class FilterByScalar:
-	def __init__(self,operator: str ="==", value: int|float = None):
+	def __init__(self,operator:str=" ==", value: int|float = None):
 		"""
 
     A class representing the Filter by scalar option for displayed entities, which can be used in the *addByFilter* method of a collection.
@@ -645,6 +1032,66 @@ class FilterBySphere:
 		pass
 	@z.setter
 	def z(self):
+		pass
+
+class InteractiveSelection:
+	def __init__(self,type: str="Part",mode: str="multiple", modal=True,message: str=""):
+		"""
+
+    A class representing Interactive Selection Tool.
+
+    :param type: Entity type. Entity can be of Part, Node, or Element.
+    :type type: Union[str, Entity]
+
+    :param mode: Mode of selection. Available options are **multiple**, **list** and **single**. Default is **multiple**.
+    :type mode: str
+
+    :param modal: Attribute for controlling modality of Interactive Selection Tool. Default is true.
+    :type modal: bool
+
+    :param message: Status message that appear after selection.
+    :type message: str
+
+    
+"""
+		pass
+
+	@property
+	def message(self):
+		pass
+	@message.setter
+	def message(self):
+		pass
+
+	@property
+	def modal(self):
+		pass
+	@modal.setter
+	def modal(self):
+		pass
+
+	@property
+	def mode(self):
+		pass
+	@mode.setter
+	def mode(self):
+		pass
+
+	def select(self):
+		"""
+		Method to launch selection guidebar.
+
+        :return: Selected entities collection,list,single entity.
+        :rtype: Union[Collection,list,Entity]. 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
 		pass
 
 class LegendScalar:
@@ -1886,6 +2333,3647 @@ class LegendVector:
 	def window(self):
 		pass
 
+class MeasureAngleBetween:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasureAngleBetween.
+
+    :param window: Window for the MeasureAngleBetween. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureAngleBetween. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureAngleBetween ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureAngleBetween class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayTrueAngle(self):
+		pass
+	@displayTrueAngle.setter
+	def displayTrueAngle(self):
+		pass
+
+	@property
+	def displayXprojection(self):
+		pass
+	@displayXprojection.setter
+	def displayXprojection(self):
+		pass
+
+	@property
+	def displayYprojection(self):
+		pass
+	@displayYprojection.setter
+	def displayYprojection(self):
+		pass
+
+	@property
+	def displayZprojection(self):
+		pass
+	@displayZprojection.setter
+	def displayZprojection(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureAngleBetween.
+
+        :return: Dict of ids and Node, System information['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>,['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureAngleIncremental:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasureAngleIncremental.
+
+    :param window: Window for the MeasureAngleIncremental. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureAngleIncremental. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureAngleIncremental ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureAngleIncremental class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayTrueAngle(self):
+		pass
+	@displayTrueAngle.setter
+	def displayTrueAngle(self):
+		pass
+
+	@property
+	def displayXprojection(self):
+		pass
+	@displayXprojection.setter
+	def displayXprojection(self):
+		pass
+
+	@property
+	def displayYprojection(self):
+		pass
+	@displayYprojection.setter
+	def displayYprojection(self):
+		pass
+
+	@property
+	def displayZprojection(self):
+		pass
+	@displayZprojection.setter
+	def displayZprojection(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureAngleIncremental.
+
+        :return: Dict of ids and Node, System information['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>,['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureAngleRelative:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasureAngleRelative.
+
+    :param window: Window for the MeasureAngleRelative. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureAngleRelative. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureAngleRelative ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureAngleRelative class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayTrueAngle(self):
+		pass
+	@displayTrueAngle.setter
+	def displayTrueAngle(self):
+		pass
+
+	@property
+	def displayXprojection(self):
+		pass
+	@displayXprojection.setter
+	def displayXprojection(self):
+		pass
+
+	@property
+	def displayYprojection(self):
+		pass
+	@displayYprojection.setter
+	def displayYprojection(self):
+		pass
+
+	@property
+	def displayZprojection(self):
+		pass
+	@displayZprojection.setter
+	def displayZprojection(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureAngleRelative.
+
+        :return: Dict of ids and Node, System information['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>,['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureCircleRadius:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureCircleRadius.
+
+    :param window: Window for the MeasureCircleRadius. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureCircleRadius. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureCircleRadius ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureCircleRadius class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayPctr(self):
+		pass
+	@displayPctr.setter
+	def displayPctr(self):
+		pass
+
+	@property
+	def displayRadius(self):
+		pass
+	@displayRadius.setter
+	def displayRadius(self):
+		pass
+
+	@property
+	def displayRctr(self):
+		pass
+	@displayRctr.setter
+	def displayRctr(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayTctr(self):
+		pass
+	@displayTctr.setter
+	def displayTctr(self):
+		pass
+
+	@property
+	def displayXctr(self):
+		pass
+	@displayXctr.setter
+	def displayXctr(self):
+		pass
+
+	@property
+	def displayYctr(self):
+		pass
+	@displayYctr.setter
+	def displayYctr(self):
+		pass
+
+	@property
+	def displayZctr(self):
+		pass
+	@displayZctr.setter
+	def displayZctr(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureCircleRadius.
+
+        :return: Dict of ids and Node, System information['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>,['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureContourComponent:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureContourComponent.
+
+    :param window: Window for the MeasureContourComponent. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureContourComponent. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureContourComponent ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureContourComponent class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayValue(self):
+		pass
+	@displayValue.setter
+	def displayValue(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureContourComponent.
+
+        :return: Dict of ids and Part information['<model_id>','<part_pool>','<part_id>','<value>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureContourElemental:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureContourElemental.
+
+    :param window: Window for the MeasureContourElemental. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureContourElemental. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureContourElemental ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureContourElemental class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayValue(self):
+		pass
+	@displayValue.setter
+	def displayValue(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureContourElemental
+
+        :return: Dict of ids and Element information['<model_id>','<entity_pool>','<entity_id>','<value>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureContourNodal:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureContourNodal.
+
+    :param window: Window for the MeasureContourNodal. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureContourNodal. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureContourNodal ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureContourNodal class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayValue(self):
+		pass
+	@displayValue.setter
+	def displayValue(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureContourNodal.
+
+        :return: Dict of ids and Node information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>','<value>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureDisplacementRelative:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureDisplacementRelative.
+
+    :param window: Window for the MeasureDisplacementRelative. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureDisplacementRelative. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureDisplacementRelative ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureDisplacementRelative class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMagnitude(self):
+		pass
+	@displayMagnitude.setter
+	def displayMagnitude(self):
+		pass
+
+	@property
+	def displayP(self):
+		pass
+	@displayP.setter
+	def displayP(self):
+		pass
+
+	@property
+	def displayR(self):
+		pass
+	@displayR.setter
+	def displayR(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayT(self):
+		pass
+	@displayT.setter
+	def displayT(self):
+		pass
+
+	@property
+	def displayX(self):
+		pass
+	@displayX.setter
+	def displayX(self):
+		pass
+
+	@property
+	def displayY(self):
+		pass
+	@displayY.setter
+	def displayY(self):
+		pass
+
+	@property
+	def displayZ(self):
+		pass
+	@displayZ.setter
+	def displayZ(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureDisplacementRelative.
+
+        :return: Dict of ids and Node, System information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>','[x,y,z]'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureDistanceBetween:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureDistanceBetween.
+
+    :param window: Window for the MeasureDistanceBetween. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureDistanceBetween. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureDistanceBetween ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureDistanceBetween class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMagnitude(self):
+		pass
+	@displayMagnitude.setter
+	def displayMagnitude(self):
+		pass
+
+	@property
+	def displayP(self):
+		pass
+	@displayP.setter
+	def displayP(self):
+		pass
+
+	@property
+	def displayR(self):
+		pass
+	@displayR.setter
+	def displayR(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayT(self):
+		pass
+	@displayT.setter
+	def displayT(self):
+		pass
+
+	@property
+	def displayX(self):
+		pass
+	@displayX.setter
+	def displayX(self):
+		pass
+
+	@property
+	def displayY(self):
+		pass
+	@displayY.setter
+	def displayY(self):
+		pass
+
+	@property
+	def displayZ(self):
+		pass
+	@displayZ.setter
+	def displayZ(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureDistanceBetween.
+
+        :return: Dict of ids and Node, System information [['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>'],['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureDistanceIncremental:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureDistanceIncremental.
+
+    :param window: Window for the MeasureDistanceIncremental. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureDistanceIncremental. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureDistanceIncremental ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureDistanceIncremental class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMagnitude(self):
+		pass
+	@displayMagnitude.setter
+	def displayMagnitude(self):
+		pass
+
+	@property
+	def displayP(self):
+		pass
+	@displayP.setter
+	def displayP(self):
+		pass
+
+	@property
+	def displayR(self):
+		pass
+	@displayR.setter
+	def displayR(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayT(self):
+		pass
+	@displayT.setter
+	def displayT(self):
+		pass
+
+	@property
+	def displayX(self):
+		pass
+	@displayX.setter
+	def displayX(self):
+		pass
+
+	@property
+	def displayY(self):
+		pass
+	@displayY.setter
+	def displayY(self):
+		pass
+
+	@property
+	def displayZ(self):
+		pass
+	@displayZ.setter
+	def displayZ(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureDistanceIncremental.
+
+        :return: Dict of ids and Node, System information [['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>'],['x','y','z']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureDistanceMinimum:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureDistanceMinimum.
+
+    :param window: Window for the MeasureDistanceMinimum. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureDistanceMinimum. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureDistanceMinimum ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureDistanceMinimum class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,fromSet, toSet):
+		"""
+		Method to add entities to the MeasureDistanceMinimum.
+
+        :param fromSet: Entities to add into the MeasureDistanceMinimum.
+        :type fromSet: Union[list,Node,Element,Part,Collection]
+
+        :param toSet: Entities to add into the MeasureDistanceMinimum.
+        :type toSet: Union[list,Node,Element,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMagnitude(self):
+		pass
+	@displayMagnitude.setter
+	def displayMagnitude(self):
+		pass
+
+	@property
+	def displayP(self):
+		pass
+	@displayP.setter
+	def displayP(self):
+		pass
+
+	@property
+	def displayR(self):
+		pass
+	@displayR.setter
+	def displayR(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayT(self):
+		pass
+	@displayT.setter
+	def displayT(self):
+		pass
+
+	@property
+	def displayX(self):
+		pass
+	@displayX.setter
+	def displayX(self):
+		pass
+
+	@property
+	def displayY(self):
+		pass
+	@displayY.setter
+	def displayY(self):
+		pass
+
+	@property
+	def displayZ(self):
+		pass
+	@displayZ.setter
+	def displayZ(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureDistanceMinimum.
+
+        :return: Dict of ids and Part, Node, Element information [['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>'],
+                        ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>'],['x','y','z','Mag']].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,fromSet, toSet):
+		"""
+		Method to remove entities from the MeasureDistanceMinimum.
+
+        :param fromSet: Entities to remove from the MeasureDistanceMinimum.
+        :type fromSet: Union[list,Node,Element,Part,Collection]
+
+        :param toSet: Entities to remove from the MeasureDistanceMinimum.
+        :type toSet: Union[list,Node,Element,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureDynamicMinMax:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasureDynamicMinMax.
+
+    :param window: Window for the MeasureDynamicMinMax. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureDynamicMinMax. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureDynamicMinMax ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureDynamicMinMax class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMax(self):
+		pass
+	@displayMax.setter
+	def displayMax(self):
+		pass
+
+	@property
+	def displayMin(self):
+		pass
+	@displayMin.setter
+	def displayMin(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureDynamicMinMax.
+
+        :return: Dict of ids and Node, Element, Part information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>','<value>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureNodePath:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureNodePath.
+
+    :param window: Window for the MeasureNodePath. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureNodePath. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureNodePath ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureNodePath class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayDistance(self):
+		pass
+	@displayDistance.setter
+	def displayDistance(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayNodePath(self):
+		pass
+	@displayNodePath.setter
+	def displayNodePath(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayValue(self):
+		pass
+	@displayValue.setter
+	def displayValue(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureNodePath.
+
+        :return: Dict of ids and Node information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasurePosition:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasurePosition.
+
+    :param window: Window for the MeasurePosition. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasurePosition. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasurePosition ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasurePosition class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		"""
+		Method to add entities to the Measure.
+
+        :param entities: Entities to add into the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayP(self):
+		pass
+	@displayP.setter
+	def displayP(self):
+		pass
+
+	@property
+	def displayR(self):
+		pass
+	@displayR.setter
+	def displayR(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayT(self):
+		pass
+	@displayT.setter
+	def displayT(self):
+		pass
+
+	@property
+	def displayX(self):
+		pass
+	@displayX.setter
+	def displayX(self):
+		pass
+
+	@property
+	def displayY(self):
+		pass
+	@displayY.setter
+	def displayY(self):
+		pass
+
+	@property
+	def displayZ(self):
+		pass
+	@displayZ.setter
+	def displayZ(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasurePosition.
+
+        :return: Dict of ids and Node, System information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>','[x,y,z]'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		"""
+		Method to remove entities from the Measure.
+
+        :param entities: Entities to remove from the Measure.
+        :type entities: Union[list,Node,Element,System,Part,Collection]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureStaticMinMax:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int = 1, **kwargs):
+		"""
+
+    A class representing MeasureStaticMinMax.
+
+    :param window: Window for the MeasureStaticMinMax. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureStaticMinMax. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureStaticMinMax ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureStaticMinMax class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayMax(self):
+		pass
+	@displayMax.setter
+	def displayMax(self):
+		pass
+
+	@property
+	def displayMin(self):
+		pass
+	@displayMin.setter
+	def displayMin(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	def getMeasureProperties(self):
+		"""
+		Method to get the measure properties of the MeasureStaticMinMax.
+
+        :return: Dict of ids and Node, Element, Part information ['<model_id>','<part_pool>','<part_id>','<entity_pool>','<entity_id>','<value>'].
+        :rtype: dict 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
+class MeasureYawPitchRoll:
+	def __init__(self,window: hw_module.window.Window = None, page: hw_module.page.Page = None, id: int =" 0", **kwargs):
+		"""
+
+    A class representing MeasureYawPitchRoll.
+
+    :param window: Window for the MeasureYawPitchRoll. Default is the active window.
+    :type window: Union[Window, int]
+
+    :param page: Page for the MeasureYawPitchRoll. Default is the active page.
+    :type page: Union[Page, int, str]
+
+    :param id: MeasureYawPitchRoll ID.
+    :type id: int
+
+    :param kwargs: To set the other attributes of MeasureYawPitchRoll class.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def addEntities(self,entities=None):
+		pass
+
+	@property
+	def angleFormat(self):
+		pass
+	@angleFormat.setter
+	def angleFormat(self):
+		pass
+
+	@property
+	def autohide(self):
+		pass
+	@autohide.setter
+	def autohide(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def displayId(self):
+		pass
+	@displayId.setter
+	def displayId(self):
+		pass
+
+	@property
+	def displayLabel(self):
+		pass
+	@displayLabel.setter
+	def displayLabel(self):
+		pass
+
+	@property
+	def displayPitch(self):
+		pass
+	@displayPitch.setter
+	def displayPitch(self):
+		pass
+
+	@property
+	def displayRoll(self):
+		pass
+	@displayRoll.setter
+	def displayRoll(self):
+		pass
+
+	@property
+	def displaySystem(self):
+		pass
+	@displaySystem.setter
+	def displaySystem(self):
+		pass
+
+	@property
+	def displayYaw(self):
+		pass
+	@displayYaw.setter
+	def displayYaw(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	def getBaseTime(self):
+		"""
+		Method to get the base time of the Measure.
+    
+        :return: Base time.
+        :rtype: Union[str,float] 
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def numericFormat(self):
+		pass
+	@numericFormat.setter
+	def numericFormat(self):
+		pass
+
+	@property
+	def numericPrecision(self):
+		pass
+	@numericPrecision.setter
+	def numericPrecision(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def prefix(self):
+		pass
+	@prefix.setter
+	def prefix(self):
+		pass
+
+	def removeEntities(self,entities=None):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Measures attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def transparency(self):
+		pass
+	@transparency.setter
+	def transparency(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
+		pass
+
 class Model:
 	def __init__(self,model: Any = None, page: int|hw_module.page.Page = None, window: int|hw_module.window.Window = None, id: int = None):
 		"""
@@ -1911,8 +5999,8 @@ class Model:
 		"""
 		Method to delete an entity collection
         
-        :param entity: Entity like Collection 
-        :type entity: Collection
+        :param entity: Entity like Collection,System
+        :type entity: Collection,Set,System
 
         :param objOrId: Collection object, list of objects or **all**.
         :type objOrId: Union[Collection, list, str]
@@ -1920,12 +6008,15 @@ class Model:
 		"""
 		pass
 
+	def exportSets(self,filename:str=" "):
+		pass
+
 	def get(self,tag, id_or_lab, pool=None):
 		"""
-		Method to get the entity like Element, Node, Part, PartSet, PartAssembly.
+		Method to get the entity like Element, Node, Part, PartSet, PartAssembly, System.
         
-        :param tag: Entity class, like Element, Node, Part, PartSet, PartAssembly. 
-        :type tag: Union[Element, Node, Part, PartSet, PartAssembly]
+        :param tag: Entity class, like Element, Node, Part, PartSet, PartAssembly, System. 
+        :type tag: Union[Element, Node, Part, PartSet, PartAssembly, System]
 
         :param id_or_lab: level index. 
         :type id_or_lab: int
@@ -1934,7 +6025,7 @@ class Model:
         :type pool: str
 
         :return: Requested entity object.
-        :rtype: Union[Element, Node, Part, PartSet, PartAssembly]  
+        :rtype: Union[Element, Node, Part, PartSet, PartAssembly, System]  
         
 		"""
 		pass
@@ -1954,6 +6045,9 @@ class Model:
 		pass
 	@id.setter
 	def id(self):
+		pass
+
+	def importSets(self,filename:str=" "):
 		pass
 
 	def isolate(self,colobj):
@@ -2170,6 +6264,15 @@ class Note:
 		"""
 		pass
 
+	def getLineToEntityList(self):
+		"""
+		Method to get the list of Note line to entity valid attribute.
+        :return: attribute list
+        :rtype: list
+        
+		"""
+		pass
+
 	@property
 	def height(self):
 		pass
@@ -2189,6 +6292,13 @@ class Note:
 		pass
 	@label.setter
 	def label(self):
+		pass
+
+	@property
+	def lineToEntity(self):
+		pass
+	@lineToEntity.setter
+	def lineToEntity(self):
 		pass
 
 	@property
@@ -2572,6 +6682,576 @@ class PartSet:
 		pass
 	@name.setter
 	def name(self):
+		pass
+
+class Path:
+	def __init__(self,*args, **kwargs):
+		"""
+PurePath subclass that can make system calls.
+
+    Path represents a filesystem path but unlike PurePath, also offers
+    methods to do system calls on path objects. Depending on your system,
+    instantiating a Path will return either a PosixPath or a WindowsPath
+    object. You can also instantiate a PosixPath or WindowsPath directly,
+    but cannot instantiate a WindowsPath on a POSIX system or vice versa.
+    
+"""
+		pass
+
+	def absolute(self):
+		"""
+		Return an absolute version of this path.  This function works
+        even if the path doesn't point to anything.
+
+        No normalization is done, i.e. all '.' and '..' will be kept along.
+        Use resolve() to get the canonical path to a file.
+        
+		"""
+		pass
+
+	@property
+	def anchor(self):
+		pass
+	@anchor.setter
+	def anchor(self):
+		pass
+
+	def as_posix(self):
+		"""
+		Return the string representation of the path with forward (/)
+        slashes.
+		"""
+		pass
+
+	def as_uri(self):
+		"""
+		Return the path as a 'file' URI.
+		"""
+		pass
+
+	def chmod(self,mode):
+		"""
+		
+        Change the permissions of the path, like os.chmod().
+        
+		"""
+		pass
+
+	def cwd(self):
+		"""
+		Return a new path pointing to the current working directory
+        (as returned by os.getcwd()).
+        
+		"""
+		pass
+
+	@property
+	def drive(self):
+		pass
+	@drive.setter
+	def drive(self):
+		pass
+
+	def exists(self):
+		"""
+		
+        Whether this path exists.
+        
+		"""
+		pass
+
+	def expanduser(self):
+		"""
+		 Return a new path with expanded ~ and ~user constructs
+        (as returned by os.path.expanduser)
+        
+		"""
+		pass
+
+	def glob(self,pattern):
+		"""
+		Iterate over this subtree and yield all existing files (of any
+        kind, including directories) matching the given relative pattern.
+        
+		"""
+		pass
+
+	def group(self):
+		"""
+		
+        Return the group name of the file gid.
+        
+		"""
+		pass
+
+	def home(self):
+		"""
+		Return a new path pointing to the user's home directory (as
+        returned by os.path.expanduser('~')).
+        
+		"""
+		pass
+
+	def is_absolute(self):
+		"""
+		True if the path is absolute (has both a root and, if applicable,
+        a drive).
+		"""
+		pass
+
+	def is_block_device(self):
+		"""
+		
+        Whether this path is a block device.
+        
+		"""
+		pass
+
+	def is_char_device(self):
+		"""
+		
+        Whether this path is a character device.
+        
+		"""
+		pass
+
+	def is_dir(self):
+		"""
+		
+        Whether this path is a directory.
+        
+		"""
+		pass
+
+	def is_fifo(self):
+		"""
+		
+        Whether this path is a FIFO.
+        
+		"""
+		pass
+
+	def is_file(self):
+		"""
+		
+        Whether this path is a regular file (also True for symlinks pointing
+        to regular files).
+        
+		"""
+		pass
+
+	def is_mount(self):
+		"""
+		
+        Check if this path is a POSIX mount point
+        
+		"""
+		pass
+
+	def is_reserved(self):
+		"""
+		Return True if the path contains one of the special names reserved
+        by the system, if any.
+		"""
+		pass
+
+	def is_socket(self):
+		"""
+		
+        Whether this path is a socket.
+        
+		"""
+		pass
+
+	def is_symlink(self):
+		"""
+		
+        Whether this path is a symbolic link.
+        
+		"""
+		pass
+
+	def iterdir(self):
+		"""
+		Iterate over the files in this directory.  Does not yield any
+        result for the special paths '.' and '..'.
+        
+		"""
+		pass
+
+	def joinpath(self,*args):
+		"""
+		Combine this path with one or several arguments, and return a
+        new path representing either a subpath (if all arguments are relative
+        paths) or a totally different path (if one of the arguments is
+        anchored).
+        
+		"""
+		pass
+
+	def lchmod(self,mode):
+		"""
+		
+        Like chmod(), except if the path points to a symlink, the symlink's
+        permissions are changed, rather than its target's.
+        
+		"""
+		pass
+
+	def link_to(self,target):
+		"""
+		
+        Make the target path a hard link pointing to this path.
+
+        Note this function does not make this path a hard link to *target*,
+        despite the implication of the function and argument names. The order
+        of arguments (target, link) is the reverse of Path.symlink_to, but
+        matches that of os.link.
+
+        
+		"""
+		pass
+
+	def lstat(self):
+		"""
+		
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        
+		"""
+		pass
+
+	def match(self,path_pattern):
+		"""
+		
+        Return True if this path matches the given pattern.
+        
+		"""
+		pass
+
+	def mkdir(self,mode=511, parents=False, exist_ok=False):
+		"""
+		
+        Create a new directory at this given path.
+        
+		"""
+		pass
+
+	@property
+	def name(self):
+		pass
+	@name.setter
+	def name(self):
+		pass
+
+	def open(self,mode="r", buffering=-1, encoding=None, errors=None, newline=None):
+		"""
+		
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        
+		"""
+		pass
+
+	def owner(self):
+		"""
+		
+        Return the login name of the file owner.
+        
+		"""
+		pass
+
+	@property
+	def parent(self):
+		pass
+	@parent.setter
+	def parent(self):
+		pass
+
+	@property
+	def parents(self):
+		pass
+	@parents.setter
+	def parents(self):
+		pass
+
+	@property
+	def parts(self):
+		pass
+	@parts.setter
+	def parts(self):
+		pass
+
+	def read_bytes(self):
+		"""
+		
+        Open the file in bytes mode, read it, and close the file.
+        
+		"""
+		pass
+
+	def read_text(self,encoding=None, errors=None):
+		"""
+		
+        Open the file in text mode, read it, and close the file.
+        
+		"""
+		pass
+
+	def relative_to(self,*other):
+		"""
+		Return the relative path to another path identified by the passed
+        arguments.  If the operation is not possible (because this is not
+        a subpath of the other path), raise ValueError.
+        
+		"""
+		pass
+
+	def rename(self,target):
+		"""
+		
+        Rename this path to the target path.
+
+        The target path may be absolute or relative. Relative paths are
+        interpreted relative to the current working directory, *not* the
+        directory of the Path object.
+
+        Returns the new Path instance pointing to the target path.
+        
+		"""
+		pass
+
+	def replace(self,target):
+		"""
+		
+        Rename this path to the target path, overwriting if that path exists.
+
+        The target path may be absolute or relative. Relative paths are
+        interpreted relative to the current working directory, *not* the
+        directory of the Path object.
+
+        Returns the new Path instance pointing to the target path.
+        
+		"""
+		pass
+
+	def resolve(self,strict=False):
+		"""
+		
+        Make the path absolute, resolving all symlinks on the way and also
+        normalizing it (for example turning slashes into backslashes under
+        Windows).
+        
+		"""
+		pass
+
+	def rglob(self,pattern):
+		"""
+		Recursively yield all existing files (of any kind, including
+        directories) matching the given relative pattern, anywhere in
+        this subtree.
+        
+		"""
+		pass
+
+	def rmdir(self):
+		"""
+		
+        Remove this directory.  The directory must be empty.
+        
+		"""
+		pass
+
+	@property
+	def root(self):
+		pass
+	@root.setter
+	def root(self):
+		pass
+
+	def samefile(self,other_path):
+		"""
+		Return whether other_path is the same or not as this file
+        (as returned by os.path.samefile()).
+        
+		"""
+		pass
+
+	def stat(self):
+		"""
+		
+        Return the result of the stat() system call on this path, like
+        os.stat() does.
+        
+		"""
+		pass
+
+	@property
+	def stem(self):
+		pass
+	@stem.setter
+	def stem(self):
+		pass
+
+	@property
+	def suffix(self):
+		pass
+	@suffix.setter
+	def suffix(self):
+		pass
+
+	@property
+	def suffixes(self):
+		pass
+	@suffixes.setter
+	def suffixes(self):
+		pass
+
+	def symlink_to(self,target, target_is_directory=False):
+		"""
+		
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        
+		"""
+		pass
+
+	def touch(self,mode=438, exist_ok=True):
+		"""
+		
+        Create this file with the given access mode, if it doesn't exist.
+        
+		"""
+		pass
+
+	def unlink(self,missing_ok=False):
+		"""
+		
+        Remove this file or link.
+        If the path is a directory, use rmdir() instead.
+        
+		"""
+		pass
+
+	def with_name(self,name):
+		"""
+		Return a new path with the file name changed.
+		"""
+		pass
+
+	def with_suffix(self,suffix):
+		"""
+		Return a new path with the file suffix changed.  If the path
+        has no suffix, add given suffix.  If the given suffix is an empty
+        string, remove the suffix from the path.
+        
+		"""
+		pass
+
+	def write_bytes(self,data):
+		"""
+		
+        Open the file in bytes mode, write to it, and close the file.
+        
+		"""
+		pass
+
+	def write_text(self,data, encoding=None, errors=None):
+		"""
+		
+        Open the file in text mode, write to it, and close the file.
+        
+		"""
+		pass
+
+class QueryResultsTool:
+	def __init__(self,model: hw_module.hv.model.Model = None, page: int = None, window: int = None):
+		"""
+
+      A class representing Results Query Tool.
+    
+      :param model: Model for the Results Query Tool. Default is active model.
+      :type model: Union[Model, int, str]
+
+      :param page: Page for the Results Query Tool. Default is active page.
+      :type page: Union[Page, int, str]
+
+      :param window: Window for the Results Query Tool. Default is active window.
+      :type window: Union[Window, int]
+
+    
+"""
+		pass
+
+	@property
+	def collection(self):
+		pass
+	@collection.setter
+	def collection(self):
+		pass
+
+	def getDataSourceInfo(self):
+		"""
+		Method to get the data source info.
+        
+        :return: data source info.
+        :rtype: dict. 
+        
+		"""
+		pass
+
+	def getDataSourceQuery(self,format="list"):
+		"""
+		Method to get the data source query.
+        
+        :param format: Format for data source query. Default is list.
+        :type format: Union[str, list].
+
+        :return: data source query.
+        :rtype: Union[str, list]. 
+        
+		"""
+		pass
+
+	@property
+	def model(self):
+		pass
+	@model.setter
+	def model(self):
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	def query(self):
+		"""
+		Method to execute data source query.
+
+        :return: Query data.
+        :rtype: Numpy. 
+        
+		"""
+		pass
+
+	def setDataSourceQuery(self,ds: str|list):
+		"""
+		Method to set the data source query.
+        
+        :param ds: Data source query.
+        :type ds: Union[str, list] .
+        
+		"""
+		pass
+
+	@property
+	def window(self):
+		pass
+	@window.setter
+	def window(self):
 		pass
 
 class Result:
@@ -4041,7 +8721,7 @@ class SectionCutPlanar:
       :param page: Page for the SectionCut Planar. Default is the active page.
       :type page: Union[Page, int, str]
 
-      :param id: id of the SectionCut Planar. Default is 1.
+      :param id: THe ID of the SectionCut Planar. Default is 1.
       :type id: int
 
       :param kwargs: To set the other attributes of the SectionCutPlanar class.
@@ -4197,10 +8877,10 @@ class SectionCutPlanar:
 		"""
 		Method to set the base node of the SectionCutPlanar.
         
-        :param node: Node id or obect.
-        :type node: Union[int, Node]
+        :param node: Node ID or object.
+        :type node: Union[int,Node]
 
-        :param model: Model id or object. 
+        :param model: Model ID or object. 
         :type model: Union[int,Model] 
         
 		"""
@@ -4216,10 +8896,10 @@ class SectionCutPlanar:
 		"""
 		Method to set the orientation axis of the SectionCutPlanar.
         
-        :param orientationAxis: Orientation axis. 'x','y' or 'z'.
-        :type orientationAxis:str
+        :param orientationAxis: Orientation axis. Available options are **x**, **y**, or **z**.
+        :type orientationAxis: str
 
-        :param node: Node id or obect.
+        :param node: Node ID or node object.
         :type node: Union[int, Node]
         
 		"""
@@ -4229,16 +8909,16 @@ class SectionCutPlanar:
 		"""
 		Method to set the orientation node of the SectionCutPlanar.
 
-        :param n1: First node id or obect.
+        :param n1: First node ID or object.
         :type n1: Union[int, Node]
 
-        :param n2: Second node id or obect.
+        :param n2: Second node ID or object.
         :type n2: Union[int, Node]
 
-        :param n3: Third node id or obect.
+        :param n3: Third node ID or object.
         :type n3: Union[int, Node]
 
-        :param base: Base node id or obect.
+        :param base: Base node ID or object.
         :type base: Union[int, Node]
         
 		"""
@@ -4248,8 +8928,8 @@ class SectionCutPlanar:
 		"""
 		Method to set the normal to screen orientation of the SectionCutPlanar.
 
-        :param node: Node id,Node obect or Node coodinates.
-        :type node: Union[int, Node,list,tuple]
+        :param node: Node ID, node object or node coodinates.
+        :type node: Union[int,Node,list,tuple]
         
 		"""
 		pass
@@ -4467,6 +9147,650 @@ class SectionCutSpherical:
 	def window(self):
 		pass
 
+class Set:
+	def __init__(self,type: str = None, id: int = None, model: hw_module.hv.model.Model = None, populate: bool = True, **kwargs):
+		"""
+
+    A class representing Set. This class is derived from Collection class
+
+    :param type: Entity type. Entity can be of Part, Node, or Element.
+    :type type: Union[str, Entity]
+
+    :param id: Set ID.
+    :type id: int
+
+    :param model: Model in which Set is present. Default is the active model.
+    :type model: Union[Model, int, str]
+
+    :param populate: Populate all entity in set. Default is True.
+    :type populate: bool
+
+    
+"""
+		pass
+
+	def addByAdjacent(self,repeat=1, visible: bool = True):
+		"""
+		Method to add entities to a collection by its adjacent.
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :type visible: bool
+
+        
+		"""
+		pass
+
+	def addByAttached(self,visible: bool = True):
+		"""
+		Method to add entities to a collection by Sets.
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :type visible: bool
+
+        
+		"""
+		pass
+
+	def addByCollection(self,col: hw_module.hv.collection.Collection):
+		"""
+		Method to add entities to the Set by Collection.
+
+       :param col: Collection object.
+       :type col: Collection
+       
+		"""
+		pass
+
+	def addByComponentName(self,cname: list|str):
+		"""
+		Method to add entities to a collection by part name.
+
+        :param cname: Part name or part name list
+        :type cname: Union[str, list]
+
+        
+		"""
+		pass
+
+	def addByConfig(self,config, visible: bool = True):
+		"""
+		Method to add entities to a collection by configuration option.
+
+        :param config: Configuration of the entity.
+        :type config: Union[str,list of str]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :type visible: bool
+
+        
+		"""
+		pass
+
+	def addByDimension(self,dimension: list|int, visible: bool = True):
+		"""
+		Method to add entities to a collection by dimensions.
+
+        :param dimension: Dimension of the entity. Dimension can be **0**, **1**, **2** or **3**.
+        :type dimension: Union[int, list]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :param type: bool
+
+        
+		"""
+		pass
+
+	def addByFace(self,visible: bool = True):
+		"""
+		Method to add entities to a collection by face. This is applicable for Node and Element.
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :type visible: bool
+
+        
+		"""
+		pass
+
+	def addByFilter(self,filter: list|hw_module.hv.filter.Filter):
+		"""
+		Method to add entities to the collection by the filter. Filter can be an instance of FilterByScalar, FilterBySphere, or FilterByPlane.
+
+       :param filter: Filter object or list of filter objects.
+       :type filter: Union[Filter, List of Filters]
+       
+		"""
+		pass
+
+	def addByID(self,type: str, idstr: list|str, visible: bool = True, pool: str = None):
+		"""
+		Method to add entities to a collection by id option.
+
+        :param type: Entity type. Entity can be of type Part, Node, or Element.
+        :type type: Union[str, Entity]
+
+        :param idstr: ID, list of IDs or ID in string range format.
+        :type idstr: Union[int, str, list]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :param type: bool
+
+        :param pool: The specific pool, default is None.
+        :type pool: str
+
+        
+		"""
+		pass
+
+	def addBySet(self,sset: list|str|int = None):
+		"""
+		Method to add entities by Set objects, names or ids. Single entities or lists are supported.
+
+        :param sset: Set, set name or set id. 
+        :type cname: Union[str, list]
+
+        
+		"""
+		pass
+
+	def addDisplayed(self):
+		"""
+		Method to add displayed entities to a collection.
+		"""
+		pass
+
+	def clear(self):
+		"""
+		Method to clear all entities.
+		"""
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def drawSize(self):
+		pass
+	@drawSize.setter
+	def drawSize(self):
+		pass
+
+	@property
+	def drawStyle(self):
+		pass
+	@drawStyle.setter
+	def drawStyle(self):
+		pass
+
+	@property
+	def entityType(self):
+		pass
+	@entityType.setter
+	def entityType(self):
+		pass
+
+	def getDrawStyleList(self):
+		"""
+		Method to get draw style list for the Set.
+
+        :return: draw style list.
+        :rtype: list. 
+        
+		"""
+		pass
+
+	def getEntities(self,pool: str = None):
+		"""
+		Method to get the entity list from a collection.
+
+        :param pool: The specific pool, default is None.
+        :type pool: list of entities
+
+        
+		"""
+		pass
+
+	def getIds(self,pool: str = None):
+		"""
+		Method to get the list of entity ids from collection.
+
+        :param pool: The specific pool, default is None.
+        :type pool: list of int
+
+        
+		"""
+		pass
+
+	def getPools(self):
+		"""
+		Method to get the pool list of the entity.
+		"""
+		pass
+
+	def getSize(self):
+		"""
+		Method to get the number of all entites.
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def idVisibility(self):
+		pass
+	@idVisibility.setter
+	def idVisibility(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def model(self):
+		pass
+	@model.setter
+	def model(self):
+		pass
+
+	@property
+	def pool(self):
+		pass
+	@pool.setter
+	def pool(self):
+		pass
+
+	def removeByCollection(self,col: hw_module.hv.collection.Collection):
+		"""
+		Method to remove entities from the Set by Collection.
+
+       :param col: Collection object.
+       :type col: Collection
+       
+		"""
+		pass
+
+	def removeBySet(self,sset: list|str|int = None):
+		"""
+		Method to add remove entities by Set objects, names or ids. Single entities or lists are supported.
+
+        :param sset: Set, set name or set id. 
+        :type cname: Union[str, list]
+
+        
+		"""
+		pass
+
+	def reverse(self,visible: bool = True):
+		"""
+		Method to reverse the entity selection of the collection. Default is True.
+
+        :param visible: All or displayed entities.
+        :param type: bool
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the Set attributes.
+        
+        :param kwargs: attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	def subtractByComponentName(self,cname: list|str):
+		"""
+		Method to subtract entities from a collection by part name.
+
+        :param cname: Part name or part name list
+        :type cname: Union[str, list]
+
+        
+		"""
+		pass
+
+	def subtractByConfig(self,config, visible: bool = True):
+		"""
+		Method to subtract entities from a collection by configuration option.
+
+        :param config: Configuration of the entity
+        :type config: Union[str,list of str]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :type visible: bool
+
+        
+		"""
+		pass
+
+	def subtractByDimension(self,dimension: list|int, visible: bool = True):
+		"""
+		Method to subtract entities from a collection by dimensions.
+
+        :param dimension: Dimension of the entity. Dimension can be **0**, **1**, **2** or **3**.
+        :type dimension: Union[int, list]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :param type: bool
+
+        
+		"""
+		pass
+
+	def subtractByFilter(self,filter: list|hw_module.hv.filter.Filter):
+		"""
+		Method to subtract entities from a collection by filter. Filter can be instance of FilterByScalar, FilterBySphere, or FilterByPlane.
+
+       :param filter: Filter object or list of filter objects.
+       :type filter: Union[Filter, List of Filters]
+       
+		"""
+		pass
+
+	def subtractByID(self,type: str, idstr: list|str, visible: bool = True, pool: str = None):
+		"""
+		Method to subtract entities from a collection by id option.
+        
+        :param type: Entity type. Entity can be of type Part, Node, or Element.
+        :type type: Union[str, Entity]
+
+        :param idstr: ID, list of IDs or ID in string range format.
+        :type idstr: Union[int, str, list]
+
+        :param visible: All or displayed entities. Default is True (displayed).
+        :param type: bool
+
+        :param pool: The specific pool. Default is None.
+        :type pool: str
+
+        
+		"""
+		pass
+
+	def subtractDisplayed(self):
+		"""
+		Method to subtract displayed entities from a collection.
+		"""
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
+class System:
+	def __init__(self,type:str=" rectangular", model=None, id: int = None, _add: bool = True, **kwargs):
+		"""
+
+      A class representing System.
+
+      :param type: Type of the System. Valid values are **rectangular**, **spherical**, **cylindrical**. Default is **rectangular**.
+      :type type: str
+
+      :param model: Model for the System. Default is active model.
+      :type model: Union[Model, int]
+
+      :param id: id of the System. Default is 1.
+      :type id: int
+
+      :param kwargs: To set the other attributes of System class.
+      :type kwargs: dict
+
+     
+"""
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def fixed(self):
+		pass
+	@fixed.setter
+	def fixed(self):
+		pass
+
+	def getOrientation(self,v: str = None):
+		"""
+		Method to get the orientation of the System.
+
+        :param v: String specifying 'v', 'v1', 'v2', 'v3', 'v1x', 'v1y', 'v1z, 'v2x', 'v2y', 'v2z', 'v3x', 'v3y' or 'v3z'
+        :type v: str
+
+        :return: Orientation of the System.
+        :rtype: Union[list,float] 
+        
+		"""
+		pass
+
+	def getOrigin(self,xyz: str = None):
+		"""
+		Method to get the origin of the System.
+
+        :param xyz: String specifying 'x','y','z' or None.
+        :type xyz: str
+
+        :return: Origin of the System.
+        :rtype: Union[list,float] 
+        
+		"""
+		pass
+
+	def getRectangularAxisPlane(self):
+		"""
+		Method to get the axis plane of the Rectlangular System.
+
+        :return: Axis plane.
+        :rtype: str  
+        
+		"""
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	@property
+	def label(self):
+		pass
+	@label.setter
+	def label(self):
+		pass
+
+	@property
+	def labelVisibility(self):
+		pass
+	@labelVisibility.setter
+	def labelVisibility(self):
+		pass
+
+	@property
+	def parentSystem(self):
+		pass
+	@parentSystem.setter
+	def parentSystem(self):
+		pass
+
+	@property
+	def pool(self):
+		pass
+	@pool.setter
+	def pool(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the System attributes.
+		"""
+		pass
+
+	def setOrientationByCircleCenter(self,node1: int|hw_module.hv.entity.Node = None, node2: int|hw_module.hv.entity.Node = None, node3: int|hw_module.hv.entity.Node = None):
+		"""
+		Method to set the orientation of the System by circle center.
+
+        :param node1: First Node to define circle center of the System.
+        :type node1: Union[int, Node]
+
+        :param node2: Second Node to define circle center of the System.
+        :type node2: Union[int, Node] 
+
+        :param node3: Third Node to define circle center of the System.
+        :type node3: Union[int, Node] 
+        
+		"""
+		pass
+
+	def setOrientationByCoords(self,origin: list = None, xaxis: list = None, xyplane: list = None):
+		"""
+		Method to set the orientation of the System by coordinates.
+
+        :param origin: Coordinates of origin of the System.
+        :type origin: list
+
+        :param xaxis: Coordinates of xaxis of the System.
+        :type xaxis: list 
+
+        :param xyplane: Coordinates of xyplane of the System.
+        :type xyplane: list
+        
+		"""
+		pass
+
+	def setOrientationByList(self,v: list = None):
+		"""
+		Method to set the orientation of the System spcifyling list of 9 coordinate values.
+
+        :param v: Coordinates.
+        :type v: list
+        
+		"""
+		pass
+
+	def setOrientationByNode(self,origin: int|hw_module.hv.entity.Node = None, axis: int|hw_module.hv.entity.Node = None, plane: int|hw_module.hv.entity.Node = None, axisplane: str =" x-xy"):
+		"""
+		Method to set the orientation of the System by Node.
+
+        :param origin: Origin Node of the System.
+        :type origin: Union[int, Node]
+
+        :param axis: Axis Node of the System.
+        :type axis: Union[int, Node] 
+
+        :param plane: Plane Node of the System.
+        :type plane: Union[int, Node] 
+
+        :param axisplane: Axis Plane of the System.Available options are **X-XY**, **X-XZ**, **Y-YX**, **Y-YZ**, **Z-ZX** and **Z-ZY**.
+        :type axisplane: str 
+        
+		"""
+		pass
+
+	def setOrientationByVecor(self,v1: list = None, v2: list = None, v3: list = None):
+		"""
+		Method to set the orientation of the System by vector.
+
+        :param v1: First vector.
+        :type v1: list
+
+        :param v2: Second vector.
+        :type v2: list 
+
+        :param v3: Third vector.
+        :type v3: list
+        
+		"""
+		pass
+
+	def setOrientationByVectorComponent(self,v1x: float = None, v1y: float = None, v1z: float = None, v2x: float = None, v2y: float = None, v2z: float = None, v3x: float = None, v3y: float = None, v3z: float = None):
+		"""
+		Method to set the orientation of the System by individual vector component.
+
+        :param v1x: x value of First vector.
+        :type v1x: float
+
+        :param v1y: y value of First vector.
+        :type v1y: float 
+
+        :param v1z: z value of First vector.
+        :type v1z: float
+
+        :param v2x: x value of Second vector.
+        :type v2x: float
+
+        :param v2y: y value of Second vector.
+        :type v2y: float 
+
+        :param v2z: z value of Second vector.
+        :type v2z: float
+
+        :param v3x: x value of Third vector.
+        :type v3x: float
+
+        :param v3y: y value of Third vector.
+        :type v3y: float 
+
+        :param v3z: z value of Third vector.
+        :type v3z: float
+        
+		"""
+		pass
+
+	def setOrigin(self,coordinates: list = None, x: float = None, y: float = None, z: float = None):
+		"""
+		Method to set the origin of the System.
+
+        :param coordinates: list of x,y,z coordinates.
+        :type coordinates: list
+
+        :param x: x coordinate.
+        :type x: float 
+
+        :param y: y coordinate.
+        :type y: float 
+
+        :param z: z coordinate.
+        :type z: float 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
+		pass
+
 class Union:
 	def __init__(self,*args, **kwds):
 		"""
@@ -4500,6 +9824,12 @@ A decorator indicating abstract methods.
 class co:
 	pass
 
+class col:
+	pass
+
+class coll:
+	pass
+
 class collection:
 	pass
 
@@ -4529,6 +9859,18 @@ class enum:
 class export:
 	pass
 
+class exporth3dinhtml:
+	pass
+
+class exporth3dinppt:
+	pass
+
+class exportmodelglb:
+	pass
+
+class exportmodelglbinppt:
+	pass
+
 class ffont:
 	pass
 
@@ -4542,6 +9884,9 @@ class hw:
 	pass
 
 class hwi:
+	pass
+
+class interactiveselection:
 	pass
 
 def isin(element, test_elements, assume_unique=False, invert=False):
@@ -4651,6 +9996,57 @@ class legendtensor:
 	pass
 
 class legendvector:
+	pass
+
+class measure:
+	pass
+
+class measureanglebetween:
+	pass
+
+class measureanglerelative:
+	pass
+
+class measureanglerincremental:
+	pass
+
+class measurecircleradius:
+	pass
+
+class measurecontourcomponent:
+	pass
+
+class measurecontourelemental:
+	pass
+
+class measurecontournodal:
+	pass
+
+class measuredisplacementrelative:
+	pass
+
+class measuredistancebetween:
+	pass
+
+class measuredistanceincremental:
+	pass
+
+class measuredistanceminimum:
+	pass
+
+class measuredynamicminmax:
+	pass
+
+class measurenodepath:
+	pass
+
+class measureposition:
+	pass
+
+class measurestaticminmax:
+	pass
+
+class measureyawpitchroll:
 	pass
 
 class mod:
@@ -4814,6 +10210,9 @@ class pag:
 class pg:
 	pass
 
+class queryresultstool:
+	pass
+
 class rd:
 	pass
 
@@ -4931,6 +10330,15 @@ This module also defines an exception 'error'.
 class res:
 	pass
 
+class resdefscalar:
+	pass
+
+class resdeftensor:
+	pass
+
+class resdefvector:
+	pass
+
 class result:
 	pass
 
@@ -4950,6 +10358,12 @@ class resultdefinitionvector:
 	pass
 
 class resultdisplayiso:
+	pass
+
+class rres:
+	pass
+
+class scalar:
 	pass
 
 class sectioncut:
