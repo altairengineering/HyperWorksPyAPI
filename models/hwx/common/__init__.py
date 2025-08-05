@@ -3,9 +3,6 @@ from typing import TypeVar
 class HasMethodsToHide:
 	pass
 
-class ParameterManager:
-	pass
-
 class SwigPatches:
 	"""
 
@@ -41,18 +38,18 @@ Utility class used to convert values from one set of units to another.
 		"""
 		pass
 
-	def convert(self,value, units, formula, toBase):
+	def convert(self,value, units, unit, toBase):
 		"""
 		Converts the specified value to/from base units.
 
     Args:
-      value (Union[float, list[float], str, list[str]]): The value to convert.
-      units (str): The units to convert.
-      formula (str): The string conversion expression: m, mm, in, etc.
-      toBase (bool): Determines whether to convert to base units or not.
+      value (float | list[float]): The value to convert.
+      units (str): length, mass, force, ...
+      unit (str): m, kg, N, ... None to use this system's user unit.
+      toBase (bool): Determines whether to convert to or from base units.
 
     Raises:
-      ValueError: If units is invalid.
+      ValueError: If unit is invalid.
 
     Returns:
       float: The converted value.
@@ -308,10 +305,10 @@ Utility class used to convert values from one set of units to another.
 class collections:
 	pass
 
-class enum:
+class descriptors:
 	pass
 
-class parameterManager:
+class enum:
 	pass
 
 class settings:

@@ -1,5 +1,9 @@
 from typing import TypeVar
 
+class numpy_module:
+	class ndarray:
+		pass
+
 class Chapter:
 	def __init__(self,name=None, parent=None, **kwargs):
 		"""
@@ -21,6 +25,13 @@ class Chapter:
 """
 		pass
 
+	@property
+	def cssclassidHTML(self):
+		pass
+	@cssclassidHTML.setter
+	def cssclassidHTML(self):
+		pass
+
 	def getChildren(self,childrenLevel="0", type=[], name=None):
 		"""
 		
@@ -28,11 +39,11 @@ class Chapter:
         
         :param childrenLevel:
 
+            -1 - Returns all children until last level.
+
             0 - Returns only direct children of this document. (default)
 
             1 - Returns children and immediate grand-children of this document. Based on level value, returns all children until that level.
-
-            -1 - Returns all children until last level.
             
             It also takes string as input. Valid values are:
             
@@ -51,6 +62,13 @@ class Chapter:
         :rtype: list
         
 		"""
+		pass
+
+	@property
+	def layoutid(self):
+		pass
+	@layoutid.setter
+	def layoutid(self):
 		pass
 
 	@property
@@ -90,6 +108,13 @@ class DocImage:
 		pass
 
 	@property
+	def alignment(self):
+		pass
+	@alignment.setter
+	def alignment(self):
+		pass
+
+	@property
 	def binarydata(self):
 		pass
 	@binarydata.setter
@@ -101,6 +126,20 @@ class DocImage:
 		pass
 	@caption.setter
 	def caption(self):
+		pass
+
+	@property
+	def crop(self):
+		pass
+	@crop.setter
+	def crop(self):
+		pass
+
+	@property
+	def format(self):
+		pass
+	@format.setter
+	def format(self):
 		pass
 
 	@property
@@ -147,6 +186,9 @@ class DocImage:
         :type kwargs: dict
         
 		"""
+		pass
+
+	def setSteplistH3D(self):
 		pass
 
 	@property
@@ -204,13 +246,48 @@ class DocTable:
 		pass
 
 	@property
+	def alignment(self):
+		pass
+	@alignment.setter
+	def alignment(self):
+		pass
+
+	@property
+	def autoSortHTML(self):
+		pass
+	@autoSortHTML.setter
+	def autoSortHTML(self):
+		pass
+
+	@property
+	def autoToolTipHTML(self):
+		pass
+	@autoToolTipHTML.setter
+	def autoToolTipHTML(self):
+		pass
+
+	@property
 	def caption(self):
 		pass
 	@caption.setter
 	def caption(self):
 		pass
 
+	@property
+	def captionposition(self):
+		pass
+	@captionposition.setter
+	def captionposition(self):
+		pass
+
 	def cell(self):
+		pass
+
+	@property
+	def columnColorGradient(self):
+		pass
+	@columnColorGradient.setter
+	def columnColorGradient(self):
 		pass
 
 	@property
@@ -236,6 +313,20 @@ class DocTable:
 		pass
 	@file.setter
 	def file(self):
+		pass
+
+	@property
+	def filterTypeHTML(self):
+		pass
+	@filterTypeHTML.setter
+	def filterTypeHTML(self):
+		pass
+
+	@property
+	def fontsize(self):
+		pass
+	@fontsize.setter
+	def fontsize(self):
 		pass
 
 	def getCellValue(self,row: int, col: int):
@@ -285,6 +376,13 @@ class DocTable:
 		pass
 
 	@property
+	def rowColorGradient(self):
+		pass
+	@rowColorGradient.setter
+	def rowColorGradient(self):
+		pass
+
+	@property
 	def rows(self):
 		pass
 	@rows.setter
@@ -305,6 +403,20 @@ class DocTable:
 	def setCellValue(self):
 		pass
 
+	def setColumnColor(self,index: int = 0, color: str =[0, 0, 0]):
+		"""
+		
+        Method to set column color.
+        Only for HTML export.
+        
+        :param index: Column index
+        :type index: int
+        :param color: Column color
+        :type color: list
+        
+		"""
+		pass
+
 	def setColumnWidth(self):
 		pass
 
@@ -314,7 +426,45 @@ class DocTable:
 	def setDimension(self):
 		pass
 
+	def setExportRange(self):
+		pass
+
+	def setRowColor(self,index: int = 0, color: str =[0, 0, 0]):
+		"""
+		
+        Method to set row color.
+        Only for HTML export.
+        
+        :param index: Row index
+        :type index: int
+        :param color: Row color
+        :type color: list
+        
+		"""
+		pass
+
 	def setRowHeight(self):
+		pass
+
+	@property
+	def splitAuto(self):
+		pass
+	@splitAuto.setter
+	def splitAuto(self):
+		pass
+
+	@property
+	def splitMaxColumns(self):
+		pass
+	@splitMaxColumns.setter
+	def splitMaxColumns(self):
+		pass
+
+	@property
+	def splitMaxRows(self):
+		pass
+	@splitMaxRows.setter
+	def splitMaxRows(self):
 		pass
 
 	@property
@@ -480,12 +630,13 @@ class Document:
         Returns children of this document as list. 
         
         :param childrenLevel:
+        
+            -1 - Returns all children until last level.
+            
             0 - Returns only direct children of this document. (default)
 
             1 - Returns children and immediate grand-children of this document. Based on level value, returns all children until that level.
 
-            -1 - Returns all children until last level.
-            
             It also takes string as input:
 
             'current' - Returns only direct children of this document.
@@ -494,7 +645,7 @@ class Document:
 
             'all' - Returns all children until that last level.
 
-        :type childrenLevel: str | integer
+        :type childrenLevel: str | int
         
         :param type: Filters children based on type. By default, no filter is applied. Valid values are 'DocImage', 'DocTable', 'DocText', 'Chapter'. Default is empty list.
 
@@ -513,15 +664,27 @@ class Document:
 	def name(self):
 		pass
 
-	def saveAsHTML(self,path, open=False):
+	@property
+	def resolution(self):
+		pass
+	@resolution.setter
+	def resolution(self):
+		pass
+
+	def saveAsHTML(self,path=None, outputtemplate: str="", open=False, **kwargs):
 		"""
 		
-        Saves output as HTML file.
+        Method to export document report as HTML.
         
         :param path: File path for HTML file.
         :type path: str
+        :param outputtemplate: Path of output html template (layout). 
+        :type outputtemplate: str 
         :param open: Opens file after creation (default False)
         :type open: bool
+        
+        :return: Export result and exported filepath 
+        :rtype: HwxReportResult and str 
         
 		"""
 		pass
@@ -533,8 +696,11 @@ class Document:
         
         :param path: Generated document file path
         :type path: str
-        :param kwargs: Possible keys are open, mode
+        :param kwargs: Possible keys are open, mode, newname
         :type kwargs: dict
+        
+        :return: Export result and exported filepath
+        :rtype: HwxReportResult, str
         
 		"""
 		pass
@@ -577,6 +743,24 @@ class Document:
 	def template(self):
 		pass
 
+	@property
+	def templateHTML(self):
+		pass
+	@templateHTML.setter
+	def templateHTML(self):
+		pass
+
+	def update(self,val=None):
+		"""
+		
+        Method to capture specific images/models based on their page and window id from GUI. By default, it captures all the Image/DocImage objects inside the document, in which the source is equal to 'graphic'. 
+
+        :param val: None or list of objects to be processed in GUI capturing. If none, all children gets processed.
+        :type val: list of Image | DocImage | Chapter 
+        
+		"""
+		pass
+
 class Image:
 	def __init__(self,name=None, **kwargs):
 		"""
@@ -602,6 +786,13 @@ class Image:
 		pass
 
 	@property
+	def alignment(self):
+		pass
+	@alignment.setter
+	def alignment(self):
+		pass
+
+	@property
 	def binarydata(self):
 		pass
 	@binarydata.setter
@@ -616,10 +807,31 @@ class Image:
 		pass
 
 	@property
+	def captionposition(self):
+		pass
+	@captionposition.setter
+	def captionposition(self):
+		pass
+
+	@property
+	def crop(self):
+		pass
+	@crop.setter
+	def crop(self):
+		pass
+
+	@property
 	def ensureFit(self):
 		pass
 	@ensureFit.setter
 	def ensureFit(self):
+		pass
+
+	@property
+	def format(self):
+		pass
+	@format.setter
+	def format(self):
 		pass
 
 	@property
@@ -644,6 +856,13 @@ class Image:
 		pass
 
 	@property
+	def previewImage(self):
+		pass
+	@previewImage.setter
+	def previewImage(self):
+		pass
+
+	@property
 	def session(self):
 		pass
 	@session.setter
@@ -659,6 +878,9 @@ class Image:
         :type kwargs: dict
         
 		"""
+		pass
+
+	def setSteplistH3D(self):
 		pass
 
 	@property
@@ -680,6 +902,182 @@ class Image:
 		pass
 	@window.setter
 	def window(self):
+		pass
+
+class MsBulletType:
+	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
+		"""
+An enumeration.
+"""
+		pass
+
+class PARAGRAPH_ALIGN:
+	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
+		"""
+An enumeration.
+"""
+		pass
+
+class Paragraph:
+	def __init__(self,parent=None, name: str = None, **kwargs):
+		"""
+
+    Class representing a Paragraph object. Each paragraph object represents text or a block of different texts formats inserted in a paragraph. 
+    Existing paragraph can be fetched using getParagraph method of a Text object.
+    New paragraph can be created/added with Text object as parent. 
+
+    :param parent: Parent of this paragraph. 
+    :type parent: Text 
+    :param name: Name of this Paragraph. Optional
+    :type name: str
+    
+"""
+		pass
+
+	def addRun(self,text:str|None=" ", equation: str|None = None,font_name:str|None=" ", font_size: int|None = 9, font_color: list[int]|None =[0, 0, 0], bold: bool|None = False, italic: bool|None = False, underline: bool|None = False, line_break: bool|None = False, tab_space: bool|None = False,image_path:str|None=" ",hyperlink:str|None=" ", image_stream: numpy_module.ndarray|None = None):
+		"""
+		
+        Method to add a Run object (text) in the current Paragraph object. 
+
+        :param text: New run text. 
+        :type text: str 
+
+        :param equation: New run equation. 
+        :type equation: str 
+
+        :param font_name: New run font name 
+        :type font_name: str 
+
+        :param font_size: New run font size. 
+        :type font_size: int 
+
+        :param font_color: New run font color. 
+        :type font_color: List[int] 
+
+        :param bold: New run bold status. 
+        :type bold: bool 
+
+        :param italic: New run italic status. 
+        :type italic: bool 
+
+        :param underline: New run underline status. 
+        :type underline: bool 
+
+        :param line_break: New run linebreak status. 
+        :type line_break: bool 
+
+        :param tab_space: New run tabspace status. 
+        :type tab_space: bool 
+
+        :param image_path: New run image path. 
+        :type image_path: str 
+
+        :param hyperlink: New run hyperlink. 
+        :type hyperlink: str 
+
+        :param image_stream: New run image stream. 
+        :type image_stream: numpy.ndarray
+        
+		"""
+		pass
+
+	@property
+	def alignment(self):
+		pass
+	@alignment.setter
+	def alignment(self):
+		pass
+
+	@property
+	def bulletLevel(self):
+		pass
+	@bulletLevel.setter
+	def bulletLevel(self):
+		pass
+
+	@property
+	def bulletStyle(self):
+		pass
+	@bulletStyle.setter
+	def bulletStyle(self):
+		pass
+
+	@property
+	def bulletType(self):
+		pass
+	@bulletType.setter
+	def bulletType(self):
+		pass
+
+	def getRun(self,index: int = 0):
+		"""
+		
+        Return run or equation object present at 'index' in the paragraph.
+        
+        :param index: Index of run in paragraph.
+        :type index: int
+        
+        :return: Run or Equation object.
+        :rtype: Run or Equation
+        
+		"""
+		pass
+
+	@property
+	def lineBreak(self):
+		pass
+	@lineBreak.setter
+	def lineBreak(self):
+		pass
+
+	@property
+	def lineSpacing(self):
+		pass
+	@lineSpacing.setter
+	def lineSpacing(self):
+		pass
+
+	def removeRun(self,index: int):
+		"""
+		
+        Method to remove run or equation object present at 'index' in the paragraph.
+        
+        :param index: Index of run or equation in paragraph.
+        :type index: int
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		
+        Method to set multiple attributes.
+
+        :param kwargs: Valid keywords are alignment, bulletLevel, bulletStyle, bulletType, lineBreak, lineSpacing, spaceAfter, spaceBefore, text
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	@property
+	def spaceAfter(self):
+		pass
+	@spaceAfter.setter
+	def spaceAfter(self):
+		pass
+
+	@property
+	def spaceBefore(self):
+		pass
+	@spaceBefore.setter
+	def spaceBefore(self):
+		pass
+
+	@property
+	def text(self):
+		pass
+	@text.setter
+	def text(self):
 		pass
 
 class ReportManager:
@@ -735,6 +1133,11 @@ class ReportSession:
 		pass
 
 	def close(self):
+		"""
+		
+        Method to close the report session. This method will delete the report session and destroy the model.
+        
+		"""
 		pass
 
 	def delete(self,objects):
@@ -813,6 +1216,111 @@ class ReportSession:
 	def session(self):
 		pass
 
+	@property
+	def tempdir(self):
+		pass
+	@tempdir.setter
+	def tempdir(self):
+		pass
+
+class Run:
+	def __init__(self,parent, **kwargs):
+		"""
+
+    Class representing a Run object. 
+    Existing Run can be fetched using getRun method of a Paragraph object.
+    New Run can be created/added with Paragraph object as parent. 
+    
+    :param parent: Parent of this run. 
+    :type parent: Paragraph 
+    
+"""
+		pass
+
+	@property
+	def boldFont(self):
+		pass
+	@boldFont.setter
+	def boldFont(self):
+		pass
+
+	@property
+	def fontColor(self):
+		pass
+	@fontColor.setter
+	def fontColor(self):
+		pass
+
+	@property
+	def fontName(self):
+		pass
+	@fontName.setter
+	def fontName(self):
+		pass
+
+	@property
+	def fontSize(self):
+		pass
+	@fontSize.setter
+	def fontSize(self):
+		pass
+
+	@property
+	def hyperLink(self):
+		pass
+	@hyperLink.setter
+	def hyperLink(self):
+		pass
+
+	@property
+	def italicFont(self):
+		pass
+	@italicFont.setter
+	def italicFont(self):
+		pass
+
+	@property
+	def lineBreak(self):
+		pass
+	@lineBreak.setter
+	def lineBreak(self):
+		pass
+
+	@property
+	def runImagePath(self):
+		pass
+	@runImagePath.setter
+	def runImagePath(self):
+		pass
+
+	@property
+	def runImageStream(self):
+		pass
+	@runImageStream.setter
+	def runImageStream(self):
+		pass
+
+	@property
+	def runText(self):
+		pass
+	@runText.setter
+	def runText(self):
+		pass
+
+	@property
+	def tabSpace(self):
+		pass
+	@tabSpace.setter
+	def tabSpace(self):
+		pass
+
+	@property
+	def underline(self):
+		pass
+	@underline.setter
+	def underline(self):
+		pass
+
 class Table:
 	def __init__(self,name=None, **kwargs):
 		"""
@@ -844,24 +1352,24 @@ class Table:
 		pass
 
 	@property
-	def autoFilter(self):
+	def alignment(self):
 		pass
-	@autoFilter.setter
-	def autoFilter(self):
-		pass
-
-	@property
-	def autoSort(self):
-		pass
-	@autoSort.setter
-	def autoSort(self):
+	@alignment.setter
+	def alignment(self):
 		pass
 
 	@property
-	def autoToolTip(self):
+	def autoSortHTML(self):
 		pass
-	@autoToolTip.setter
-	def autoToolTip(self):
+	@autoSortHTML.setter
+	def autoSortHTML(self):
+		pass
+
+	@property
+	def autoToolTipHTML(self):
+		pass
+	@autoToolTipHTML.setter
+	def autoToolTipHTML(self):
 		pass
 
 	@property
@@ -878,6 +1386,13 @@ class Table:
 	def caption(self):
 		pass
 
+	@property
+	def captionposition(self):
+		pass
+	@captionposition.setter
+	def captionposition(self):
+		pass
+
 	def cell(self,row_idx, col_idx):
 		"""
 		
@@ -892,6 +1407,13 @@ class Table:
         :rtype: TableCell
         
 		"""
+		pass
+
+	@property
+	def columnColorGradient(self):
+		pass
+	@columnColorGradient.setter
+	def columnColorGradient(self):
 		pass
 
 	@property
@@ -927,6 +1449,13 @@ class Table:
 		pass
 
 	@property
+	def filterTypeHTML(self):
+		pass
+	@filterTypeHTML.setter
+	def filterTypeHTML(self):
+		pass
+
+	@property
 	def fontsize(self):
 		pass
 	@fontsize.setter
@@ -958,20 +1487,6 @@ class Table:
         :type file: str
         
 		"""
-		pass
-
-	@property
-	def maxColumns(self):
-		pass
-	@maxColumns.setter
-	def maxColumns(self):
-		pass
-
-	@property
-	def maxRows(self):
-		pass
-	@maxRows.setter
-	def maxRows(self):
 		pass
 
 	def mergeCells(self,cell1, cell2):
@@ -1017,6 +1532,13 @@ class Table:
 		pass
 
 	@property
+	def rowColorGradient(self):
+		pass
+	@rowColorGradient.setter
+	def rowColorGradient(self):
+		pass
+
+	@property
 	def rows(self):
 		pass
 	@rows.setter
@@ -1050,14 +1572,17 @@ class Table:
         :type row: int
         :param col: Column index
         :type col: int
+        :param value: Cell value
+        :type value: str|int|float
         
 		"""
 		pass
 
-	def setColumnColor(self,index: int = 0, color: list = [0, 0, 0]):
+	def setColumnColor(self,index: int = 0, color: list =[0, 0, 0]):
 		"""
 		
         Method to set column color.
+        Only for HTML export.
         
         :param index: Column index
         :type index: int
@@ -1108,10 +1633,28 @@ class Table:
 		"""
 		pass
 
-	def setRowColor(self,index: int = 0, color: list = [0, 0, 0]):
+	def setExportRange(self,row_start: int, col_start: int, row_end: int, col_end: int):
+		"""
+		
+        Method to select cell range of table to export.
+        
+        :param row_start: Start row index. Starts from 0.
+        :type row_start: int
+        :param col_start: Start column index. Starts from 0.
+        :type col_start: int
+        :param row_end: End row index.
+        :type row_end: int
+        :param col_end: End column index.
+        :type col_end: int
+        
+		"""
+		pass
+
+	def setRowColor(self,index: int = 0, color: list =[0, 0, 0]):
 		"""
 		
         Method to set row color.
+        Only for HTML export.
         
         :param index: Row index
         :type index: int
@@ -1135,17 +1678,24 @@ class Table:
 		pass
 
 	@property
-	def split(self):
+	def splitAuto(self):
 		pass
-	@split.setter
-	def split(self):
+	@splitAuto.setter
+	def splitAuto(self):
 		pass
 
 	@property
-	def splitBy(self):
+	def splitMaxColumns(self):
 		pass
-	@splitBy.setter
-	def splitBy(self):
+	@splitMaxColumns.setter
+	def splitMaxColumns(self):
+		pass
+
+	@property
+	def splitMaxRows(self):
+		pass
+	@splitMaxRows.setter
+	def splitMaxRows(self):
 		pass
 
 	@property
@@ -1264,4 +1814,187 @@ class Text:
 	@text.setter
 	def text(self):
 		pass
+
+class WdBulletCharStyle:
+	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
+		"""
+An enumeration.
+"""
+		pass
+
+class WdBulletNumberedStyle:
+	def __init__(self,value, names=None, module=None, qualname=None, type=None, start=1):
+		"""
+An enumeration.
+"""
+		pass
+
+class backgroundColor:
+	"""
+
+        Flag to set the cell background color.
+
+        :getter: Gets the RGB list of background
+        :setter: Sets the RGB list of background
+        :type: List[int]
+        
+"""
+	pass
+
+class boldFont:
+	"""
+
+        Flag to activate or deactivate the cell text bold status.
+
+        :getter: Gets the bold status of cell text
+        :setter: Sets the bold status of cell text
+        :type: bool
+        
+"""
+	pass
+
+class fontName:
+	"""
+
+        Flag to get/set font name of cell text content.
+        
+        :getter: Gets the font name
+        :setter: Sets the font name
+        :type: str
+        
+"""
+	pass
+
+class fontSize:
+	"""
+
+        Flag to get/set the font size of cell text.
+
+        :getter: Gets the font size
+        :setter: Sets the font size
+        :type: int
+        
+"""
+	pass
+
+def getColumnIndex(self):
+	"""
+
+        Method to get column index of the cell.
+        
+        :return: Column index
+        :rtype: int
+        
+"""
+	pass
+
+def getRowIndex(self):
+	"""
+
+        Method to get row index of the cell.
+        
+        :return: Row index
+        :rtype: int
+        
+"""
+	pass
+
+def getValue(self):
+	"""
+
+        Method to get text content of the cell.
+        
+        :return: Cell text content
+        :rtype: str|int|float
+        
+"""
+	pass
+
+def horizontalAlignment():
+	"""
+
+        Flag to get/set the horizontal alignment of cell content. Valid values are 'none', 'left', 'center', 'right'.
+
+        :getter: Gets horizontal alignment of cell.
+        :setter: Sets horizontal alignment of cell
+        :type: str
+        
+"""
+	pass
+
+def italicFont():
+	"""
+
+        Flag to activate or deactivate the cell text italics status.
+
+        :getter: Gets italics status of cell text
+        :setter: Sets italics status of cell text
+        :type: bool
+        
+"""
+	pass
+
+def setAttributes(**kwargs):
+	"""
+
+        Method to set multiple attributes.
+
+        :param kwargs: Valid keywords are backgroundColor, horizontalAlignment, verticalAlign, fontName, textColor, fontSize, boldFont, italicFont, underline, backgroundColor.
+        :type kwargs: dict
+        
+"""
+	pass
+
+def setValue(text=None, imagepath=None, hyperlink=None):
+	"""
+
+        Method to set cell value which can be either text or image.
+        Hyperlink can be set for both text and image.
+        If text is an equation, then hyperlink is not supported.
+        
+        :param text: Cell text content
+        :type text: str
+        :param imagepath: Image path
+        :type imagepath: str
+        :param hyperlink: Hyperlink path
+        :type hyperlink: str
+        
+"""
+	pass
+
+def textColor():
+	"""
+
+        Flag to set/get text color of cell text.
+        
+        :getter: Gets the RGB list of text color
+        :setter: Sets the RGB list of text color
+        :type: List[int]
+        
+"""
+	pass
+
+def underline():
+	"""
+
+        Flag to activate or deactivate the cell text undeline status.
+
+        :getter: Gets underline status of cell text
+        :setter: Sets underline status of cell text
+        :type: bool
+        
+"""
+	pass
+
+def verticalAlignment():
+	"""
+
+        Flag to get/set the vertical alignment of cell content. Valid values are 'none', 'bottom', 'center', 'top', 'mixed'. 
+
+        :getter: Gets the cell vertical alignment
+        :setter: Sets the cell vertical alignment
+        :type: str
+        
+"""
+	pass
 

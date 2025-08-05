@@ -1,6 +1,4 @@
 from typing import TypeVar
-class list:
-	pass
 class Any:
 	pass
 class hw_module:
@@ -325,12 +323,62 @@ class BarPlotWindow:
 		"""
 		pass
 
+	def getAxes(self,type="all"):
+		"""
+		
+        Method to get the list of axes in the window.
+
+        :param type: Type of the axes. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of axes in the window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getCurvesBar(self):
+		"""
+		
+        Method to get the list of curves in the BarPlot window.
+
+        :return: List of curves in the BarPlot window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getDatums(self,type="all"):
+		"""
+		
+        Method to get the list of datums in the window.
+
+        :param type: Type of the datums. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of datums in the window.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getDisplayOptionList(self):
 		"""
 		
         Method to get the list of post display options.
         
         :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self):
+		"""
+		
+        Method to get the list of notes in the window.
+
+        :return: List of notes in the window.
         :rtype: list
         
 		"""
@@ -777,12 +825,62 @@ class ComplexPlotWindow:
 		"""
 		pass
 
+	def getAxes(self,type="all"):
+		"""
+		
+        Method to get the list of axes in the window.
+
+        :param type: Type of the axes. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of axes in the window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getCurvesComplex(self):
+		"""
+		
+        Method to get the list of curves in the ComplexPlot window.
+
+        :return: List of curves in the ComplexPlot window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getDatums(self,type="all"):
+		"""
+		
+        Method to get the list of datums in the window.
+
+        :param type: Type of the datums. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of datums in the window.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getDisplayOptionList(self):
 		"""
 		
         Method to get the list of post display options.
         
         :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self):
+		"""
+		
+        Method to get the list of notes in the window.
+
+        :return: List of notes in the window.
         :rtype: list
         
 		"""
@@ -1167,12 +1265,51 @@ class HyperGraphWindow:
 		"""
 		pass
 
+	def getAxes(self,type="all"):
+		"""
+		
+        Method to get the list of axes in the window.
+
+        :param type: Type of the axes. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of axes in the window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getDatums(self,type="all"):
+		"""
+		
+        Method to get the list of datums in the window.
+
+        :param type: Type of the datums. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of datums in the window.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getDisplayOptionList(self):
 		"""
 		
         Method to get the list of post display options.
         
         :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self):
+		"""
+		
+        Method to get the list of notes in the window.
+
+        :return: List of notes in the window.
         :rtype: list
         
 		"""
@@ -1482,6 +1619,17 @@ class HyperViewWindow:
 		"""
 		pass
 
+	def exportDefinitions(self,xmlFile: str):
+		"""
+		Method to export result definitions in Multicore HV.
+
+        :param xmlFile: xml file path.
+        :type xmlFile: str.
+
+        
+		"""
+		pass
+
 	def fit(self,mode: str =" model"):
 		"""
 		
@@ -1515,6 +1663,18 @@ class HyperViewWindow:
 		"""
 		pass
 
+	def getMeasures(self,model: int = 1):
+		"""
+		Method to get the Measure object list.
+        
+        :param model: Model id.
+        :type type: int.
+        :return: Measure object lit.
+        :rtype: list.
+        
+		"""
+		pass
+
 	def getModel(self,id: int):
 		"""
 		Method to get the model object.
@@ -1534,6 +1694,18 @@ class HyperViewWindow:
 
         :return: Model object list.
         :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self,model: int = 1):
+		"""
+		Method to get the Note object list.
+        
+        :param model: Model id.
+        :type type: int.
+        :return: Note object lit.
+        :rtype: list.
         
 		"""
 		pass
@@ -1582,6 +1754,19 @@ class HyperViewWindow:
 		pass
 	@id.setter
 	def id(self):
+		pass
+
+	def importDefinitions(self,xmlFile: str, append: bool = True):
+		"""
+		Method to import result definitions in Multicore HV.
+
+        :param xmlFile: xml file path.
+        :type xmlFile: str.
+
+        :param append: Boolean to append the result definitions or not.Default is True.
+        :type append: bool.
+        
+		"""
 		pass
 
 	def isEmpty(self):
@@ -1683,6 +1868,238 @@ class ImageType:
 		"""
 An enumeration.
 """
+		pass
+
+class MediaViewWindow:
+	def __init__(self,page=None, window=None, id=None):
+		pass
+
+	def draw(self):
+		"""
+		Method to draw the window.
+		"""
+		pass
+
+	def erase(self):
+		"""
+		Method to erase window content.
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
+	@property
+	def graphicsHeight(self):
+		pass
+	@graphicsHeight.setter
+	def graphicsHeight(self):
+		pass
+
+	@property
+	def graphicsWidth(self):
+		pass
+	@graphicsWidth.setter
+	def graphicsWidth(self):
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	def isEmpty(self):
+		"""
+		
+        Method to check if window is empty.
+        
+        :return: Returns True if window is empty.
+        :rtype: bool
+        
+		"""
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def publishFormat(self):
+		pass
+	@publishFormat.setter
+	def publishFormat(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set window attributes.
+        
+        :param kwargs: Attributes
+        :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
+class MotionViewWindow:
+	def __init__(self,page=None, window=None, id=None):
+		pass
+
+	def draw(self):
+		"""
+		Method to draw the window.
+		"""
+		pass
+
+	def erase(self):
+		"""
+		Method to erase window content.
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
+	@property
+	def graphicsHeight(self):
+		pass
+	@graphicsHeight.setter
+	def graphicsHeight(self):
+		pass
+
+	@property
+	def graphicsWidth(self):
+		pass
+	@graphicsWidth.setter
+	def graphicsWidth(self):
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	def isEmpty(self):
+		"""
+		
+        Method to check if window is empty.
+        
+        :return: Returns True if window is empty.
+        :rtype: bool
+        
+		"""
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def publishFormat(self):
+		pass
+	@publishFormat.setter
+	def publishFormat(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set window attributes.
+        
+        :param kwargs: Attributes
+        :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
 		pass
 
 class Page:
@@ -1866,12 +2283,62 @@ class PolarPlotWindow:
 		"""
 		pass
 
+	def getAxes(self,type="all"):
+		"""
+		
+        Method to get the list of axes in the window.
+
+        :param type: Type of the axes. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of axes in the window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getCurvesPolar(self):
+		"""
+		
+        Method to get the list of curves in the PolarPlot window.
+
+        :return: List of curves in the PolarPlot window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getDatums(self,type="all"):
+		"""
+		
+        Method to get the list of datums in the window.
+
+        :param type: Type of the datums. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of datums in the window.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getDisplayOptionList(self):
 		"""
 		
         Method to get the list of post display options.
         
         :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self):
+		"""
+		
+        Method to get the list of notes in the window.
+
+        :return: List of notes in the window.
         :rtype: list
         
 		"""
@@ -2237,6 +2704,122 @@ class Tclinter:
 """
 	pass
 
+class TextViewWindow:
+	def __init__(self,page=None, window=None, id=None):
+		pass
+
+	def draw(self):
+		"""
+		Method to draw the window.
+		"""
+		pass
+
+	def erase(self):
+		"""
+		Method to erase window content.
+		"""
+		pass
+
+	def getDisplayOptionList(self):
+		"""
+		
+        Method to get the list of post display options.
+        
+        :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getStatusDisplay(self,option:str=""):
+		"""
+		Method to get the display option setting.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :return: Status of display option.
+        :rtype: bool 
+        
+		"""
+		pass
+
+	@property
+	def graphicsHeight(self):
+		pass
+	@graphicsHeight.setter
+	def graphicsHeight(self):
+		pass
+
+	@property
+	def graphicsWidth(self):
+		pass
+	@graphicsWidth.setter
+	def graphicsWidth(self):
+		pass
+
+	@property
+	def id(self):
+		pass
+	@id.setter
+	def id(self):
+		pass
+
+	def isEmpty(self):
+		"""
+		
+        Method to check if window is empty.
+        
+        :return: Returns True if window is empty.
+        :rtype: bool
+        
+		"""
+		pass
+
+	@property
+	def page(self):
+		pass
+	@page.setter
+	def page(self):
+		pass
+
+	@property
+	def publishFormat(self):
+		pass
+	@publishFormat.setter
+	def publishFormat(self):
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set window attributes.
+        
+        :param kwargs: Attributes
+        :param type: dict
+        
+		"""
+		pass
+
+	def setStatusDisplay(self,option:str="", status: bool = True):
+		"""
+		Method to set the display options.
+
+        :param option: Available options are **tracing**, **tracking**, **contour**, **iso value**, **tensor**, **vector**, **legend**, **section cut**, **measure**, **notes**, **axisymmetry**, and **perspective**.
+        :type option: str
+
+        :param status: Status of display option.
+        :type status: bool 
+        
+		"""
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
+		pass
+
 class Union:
 	def __init__(self,*args, **kwds):
 		"""
@@ -2480,12 +3063,62 @@ class XYPlotWindow:
 		"""
 		pass
 
+	def getAxes(self,type="all"):
+		"""
+		
+        Method to get the list of axes in the window.
+
+        :param type: Type of the axes. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of axes in the window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getCurvesXY(self):
+		"""
+		
+        Method to get the list of curves in the XYPlot window.
+
+        :return: List of curves in the XYPlot window.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getDatums(self,type="all"):
+		"""
+		
+        Method to get the list of datums in the window.
+
+        :param type: Type of the datums. Valid values are ['horizontal', 'vertical', 'all']
+        :type type: str
+
+        :return: List of datums in the window.
+        :rtype: list
+        
+		"""
+		pass
+
 	def getDisplayOptionList(self):
 		"""
 		
         Method to get the list of post display options.
         
         :return: Returns the list of post display options.
+        :rtype: list
+        
+		"""
+		pass
+
+	def getNotes(self):
+		"""
+		
+        Method to get the list of notes in the window.
+
+        :return: List of notes in the window.
         :rtype: list
         
 		"""

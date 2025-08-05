@@ -30,12 +30,9 @@ class hwfdmCreateSolidCylinderOptions:
 class IPI_CF:
 	pass
 
-class hwfdmConstructionFeature:
-	pass
+ABAQUS=ABAQUS
 
-ABAQUS="ABAQUS"
-
-ADAMS="ADAMS"
+ADAMS=ADAMS
 
 class AbortException:
 	def __init__(self):
@@ -183,7 +180,7 @@ class Actuator:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -310,7 +307,7 @@ class Actuator:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -321,6 +318,45 @@ class Actuator:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -357,17 +393,13 @@ class Actuator:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -401,7 +433,7 @@ class Actuator:
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -425,7 +457,12 @@ class Actuator:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getShaftLength(self):
@@ -479,13 +516,6 @@ class Actuator:
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def indVarComp(self):
 		pass
 	@indVarComp.setter
@@ -518,6 +548,12 @@ class Actuator:
 		pass
 	@inputs.setter
 	def inputs(self):
+		pass
+
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isCoaxial(self):
@@ -563,7 +599,7 @@ class Actuator:
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -645,7 +681,7 @@ class Actuator:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -691,6 +727,16 @@ class Actuator:
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -819,6 +865,9 @@ class Actuator:
 	def sdProfile(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -897,6 +946,9 @@ class Actuator:
 	def shaftRotation(self):
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def signalsProfile(self):
 		pass
@@ -947,6 +999,13 @@ class Actuator:
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
@@ -965,6 +1024,9 @@ class Actuator:
 		pass
 	@timeOffset.setter
 	def timeOffset(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -1331,7 +1393,7 @@ Measures the angle between three points.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -1382,7 +1444,7 @@ Measures the angle between three points.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -1393,6 +1455,51 @@ Measures the angle between three points.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -1429,17 +1536,13 @@ Measures the angle between three points.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -1450,6 +1553,20 @@ Measures the angle between three points.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -1491,6 +1608,12 @@ Measures the angle between three points.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -1505,7 +1628,18 @@ Measures the angle between three points.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -1531,10 +1665,16 @@ Measures the angle between three points.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -1588,8 +1728,18 @@ Measures the angle between three points.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -1613,6 +1763,9 @@ Measures the angle between three points.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -1651,6 +1804,23 @@ Measures the angle between three points.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -1663,6 +1833,9 @@ Measures the angle between three points.
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -1981,7 +2154,7 @@ class AngularIc:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -2015,6 +2188,12 @@ class AngularIc:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -2247,7 +2426,7 @@ Defines rotational velocity for one or more parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -2284,7 +2463,7 @@ Defines rotational velocity for one or more parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -2295,6 +2474,45 @@ Defines rotational velocity for one or more parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -2331,17 +2549,13 @@ Defines rotational velocity for one or more parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -2385,7 +2599,7 @@ Defines rotational velocity for one or more parts.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -2403,7 +2617,12 @@ Defines rotational velocity for one or more parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -2436,23 +2655,22 @@ Defines rotational velocity for one or more parts.
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def individualize(self):
 		pass
 	@individualize.setter
 	def individualize(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -2485,7 +2703,7 @@ Defines rotational velocity for one or more parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -2496,6 +2714,16 @@ Defines rotational velocity for one or more parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -2554,6 +2782,9 @@ Defines rotational velocity for one or more parts.
 	def rigidGroups(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -2596,6 +2827,9 @@ Defines rotational velocity for one or more parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	def snapToCG(self):
 		"""
 		Snaps the initial condition object to first part's center of gravity.
@@ -2603,10 +2837,20 @@ Defines rotational velocity for one or more parts.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -2705,6 +2949,24 @@ Attribute to store arbitrary data structure including Named objects.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -2743,6 +3005,18 @@ Attribute to store arbitrary data structure including Named objects.
 	def loadValue(self,obj, value):
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -2755,19 +3029,6 @@ Attribute to store arbitrary data structure including Named objects.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -2914,7 +3175,7 @@ An assembly is a list of parts.
 
     Args:
       points (list[math.Point]): List of points used to create the SplineCurve part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list [Part] : List of created parts.
@@ -2928,7 +3189,7 @@ An assembly is a list of parts.
 		Creates an empty part.
 
     Args:
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       Part
@@ -2958,7 +3219,7 @@ An assembly is a list of parts.
 
     Args:
       points (list[math.Point]): List of points to create the Polyline part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list[Part]: List of created parts.
@@ -2970,12 +3231,24 @@ An assembly is a list of parts.
 		"""
 		Creates a circle centered at the origin in the XY plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float)
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): Radius of the sheet. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '1 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet circle.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        sheet = model.createSheetCircle(xRadius= 'radius', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -2984,13 +3257,26 @@ An assembly is a list of parts.
 		"""
 		Creates a regular polygon centered at the origin in the XY-plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The distance from the center to a vertex.
-      nsides (int): The number of sides. Must be > 2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The distance from the center to a vertex. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      nsides (int | str): The number of sides. Must be > 2. Can be a integer, a string without units (e.g., '10'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet polygon.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        sheet = model.createSheetPolygon(radius= 'radius', nsides='numberOfSides', sheetThickness = '1 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -2999,13 +3285,26 @@ An assembly is a list of parts.
 		"""
 		Creates a rectangle centered at the origin.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      x (float): The length. 
-      y (float): The width.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width.  Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness ...
 
     Returns:
-      Part
+      Part: The created sheet.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('length',type='Length',expression= '24 cm') # Adding a model variable with a name 'length'.
+        model.variables.add ('width',type='Length',expression= '12 cm') # Adding a model variable with a name 'width'.
+        sheet = model.createSheetRectangle(x= 'length', y='width', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -3014,31 +3313,57 @@ An assembly is a list of parts.
 		"""
 		Creates a solid block with the center of the base at the origin.
 
+        By default, the solid block is positioned such that its bottom face lies on the XY plane,
+        with the Z-dimension extending upwards. If stacking or precise placement is needed,
+        use the `location` argument to adjust its placement along the Z-axis.
     Args:
-      x (float): The length.
-      y (float): The width.
-      z (float): The height.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width. Can be a float, a string with units, (e.g., '10 ft'), or a variable name.
+      z (float | str): The height. Can be a float, a string with units,(e.g., '10 in'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
-    
+      Part: The created solid block.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('depth',type='Length',expression= '4 m') # Adding a model variable with a name 'depth'.
+        block = model.createSolidBlock(x=2.0, y='3 m', z='depth', color="YELLOW", location = (0,0,0) , name = 'Part 1')
+        
 		"""
 		pass
 
 	def createSolidCone(self,radius=1, height=1, semiangle="0", **kwds):
 		"""
-		Creates a a solid cone with the base centered at the origin in the XY 
+		Creates a solid cone with the base centered at the origin in the XY
     plane and the height extending along the z-axis.
 
+    By default, the solid cone is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      semiangle (float): The angle the cone makes with the z-axis. Must be > 0 < pi/2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      semiangle (float | str): The angle the cone makes with the z-axis. Must be 0 < semiangle < pi/2. Can be a float,
+      a string with units (e.g., '10 deg'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid Cone.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('semiangle',type='angle',expression= '45 deg') # Adding a model variable with a name 'semiangle'.
+        block = model.createSolidCone(radius= 'radius', height= '4 in', semiangle ='semiangle' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -3048,13 +3373,28 @@ An assembly is a list of parts.
 		Creates a solid cylinder with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid cylinder is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 ft'), or
+      a variable name.
+
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid cylinder.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('height',type='Length',expression= '4 m') # Adding a model variable with a name 'height'.
+        block = model.createSolidCylinder(radius=2.0, height='height', color="RED", location = (0,0,0) , name = 'Cylinder 1')
+
     
 		"""
 		pass
@@ -3064,13 +3404,22 @@ An assembly is a list of parts.
 		Creates a solid ellipsoid centered at the origin.
 
     Args:
-      xRadius (float): The radius in x-axis.
-      yRadius (float): The radius in y-axis.
-      zRadius (float): The radius in z-axis.
-      **kwds: Part attributes like name, position, color...
+      xRadius (float | str): The radius in x-axis. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      yRadius (float | str): The radius in y-axis. Can be a float, a string with units (e.g., '10 mm'), or a variable name.
+      zRadius (float | str): The radius in z-axis. Can be a float, a string with units (e.g., '10 in'), or a variable name.
+
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Ellipsoid.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('xRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'xRadius'.
+        ellipsoid = model.createSolidEllipsoid(xRadius= 'majorRadius', yRadius = '12 cm', zRadius =0.12, location = (0,0,0))
+
     
 		"""
 		pass
@@ -3080,15 +3429,31 @@ An assembly is a list of parts.
 		Creates a solid prism with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid prism is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      nsides (int): The number of facets. Must be > 2.
-      blendradius (float): The radius used to round the corners.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      nsides (int | str): The number of facets. Must be > 2. Can be an integer, a string without units (e.g., '10'), or a variable name.
+      blendradius (float | str): The radius used to round the corners. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid prism.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        block = model.createSolidPrism(radius= 'radius', height= '4 ft', nsides ='numberOfSides' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -3098,11 +3463,20 @@ An assembly is a list of parts.
 		Creates a solid sphere with centre at origin.
 
     Args:
-      radius (float)
-      **kwds: Part attributes like name, location, color...
+      radius (float | str): Radius of the sphere. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Sphere.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        sphere = model.createSolidSphere(radius= 'radius', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
 		pass
@@ -3112,14 +3486,27 @@ An assembly is a list of parts.
 		Creates a solid torus centered at the origin, located in the XY-plane 
     with the z-axis sticking through the hole.
 
+    By default, the solid torus is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      majorRadius (float): The radius from the hole's center to the rim's midline.
-      minorRadius (float): The radius of the cross section of the rim. 
-        Must be less than majorRadius.
-      **kwds: Part attributes like name, position, color...
+      majorRadius (float | str): The radius from the hole's center to the rim's midline. Can be a float, a string with
+      units (e.g., '10 cm'), or a variable name.
+      minorRadius (float | str): The radius of the cross section of the rim and Must be less than majorRadius. Can be
+      a float, a string with units (e.g., '10 cm'), or a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Torus.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('majorRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'majorRadius'.
+        torus = model.createSolidTorus(majorRadius= 'majorRadius', minorRadius = '12 cm', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
 		pass
@@ -3190,7 +3577,7 @@ An assembly is a list of parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -3201,6 +3588,51 @@ An assembly is a list of parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -3250,17 +3682,13 @@ An assembly is a list of parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -3271,6 +3699,20 @@ An assembly is a list of parts.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -3292,10 +3734,10 @@ An assembly is a list of parts.
 	def getFeature(self,name=None):
 		"""
 		Find feature by its __str__/__repr__.
-    
+
     Args:
       name (str)
-    
+
     Returns:
       Feature
     
@@ -3339,6 +3781,12 @@ An assembly is a list of parts.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getMass(self,includeGround=True):
 		"""
 		Returns the mass of the assembly.
@@ -3366,7 +3814,18 @@ An assembly is a list of parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -3406,6 +3865,9 @@ An assembly is a list of parts.
 	def grounded(self):
 		pass
 
+	def importPart(self,fileName, **kwds):
+		pass
+
 	@property
 	def ip(self):
 		pass
@@ -3413,10 +3875,16 @@ An assembly is a list of parts.
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -3466,7 +3934,7 @@ An assembly is a list of parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -3491,6 +3959,16 @@ An assembly is a list of parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -3535,10 +4013,13 @@ An assembly is a list of parts.
     Args:
       file (str) : File name and path, where the file needs to be saved.
         Valid file extensions are:
-          '.x_b', '.x_t', '.xmt_bin', '.xmt_txt', '.sat', '.sab', '.iges', '.igs', 
+          '.x_b', '.x_t', '.xmt_bin', '.xmt_txt', '.sat', '.sab', '.iges', '.igs',
           '.stl', '.step', '.stp', '.obj', '.vrml', '.vrl'.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -3575,6 +4056,9 @@ An assembly is a list of parts.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
@@ -3647,6 +4131,20 @@ An assembly is a list of parts.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	@property
 	def symmetryConstraints(self):
 		pass
 	@symmetryConstraints.setter
@@ -3658,6 +4156,9 @@ An assembly is a list of parts.
 		pass
 	@temperatures.setter
 	def temperatures(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -3792,6 +4293,24 @@ Python descriptor to set or get serializable values of Inspire objects.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -3833,6 +4352,18 @@ Python descriptor to set or get serializable values of Inspire objects.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -3845,19 +4376,6 @@ Python descriptor to set or get serializable values of Inspire objects.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -4018,534 +4536,6 @@ class Axis:
 		"""
 		pass
 
-class BaseMdlObject:
-	def __init__(self,manager=None, inspireObject=None, **kwds):
-		pass
-
-	def addListener(self,listener):
-		"""
-		Add a class derived off Listener that gets called when a signal
-       is emitter
-    
-		"""
-		pass
-
-	def addLoads(self,loader):
-		"""
-		Virtual method to create the loads
-		"""
-		pass
-
-	def addObjectReference(self,obj):
-		"""
-		Add the object(s) to the list of things this references
-       and add this to the list of things the object depends on
-    
-		"""
-		pass
-
-	def addPlots(self,plotter):
-		"""
-		Virtual method to create the plots
-		"""
-		pass
-
-	def addRunObject(self,runObjects):
-		"""
-		Virtual method to create the run objects
-		"""
-		pass
-
-	@property
-	def analysisSettings(self):
-		pass
-	@analysisSettings.setter
-	def analysisSettings(self):
-		pass
-
-	def castValue(self,name, value):
-		"""
-		Cast the value of the named property to the correct type
-       This raises an exception if the cast is invalid
-    
-		"""
-		pass
-
-	def createMdl(self):
-		"""
-		Virtual method to create the mdl objects
-		"""
-		pass
-
-	def createMdl_entityRequests(self,entity):
-		pass
-
-	def createMdl_plantRequests(self,poutput):
-		"""
-		Creates requests with POUVAL expressions for all the signals contained
-    in a plant output
-    
-		"""
-		pass
-
-	def delete(self):
-		pass
-
-	def emitCreated(self,**kwds):
-		"""
-		Overloaded to make sure parent signals are emitted before self
-		"""
-		pass
-
-	def emitDeleted(self):
-		"""
-		Overloaded to clear select list when deleting anything
-    
-		"""
-		pass
-
-	def emitModified(self,propertyName, old, new):
-		pass
-
-	def emitObjectsSelected(self,objects):
-		"""
-		Emit the objects as selected
-		"""
-		pass
-
-	def emitSelected(self):
-		"""
-		Make this the select list
-		"""
-		pass
-
-	def emitSignal(self,signal, *params, **kwds):
-		"""
-		Internal method to emit the signals
-		"""
-		pass
-
-	def generateName(self,parent):
-		"""
-		Return unique name
-       This can used when an object is created to auto generate a name
-       It uses the getCreateNamePrefix adding incremental values until
-       the name does not exist in the parent
-    
-		"""
-		pass
-
-	def getAllChildren(self,**kwds):
-		"""
-		Return all desendants of this object that satisfiles the 'isa' method
-		"""
-		pass
-
-	def getAllObjects(self,**kwds):
-		"""
-		Return all desendants of this object that satisfiles the 'isa' method
-		"""
-		pass
-
-	def getAncestor(self,includeSelf=False, **kwds):
-		"""
-		Return self, parent, parents parent, on up the heirarchy until
-       it satisfies the 'isa' method
-    
-		"""
-		pass
-
-	def getAncestors(self,includeSelf=False, wrt=None, **kwds):
-		"""
-		Return list of ancestors
-       wrt removes ancestors at and above passed object
-    
-		"""
-		pass
-
-	def getChild(self,name=None, **kwds):
-		"""
-		Return a child of this object that satisfies the 'isa' method
-		"""
-		pass
-
-	def getChildren(self,**kwds):
-		"""
-		Return a list of this objects children that satisfies the 'isa' method
-		"""
-		pass
-
-	def getClass(self,className):
-		"""
-		return the class for the specified className
-       className can be simple or qualified (with namespace)
-       if the name is simple, we prepend the cls._namespace
-       className can be a class, this simplifies code that supports both
-       classes and names, like the isinstance method
-    
-		"""
-		pass
-
-	def getClassLabel(self):
-		"""
-		Return the 'user' label for the class
-		"""
-		pass
-
-	def getClassName(self,qualified=False):
-		"""
-		Return the name of this class
-       If qualified is True, prepend the class namesapce
-    
-		"""
-		pass
-
-	def getClassProperties(self):
-		"""
-		Return a list of the classes Properties.
-       It includes the __bases__ properties
-    
-		"""
-		pass
-
-	def getCreateNamePrefix(self):
-		"""
-		Return the prefix used by generateName
-		"""
-		pass
-
-	def getCreateRequests(self):
-		pass
-
-	def getDependants(self,recursive=True):
-		"""
-		Return a set of all the objects that reference this
-       Overloaded from HasProperties to add children depenants
-    
-		"""
-		pass
-
-	def getFullName(self,wrt=None):
-		"""
-		Return a dot separated name
-       wrt makes the name relative to an ancestor
-    
-		"""
-		pass
-
-	def getGuiLabel(self,incontext=False):
-		"""
-		Return label to be displayed in the GUI
-       if incontext==False, the label is returned
-       if incontext==True,  return a dash separated hieracical label
-    
-		"""
-		pass
-
-	def getGuiPropertyNames(self):
-		"""
-		Return a list of the property anmes that are exposed in the GUI
-    
-		"""
-		pass
-
-	def getIconName(self):
-		"""
-		Return the filename for the icon that represents the object in the GUI
-    
-		"""
-		pass
-
-	def getInspireObject(self,obj):
-		"""
-		Return the inspireObject that created this
-		"""
-		pass
-
-	def getLabel(self):
-		"""
-		Return the instance label if specified, otherwise return the name
-		"""
-		pass
-
-	def getMdlBody(self,part):
-		pass
-
-	def getMdlObject(self,obj=None, **kwds):
-		"""
-		Return the mdl object created by the specified object
-       obj defaults to self
-       kwds are used to filter objects: name=, type=, filter=...
-    
-		"""
-		pass
-
-	def getMdlObjects(self,obj=None, **kwds):
-		"""
-		Return a list of mdl objects created by the specified object
-       obj defaults to self
-       kwds are used to filter objects: name=, type=, filter=...
-    
-		"""
-		pass
-
-	def getMdlParent(self):
-		pass
-
-	def getObjectFromPath(self,path):
-		"""
-		Return the value specified in the dot separated path
-       This is the string version of the Python command
-    
-		"""
-		pass
-
-	def getParentNameLabel(self,name=None, label=None):
-		"""
-		Commonize topology when creating the mdl objects
-		"""
-		pass
-
-	def getProperties(self):
-		"""
-		Return an OrderedDict of the properties.
-       It includes the __base__ properties
-    
-		"""
-		pass
-
-	def getProperty(self,name):
-		"""
-		Return the named property or None if the property is not found.
-    
-		"""
-		pass
-
-	def getPropertyNames(self,why=None):
-		"""
-		Return a list the property names return from the getProperties method
-       The why parameter is depricated, use getGuiPropertyNames
-    
-		"""
-		pass
-
-	def getReferences(self,recursive=True):
-		"""
-		Return a set of all the objects this references
-       Overloaded from HasProperties to add children references
-    
-		"""
-		pass
-
-	def getRunObjectName(self):
-		"""
-		What is the hierarchy of the run data?
-    
-		"""
-		pass
-
-	def getValue(self,name, type=None):
-		"""
-		Return the named property value.
-       This is syntactic sugar for getattr except that:
-         - the name can be a dot separated name
-         - no exceptions is raised if the name is not valid.
-         - if type is specified and value not that type return None
-    
-		"""
-		pass
-
-	def getValueFromPath(self,path):
-		"""
-		Return the value specified in the dot separated path
-       This is the string version of the Python command
-    
-		"""
-		pass
-
-	def hasInstance(self,instance):
-		"""
-		Has the Instance property been created yet?
-       
-       testing using obj.instance creates the instance
-    
-		"""
-		pass
-
-	def hasProperty(self,name):
-		"""
-		Does this object have a property with the specified name?
-    
-		"""
-		pass
-
-	def initialize(self):
-		"""
-		initialization for derived classes
-		"""
-		pass
-
-	@property
-	def inspireModel(self):
-		pass
-	@inspireModel.setter
-	def inspireModel(self):
-		pass
-
-	def isADescendantOf(self,parent, includeSelf=False):
-		"""
-		Is parent anywhere in the parent tree
-		"""
-		pass
-
-	def isa(self,type=None, filter=None, name=None, wildcard=None, internal=None, **kwds):
-		"""
-		Does this object match the specified settings
-         name     - exact match on the name
-         wildcard - glob like match of name
-         type     - 
-         filter   - return value of the specified method
-    
-		"""
-		pass
-
-	def isaBlackbox(self):
-		"""
-		Should this objects children NOT be displayed in the session tree?
-       This can be used to make a composite object look like a primative
-    
-		"""
-		pass
-
-	def isinstance(self,*types):
-		"""
-		Deprecated.  use istype
-		"""
-		pass
-
-	def isinternal(self,name=None):
-		"""
-		Is this, or the named property flagged as internal
-       internal objects are not visible in the GUI
-    
-		"""
-		pass
-
-	def istype(self,*types):
-		"""
-		Deprecated.  use istype
-		"""
-		pass
-
-	def makeAndSetAllInstances(self,recursive=True):
-		"""
-		Instance properties are not created until referenced
-       When they are created they are chldren of this object
-       Walking the children will miss instances that were not referenced
-       This method ensures all instances have beem created.
-    
-		"""
-		pass
-
-	@property
-	def mdlModel(self):
-		pass
-	@mdlModel.setter
-	def mdlModel(self):
-		pass
-
-	def popMdlSystem(self):
-		pass
-
-	def propertyValueChanged(self,propertyName):
-		"""
-		Called when a property value changes
-    
-		"""
-		pass
-
-	def pushMdlSystem(self,name, **kwds):
-		pass
-
-	def registerClass(self):
-		"""
-		Internal method used to implement derived classes.
-       Let the derived class extend the class registration
-    
-		"""
-		pass
-
-	def removeListener(self,listener):
-		"""
-		Remove a listener
-		"""
-		pass
-
-	def removeObjectReference(self,obj):
-		"""
-		Remove the object(s) from the list of things this references
-       and remove this from the list of things the object depends on
-    
-		"""
-		pass
-
-	def setDefaultValues(self,kwds):
-		"""
-		Internal method to initialize this instance with the default property
-       values. kwds are the arguments pass into the constuctor
-    
-		"""
-		pass
-
-	def setValue(self,name, value):
-		"""
-		Set the named property to the specified value.
-       This is syntactic sugar for setattr except name can be a dot separated
-       name.
-    
-		"""
-		pass
-
-	def setValues(self,**kwds):
-		"""
-		setattr on name/value pairs in the order the properties are specified.
-       This is called from __init__ to process the kwds
-    
-		"""
-		pass
-
-	def setValuesFromObject(self,obj):
-		"""
-		Called from the initializer to set the property values from the
-       Inspire object properties.
-
-       For example, when Core.Torque.sendToMbd is called, it calls the
-       manager.sforce method and only passes in the type.
-       The manager instantiate the Sforce class
-       The Sforce.__init__ method calls this method which gets the
-       location, direction, magnitude, and distributed property values
-       from the Inspire Torque object
-    
-		"""
-		pass
-
-	def showInSessionTree(self):
-		"""
-		Should this object be displayed in the session tree?
-       Returning False basically hides the object from the user
-       This can be used to implement internal objects
-    
-		"""
-		pass
-
-	def validateValue(self,name, value):
-		"""
-		Return True if the value is valid for the named property
-       This can be used by the GUI to make sure the user entered value is ok
-    
-		"""
-		pass
-
 class BaseSystem:
 	def __init__(self):
 		pass
@@ -4560,7 +4550,7 @@ class BaseSystem:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -4590,7 +4580,7 @@ class BaseSystem:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -4601,6 +4591,51 @@ class BaseSystem:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -4637,17 +4672,13 @@ class BaseSystem:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -4658,6 +4689,20 @@ class BaseSystem:
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -4699,6 +4744,12 @@ class BaseSystem:
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -4713,7 +4764,18 @@ class BaseSystem:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -4739,10 +4801,16 @@ class BaseSystem:
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -4768,8 +4836,18 @@ class BaseSystem:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -4816,6 +4894,9 @@ class BaseSystem:
 	def position(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -4850,6 +4931,26 @@ class BaseSystem:
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -4890,11 +4991,11 @@ class BeadPattern:
 	def __init__(self,part, location, direction=(0, 0, 1), type=1, **kwds):
 		"""
 Bead Pattern on supplied parts.
-  
+
   Bead patterns can be used to control the shapes of the beads.
-  Beads are used to help meet specific design requirements such as stiffness 
-  when running a topography optimization on a surface. Use the Bead Patterns to 
-  create Linear, Circular, or Radial bead pattern tools. 
+  Beads are used to help meet specific design requirements such as stiffness
+  when running a topography optimization on a surface. Use the Bead Patterns to
+  create Linear, Circular, or Radial bead pattern tools.
   
 """
 		pass
@@ -4904,6 +5005,13 @@ Bead Pattern on supplied parts.
 		pass
 	@active.setter
 	def active(self):
+		pass
+
+	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
 		pass
 
 	@property
@@ -4930,7 +5038,7 @@ Bead Pattern on supplied parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -4988,7 +5096,7 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -4999,6 +5107,51 @@ Bead Pattern on supplied parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -5035,17 +5188,13 @@ Bead Pattern on supplied parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -5056,6 +5205,20 @@ Bead Pattern on supplied parts.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -5097,6 +5260,12 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -5111,7 +5280,18 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -5157,10 +5337,16 @@ Bead Pattern on supplied parts.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -5207,8 +5393,18 @@ Bead Pattern on supplied parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -5239,6 +5435,9 @@ Bead Pattern on supplied parts.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -5287,6 +5486,33 @@ Bead Pattern on supplied parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -5296,8 +5522,8 @@ Bead Pattern on supplied parts.
 
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -5383,6 +5609,24 @@ Store True or False
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -5424,6 +5668,18 @@ Store True or False
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -5436,19 +5692,6 @@ Store True or False
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -5482,9 +5725,9 @@ class BoundaryCondition:
 	def __init__(self):
 		"""
 Boundary conditions are constraints necessary for the solution of a boundary value problem.
-  
-  The main types of boundary condition available are force, torque, support, temperature and etc. 
-  These can be applied to points, surfaces, edges or remotely offset from a feature. 
+
+  The main types of boundary condition available are force, torque, support, temperature and etc.
+  These can be applied to points, surfaces, edges or remotely offset from a feature.
   The way that the model is constrained can significantly affect the results and requires special consideration.
   
 """
@@ -5495,6 +5738,13 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		pass
 	@active.setter
 	def active(self):
+		pass
+
+	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
 		pass
 
 	@property
@@ -5521,7 +5771,7 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -5579,7 +5829,7 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -5590,6 +5840,51 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -5626,17 +5921,13 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -5647,6 +5938,20 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -5688,6 +5993,12 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -5702,7 +6013,18 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -5748,10 +6070,16 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -5798,8 +6126,18 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -5830,6 +6168,9 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -5878,10 +6219,37 @@ Boundary conditions are constraints necessary for the solution of a boundary val
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -5976,6 +6344,114 @@ class Box:
 	def zlength(self):
 		pass
 
+class BrowserMixin:
+	def __init__(self):
+		"""
+To customize Object in Model Browser + ObjectTables.
+
+  Use inbrowser = False to hide from the Model Browser.
+  
+"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
+		"""
+		pass
+
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
+		pass
+
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
+	def setBrowserName(self,name):
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 class Bushing:
 	def __init__(self,primaryFeatures, secondaryFeatures=[], location=None, loadCase=None, **kwds):
 		"""
@@ -6038,7 +6514,7 @@ Create connections with multidirectional stiffness and mass properties
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -6082,7 +6558,7 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -6093,6 +6569,51 @@ Create connections with multidirectional stiffness and mass properties
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -6129,17 +6650,13 @@ Create connections with multidirectional stiffness and mass properties
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -6150,6 +6667,20 @@ Create connections with multidirectional stiffness and mass properties
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -6191,6 +6722,12 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -6205,7 +6742,18 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -6238,10 +6786,16 @@ Create connections with multidirectional stiffness and mass properties
 	def grounded(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -6274,8 +6828,18 @@ Create connections with multidirectional stiffness and mass properties
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -6329,6 +6893,9 @@ Create connections with multidirectional stiffness and mass properties
 	def secondaryFeatures(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -6365,6 +6932,9 @@ Create connections with multidirectional stiffness and mass properties
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def stiffness(self):
 		pass
@@ -6377,6 +6947,23 @@ Create connections with multidirectional stiffness and mass properties
 		pass
 	@stiffnessOrthotropic.setter
 	def stiffnessOrthotropic(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -6470,6 +7057,13 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def bounds(self):
 		pass
 	@bounds.setter
@@ -6500,7 +7094,7 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -6558,7 +7152,7 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -6569,6 +7163,51 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -6605,17 +7244,13 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -6626,6 +7261,20 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -6667,6 +7316,12 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -6681,7 +7336,18 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -6727,10 +7393,16 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -6777,8 +7449,18 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -6816,6 +7498,9 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		pass
 	@position.setter
 	def position(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -6864,10 +7549,37 @@ Create the Center of Gravity Constraint (COG) of supplied parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -6906,7 +7618,7 @@ class Callout:
 	def __init__(self,location, resultTypes,solverType: str="OPTISTRUCT_SOLVER", name=None):
 		"""
 Display analysis results at a point on a part or section plane.
-   
+
   Only visible in contexts like Structure -> Analysis Explorer when the
   user clicks a button to display them.
   
@@ -6923,7 +7635,7 @@ Display analysis results at a point on a part or section plane.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -6953,7 +7665,7 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -6964,6 +7676,51 @@ Display analysis results at a point on a part or section plane.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -7000,17 +7757,13 @@ Display analysis results at a point on a part or section plane.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -7021,6 +7774,20 @@ Display analysis results at a point on a part or section plane.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -7062,6 +7829,12 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -7076,7 +7849,18 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValidResultTypes(self):
@@ -7109,10 +7893,16 @@ Display analysis results at a point on a part or section plane.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -7138,8 +7928,18 @@ Display analysis results at a point on a part or section plane.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -7163,6 +7963,9 @@ Display analysis results at a point on a part or section plane.
 		pass
 	@resultTypes.setter
 	def resultTypes(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -7199,6 +8002,26 @@ Display analysis results at a point on a part or section plane.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -7583,7 +8406,7 @@ Creates a Coil Spring.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -7672,7 +8495,7 @@ Creates a Coil Spring.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -7683,6 +8506,45 @@ Creates a Coil Spring.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -7719,17 +8581,13 @@ Creates a Coil Spring.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -7766,7 +8624,7 @@ Creates a Coil Spring.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -7790,7 +8648,12 @@ Creates a Coil Spring.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -7831,13 +8694,6 @@ Creates a Coil Spring.
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def inputType(self):
 		pass
 	@inputType.setter
@@ -7858,6 +8714,12 @@ Creates a Coil Spring.
 	def installedLength(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	@property
 	def isGrounded(self):
 		pass
@@ -7876,7 +8738,7 @@ Creates a Coil Spring.
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -7972,7 +8834,7 @@ Creates a Coil Spring.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -7983,6 +8845,16 @@ Creates a Coil Spring.
 		pass
 	@mountColor.setter
 	def mountColor(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -8083,6 +8955,9 @@ Creates a Coil Spring.
 	def rotation(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -8119,6 +8994,9 @@ Creates a Coil Spring.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverVariables(self):
 		pass
@@ -8141,6 +9019,13 @@ Creates a Coil Spring.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
@@ -8152,6 +9037,9 @@ Creates a Coil Spring.
 		pass
 	@timeOffset.setter
 	def timeOffset(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -8291,6 +9179,24 @@ Stores a color value as 3 RGB float values between 0 to 1
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -8329,6 +9235,18 @@ Stores a color value as 3 RGB float values between 0 to 1
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -8341,19 +9259,6 @@ Stores a color value as 3 RGB float values between 0 to 1
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -8463,6 +9368,24 @@ class CompositeAttribute:
 		"""
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -8511,6 +9434,18 @@ class CompositeAttribute:
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -8523,19 +9458,6 @@ class CompositeAttribute:
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -8830,11 +9752,14 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -8845,7 +9770,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def currentRepresentation(self):
 		pass
 
-	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5, drapeTargetSurface=None, drapeMethod="UV_MAPPING", drapeUParameter="0.0", drapeVParameter="0.0", elevation="0", drapeAngle="0", drapeUScale="0", drapeVScale="0", drapeReverseSurface=False, anchorAxis=None, reverseAnchorAxis=False):
 		"""
 		Deform parts within a specified region.
 
@@ -8857,6 +9782,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
       - TAPER
       - SHEAR
       - STRETCH
+      - DRAPE
     deformAxis (str): Deform Axis.
       - X
       - Y
@@ -8891,6 +9817,21 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
     origin (mat.Points): Origin values in x,y,z direction to deform parts.
     trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
     trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+    drapeTargetSurface (list[Feature]): Drape target surface to deform parts.
+    drapeMethod (str): Drape method.
+      - UV_MAPPING
+      - MINIMIZE_STRETCH
+    drapeUParameter (float | str): Drape U parameter to deform parts.
+    drapeVParameter (float | str): Drape V parameter to deform parts.
+    elevation (float | str): Elevation to deform parts.
+    drapeAngle (float | str): Drape angle to deform parts.
+    drapeUScale (float | str): Drape U scale to deform parts.
+    drapeVScale (float | str): Drape V scale to deform parts.
+    drapeReverseSurface (bool): If True, Drape reverse surface to deform parts
+      otherwise not.
+    anchorAxis (list[FeatureLinear]): Anchor axis to deform parts.
+    reverseAnchorAxis (bool): If True, reverse anchor axis to deform parts
+      otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -8957,10 +9898,10 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def findMinimumSeparation(self,other):
 		"""
 		Find closest points between two parts
-    
+
     Args:
       other (Part): The 2nd part.
-      
+
     Returns:
       namedtuple("ClosestPoints", "point1 point2 distance feature1 feature2")
     
@@ -8998,7 +9939,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -9009,6 +9950,51 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -9045,17 +10031,13 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -9073,6 +10055,20 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def getClosestPoint(self,point):
 		"""
 		Get closest point on part from passed point
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
 		"""
 		pass
 
@@ -9101,13 +10097,13 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		Returns a list of features based on specified filters.
 
     Args:
-      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the 
+      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the
         features based on type.
       rep (str): Feature representation. See part.representations for options
       **kwds : Additional attributes to consider while filtering.
 
     Returns:
-      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of 
+      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of
         features that satisfies all the filter criteria.
     
 		"""
@@ -9136,6 +10132,9 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
+	def getIcon(self):
+		pass
+
 	def getRayIntersections(self,origin, direction):
 		"""
 		Find list of points where ray intersects part
@@ -9156,7 +10155,18 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -9216,7 +10226,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
           - frustum
           - axi-symmetric gear
           - rack
-          
+
     Returns:
       Box,Ellipsoid,Sphere.. : The identified shape.
     
@@ -9288,10 +10298,16 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -9484,7 +10500,7 @@ ConcentratedMass creates a mass only object either on a part or at a point in sp
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -9528,7 +10544,7 @@ Args:
 
 
 .. deprecated:: 2025
-   This will be removed in 2025.2. Use the move2 function instead
+   This will be removed in 2026. Use the move2 function instead
 		"""
 		pass
 
@@ -9641,6 +10657,53 @@ Args:
 		"""
 		pass
 
+	def patternAlongSurface(self,input, surface, copiesAlongU=3, copiesAlongV=3, orientation="PATH_DIRECTION", alignment="PATH_NORMAL", retainSource=True, firstCopy="RETAIN_POSITION", origin=None, startU="0", endU=1, startV="0", endV=1, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None):
+		"""
+		Pattern part along surface.
+
+   Args:
+    input (Part): Part to create pattern along the surface.
+    surface (list[FeatureArea]): Surface for pattern.
+    copiesAlongU (int | str): Number of copies along U direction.
+    copiesAlongV (int | str): Number of copies along V direction.
+    orientation (str): Orientation of pattern along surface.
+      - PATH_DIRECTION
+      - KEEP_ORIGINAL
+    alignment (str): Alignment of pattern along surface.
+      - PATH_NORMAL
+      - FIXED
+    retainSource (bool): If True, retain source otherwise not.
+    firstCopy (str): First copy of pattern along surface.
+      - RETAIN_POSITION
+      - MOVE_ORIGIN
+      - ADJUST
+    origin (FeaturePoint): Origin of pattern along surface.
+    startU (float | str): Start U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endU (float | str): End U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    startV (float | str): Start V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endV (float | str): End V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    result (str): Result type of pattern along path.
+      - COMBINE
+      - SUBTRACT
+      - INTERSECT
+      - NEW_PART
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeParts.
+    mergeParts (list[Part]): Parts to be merged with pattern along path.
+    copiesToSkip (dict{Part: list[indicesToSkip]}): Set copies to skip. It's
+      basically a dictionary which contains Part as a key and list of indices to
+      skip as values.
+
+  Returns:
+  list[Part]: List of parts created.
+  
+		"""
+		pass
+
 	@property
 	def position(self):
 		pass
@@ -9718,7 +10781,7 @@ Args:
 		"""
 		pass
 
-	def replaceFromFile(self,part, filePath):
+	def replaceFromFile(self,part, filePath, orient=False):
 		"""
 		Replace part with the contents of a file.
 
@@ -9849,6 +10912,9 @@ Args:
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -9890,6 +10956,9 @@ Args:
 		pass
 	@sheetThickness.setter
 	def sheetThickness(self):
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def shrinkWrap(self,parts=None, voxelSize=-1, merge=True, sharpen=False):
@@ -10014,6 +11083,20 @@ Args:
 	def stressCalculation(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
 		"""
 		Creates curves from two intersecting surfaces.
@@ -10057,6 +11140,9 @@ Args:
     symmetric (bool): If True, offsets symmetrically on both sides of the part surface.
   
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	def translate(self,part, x="0", y=None, z=None):
@@ -10184,7 +11270,7 @@ Config is a container class which would hold other entities
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -10214,7 +11300,7 @@ Config is a container class which would hold other entities
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -10225,6 +11311,51 @@ Config is a container class which would hold other entities
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -10261,17 +11392,13 @@ Config is a container class which would hold other entities
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -10282,6 +11409,20 @@ Config is a container class which would hold other entities
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -10323,6 +11464,12 @@ Config is a container class which would hold other entities
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -10337,7 +11484,18 @@ Config is a container class which would hold other entities
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -10363,10 +11521,16 @@ Config is a container class which would hold other entities
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -10385,8 +11549,18 @@ Config is a container class which would hold other entities
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -10403,6 +11577,9 @@ Config is a container class which would hold other entities
 		pass
 	@parent.setter
 	def parent(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -10439,6 +11616,26 @@ Config is a container class which would hold other entities
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -10493,8 +11690,8 @@ Connectors link points, edges, or faces to each other.
 
   They are used to connect two parts together, or to apply a load or support at a distance.
 
-  Connectors are only valid if they connect at least three non-collinear points 
-  or two non-collinear edges. Collinear points lie on the same line. 
+  Connectors are only valid if they connect at least three non-collinear points
+  or two non-collinear edges. Collinear points lie on the same line.
   Non-collinear points do not.
 
   
@@ -10518,7 +11715,7 @@ Connectors link points, edges, or faces to each other.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -10548,7 +11745,7 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -10559,6 +11756,51 @@ Connectors link points, edges, or faces to each other.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -10595,17 +11837,13 @@ Connectors link points, edges, or faces to each other.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -10616,6 +11854,20 @@ Connectors link points, edges, or faces to each other.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -10657,6 +11909,12 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -10671,7 +11929,18 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -10697,10 +11966,16 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -10719,8 +11994,18 @@ Connectors link points, edges, or faces to each other.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -10737,6 +12022,9 @@ Connectors link points, edges, or faces to each other.
 		pass
 	@parent.setter
 	def parent(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -10775,6 +12063,26 @@ Connectors link points, edges, or faces to each other.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
 	@property
 	def variable_name(self):
 		pass
@@ -10805,10 +12113,10 @@ Connectors link points, edges, or faces to each other.
 class Constraint:
 	def __init__(self,features, position=None, isRemote=False, **kwds):
 		"""
-A constraint is used to hold a part so it doesn't displace when loads are 
+A constraint is used to hold a part so it doesn't displace when loads are
   applied to it.
 
-  You can apply a constraint to a single point on the model, to an edge or a 
+  You can apply a constraint to a single point on the model, to an edge or a
   face, or at the center of a hole.
   
 """
@@ -10840,6 +12148,13 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -10863,7 +12178,7 @@ A constraint is used to hold a part so it doesn't displace when loads are
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -10942,7 +12257,7 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -10953,6 +12268,51 @@ A constraint is used to hold a part so it doesn't displace when loads are
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -10989,17 +12349,13 @@ A constraint is used to hold a part so it doesn't displace when loads are
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -11010,6 +12366,20 @@ A constraint is used to hold a part so it doesn't displace when loads are
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -11051,6 +12421,12 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -11065,7 +12441,18 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -11118,10 +12505,16 @@ A constraint is used to hold a part so it doesn't displace when loads are
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -11168,8 +12561,18 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -11207,6 +12610,9 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		pass
 	@position.setter
 	def position(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setDefaultDOFs(self):
@@ -11265,11 +12671,38 @@ A constraint is used to hold a part so it doesn't displace when loads are
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def sliding(self):
 		pass
 	@sliding.setter
 	def sliding(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
 		pass
 
 	def updatePosition(self,m44):
@@ -11640,7 +13073,7 @@ Motion based Motor.
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -11677,6 +13110,12 @@ Motion based Motor.
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -11902,7 +13341,7 @@ class Contact:
 		"""
 Connection between two parts by the contact of features.
 
-  Contacts indicate whether neighboring surfaces should be bonded, contacting, 
+  Contacts indicate whether neighboring surfaces should be bonded, contacting,
   or have no contact.
   
 """
@@ -11960,7 +13399,7 @@ Connection between two parts by the contact of features.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -12018,7 +13457,7 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -12029,6 +13468,51 @@ Connection between two parts by the contact of features.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -12065,17 +13549,13 @@ Connection between two parts by the contact of features.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -12093,6 +13573,20 @@ Connection between two parts by the contact of features.
 	def getContactJoint(self):
 		"""
 		Returns the joint that uses this contact.
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -12141,6 +13635,12 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -12155,7 +13655,18 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -12181,10 +13692,16 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -12210,8 +13727,18 @@ Connection between two parts by the contact of features.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -12286,6 +13813,9 @@ Connection between two parts by the contact of features.
 	def secondaryPart(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setResolution(self,resolution="Low"):
 		"""
 		Set the resolution of the contact.
@@ -12335,11 +13865,31 @@ Connection between two parts by the contact of features.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solver(self):
 		pass
 	@solver.setter
 	def solver(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -12409,9 +13959,9 @@ Compute contact based joint information from the contacts features
 
     Args:
       cyl1 (FeatureCylindrical): Cylindrical features 1, to check it axis
-        coaxial with other 
+        coaxial with other
       cyl2 (FeFeatureCylindricalature): Cylindrical features 1, to check it axis
-        coaxial with other 
+        coaxial with other
     
 		"""
 		pass
@@ -12424,7 +13974,7 @@ Compute contact based joint information from the contacts features
     Args:
       cylinder (list[FeatureCylindrical]): List of cylindrical features to check
         parallel with other
-      plane (list[FeaturePlanar]): List of planner features to check parallel 
+      plane (list[FeaturePlanar]): List of planner features to check parallel
         with other
     
 		"""
@@ -12450,9 +14000,9 @@ Compute contact based joint information from the contacts features
     Note: Aligned means that they share the same axis of rotation
 
     Args:
-      primary (Feature, list[feature]): Feature list 1 to get same axis of 
+      primary (Feature, list[feature]): Feature list 1 to get same axis of
         rotation with other
-      secondary (Feature, list[feature]): Feature list 2 to get same axis of 
+      secondary (Feature, list[feature]): Feature list 2 to get same axis of
         rotation with other
     
 		"""
@@ -12461,7 +14011,7 @@ Compute contact based joint information from the contacts features
 	def getFillets(self,parts=None):
 		"""
 		Return list of features on input parts which represent fillets
-    
+
     Args:
       part(Part, list[Part]): Model parts to find fillet features
     
@@ -12471,10 +14021,10 @@ Compute contact based joint information from the contacts features
 	def getFilteredFeatures(self,features, featureType):
 		"""
 		Return the list feature of the specified type from the features list
-    
+
     Args:
       features(Feature): List of feature to find match of feature type.
-      featureType(str, cls.Feature): Feature type to filter the match 
+      featureType(str, cls.Feature): Feature type to filter the match
         from features
      
 		"""
@@ -12483,10 +14033,10 @@ Compute contact based joint information from the contacts features
 	def getFirstFeature(self,features, featureType):
 		"""
 		Return the first feature of the specified type from the features list
-    
+
     Args:
       features(Feature): List of feature to find first match of feature type.
-      featureType(str, cls.Feature): Feature type to filter the first match 
+      featureType(str, cls.Feature): Feature type to filter the first match
         from features
      
 		"""
@@ -12580,7 +14130,7 @@ Compute contact based joint information from the contacts features
 	def getLongestHole(self,contact, axis):
 		"""
 		Return longest hole axis for given contact and axis.
-    
+
     Args:
       contact(Contact): Contact object to find longest hole axis
       Axis((listPoint)): Axis on which the longest hole need to be found
@@ -12594,15 +14144,15 @@ Compute contact based joint information from the contacts features
     translational joint.
 
     Args:
-      primary (list, list[Feature]): Feature list 1, to find multi planar 
+      primary (list, list[Feature]): Feature list 1, to find multi planar
         with other
-      secondary (list, list[Feature]): Feature list 1, to find multi planar 
+      secondary (list, list[Feature]): Feature list 1, to find multi planar
         with other
 
     Returns:
       list :Returns a list with below information.
         bool     - Indicates whether a translational joint can be realized or not
-        location - Location of the joint 
+        location - Location of the joint
         axis     - Axis of the joint
         radius   - Circle encompassing planes
         bool     - Indicating if there are any non-aligned planes such that
@@ -12625,9 +14175,9 @@ Compute contact based joint information from the contacts features
     lists are ignored
 
     Args:
-      primary (list, list[Feature]): Feature list 1, to find parallel 
+      primary (list, list[Feature]): Feature list 1, to find parallel
         with other
-      secondary (list, list[Feature]): Feature list 2, to find parallel 
+      secondary (list, list[Feature]): Feature list 2, to find parallel
         with other
     
 		"""
@@ -12637,7 +14187,7 @@ Compute contact based joint information from the contacts features
 		"""
 		Returns true if the contact references any features of type
     FeaturePlaner or FeatureAreaOther
-    
+
     Args:
       contact(Contact): Contact object to find any features of type
         FeaturePlaner or FeatureAreaOther referenced
@@ -12655,7 +14205,7 @@ Compute contact based joint information from the contacts features
 	def removeFilletFeatures(self,features):
 		"""
 		Return fillet free list of features.
-    
+
     Args:
       features(list[Feature]): List of feature to remove fillets from it.
     
@@ -12717,9 +14267,6 @@ class ContactLoad:
 	def getNormalForces(self,frame, part="action", sumAtRegion=False):
 		pass
 
-	def getRunDataPrefix(self):
-		pass
-
 	def getTangentialForceMagnitudes(self,sumAtRegion=False):
 		"""
 		Magnitude of all tangential forces applied by this load
@@ -12736,6 +14283,13 @@ class ContactLoad:
 		"""
 		Magnitude of torques applied by this load at each time step
 		"""
+		pass
+
+	@property
+	def isImplicit(self):
+		pass
+	@isImplicit.setter
+	def isImplicit(self):
 		pass
 
 	def isOnPart(self,part):
@@ -12758,6 +14312,9 @@ class ContactLoad:
     
 		"""
 		pass
+
+class ConvertToAnalyst:
+	pass
 
 class Core:
 	"""
@@ -12795,7 +14352,7 @@ Simulates the rotational or translational movements of connected parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -12867,7 +14424,7 @@ Simulates the rotational or translational movements of connected parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -12901,6 +14458,45 @@ Simulates the rotational or translational movements of connected parts.
 
       ignore (CouplerCandidates): To skip any specific candidate.
       
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
+    
 		"""
 		pass
 
@@ -12949,17 +14545,13 @@ Simulates the rotational or translational movements of connected parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -13014,7 +14606,7 @@ Simulates the rotational or translational movements of connected parts.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -13038,7 +14630,12 @@ Simulates the rotational or translational movements of connected parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getUnambiguousJointType(self,joint):
@@ -13076,13 +14673,6 @@ Simulates the rotational or translational movements of connected parts.
 	def hideCouplers(self):
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
 	def inferRatio(self,a, b=None):
 		"""
 		Given two parts, or a free joint with two parts, try to give two integer
@@ -13106,10 +14696,16 @@ Simulates the rotational or translational movements of connected parts.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -13135,7 +14731,7 @@ Simulates the rotational or translational movements of connected parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -13146,6 +14742,16 @@ Simulates the rotational or translational movements of connected parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -13211,6 +14817,9 @@ Simulates the rotational or translational movements of connected parts.
 	def scales(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -13253,11 +14862,24 @@ Simulates the rotational or translational movements of connected parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -13323,8 +14945,8 @@ class CouplerCandidates:
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -13436,7 +15058,7 @@ class CouplerCandidates:
 	def onObjectDeleted(self,obj):
 		"""
 		Implement if interested when an object is destroyed.
-    
+
     This can be caused by:
       - Explicit obj.destroy()
       - Undo of create.
@@ -13463,7 +15085,7 @@ class CouplerCandidates:
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -13658,6 +15280,24 @@ Mark the existence of old/deprecated attributes.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -13693,6 +15333,18 @@ Mark the existence of old/deprecated attributes.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -13705,19 +15357,6 @@ Mark the existence of old/deprecated attributes.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -13769,7 +15408,7 @@ Base class for GeneralObjects that don't exist anymore
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -13799,7 +15438,7 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -13810,6 +15449,45 @@ Base class for GeneralObjects that don't exist anymore
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -13846,17 +15524,13 @@ Base class for GeneralObjects that don't exist anymore
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -13900,7 +15574,7 @@ Base class for GeneralObjects that don't exist anymore
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -13918,7 +15592,12 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -13944,17 +15623,16 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -13973,7 +15651,7 @@ Base class for GeneralObjects that don't exist anymore
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -13984,6 +15662,16 @@ Base class for GeneralObjects that don't exist anymore
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -14012,6 +15700,9 @@ Base class for GeneralObjects that don't exist anymore
 		Marks the object that needs to be redrawn in the graphics window.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -14050,11 +15741,24 @@ Base class for GeneralObjects that don't exist anymore
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -14166,6 +15870,12 @@ Specify a direction relative to another entity.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, component=None, **kwds):
 		pass
 
@@ -14213,20 +15923,187 @@ Specify a direction relative to another entity.
 	def loadValue(self,obj, value):
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		pass
+
+	def setInCoreValue(self,obj, value):
+		pass
+
+	def setValue(self,obj, value):
+		pass
+
+	def setValueList(self,obj, value):
+		pass
+
+	def setValueListList(self,obj, value):
+		pass
+
+	def toGlobal(self,obj, value):
+		pass
+
+	def toLocal(self,obj, value):
+		pass
+
+	def usingUnits(self,units):
+		pass
+
+class Directory:
+	def __init__(self,default: str="", **kwds):
+		pass
+
+	def apply(self,**kwds):
+		"""
+		Context manager to specify Attribute constructor kwds
+    Useful to avoid repeating kwds while defining a related group
+    
+		"""
+		pass
+
+	def castForGet(self,obj, value):
+		pass
+
+	def castForSet(self,obj, value):
+		"""
+		Converts and validates the value of the attribute before setting.
+
+      Converts the value it to its internal type (and base units if applicable).
+
+    Args:
+      obj (GeneralObject): Object this attribute belongs to.
+      value (Any): Value of the attribute to set.
+
+    Returns:
+      value (Any): Validated and converted value.
+    
+		"""
+		pass
+
+	def classifyObject(self,obj):
+		pass
+
+	def create(self,obj):
+		pass
+
+	def createList(self,listAttr, obj):
+		pass
+
+	def createListList(self,listAttr, obj):
+		pass
+
+	def disable(self,obj):
+		"""
+		Called by GeneralObject when destroyed (or undo of a create)
+		"""
+		pass
+
+	def enable(self,obj):
+		"""
+		Called by GeneralObject when created (or undo of a destroy)
+		"""
+		pass
+
+	def getCreateArgs(self):
+		"""
+		Helper used in create methods
+		"""
+		pass
+
+	def getDisplayName(self,obj):
+		pass
+
+	def getEditor(self,requireExisting, filter):
+		pass
+
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
+	def getGuiValue(self,obj):
+		"""
+		Returns the formatted value, as shown in the Property Editor.
+		"""
+		pass
+
+	def getInCoreValue(self,obj):
+		pass
+
+	def getReadonly(self,obj):
+		pass
+
+	def getUnits(self,obj):
+		pass
+
+	def getValue(self,obj):
+		pass
+
+	def getValueList(self,obj):
+		pass
+
+	def getValueListList(self,obj):
+		pass
+
+	def initialize(self,objCls, name):
+		"""
+		Initializes the attribute.
+
+    Args:
+      objCls (class): Object class this attribute belongs to.
+      name (str): Name of the attribute.
+    
+		"""
+		pass
+
+	def loadValue(self,obj, value):
+		"""
+		Called by GeneralObject.loadAttributeValues during stmod deserialization
+		"""
+		pass
+
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def setGuiValue(self,obj, value, component):
@@ -14251,12 +16128,6 @@ Specify a direction relative to another entity.
 	def setValueListList(self,obj, value):
 		pass
 
-	def toGlobal(self,obj, value):
-		pass
-
-	def toLocal(self,obj, value):
-		pass
-
 	def usingUnits(self,units):
 		pass
 
@@ -14274,6 +16145,13 @@ Displacement constraints can be applied to a model to limit deflections in
 		pass
 	@active.setter
 	def active(self):
+		pass
+
+	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
 		pass
 
 	@property
@@ -14307,7 +16185,7 @@ Displacement constraints can be applied to a model to limit deflections in
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -14365,7 +16243,7 @@ Displacement constraints can be applied to a model to limit deflections in
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -14376,6 +16254,51 @@ Displacement constraints can be applied to a model to limit deflections in
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -14412,17 +16335,13 @@ Displacement constraints can be applied to a model to limit deflections in
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -14433,6 +16352,20 @@ Displacement constraints can be applied to a model to limit deflections in
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -14474,6 +16407,12 @@ Displacement constraints can be applied to a model to limit deflections in
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -14488,7 +16427,18 @@ Displacement constraints can be applied to a model to limit deflections in
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -14548,10 +16498,16 @@ Displacement constraints can be applied to a model to limit deflections in
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -14605,8 +16561,18 @@ Displacement constraints can be applied to a model to limit deflections in
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -14644,6 +16610,9 @@ Displacement constraints can be applied to a model to limit deflections in
 		pass
 	@position.setter
 	def position(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -14690,6 +16659,33 @@ Displacement constraints can be applied to a model to limit deflections in
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
 		pass
 
 	def updatePosition(self,m44):
@@ -14804,6 +16800,24 @@ Store float value with units.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -14842,20 +16856,19 @@ Store float value with units.
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def setGuiValue(self,obj, value, component):
@@ -14888,17 +16901,17 @@ class DrawDirection:
 		"""
 Draw Directions Shape Control.
 
-  Draw directions are used to ensure that a design space can be physically 
+  Draw directions are used to ensure that a design space can be physically
   manufactured using a specific process such as casting, stamping, or extrusion.
-  Draw directions are a type of shape control. 
-  
-  If you intend for a part to be manufactured by casting it or stamping it, 
-  the optimized shape must allow the two halves of the mold or the stamping dies 
-  to separate after the part is formed. Negative draft angles must be avoided. 
-  You can generate shapes that can be molded or stamped by indicating a draw 
+  Draw directions are a type of shape control.
+
+  If you intend for a part to be manufactured by casting it or stamping it,
+  the optimized shape must allow the two halves of the mold or the stamping dies
+  to separate after the part is formed. Negative draft angles must be avoided.
+  You can generate shapes that can be molded or stamped by indicating a draw
   direction, which is the plane where the two halves of the mold are pulled apart.
 
-  Only one type of draw direction can be applied to a design space. 
+  Only one type of draw direction can be applied to a design space.
   Draw directions are valid for optimization but not analysis.
   
 """
@@ -14916,6 +16929,13 @@ Draw Directions Shape Control.
 		pass
 	@activePlane.setter
 	def activePlane(self):
+		pass
+
+	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
 		pass
 
 	@property
@@ -14942,7 +16962,7 @@ Draw Directions Shape Control.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -15000,7 +17020,7 @@ Draw Directions Shape Control.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -15011,6 +17031,51 @@ Draw Directions Shape Control.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -15047,17 +17112,13 @@ Draw Directions Shape Control.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -15068,6 +17129,20 @@ Draw Directions Shape Control.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -15109,6 +17184,12 @@ Draw Directions Shape Control.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -15123,7 +17204,18 @@ Draw Directions Shape Control.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -15169,10 +17261,16 @@ Draw Directions Shape Control.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -15268,8 +17366,18 @@ Draw Directions Shape Control.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -15300,6 +17408,9 @@ Draw Directions Shape Control.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -15348,6 +17459,33 @@ Draw Directions Shape Control.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -15357,8 +17495,8 @@ Draw Directions Shape Control.
 
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -15393,7 +17531,7 @@ Draw Directions Shape Control.
 class DummyInit:
 	def __init__(self):
 		"""
-<property object at 0x00000176027893B0>
+<property object at 0x000001F0C542ABD0>
 """
 		pass
 
@@ -15478,6 +17616,13 @@ class EnforcedDisplacement:
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -15501,7 +17646,7 @@ class EnforcedDisplacement:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -15559,7 +17704,7 @@ class EnforcedDisplacement:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -15570,6 +17715,51 @@ class EnforcedDisplacement:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -15606,17 +17796,13 @@ class EnforcedDisplacement:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -15627,6 +17813,20 @@ class EnforcedDisplacement:
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -15668,6 +17868,12 @@ class EnforcedDisplacement:
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -15682,7 +17888,18 @@ class EnforcedDisplacement:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -15728,10 +17945,16 @@ class EnforcedDisplacement:
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -15785,8 +18008,18 @@ class EnforcedDisplacement:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -15817,6 +18050,9 @@ class EnforcedDisplacement:
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -15863,6 +18099,33 @@ class EnforcedDisplacement:
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
 		pass
 
 	def updatePosition(self,m44):
@@ -15958,6 +18221,24 @@ Store a string with a predefined list of allowed values and labels
 	def getDisplayNames(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -16002,20 +18283,19 @@ Store a string with a predefined list of allowed values and labels
 	def loadValue(self,obj, value):
 		pass
 
-	def populateGuiValue(self,obj, prop):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def raiseValueError(self,values, value):
@@ -16138,6 +18418,24 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -16186,6 +18484,18 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -16198,19 +18508,6 @@ Group of mutually exclusive attributes where only one is active at at time.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -16319,10 +18616,16 @@ Fasten two or more parts together.
 	def connectionRadius(self):
 		pass
 
+	def deprecatedGetter(self,type="force"):
+		pass
+
+	def deprecatedSetter(self,value):
+		pass
+
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -16397,7 +18700,7 @@ Fasten two or more parts together.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -16408,6 +18711,51 @@ Fasten two or more parts together.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -16444,17 +18792,13 @@ Fasten two or more parts together.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -16465,6 +18809,20 @@ Fasten two or more parts together.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -16506,6 +18864,12 @@ Fasten two or more parts together.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -16520,7 +18884,18 @@ Fasten two or more parts together.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -16553,10 +18928,16 @@ Fasten two or more parts together.
 	def grounded(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -16589,8 +18970,18 @@ Fasten two or more parts together.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -16644,6 +19035,9 @@ Fasten two or more parts together.
 	def radius(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -16692,6 +19086,26 @@ Fasten two or more parts together.
 		pass
 	@shearStiffness.setter
 	def shearStiffness(self):
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -16774,8 +19188,8 @@ Features are what gives shape to a Part.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -16844,11 +19258,14 @@ Features are what gives shape to a Part.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -16921,8 +19338,11 @@ Features are what gives shape to a Part.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -16965,17 +19385,17 @@ Features are what gives shape to a Part.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def helixCurve(self,profile, type="TURNS_AND_HEIGHT", numTurns=2, pitch=0.003, height=0.01, startAngle="0", curveHand="RIGHT", heightReverse=False, lockDiameterRatio=True, topDiameter="0"):
@@ -17074,7 +19494,7 @@ Features are what gives shape to a Part.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -17097,6 +19517,8 @@ Features are what gives shape to a Part.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17123,7 +19545,7 @@ Features are what gives shape to a Part.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -17156,6 +19578,8 @@ Features are what gives shape to a Part.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17264,7 +19688,7 @@ Features are what gives shape to a Part.
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -17281,6 +19705,13 @@ Features are what gives shape to a Part.
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17288,12 +19719,13 @@ Features are what gives shape to a Part.
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -17330,6 +19762,13 @@ Features are what gives shape to a Part.
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17348,7 +19787,7 @@ class FeatureArea:
 	def __init__(self,*args):
 		"""
 Represents the surface or area of a part.
-  
+
   They are not created through the API but can be retrieved from a part.
 """
 		pass
@@ -17396,8 +19835,8 @@ Represents the surface or area of a part.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -17466,24 +19905,14 @@ Represents the surface or area of a part.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -17591,8 +20020,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -17635,22 +20067,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -17658,7 +20090,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -17796,7 +20228,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -17819,6 +20251,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -17845,7 +20279,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -17878,6 +20312,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18008,7 +20444,7 @@ Args:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -18025,6 +20461,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18032,13 +20475,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -18083,12 +20526,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -18125,6 +20569,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18192,8 +20643,8 @@ Feature that is a flat face that can not be simply characterized.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -18262,24 +20713,14 @@ Feature that is a flat face that can not be simply characterized.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -18387,8 +20828,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -18431,22 +20875,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -18454,7 +20898,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -18592,7 +21036,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -18615,6 +21059,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18641,7 +21087,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -18674,6 +21120,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18804,7 +21252,7 @@ Args:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -18821,6 +21269,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18828,13 +21283,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -18879,12 +21334,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -18921,6 +21377,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -18939,7 +21402,7 @@ class FeatureCircular:
 	def __init__(self,*args):
 		"""
 Represents the circumferences of a part.
-  
+
   They are not created through the API but can be retrieved from a part.
   
 """
@@ -18988,8 +21451,8 @@ Represents the circumferences of a part.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -19084,11 +21547,14 @@ Represents the circumferences of a part.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -19192,8 +21658,11 @@ Represents the circumferences of a part.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -19236,17 +21705,17 @@ Represents the circumferences of a part.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=None):
@@ -19259,7 +21728,7 @@ Represents the circumferences of a part.
       vslices (int) : Number of slices in v-direction.
 
     Returns:
-      list[Point] : Points that can be used to visualize how the 
+      list[Point] : Points that can be used to visualize how the
       feature is connected.
     
 		"""
@@ -19295,7 +21764,7 @@ Represents the circumferences of a part.
 
 	def isTouching(self,point):
 		"""
-		Determines the point is on the curve or not. 
+		Determines the point is on the curve or not.
 
     Args:
       point (Point) : Point position x,y,z.
@@ -19378,7 +21847,7 @@ Represents the circumferences of a part.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -19401,6 +21870,8 @@ Represents the circumferences of a part.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19427,7 +21898,7 @@ Represents the circumferences of a part.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -19460,6 +21931,8 @@ Represents the circumferences of a part.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19534,26 +22007,17 @@ Represents the circumferences of a part.
 		pass
 
 	@property
+	def open(self):
+		pass
+	@open.setter
+	def open(self):
+		pass
+
+	@property
 	def part(self):
 		pass
 	@part.setter
 	def part(self):
-		pass
-
-	def patch(self,features):
-		"""
-		Creates patches to fill in specified missing surfaces.
-
-Args:
-  features (list[Feature]): Features to be patched.
-
-Returns:
-  list[Part]: New parts created.
-
-
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the patch2 function instead
-		"""
 		pass
 
 	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
@@ -19660,7 +22124,7 @@ Returns:
 	def radius(self):
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -19677,6 +22141,13 @@ Returns:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19708,12 +22179,13 @@ Returns:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -19750,6 +22222,13 @@ Returns:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -19768,7 +22247,7 @@ class FeatureConical:
 	def __init__(self,*args):
 		"""
 Cone shaped feature.
-  
+
   They are not created through the API but can be retrieved from a part.
   
 """
@@ -19824,8 +22303,8 @@ Cone shaped feature.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -19894,24 +22373,14 @@ Cone shaped feature.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -20019,8 +22488,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -20063,22 +22535,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -20086,7 +22558,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -20224,7 +22696,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -20247,6 +22719,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -20273,7 +22747,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -20306,6 +22780,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -20436,7 +22912,7 @@ Args:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -20453,6 +22929,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -20460,13 +22943,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -20511,12 +22994,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -20553,6 +23037,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -20613,8 +23104,8 @@ Features that are curves.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -20709,11 +23200,14 @@ Features that are curves.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -20817,8 +23311,11 @@ Features that are curves.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -20861,17 +23358,17 @@ Features that are curves.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=None):
@@ -20884,7 +23381,7 @@ Features that are curves.
       vslices (int) : Number of slices in v-direction.
 
     Returns:
-      list[Point] : Points that can be used to visualize how the 
+      list[Point] : Points that can be used to visualize how the
       feature is connected.
     
 		"""
@@ -20920,7 +23417,7 @@ Features that are curves.
 
 	def isTouching(self,point):
 		"""
-		Determines the point is on the curve or not. 
+		Determines the point is on the curve or not.
 
     Args:
       point (Point) : Point position x,y,z.
@@ -21003,7 +23500,7 @@ Features that are curves.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -21026,6 +23523,8 @@ Features that are curves.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21052,7 +23551,7 @@ Features that are curves.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -21085,6 +23584,8 @@ Features that are curves.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21152,26 +23653,17 @@ Features that are curves.
 		pass
 
 	@property
+	def open(self):
+		pass
+	@open.setter
+	def open(self):
+		pass
+
+	@property
 	def part(self):
 		pass
 	@part.setter
 	def part(self):
-		pass
-
-	def patch(self,features):
-		"""
-		Creates patches to fill in specified missing surfaces.
-
-Args:
-  features (list[Feature]): Features to be patched.
-
-Returns:
-  list[Part]: New parts created.
-
-
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the patch2 function instead
-		"""
 		pass
 
 	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
@@ -21271,7 +23763,7 @@ Returns:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -21288,6 +23780,13 @@ Returns:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21319,12 +23818,13 @@ Returns:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -21361,6 +23861,13 @@ Returns:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21421,8 +23928,8 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -21517,11 +24024,14 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -21625,8 +24135,11 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -21669,17 +24182,17 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=None):
@@ -21692,7 +24205,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
       vslices (int) : Number of slices in v-direction.
 
     Returns:
-      list[Point] : Points that can be used to visualize how the 
+      list[Point] : Points that can be used to visualize how the
       feature is connected.
     
 		"""
@@ -21728,7 +24241,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 
 	def isTouching(self,point):
 		"""
-		Determines the point is on the curve or not. 
+		Determines the point is on the curve or not.
 
     Args:
       point (Point) : Point position x,y,z.
@@ -21811,7 +24324,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -21834,6 +24347,8 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21860,7 +24375,7 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -21893,6 +24408,8 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -21960,26 +24477,17 @@ FeatureCurves that are not instance of FeatureLinear or FeatureCircular.
 		pass
 
 	@property
+	def open(self):
+		pass
+	@open.setter
+	def open(self):
+		pass
+
+	@property
 	def part(self):
 		pass
 	@part.setter
 	def part(self):
-		pass
-
-	def patch(self,features):
-		"""
-		Creates patches to fill in specified missing surfaces.
-
-Args:
-  features (list[Feature]): Features to be patched.
-
-Returns:
-  list[Part]: New parts created.
-
-
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the patch2 function instead
-		"""
 		pass
 
 	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
@@ -22079,7 +24587,7 @@ Returns:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -22096,6 +24604,13 @@ Returns:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -22127,12 +24642,13 @@ Returns:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -22169,6 +24685,13 @@ Returns:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -22188,8 +24711,8 @@ class FeatureCylindrical:
 		"""
 Feature that is a cylindrical face.
   Represent the cylindrical areas of a part, i.e, the surface of a hole or a
-  cylinder. 
-  
+  cylinder.
+
   They are not created through the API but can be retrieved from a part.
   
 """
@@ -22245,8 +24768,8 @@ Feature that is a cylindrical face.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -22315,24 +24838,14 @@ Feature that is a cylindrical face.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -22440,8 +24953,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -22484,22 +25000,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -22507,7 +25023,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -22652,7 +25168,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -22675,6 +25191,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -22701,7 +25219,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -22734,6 +25252,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -22871,7 +25391,7 @@ Args:
 	def radius(self):
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -22888,6 +25408,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -22895,13 +25422,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -22946,12 +25473,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -22988,6 +25516,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -23048,8 +25583,8 @@ Line features like a polygon edges.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -23144,11 +25679,14 @@ Line features like a polygon edges.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -23252,8 +25790,11 @@ Line features like a polygon edges.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -23296,17 +25837,17 @@ Line features like a polygon edges.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=None):
@@ -23319,7 +25860,7 @@ Line features like a polygon edges.
       vslices (int) : Number of slices in v-direction.
 
     Returns:
-      list[Point] : Points that can be used to visualize how the 
+      list[Point] : Points that can be used to visualize how the
       feature is connected.
     
 		"""
@@ -23355,7 +25896,7 @@ Line features like a polygon edges.
 
 	def isTouching(self,point):
 		"""
-		Determines the point is on the curve or not. 
+		Determines the point is on the curve or not.
 
     Args:
       point (Point) : Point position x,y,z.
@@ -23438,7 +25979,7 @@ Line features like a polygon edges.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -23461,6 +26002,8 @@ Line features like a polygon edges.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -23487,7 +26030,7 @@ Line features like a polygon edges.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -23520,6 +26063,8 @@ Line features like a polygon edges.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -23587,26 +26132,17 @@ Line features like a polygon edges.
 		pass
 
 	@property
+	def open(self):
+		pass
+	@open.setter
+	def open(self):
+		pass
+
+	@property
 	def part(self):
 		pass
 	@part.setter
 	def part(self):
-		pass
-
-	def patch(self,features):
-		"""
-		Creates patches to fill in specified missing surfaces.
-
-Args:
-  features (list[Feature]): Features to be patched.
-
-Returns:
-  list[Part]: New parts created.
-
-
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the patch2 function instead
-		"""
 		pass
 
 	def patch2(self,features, internalCurves=[], globalContinuity="POSITION", mergeResult=True):
@@ -23706,7 +26242,7 @@ Returns:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -23723,6 +26259,13 @@ Returns:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -23789,12 +26332,13 @@ Returns:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -23831,6 +26375,13 @@ Returns:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -23866,7 +26417,7 @@ Measures the length of a feature.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -23903,7 +26454,7 @@ Measures the length of a feature.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -23914,6 +26465,51 @@ Measures the length of a feature.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -23950,17 +26546,13 @@ Measures the length of a feature.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -23971,6 +26563,20 @@ Measures the length of a feature.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -24012,6 +26618,12 @@ Measures the length of a feature.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -24026,7 +26638,18 @@ Measures the length of a feature.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -24052,10 +26675,16 @@ Measures the length of a feature.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -24095,8 +26724,18 @@ Measures the length of a feature.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -24120,6 +26759,9 @@ Measures the length of a feature.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -24158,6 +26800,23 @@ Measures the length of a feature.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -24170,6 +26829,9 @@ Measures the length of a feature.
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -24203,7 +26865,7 @@ class FeaturePlanar:
 	def __init__(self,*args):
 		"""
 Features that are flat face.
-  
+
    They are not created through the API but can be retrieved from a part.
 """
 		pass
@@ -24251,8 +26913,8 @@ Features that are flat face.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -24321,24 +26983,14 @@ Features that are flat face.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -24446,8 +27098,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -24490,22 +27145,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -24513,7 +27168,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -24650,7 +27305,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -24673,6 +27328,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -24718,7 +27375,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -24751,6 +27408,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -24888,7 +27547,7 @@ Args:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -24905,6 +27564,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -24912,13 +27578,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -24963,12 +27629,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -25005,6 +27672,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -25065,8 +27739,8 @@ Features that are points.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -25135,11 +27809,14 @@ Features that are points.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -25212,8 +27889,11 @@ Features that are points.
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -25256,17 +27936,17 @@ Features that are points.
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=None, vslices=None):
@@ -25279,7 +27959,7 @@ Features that are points.
       vslices (int) : Number of slices in v-direction.
 
     Returns:
-      list[Point] : Points that can be used to visualize how the 
+      list[Point] : Points that can be used to visualize how the
         feature is connected.
     
 		"""
@@ -25391,7 +28071,7 @@ Features that are points.
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -25414,6 +28094,8 @@ Features that are points.
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -25440,7 +28122,7 @@ Features that are points.
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -25473,6 +28155,8 @@ Features that are points.
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -25581,7 +28265,7 @@ Features that are points.
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -25598,6 +28282,13 @@ Features that are points.
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -25605,12 +28296,13 @@ Features that are points.
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -25647,6 +28339,13 @@ Features that are points.
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -25665,7 +28364,7 @@ class FeatureSpherical:
 	def __init__(self,*args):
 		"""
 Feature that is a Spherical face.
-  
+
   They are not created through the API but can be retrieved from a part.
 """
 		pass
@@ -25713,8 +28412,8 @@ Feature that is a Spherical face.
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -25783,24 +28482,14 @@ Feature that is a Spherical face.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
-		"""
-		pass
-
-	def deleteFaces(self,features):
-		"""
-		Deletes the specified faces from the part.
-
 Args:
-  features (list[Feature]): Features to be removed.
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
 
 
-.. deprecated:: 2024
-   This will be removed in 2024.2. Use the deleteFaces2 function instead
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -25908,8 +28597,11 @@ Args:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -25952,22 +28644,22 @@ Args:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def getConnectionPoints(self,uslices=2, vslices=2):
 		"""
-		Returns a list of points that can be used to visualize how the feature 
+		Returns a list of points that can be used to visualize how the feature
     is connected (spider points).
 
     Args:
@@ -25975,7 +28667,7 @@ Args:
       vslices (int) : Number of slices in v-direction
 
     Returns:
-      list[Point] : List of points that can be used to visualize 
+      list[Point] : List of points that can be used to visualize
         how the feature is connected.
     
 		"""
@@ -26113,7 +28805,7 @@ Args:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -26136,6 +28828,8 @@ Args:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26162,7 +28856,7 @@ Args:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -26195,6 +28889,8 @@ Args:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26332,7 +29028,7 @@ Args:
 	def radius(self):
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -26349,6 +29045,13 @@ Args:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26356,13 +29059,13 @@ Args:
 		"""
 		pass
 
-	def shell(self,feature, thickness=1):
+	def shell(self,feature, thickness="1 mm"):
 		"""
 		Removes material and create thin walls to generate a shelled part.
 
   Args:
     feature (FeatureArea): Feature to create a shelled part from.
-    thickness (float): Shell thickness.
+    thickness (float | str): Shell thickness.
   
 		"""
 		pass
@@ -26407,12 +29110,13 @@ Args:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -26449,6 +29153,13 @@ Args:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26503,8 +29214,8 @@ class FeatureVolume:
 
   Args:
     feature (Feature): Feature that needs to be chamfer.
-    dist1 (float): Chamfer distance from the edge.
-    dist2 (float): Chamfer distance from the edge.
+    dist1 (float | str): Chamfer distance from the edge.
+    dist2 (float | str): Chamfer distance from the edge.
     swapChamferSides (bool): If True, Swap chamfer sides of the edge otherwise
       not.
     tangentPropagation (bool): If True, Clicking an edge will also select all
@@ -26573,11 +29284,14 @@ class FeatureVolume:
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -26650,8 +29364,11 @@ class FeatureVolume:
 		"""
 		Extracts geometry features and transfer them into a new part.
 
+    This is useful when you want to create a new part from existing features
+
   Args:
-    features (list[Feature]): Feature to be extracted.
+    features (list[ FeaturePoint, FeatureArea, FeatureCurve]): Feature to be extracted. All features in the list
+      must be of the same type (e.g., FeaturePoint, or FeatureArea, or FeatureCurve).
     maintainReference (bool): If true, set reference associativity otherwise not.
 
   Returns:
@@ -26694,17 +29411,17 @@ class FeatureVolume:
 	def findClosestPoint(self,referencePoint):
 		"""
 		Returns the point on feature that nearest to the specified point.
-    
+
     Args:
       referencePoint (Point) : Reference point to find closest point on feature.
-    
+
     Returns:
       Point : The closest point of the feature from specified point.
     
 		"""
 		pass
 
-	def getClass(self,classname):
+	def getClass(self,className):
 		pass
 
 	def helixCurve(self,profile, type="TURNS_AND_HEIGHT", numTurns=2, pitch=0.003, height=0.01, startAngle="0", curveHand="RIGHT", heightReverse=False, lockDiameterRatio=True, topDiameter="0"):
@@ -26803,7 +29520,7 @@ class FeatureVolume:
 	def location(self):
 		pass
 
-	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False):
+	def loft(self,profiles, loftAsSolid=True, guideCurves=None, arcLengthProfiles=False, arcLengthGuides=False, swapSurface=False, closed=False, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileChain=False, guideCurvesTangent=False, target=False, targetPart=None):
 		"""
 		Create a solid loft or a lofted surface from profiles and guide curves.
 
@@ -26826,6 +29543,8 @@ class FeatureVolume:
     mergeParts (Part): Parts to be merged with loft operation.
     profileChain (bool): True, Allows to select profile's connected edges.
     guideCurvesTangent (bool): True, Allows to select  guideCurve's connected edges.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26852,7 +29571,7 @@ class FeatureVolume:
 		"""
 		pass
 
-	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None):
+	def multiSweep(self,profiles, path, sweepAsSolid=True, arcLengthProfiles=False, arcLengthGuides=False, orientation="PERPENDICULAR", normalToSurface=None, resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, profileContinuity=None, profileMagnitude=None, target=False, targetPart=None):
 		"""
 		Sweep multiple profiles along a path to create a solid or surface.
 
@@ -26885,6 +29604,8 @@ class FeatureVolume:
     profileMagnitude ((tupleFeature, float | str)): Tuple of 2 values. First
       value will be the feature on which continuity will be applied and the
       second value is magnitude.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -26993,7 +29714,7 @@ class FeatureVolume:
 		"""
 		pass
 
-	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0"):
+	def revolve2(self,profiles, axis, direction="SINGLE", resultType="NEW_PART", mergeTargets=None, flipAxis=False, angle1="0", angle2="0", snapToPoint1=None, snapToPoint2=None, mergeWithAllParts=True, target=False, targetPart=None):
 		"""
 		New Revolve - Revolve a face, sketch, line, or 2D edge about an axis.
 
@@ -27010,6 +29731,13 @@ class FeatureVolume:
     flipAxis (bool): If True, axis will be flipped.
     angle1 (float): The angle of revolution.
     angle2 (float): The angle of revolution when direction is Both.
+    snapToPoint1 (FeaturePoint): Point to snap to when direction is SINGLE or
+      SYMMETRY.
+    snapToPoint2 (FeaturePoint): Point to snap to when direction is BOTH.
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeTargets.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -27017,12 +29745,13 @@ class FeatureVolume:
 		"""
 		pass
 
-	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM"):
+	def sweep(self,profiles, path, solidProfile=None, sweepAsSolid=True, profileOrientation=True, propagate=True, pathIgnoredFeatures=None, guideCurves=None, pathDirection="DIRECTION_1", twistType="NO_TWIST", twistAngle="0", twistTurns="0", twistAngleDir2="0", twistTurnsDir2="0", resultType="NEW_PART", mergeWithAllParts=True, mergeParts=None, twist1Reverse=False, twist2Reverse=False, guideScale="UNIFORM", toolSweepMode=False, enableLockDirection=False, lockDirection=None, target=False, targetPart=None):
 		"""
 		Sweep a profile along a path to create a solid or 3D surface.
 
   Args:
-    profiles (FeatureArea | FeatureCurve): A face or a closed sketch.
+    profiles (FeatureArea | FeatureCurve): A face or a closed sketch. For Tool
+      sweep mode pass profiles as None.
     path(list[FeatureCurve]): Path for the sweep.
     solidProfile (Part): Sweep profile as solid. Only applicable for solid cylinder.
     sweepAsSolid (bool): If true, sweep as solids otherwise sweep as surfaces.
@@ -27059,6 +29788,13 @@ class FeatureVolume:
     guideScale (str): Guide scale option. Applicable only when guideCurves is provided.
       - UNIFORM
       - LATERAL
+    toolSweepMode (bool): If True, enable tool sweep mode.
+    enableLockDirection (bool): If True, enable lock direction. Only applicable
+      when toolSweepMode is True.
+    lockDirection (FeatureLinear): Lock direction for sweep. Only applicable
+      when toolSweepMode and enableLockDirection is True.
+    target (bool): If True, Set the target part used for boolean combine.
+    targetPart (Part): The target part used for boolean combine.
 
   Returns:
     Part|None: New part created if resultType is NEW_PART.
@@ -27077,7 +29813,7 @@ class FeaturesConnector:
 	def __init__(self):
 		"""
 FeaturesConnector are generally used to connect two or more features together.
-  
+
   Base class for 'Spider' and 'Contact'.
 """
 		pass
@@ -27099,7 +29835,7 @@ FeaturesConnector are generally used to connect two or more features together.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -27136,7 +29872,7 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -27147,6 +29883,51 @@ FeaturesConnector are generally used to connect two or more features together.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -27183,17 +29964,13 @@ FeaturesConnector are generally used to connect two or more features together.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -27204,6 +29981,20 @@ FeaturesConnector are generally used to connect two or more features together.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -27245,6 +30036,12 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -27259,7 +30056,18 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -27285,10 +30093,16 @@ FeaturesConnector are generally used to connect two or more features together.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -27307,8 +30121,18 @@ FeaturesConnector are generally used to connect two or more features together.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -27339,6 +30163,9 @@ FeaturesConnector are generally used to connect two or more features together.
 		pass
 	@secondaryFeatures.setter
 	def secondaryFeatures(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -27375,6 +30202,26 @@ FeaturesConnector are generally used to connect two or more features together.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -27738,7 +30585,7 @@ Class that adds a state variable and request for calculating the feedback
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -27775,6 +30622,12 @@ Class that adds a state variable and request for calculating the feedback
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -27992,6 +30845,172 @@ Class that adds a state variable and request for calculating the feedback
 		"""
 		pass
 
+class File:
+	def __init__(self,default: str="", **kwds):
+		pass
+
+	def apply(self,**kwds):
+		"""
+		Context manager to specify Attribute constructor kwds
+    Useful to avoid repeating kwds while defining a related group
+    
+		"""
+		pass
+
+	def castForGet(self,obj, value):
+		pass
+
+	def castForSet(self,obj, value):
+		"""
+		Converts and validates the value of the attribute before setting.
+
+      Converts the value it to its internal type (and base units if applicable).
+
+    Args:
+      obj (GeneralObject): Object this attribute belongs to.
+      value (Any): Value of the attribute to set.
+
+    Returns:
+      value (Any): Validated and converted value.
+    
+		"""
+		pass
+
+	def classifyObject(self,obj):
+		pass
+
+	def create(self,obj):
+		pass
+
+	def createList(self,listAttr, obj):
+		pass
+
+	def createListList(self,listAttr, obj):
+		pass
+
+	def disable(self,obj):
+		"""
+		Called by GeneralObject when destroyed (or undo of a create)
+		"""
+		pass
+
+	def enable(self,obj):
+		"""
+		Called by GeneralObject when created (or undo of a destroy)
+		"""
+		pass
+
+	def getCreateArgs(self):
+		"""
+		Helper used in create methods
+		"""
+		pass
+
+	def getDisplayName(self,obj):
+		pass
+
+	def getEditor(self,requireExisting, filter):
+		pass
+
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
+	def getGuiValue(self,obj):
+		"""
+		Returns the formatted value, as shown in the Property Editor.
+		"""
+		pass
+
+	def getInCoreValue(self,obj):
+		pass
+
+	def getReadonly(self,obj):
+		pass
+
+	def getUnits(self,obj):
+		pass
+
+	def getValue(self,obj):
+		pass
+
+	def getValueList(self,obj):
+		pass
+
+	def getValueListList(self,obj):
+		pass
+
+	def initialize(self,objCls, name):
+		"""
+		Initializes the attribute.
+
+    Args:
+      objCls (class): Object class this attribute belongs to.
+      name (str): Name of the attribute.
+    
+		"""
+		pass
+
+	def loadValue(self,obj, value):
+		"""
+		Called by GeneralObject.loadAttributeValues during stmod deserialization
+		"""
+		pass
+
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		"""
+		Called by browser to set value.
+
+    Must be overloaded to handle the component when getGuiComponentNames
+    returns values.
+    
+		"""
+		pass
+
+	def setInCoreValue(self,obj, value):
+		pass
+
+	def setValue(self,obj, value):
+		pass
+
+	def setValueList(self,obj, value):
+		pass
+
+	def setValueListList(self,obj, value):
+		pass
+
+	def usingUnits(self,units):
+		pass
+
 class FlexBodies:
 	def __init__(self,manager):
 		"""
@@ -28015,18 +31034,29 @@ Generate flex bodies for flexible Inspire parts
 		"""
 		pass
 
-	def findFlexBodyResults(self,part):
+	def findFlexBodyResults(self,part, updateCache=False):
 		"""
 		Look for the existing flexbody results
     
 		"""
 		pass
 
-	def flexifyMdlBodies(self,selectedFlexParts=[], waitTillFinish=True):
+	def flexifyH3d(self,flexPart, filePath):
+		"""
+		Import flex body results from a h3d file for the selected flex part
+      set the mdl.Flexbody values and the mdlMarker.node_ids
+
+    Args:
+      waitTillFinish (bool): False to return after the synths start solving.
+    
+		"""
+		pass
+
+	def flexifyMdlBodies(self,selectedFlexParts=[], runName: str="", skipFlexCheck=False, waitTillFinish=True):
 		"""
 		Generate flex body files
        set the mdl.Flexbody values and the mdlMarker.node_ids
-       
+
     Args:
       waitTillFinish (bool): False to return after the synths start solving.
     
@@ -28065,7 +31095,7 @@ Generate flex bodies for flexible Inspire parts
 		"""
 		pass
 
-	def generateMtx(self,part, nodes):
+	def generateMtx(self,part, nodes, invars="TTTTTTTTF"):
 		"""
 		flexprep <source>.h3d <target>.mtx [invar_option] [+node_list] [-<units>]
        Translate ALTAIR h3d file into ADAMS mtx file for flexible bodies.
@@ -28095,7 +31125,7 @@ Generate flex bodies for flexible Inspire parts
 		"""
 		pass
 
-	def getParts(self,selectedFlexParts=[]):
+	def getParts(self,selectedFlexParts=None):
 		"""
 		Generate an Inspire part to mdl.Body map
     
@@ -28107,6 +31137,12 @@ Generate flex bodies for flexible Inspire parts
 		Configure Inspire solver for running SolverFlexBody
     
 		"""
+		pass
+
+	def getSkippedEnts(self):
+		pass
+
+	def importH3d(self,part, fileName, mtxFile=None):
 		pass
 
 	def performPreliminaryAnalysis(self):
@@ -28128,7 +31164,7 @@ Generate flex bodies for flexible Inspire parts
 		"""
 		pass
 
-	def solveFlexBody(self,part, runOptions):
+	def solveFlexBody(self,part, runOptions, runName: str="", skipFlexCheck=False):
 		"""
 		Generate the flex files and set the flexBody properties. Called by
     flexifyMdlBodies for each part that needs to be made flexible.
@@ -28158,6 +31194,13 @@ A force is a push or a pull in a particular direction on a part, and is a
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -28181,7 +31224,7 @@ A force is a push or a pull in a particular direction on a part, and is a
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -28239,7 +31282,7 @@ A force is a push or a pull in a particular direction on a part, and is a
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -28250,6 +31293,51 @@ A force is a push or a pull in a particular direction on a part, and is a
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -28286,17 +31374,13 @@ A force is a push or a pull in a particular direction on a part, and is a
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -28307,6 +31391,20 @@ A force is a push or a pull in a particular direction on a part, and is a
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -28348,6 +31446,12 @@ A force is a push or a pull in a particular direction on a part, and is a
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -28362,7 +31466,18 @@ A force is a push or a pull in a particular direction on a part, and is a
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -28408,10 +31523,16 @@ A force is a push or a pull in a particular direction on a part, and is a
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -28465,8 +31586,18 @@ A force is a push or a pull in a particular direction on a part, and is a
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -28497,6 +31628,9 @@ A force is a push or a pull in a particular direction on a part, and is a
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -28543,6 +31677,33 @@ A force is a push or a pull in a particular direction on a part, and is a
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
 		pass
 
 	def updatePosition(self,m44):
@@ -28912,7 +32073,7 @@ Uses the openLoop function directly as force/torque runtime function
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -28949,6 +32110,12 @@ Uses the openLoop function directly as force/torque runtime function
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -29210,9 +32377,6 @@ From connectors (Motor, Actuator, Spring, Sforce)
 	def getLocation(self,frame, part="action"):
 		pass
 
-	def getRunDataPrefix(self):
-		pass
-
 	def getTorque(self,frame, part="action"):
 		pass
 
@@ -29220,6 +32384,13 @@ From connectors (Motor, Actuator, Spring, Sforce)
 		"""
 		Magnitude of torques applied by this load at each time step
 		"""
+		pass
+
+	@property
+	def isImplicit(self):
+		pass
+	@isImplicit.setter
+	def isImplicit(self):
 		pass
 
 	def isOnPart(self,part):
@@ -29267,8 +32438,8 @@ Self-managing set of pairs of parts that are in contact with each other,
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -29371,7 +32542,7 @@ Self-managing set of pairs of parts that are in contact with each other,
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -29587,6 +32758,13 @@ BoundaryCondition object storing g-load direction and magnitude.
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -29610,7 +32788,7 @@ BoundaryCondition object storing g-load direction and magnitude.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -29668,7 +32846,7 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -29679,6 +32857,51 @@ BoundaryCondition object storing g-load direction and magnitude.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -29715,17 +32938,13 @@ BoundaryCondition object storing g-load direction and magnitude.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -29736,6 +32955,20 @@ BoundaryCondition object storing g-load direction and magnitude.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -29777,6 +33010,12 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -29791,7 +33030,18 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -29837,10 +33087,16 @@ BoundaryCondition object storing g-load direction and magnitude.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -29894,8 +33150,18 @@ BoundaryCondition object storing g-load direction and magnitude.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -29926,6 +33192,9 @@ BoundaryCondition object storing g-load direction and magnitude.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -29974,10 +33243,37 @@ BoundaryCondition object storing g-load direction and magnitude.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -30029,7 +33325,7 @@ Optimize the thickness of a design space.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -30071,7 +33367,7 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -30082,6 +33378,51 @@ Optimize the thickness of a design space.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -30118,17 +33459,13 @@ Optimize the thickness of a design space.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -30139,6 +33476,20 @@ Optimize the thickness of a design space.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -30180,6 +33531,12 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -30194,7 +33551,18 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -30237,10 +33605,16 @@ Optimize the thickness of a design space.
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -30259,8 +33633,18 @@ Optimize the thickness of a design space.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -30303,6 +33687,9 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -30339,6 +33726,9 @@ Optimize the thickness of a design space.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -30353,10 +33743,27 @@ Optimize the thickness of a design space.
 	def status(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def switchToOptimizedParts(self):
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -30540,7 +33947,7 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -30611,7 +34018,7 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -30622,6 +34029,45 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -30658,17 +34104,13 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -30702,7 +34144,7 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -30726,7 +34168,12 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -30752,11 +34199,10 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isValidConnection(self,connection):
@@ -30770,7 +34216,7 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -30810,7 +34256,7 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -30821,6 +34267,16 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -30879,6 +34335,9 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 	def rotation(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -30915,11 +34374,24 @@ Baseclass for objects which connect 1 or 2 other objects (usually Features).
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -30971,7 +34443,7 @@ GeneralObject class provides the ability to extend the Inspire data model with
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -31001,7 +34473,7 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -31012,6 +34484,45 @@ GeneralObject class provides the ability to extend the Inspire data model with
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -31048,17 +34559,13 @@ GeneralObject class provides the ability to extend the Inspire data model with
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -31102,7 +34609,7 @@ GeneralObject class provides the ability to extend the Inspire data model with
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -31120,7 +34627,12 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -31146,17 +34658,16 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -31175,7 +34686,7 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -31186,6 +34697,16 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -31214,6 +34735,9 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		Marks the object that needs to be redrawn in the graphics window.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -31252,11 +34776,24 @@ GeneralObject class provides the ability to extend the Inspire data model with
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -31306,9 +34843,6 @@ Internal utility used to deseralize GeneralObjects
 		"""
 		pass
 
-	def isImporting(self):
-		pass
-
 	def onFileLoaded(self):
 		pass
 
@@ -31336,7 +34870,7 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -31366,7 +34900,7 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -31377,6 +34911,51 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -31413,17 +34992,13 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -31434,6 +35009,20 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -31475,6 +35064,12 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -31489,7 +35084,18 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -31515,10 +35121,16 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -31537,8 +35149,18 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -31555,6 +35177,9 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
 		pass
 	@parent.setter
 	def parent(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -31591,6 +35216,26 @@ Base class for ShapeVariable, GeneralObject and other externally defined types
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -31637,7 +35282,7 @@ class HasAttributesBase:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -31685,9 +35330,6 @@ class HasAttributesBase:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
-		pass
-
 	def getValue(self,attr):
 		"""
 		Return the attribute value for passed attribute name.
@@ -31724,6 +35366,9 @@ class HasAttributesBase:
       **kwds: Set attributes in one go.
     
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	def wasValueSet(self,attr):
@@ -31827,7 +35472,7 @@ Custom attribute to mix in class for Direction and Location attributes,
 class History:
 	"""
 Manages the Undo, Redo support.
-  
+
   history.noteState() needs to be called after any data model updates.
   
 """
@@ -32385,7 +36030,7 @@ Base class for translational and angular initial conditions
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -32419,6 +36064,12 @@ Base class for translational and angular initial conditions
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -32940,7 +36591,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def cg(self):
 		pass
 
-	def circularPattern(self,body, vector=None, equalSpacing=False, angle=60, count=2):
+	def circularPattern(self,body, vector=None, equalSpacing=False, angle=60, count=2, transition="SHARP", distance=0.002, distanceField=None):
 		"""
 		The Circular Pattern operation takes a user-selected body and distributes
     multiple identical instances according to circular patterning rules.
@@ -32953,6 +36604,12 @@ Implicit modelling represents geometry as a field and is highly efficient
       equalSpacing (bool): If True, pattern are equally spaced otherwise not.
       angle (float | str): Angle for circular pattern.
       count(float | str): Number of copies.
+      transition (str): Transition Type.
+        - SHARP
+        - FILLET
+        - CHAMFER
+      distance (float | str): Distance/Radius value for circular pattern.
+      distanceField (Field): Distance field input if distance is not provided.
 
     Returns:
       CircularPattern: The newly created CircularPattern object.
@@ -33531,11 +37188,14 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -33579,7 +37239,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def currentRepresentation(self):
 		pass
 
-	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5, drapeTargetSurface=None, drapeMethod="UV_MAPPING", drapeUParameter="0.0", drapeVParameter="0.0", elevation="0", drapeAngle="0", drapeUScale="0", drapeVScale="0", drapeReverseSurface=False, anchorAxis=None, reverseAnchorAxis=False):
 		"""
 		Deform parts within a specified region.
 
@@ -33591,6 +37251,7 @@ Implicit modelling represents geometry as a field and is highly efficient
       - TAPER
       - SHEAR
       - STRETCH
+      - DRAPE
     deformAxis (str): Deform Axis.
       - X
       - Y
@@ -33625,6 +37286,21 @@ Implicit modelling represents geometry as a field and is highly efficient
     origin (mat.Points): Origin values in x,y,z direction to deform parts.
     trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
     trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+    drapeTargetSurface (list[Feature]): Drape target surface to deform parts.
+    drapeMethod (str): Drape method.
+      - UV_MAPPING
+      - MINIMIZE_STRETCH
+    drapeUParameter (float | str): Drape U parameter to deform parts.
+    drapeVParameter (float | str): Drape V parameter to deform parts.
+    elevation (float | str): Elevation to deform parts.
+    drapeAngle (float | str): Drape angle to deform parts.
+    drapeUScale (float | str): Drape U scale to deform parts.
+    drapeVScale (float | str): Drape V scale to deform parts.
+    drapeReverseSurface (bool): If True, Drape reverse surface to deform parts
+      otherwise not.
+    anchorAxis (list[FeatureLinear]): Anchor axis to deform parts.
+    reverseAnchorAxis (bool): If True, reverse anchor axis to deform parts
+      otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -33832,8 +37508,6 @@ Implicit modelling represents geometry as a field and is highly efficient
         implicit part.
       filterName (str): Name of the edge set filter.
       retain (bool): If True, Filter reject is selected otherwise filter pass.
-      referenceValue (float | str): Implicit reference value for point edge set
-        filter.
       referenceField (Field): Implicit Field body, use bodies property to get
         all bodies from implicit part.
       fieldValue (str): Field value for filter.
@@ -33949,7 +37623,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def edgeSetTrimmingEdgeFilter(self,body, filterName="Filter", retain=False, boundingBody=None):
+	def edgeSetTrimmingEdgeFilter(self,body, filterName="Filter", retain=False, boundingBody=None, close=False, closeType="SURFACE_CRAWL", merge=False, mergeDistance=0.002, mergeDistanceField=None):
 		"""
 		Filter edges from the Point-Edge set by trimming if they fall outside a
     bounding body.
@@ -33962,6 +37636,14 @@ Implicit modelling represents geometry as a field and is highly efficient
       retain (bool): If True, Filter reject is selected otherwise filter pass.
       boundingBody (Body): Implicit body, use bodies property to get all bodies
         from implicit part.
+      close (bool): If True, Close is selected otherwise not.
+      closeType (str): Close type for edge set.
+        - SURFACE_CRAWL
+        - DIRECT
+      merge (bool): If True, Merge is selected otherwise not.
+      mergeDistance (float | str): Merge distance for edge set.
+      mergeDistanceField (Field): Merge distance field input, if mergeDistance
+        is not provided.
 
     Returns:
       EdgeSetTrimmingEdgeFilter: The newly created EdgeSetTrimmingEdgeFilter
@@ -34118,10 +37800,10 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def findMinimumSeparation(self,other):
 		"""
 		Find closest points between two parts
-    
+
     Args:
       other (Part): The 2nd part.
-      
+
     Returns:
       namedtuple("ClosestPoints", "point1 point2 distance feature1 feature2")
     
@@ -34165,7 +37847,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def generalStrutLattice(self,body, hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, verts=None, beams=None):
+	def generalStrutLattice(self,body, hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, verts=None, beams=None, defineExtents=False, extentsMinX=None, extentsMinY=None, extentsMinZ=None, extentsMaxX=None, extentsMaxY=None, extentsMaxZ=None):
 		"""
 		Strut lattices are constructed from nodes and these nodes are connected
     by beams. Typically, there is a base unit cell that is tiled/patterned in
@@ -34220,6 +37902,13 @@ Implicit modelling represents geometry as a field and is highly efficient
       verts (list[math.Point]): Node list of the custom unit cell for strut
         lattice.
       beams (list[int]): Connectivity of the custom unit cell for strut lattice.
+      defineExtents (bool): If True, use extents option otherwise not.
+      extentsMinX (float | str): Minimum extents value in X direction.
+      extentsMinY (float | str): Minimum extents value in Y direction.
+      extentsMinZ (float | str): Minimum extents value in Z direction.
+      extentsMaxX (float | str): Maximum extents value in X direction.
+      extentsMaxY (float | str): Maximum extents value in Y direction.
+      extentsMaxZ (float | str): Maximum extents value in Z direction.
 
     Returns:
       GeneralStrutLattice: The newly created GeneralStrutLattice object.
@@ -34251,7 +37940,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -34269,6 +37958,51 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def getBody(self,name):
 		"""
 		To get the implicit bodies based on their names.
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
+    
 		"""
 		pass
 
@@ -34304,17 +38038,13 @@ Implicit modelling represents geometry as a field and is highly efficient
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -34332,6 +38062,20 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def getClosestPoint(self,point):
 		"""
 		Get closest point on part from passed point
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
 		"""
 		pass
 
@@ -34360,13 +38104,13 @@ Implicit modelling represents geometry as a field and is highly efficient
 		Returns a list of features based on specified filters.
 
     Args:
-      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the 
+      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the
         features based on type.
       rep (str): Feature representation. See part.representations for options
       **kwds : Additional attributes to consider while filtering.
 
     Returns:
-      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of 
+      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of
         features that satisfies all the filter criteria.
     
 		"""
@@ -34395,6 +38139,9 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
+	def getIcon(self):
+		pass
+
 	def getRayIntersections(self,origin, direction):
 		"""
 		Find list of points where ray intersects part
@@ -34415,7 +38162,18 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -34507,7 +38265,7 @@ Implicit modelling represents geometry as a field and is highly efficient
           - frustum
           - axi-symmetric gear
           - rack
-          
+
     Returns:
       Box,Ellipsoid,Sphere.. : The identified shape.
     
@@ -34620,10 +38378,16 @@ Implicit modelling represents geometry as a field and is highly efficient
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -34633,6 +38397,38 @@ Implicit modelling represents geometry as a field and is highly efficient
 
     Returns:
       bool : True, if a match is found, otherwise False.
+    
+		"""
+		pass
+
+	def isosurface(self,body, fieldValue="LESS_OR_EQUAL", lowerValue=0.05, lowerValueField=None, upperValue=0.1, upperValueField=None, remap=False):
+		"""
+		For an implicit body or field of scalar values, extract an isosurface
+    that passes through all locations with a given isovalue. Field data can come
+    from geometry, interpolated Point Cloud data or simulation results. Use the
+    conditional logic e.g. =, >, <, etc. to determine what will be wrapped in
+    surfaces to form the interior and exterior regions. The iso-value of
+    interest can be a field-driven property to force the isosurface to pass
+    through different isovalues depending on the location in space.
+
+    Args:
+       body (Body): Implicit body, use bodies property to get all bodies from
+        implicit part.
+      fieldValue (str): Field value for filter.
+        - LESS_OR_EQUAL
+        - GREATER_OR_EQUAL
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerValue (float | str): Lower value for point set.
+      lowerValueField (Field): Lower value field input, if lowerValue is not
+        provided.
+      upperValue (float | str): Upper value for point set.
+      upperValueField (Field): Upper value field input, if upperValue is not
+        provided.
+      remap (bool): If True, remap the field.
+
+    Returns:
+      Isosurface: The newly created Isosurface object.
     
 		"""
 		pass
@@ -34683,7 +38479,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		"""
 		pass
 
-	def linearPattern(self,body, conform=None, direction="ONE", vector1=None, spacing1=0.1, count1=2, vector2=None, spacing2=0.1, count2=2, spacing3=0.1, count3=2):
+	def linearPattern(self,body, conform=None, direction="ONE", vector1=None, spacing1=0.1, count1=2, vector2=None, spacing2=0.1, count2=2, spacing3=0.1, count3=2, transition="SHARP", distance=0.002, distanceField=None):
 		"""
 		The Linear Pattern operation takes a user-selected body and distributes
     multiple identical instances according to linear patterning rules.
@@ -34710,6 +38506,12 @@ Implicit modelling represents geometry as a field and is highly efficient
       spacing3 (float | str): Space between the linear pattern copies in
         direction3.
       count3 (float | str): Number of copies in direction3.
+      transition (str): Transition Type.
+        - SHARP
+        - FILLET
+        - CHAMFER
+      distance (float | str): Distance/Radius value for linear pattern.
+      distanceField (Field): Distance field input if distance is not provided.
 
     Returns:
       LinearPattern: The newly created LinearPattern object.
@@ -34906,7 +38708,7 @@ Implicit modelling represents geometry as a field and is highly efficient
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -34974,7 +38776,7 @@ Args:
 
 
 .. deprecated:: 2025
-   This will be removed in 2025.2. Use the move2 function instead
+   This will be removed in 2026. Use the move2 function instead
 		"""
 		pass
 
@@ -35144,6 +38946,98 @@ Args:
 		"""
 		pass
 
+	def patternAlongSurface(self,input, surface, copiesAlongU=3, copiesAlongV=3, orientation="PATH_DIRECTION", alignment="PATH_NORMAL", retainSource=True, firstCopy="RETAIN_POSITION", origin=None, startU="0", endU=1, startV="0", endV=1, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None):
+		"""
+		Pattern part along surface.
+
+   Args:
+    input (Part): Part to create pattern along the surface.
+    surface (list[FeatureArea]): Surface for pattern.
+    copiesAlongU (int | str): Number of copies along U direction.
+    copiesAlongV (int | str): Number of copies along V direction.
+    orientation (str): Orientation of pattern along surface.
+      - PATH_DIRECTION
+      - KEEP_ORIGINAL
+    alignment (str): Alignment of pattern along surface.
+      - PATH_NORMAL
+      - FIXED
+    retainSource (bool): If True, retain source otherwise not.
+    firstCopy (str): First copy of pattern along surface.
+      - RETAIN_POSITION
+      - MOVE_ORIGIN
+      - ADJUST
+    origin (FeaturePoint): Origin of pattern along surface.
+    startU (float | str): Start U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endU (float | str): End U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    startV (float | str): Start V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endV (float | str): End V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    result (str): Result type of pattern along path.
+      - COMBINE
+      - SUBTRACT
+      - INTERSECT
+      - NEW_PART
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeParts.
+    mergeParts (list[Part]): Parts to be merged with pattern along path.
+    copiesToSkip (dict{Part: list[indicesToSkip]}): Set copies to skip. It's
+      basically a dictionary which contains Part as a key and list of indices to
+      skip as values.
+
+  Returns:
+  list[Part]: List of parts created.
+  
+		"""
+		pass
+
+	def pesBridgeOperator(self,target, tool, valence=4, valenceField=None):
+		"""
+		Create a new Point-Edge Set the creates edges that bridge between two
+    Point-Edge Sets. Each Point in the Target Point-Edge Set will connect to its
+    k-nearest neighbours in the Tool Point-Edge Set. �k�, which is referred to
+    as Valence, can be a user-specified constant or a field-driven property to
+    change the number of connections each point in the Target Point-Edge Set makes.
+
+    Args:
+      target (PointEdgeSet): List of Implicit target body, use bodies property to
+        get all bodies from implicit part.
+      tool (PointEdgeSet): List of Implicit tool body, use bodies property to
+        get all bodies from implicit part.
+      valence (int): Valence value for the bridge operator.
+      valenceField (str): Valence field for the bridge operator if valence is
+        not provided.
+
+    Returns:
+      PESBridgeOperator: The newly created PESBridgeOperator object.
+    
+		"""
+		pass
+
+	def pesUnionOperator(self,targets, merge=False, mergeDistance=0.002, mergeDistanceField=None):
+		"""
+		Combine the points and, optionally, edges of two Point-Edge Sets into a
+    single Point-Edge Set. Points can be merged into a single point if they are
+    within a user-specified Euclidean distance of each other. The
+    �Merge Distance� can be a field-driven property to allow it to vary in
+    different locations.
+
+    Args:
+     targets (list[PointEdgeSet]): List of Implicit target body, use bodies property to
+        get all bodies from implicit part.
+      merge (bool): If True, it merges the bodies otherwise not.
+      mergeDistance (float): Merge distance for the union operator.
+      mergeDistanceField (str): Merge distance field for the union operator if
+        merge distance is not provided.
+
+    Returns:
+      PESUnionOperator: The newly created PESUnionOperator object.
+    
+		"""
+		pass
+
 	def pi(self):
 		"""
 		Implicit pi.
@@ -35239,6 +39133,38 @@ Args:
 		"""
 		pass
 
+	def planeCut(self,body, keep="REGULAR", plane=None, originX="0", originY="0", originZ="0", normalX="0", normalY="0", normalZ=1):
+		"""
+		Reference an existing plane or planar feature, or a manually created
+    (unreferenced) plane, to slice an implicit body or field. You can select which
+    side of the planar slice to keep. You can also choose to extract a planar
+    region that is interior or exterior to the volume and intersects the slicing
+    plane. Finally, you can also ask for contours, which are the intersections
+    between the surface of the body and the slice plane.
+
+    Args:
+      body (Body): Implicit body, use bodies property to get all bodies from
+        implicit part.
+      keep (str). Plane cut modes.
+        - REGULAR
+        - INVERTED
+        - PLANE
+        - CONTOUR
+      plane (Plane): Implicit plane, use bodies property to get all bodies from
+        implicit part.
+      originX (float | str): Origin value in X direction.
+      originY (float | str): Origin value in Y direction.
+      originZ (float | str): Origin value in Z direction.
+      normalX (float | str): Normal value in X direction.
+      normalY (float | str): Normal value in Y direction.
+      normalZ (float | str): Normal value in Z direction.
+
+    Returns:
+      PlaneCut: The newly created PlaneCut object.
+    
+		"""
+		pass
+
 	def pointCloud(self,points, weights, interpolation="INVERSE_DISTANCE", exponent=2, backgroundEnable=False, backgroundValue="0.0", backgroundField=None, pointBehaviour="BUMP", radii=None, falloffs=None):
 		"""
 		Create a custom implicit field or geometry from a set of points with
@@ -35275,7 +39201,7 @@ Args:
 		"""
 		pass
 
-	def pointCloudPattern(self,body, pointCloud=None):
+	def pointCloudPattern(self,body, pointCloud=None, transition="SHARP", distance=0.002, distanceField=None):
 		"""
 		The PointCloud Pattern operation takes a user-selected body and
     distributes multiple identical instances according to PointCloud patterning
@@ -35286,6 +39212,12 @@ Args:
         bodies from implicit part.
       pointCloud(PointCloud): Implicit PointCloud body, use bodies
         property to get all bodies from implicit part.
+      transition (str): Transition Type.
+        - SHARP
+        - FILLET
+        - CHAMFER
+      distance (float | str): Distance/Radius value for point cloud pattern.
+      distanceField (Field): Distance field input if distance is not provided.
 
     Returns:
       PointCloudPattern: The newly created PointCloudPattern object.
@@ -35293,7 +39225,7 @@ Args:
 		"""
 		pass
 
-	def pointEdgeSet(self,body, pointsGenerationMethod="UNIFORM_RANDOM", containment=True, seed="0", pointCount=200, minSpacing=0.02, minSpacingField=None, pointSet=None, edgesGenerationMethod="VALENCE", valence=4.0, valenceField=None, edgeSet=None, voronoiType="DELAUNAY", points="MESH_VERTICES", uSpacing=0.1, vSpacing=0.1, edges="MESH_EDGES", startDistance=-0.02, startDistanceField=None, endDistance=0.02, endDistanceField=None):
+	def pointEdgeSet(self,body, pointsGenerationMethod="UNIFORM_RANDOM", seed="0", pointCount=200, minSpacing=0.02, minSpacingField=None, pointSet=None, edgesGenerationMethod="VALENCE", valence=4.0, valenceField=None, edgeSet=None, voronoiType="DELAUNAY", points="SURFACE_MESH", uSpacing=0.1, vSpacing=0.1, edges="MESH_EDGES", startDistance=-0.02, startDistanceField=None, endDistance=0.02, endDistanceField=None, volumeType="INSIDE", sampleCurves=True, normalFunction=None):
 		"""
 		A point-edge set is a graph comprising points that are (optionally)
     connected by edges. Point-edge sets can be thickened into strut lattices.
@@ -35306,7 +39238,6 @@ Args:
         - MIN_SPACING
         - FROM_PART_MESH
         - IMPORT
-      containment (bool): If true, containment is 'Body' otherwise 'Bound'.
       seed (float | str): Seed value for point set.
       pointCount (int | str): Number of point for 'UNIFORM RANDOM' method in point set.
       minSpacing (float | str): Minimum spacing for 'MIN SPACING' method in point set.
@@ -35315,7 +39246,7 @@ Args:
       pointSet (list[math.Point]): A list of positional coordinates contained
         within the point set.
       edgesGenerationMethod (str): Edges Generation Method.
-        - POINT_CLOUD
+        - NO_EDGES
         - VALENCE
         - VORONOI
         - FROM_PART_MESH
@@ -35328,7 +39259,9 @@ Args:
         - DELAUNAY
         - VORONOI
       points (bool): Points values are.
-        - MESH_VERTICES
+        - SURFACE_MESH
+        - VOLUME_MESH
+        - PART_CURVES
         - SAMPLE_UV
       uSpacing (float | str): U spacing for point set.
       vSpacing (float | str): V spacing for point set.
@@ -35341,9 +39274,58 @@ Args:
       endDistance (float | str): End distance for normal at a point edges.
       endDistanceField (Field): End distance field input, if endDistance
         is not provided.
+      volumeType (str): Volume Type.
+        - INSIDE
+        - SURFACE
+        - OUTSIDE
+        - BOUNDS
+      sampleCurves (bool): If True, sample curves otherwise not.
+      normalFunction (Field): Normal function field input.
 
     Returns:
       PointEdgeSet: The newly created PointEdgeSet object.
+    
+		"""
+		pass
+
+	def pointSetAngleFilter(self,body, filterName="Filter", retain=False, normalReferenceField=None, angleReferenceField=None, angleValue="LESS_THAN", lowerAngle=45, lowerAngleField=None, upperAngle=60, upperAngleField=None):
+		"""
+		Select a feature as an Angular Reference (line, axis, plane, planar
+    feature, etc.) to measure angles to. The Points in a Point-Edge Set then
+    extract the normal vector from the field of the Target Body the Point-Edge
+    Set is defined in, or from the field of a user-selected implicit body. The
+    size of the angle between the Angular Reference and the normal vector
+    computed at each Point can be used to filter points from the Point-Edge Set.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      normalReferenceField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      angleReferenceField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      angleValue (str): Field value for filter.
+        - LESS_THAN
+        - LESS_OR_EQUAL
+        - EQUAL
+        - NOT_EQUAL
+        - GREATER_OR_EQUAL
+        - GREATER_THAN
+        - BETWEEN
+        - NOT_BETWEEN
+      lowerAngle (float | str): Lower angle for point set in degree.
+      lowerAngleField (Field): Lower angle field input, if lowerValue is not
+        provided.
+      upperAngle (float | str): Upper angle for point set in degree.
+      upperAngleField (Field): Upper angle field input, if upperValue is not
+        provided.
+
+    Returns:
+      PointSetAngleFilter: The newly created PointSetAngleFilter
+        object.
     
 		"""
 		pass
@@ -35381,7 +39363,6 @@ Args:
         implicit part.
       filterName (str): Name of the point set filter.
       retain (bool): If True, Filter reject is selected otherwise filter pass.
-      referenceValue (float | str): Implicit reference value for point set filter.
       referenceField (Field): Implicit Field body, use bodies property to get
         all bodies from implicit part.
       fieldValue (str): Field value for filter.
@@ -35402,6 +39383,55 @@ Args:
 
     Returns:
       PointSetFieldValueFilter: The newly created PointSetFieldValueFilter
+        object.
+    
+		"""
+		pass
+
+	def pointSetPerturbationFilter(self,body, filterName="Filter", retain=False, distribution="UNIFORM", uniform=True, seed="0", xCentralValue="0", xCentralValueField=None, xWidth=0.001, xWidthField=None, yCentralValue="0", yCentralValueField=None, yWidth=0.001, yWidthField=None, zCentralValue="0", zCentralValueField=None, zWidth=0.001, zWidthField=None, customVector=False, normalField=None):
+		"""
+		Translate points in a Point-Edge Set in either systematic or randomised
+    way. Translations can operate on one, two or all three direction vector
+    components, or be derived from the field of an implicit body (producing
+    normal vectors on implicit surfaces). Randomised translations require a
+    central value and width for either a uniform or normal distribution. For a
+    uniformly random distribution, the width defines the bounds of the random
+    values. For a normal distribution, the width is the standard deviation.
+
+    Args:
+      body (PointEdgeSet | PointEdgeSetFilter): Implicit PointEdgeSet or any
+        point edge set filters, use bodies property to get all bodies from
+        implicit part.
+      filterName (str): Name of the point set filter.
+      retain (bool): If True, Filter reject is selected otherwise filter pass.
+      distribution (str): Distribution type for perturbation filter.
+        - UNIFORM
+        - NORMAL
+      uniform (bool): If True, Uniform distribution is selected otherwise not.
+      seed (float | str): Seed value for point set.
+      xCentralValue (float | str): Implicit X center value for point set filter.
+      xCentralValueField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      xWidth (float | str): Implicit X width value for point set filter.
+      xWidthField (Field): Implicit Field body, use bodies property to get all
+        bodies from implicit part.
+      yCentralValue (float | str): Implicit Y center value for point set filter.
+      yCentralValueField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      yWidth (float | str): Implicit Y width value for point set filter.
+      yWidthField (Field): Implicit Field body, use bodies property to get all
+        bodies from implicit part.
+      zCentralValue (float | str): Implicit Z center value for point set filter.
+      zCentralValueField (Field): Implicit Field body, use bodies property to get
+        all bodies from implicit part.
+      zWidth (float | str): Implicit Z width value for point set filter.
+      zWidthField (Field): Implicit Field body, use bodies property to get all
+        bodies from implicit part.
+      customVector (bool): If True, Custom vector is selected otherwise not.
+      normalField (Field): Implicit Field body, use bodies property to get all
+        bodies from implicit part.
+    Returns:
+      PointSetPerturbationFilter: The newly created PointSetPerturbationFilter
         object.
     
 		"""
@@ -35588,7 +39618,7 @@ Args:
 		"""
 		pass
 
-	def replaceFromFile(self,part, filePath):
+	def replaceFromFile(self,part, filePath, orient=False):
 		"""
 		Replace part with the contents of a file.
 
@@ -35720,6 +39750,9 @@ Args:
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -35761,6 +39794,9 @@ Args:
 		pass
 	@sheetThickness.setter
 	def sheetThickness(self):
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def shrinkWrap(self,parts=None, voxelSize=-1, merge=True, sharpen=False):
@@ -35957,7 +39993,7 @@ Args:
 		"""
 		pass
 
-	def stochasticStrutLattice(self,body, hollow=False, solidRegion=False, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, boolean=False, booleanType="COMBINE", shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, targetBody=None, transition="SHARP", distance=0.01, distanceField=None):
+	def stochasticStrutLattice(self,body, hollow=False, solidRegion=False, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, shell=False, boolean=False, booleanType="COMBINE", shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, targetBody=None, transition="SHARP", distance=0.01, distanceField=None, nodeTransition="SHARP", nodeJointValue=0.001, nodeJointValueField=None, createNodes=False, nodeDiameter=0.001, nodeDiameterField=None):
 		"""
 		Stochastic lattice is built by thickening a point-edge set, which is a
     graph of points that are connected by edges. If the points are randomly
@@ -36011,6 +40047,17 @@ Args:
         - CHAMFER
       distance (float | str): Distance for outer body options.
       distanceField (Field): Distance field input, if distance is not provided.
+      nodeTransition (str): Transition type for node options.
+        - SHARP
+        - FILLET
+        - CHAMFER
+      nodeJointValue (float | str): Joint value for node options.
+      nodeJointValueField (Field): Node joint value field input, if nodeJointValue
+        is not provided.
+      createNodes (bool): If True, create nodes otherwise not.
+      nodeDiameter (float | str): Node diameter for node options.
+      nodeDiameterField (Field): Node diameter field input, if nodeDiameter is
+        not provided.
 
     Returns:
       StochasticStrutLattice: The newly created StochasticStrutLattice object.
@@ -36032,7 +40079,7 @@ Args:
 	def stressCalculation(self):
 		pass
 
-	def strutLattice(self,body, unitCellType="BODYCENTEREDCUBIC", hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeY=4, cellSizeZ=4, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, unitCellName=None, nodes=None, connectivity=None, conformTo=None):
+	def strutLattice(self,body, unitCellType="BODYCENTEREDCUBIC", hollow=False, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, strutDiameter=0.005, strutDiameterField=None, strutInnerDiameter=0.003, strutInnerDiameterField=None, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeY=4, cellSizeZ=4, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, unitCellName=None, nodes=None, connectivity=None, conformTo=None, defineExtents=False, extentsMinX=None, extentsMinY=None, extentsMinZ=None, extentsMaxX=None, extentsMaxY=None, extentsMaxZ=None):
 		"""
 		Strut lattices are constructed from nodes and these nodes are connected
     by beams. Typically, there is a base unit cell that is tiled/patterned in
@@ -36117,6 +40164,14 @@ Args:
         lattice.
       conformTo (Conform): Implicit Conform body, use bodies property to get all
         bodies from implicit part.
+      defineExtents (bool): If True, use extents option otherwise not.
+      extentsMinX (float | str): Minimum extents value in X direction.
+      extentsMinY (float | str): Minimum extents value in Y direction.
+      extentsMinZ (float | str): Minimum extents value in Z direction.
+      extentsMaxX (float | str): Maximum extents value in X direction.
+      extentsMaxY (float | str): Maximum extents value in Y direction.
+      extentsMaxZ (float | str): Maximum extents value in Z direction.
+
 
     Returns:
       StrutLattice: The newly created StrutLattice object.
@@ -36140,6 +40195,20 @@ Args:
 		"""
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
 		"""
 		Creates curves from two intersecting surfaces.
@@ -36155,7 +40224,7 @@ Args:
 		"""
 		pass
 
-	def surfaceLattice(self,body, unitCellType="GYROID", surfaceType=True, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, density=0.5, densityField=None, bias=0.5, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeXField=None, cellSizeY=4, cellSizeYField=None, cellSizeZ=4, cellSizeZField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, conformTo=None, default=False, extentsMinX=None, extentsMinY=None, extentsMinZ=None, extentsMaxX=None, extentsMaxY=None, extentsMaxZ=None):
+	def surfaceLattice(self,body, unitCellType="GYROID", surfaceType=True, solidRegion=False, coordinateSystemType="CARTESIAN", localOriginX="0", localOriginY="0", localOriginZ="0", localOrigin=None, density=0.5, densityField=None, bias=0.5, unitCellSize=False, uniform=True, cellSizeX=4, cellSizeXField=None, cellSizeY=4, cellSizeYField=None, cellSizeZ=4, cellSizeZField=None, shell=False, combine=False, shellDirection="OUTWARD", shellThicknessIn=0.1, shellThicknessInField=None, shellThicknessOut=0.1, shellThicknessOutField=None, trimmingBody=None, combineBody=None, transition="SHARP", distance=0.01, distanceField=None, conformTo=None, default=False, extentsMinX=None, extentsMinY=None, extentsMinZ=None, extentsMaxX=None, extentsMaxY=None, extentsMaxZ=None, thickness=False, thicknessValue=0.002, thicknessValueField=None):
 		"""
 		Surface lattices are cellular structures constructed from one or
     sometimes two surfaces. Rather than tiling/patterning a base unit cell, the
@@ -36246,6 +40315,11 @@ Args:
       extentsMaxX (float | str): Maximum extents value in X direction.
       extentsMaxY (float | str): Maximum extents value in Y direction.
       extentsMaxZ (float | str): Maximum extents value in Z direction.
+      thickness (bool): If True, thickness will be applied otherwise not.
+      thicknessValue (float | str): Thickness value for surface lattice.
+      thicknessValueField (Field): Thickness field input, if thicknessValue is
+        not provided. If thickness is applied, the thickness value will be
+        applied to the outer body of the surface lattice.
 
     Returns:
       SurfaceLattice: The newly created SurfaceLattice object.
@@ -36295,6 +40369,9 @@ Args:
     symmetric (bool): If True, offsets symmetrically on both sides of the part surface.
   
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	def translate(self,part, x="0", y=None, z=None):
@@ -36758,7 +40835,7 @@ Called from one of our objects after the mdl motion/force/markers are
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -36792,6 +40869,12 @@ Called from one of our objects after the mdl motion/force/markers are
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -37025,7 +41108,7 @@ class Inertia:
 		"""
 Inertial attributes is used to store any inertial values.
 
-    Components of the inertia property are ixx, iyy, izz, ixy, izy, iyz.
+    Components of the inertia property are ixx, iyy, izz, ixy, ixz, iyz.
   
 """
 		pass
@@ -37098,6 +41181,24 @@ Inertial attributes is used to store any inertial values.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -37139,6 +41240,18 @@ Inertial attributes is used to store any inertial values.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -37151,19 +41264,6 @@ Inertial attributes is used to store any inertial values.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -37211,7 +41311,7 @@ Represents the velocity of parts/rigid groups at the beginning of the
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -37248,7 +41348,7 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -37259,6 +41359,45 @@ Represents the velocity of parts/rigid groups at the beginning of the
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -37295,17 +41434,13 @@ Represents the velocity of parts/rigid groups at the beginning of the
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -37349,7 +41484,7 @@ Represents the velocity of parts/rigid groups at the beginning of the
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -37367,7 +41502,12 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -37399,17 +41539,16 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -37442,7 +41581,7 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -37453,6 +41592,16 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -37511,6 +41660,9 @@ Represents the velocity of parts/rigid groups at the beginning of the
 	def rigidGroups(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -37553,6 +41705,9 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	def snapToCG(self):
 		"""
 		Snaps the initial condition object to first part's center of gravity.
@@ -37560,10 +41715,20 @@ Represents the velocity of parts/rigid groups at the beginning of the
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -37718,6 +41883,24 @@ Store integer value
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -37759,6 +41942,18 @@ Store integer value
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -37771,19 +41966,6 @@ Store integer value
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -38070,7 +42252,7 @@ class Joint:
 		"""
 Joint connect parts together while allowing movement at the joint location.
 
-  Every joint has a type, such as Pin or Hinge, and state, which can be set to 
+  Every joint has a type, such as Pin or Hinge, and state, which can be set to
   Locked, Active, or Free.
   
 """
@@ -38278,10 +42460,16 @@ Joint connect parts together while allowing movement at the joint location.
 	def dampingCoefficient(self):
 		pass
 
+	def deprecatedGetter(self,type="force"):
+		pass
+
+	def deprecatedSetter(self,value):
+		pass
+
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -38421,7 +42609,7 @@ Joint connect parts together while allowing movement at the joint location.
 	def getAllowedTypesFromKeyFeatures(self,keyFeatures):
 		"""
 		Return a list of valid joint types for a given keyFeatures.
-       
+
     Args:
       keyFeatures (str):Filters the contact type based on keyFeatures.
         Refer keyFeatures property for valid list of keyFeatures.
@@ -38442,7 +42630,7 @@ Joint connect parts together while allowing movement at the joint location.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -38453,6 +42641,51 @@ Joint connect parts together while allowing movement at the joint location.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -38489,17 +42722,13 @@ Joint connect parts together while allowing movement at the joint location.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -38528,6 +42757,20 @@ Joint connect parts together while allowing movement at the joint location.
 
     Returns:
       ConnectionCandidates: All valid connection candidates from the key features.
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -38575,6 +42818,12 @@ Joint connect parts together while allowing movement at the joint location.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -38589,7 +42838,18 @@ Joint connect parts together while allowing movement at the joint location.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -38643,10 +42903,16 @@ Joint connect parts together while allowing movement at the joint location.
 	def initialOverlap(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -38938,8 +43204,18 @@ Joint connect parts together while allowing movement at the joint location.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -39072,6 +43348,9 @@ Joint connect parts together while allowing movement at the joint location.
 	def restitutionCoefficient(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -39120,6 +43399,9 @@ Joint connect parts together while allowing movement at the joint location.
 	def showAsFace(self):
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverVariables(self):
 		pass
@@ -39153,6 +43435,23 @@ Joint connect parts together while allowing movement at the joint location.
 		pass
 	@stiffness.setter
 	def stiffness(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -39481,7 +43780,7 @@ class JointFriction:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -39521,6 +43820,12 @@ class JointFriction:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -39749,8 +44054,8 @@ Self-managing set of pairs of joints that a Coupler can be made out of.
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -39853,7 +44158,7 @@ Self-managing set of pairs of joints that a Coupler can be made out of.
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -39913,7 +44218,7 @@ Measures the length between two points.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -39957,7 +44262,7 @@ Measures the length between two points.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -39968,6 +44273,51 @@ Measures the length between two points.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -40004,17 +44354,13 @@ Measures the length between two points.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -40025,6 +44371,20 @@ Measures the length between two points.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -40066,6 +44426,12 @@ Measures the length between two points.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -40080,7 +44446,18 @@ Measures the length between two points.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -40106,10 +44483,16 @@ Measures the length between two points.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -40163,8 +44546,18 @@ Measures the length between two points.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -40188,6 +44581,9 @@ Measures the length between two points.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -40226,6 +44622,23 @@ Measures the length between two points.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	@property
 	def system(self):
 		pass
@@ -40245,6 +44658,9 @@ Measures the length between two points.
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -40391,6 +44807,24 @@ Store a list of values in a single attribute.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -40421,6 +44855,18 @@ Store a list of values in a single attribute.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -40433,19 +44879,6 @@ Store a list of values in a single attribute.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -40666,6 +45099,24 @@ Store list of lists of values in a single attribute.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -40696,6 +45147,18 @@ Store list of lists of values in a single attribute.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -40708,19 +45171,6 @@ Store list of lists of values in a single attribute.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -40765,7 +45215,11 @@ Base class for the computed loads
 	def analysis(self):
 		pass
 
-	def getRunDataPrefix(self):
+	@property
+	def isImplicit(self):
+		pass
+	@isImplicit.setter
+	def isImplicit(self):
 		pass
 
 	def isValid(self,analysis):
@@ -40780,11 +45234,11 @@ Base class for the computed loads
 		pass
 
 class LoadCase:
-	def __init__(self,loads=[],name: str="", **kwds):
+	def __init__(self,loads=[],name: str="",type: str="LINEAR_STATIC", linkedLoadCase=None, **kwds):
 		"""
-A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint). 
+A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 
-  The same BoundaryConditions/Grounded PartsConnectors can appear in 
+  The same BoundaryConditions/Grounded PartsConnectors can appear in
   multiple LoadCases, while duplicates are not allowed.
   
 """
@@ -40805,7 +45259,17 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
       items (Union[Union[BoundaryCondition, PartsConnector], list[Union[BoundaryCondition, PartsConnector]]]) : List of entities to add to loadcase.
 
     Returns:
-      bool : Returns True, if added to load case, else False.       
+      bool : Returns True, if added to load case, else False.
+    
+		"""
+		pass
+
+	def addPretensionGroup(self,pretensionGroup):
+		"""
+		Adds a pretension group to this load case.
+    Args:
+      pretensionGroup (PretensionGroup) : Pretension group to be added to load
+        case.
     
 		"""
 		pass
@@ -40813,7 +45277,7 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -40843,7 +45307,7 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -40854,6 +45318,51 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -40890,17 +45399,13 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -40911,6 +45416,20 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -40952,6 +45471,25 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
+	def getPretensionForce(self,fastener):
+		"""
+		Get/Set the pretension force to the fastener group.
+
+    Args:
+      fastener (Fastener) : Fastener to get the force.
+
+    Returns:
+      float : Pretension force of the fastener group.
+    
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -40966,7 +45504,18 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -40992,10 +45541,29 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		"""
 		pass
 
+	@property
+	def inertiaRelief(self):
+		pass
+	@inertiaRelief.setter
+	def inertiaRelief(self):
+		pass
+
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
+	def isSolutionSettingApplicable(self):
+		"""
+		Check if the solution settings are applicable for the load case.
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -41010,6 +45578,13 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		pass
 
 	@property
+	def linkedLoadCase(self):
+		pass
+	@linkedLoadCase.setter
+	def linkedLoadCase(self):
+		pass
+
+	@property
 	def loads(self):
 		pass
 	@loads.setter
@@ -41021,8 +45596,25 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	@property
+	def modes(self):
+		pass
+	@modes.setter
+	def modes(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -41041,15 +45633,54 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
 	def parent(self):
 		pass
 
+	@property
+	def pretensionEnabled(self):
+		pass
+	@pretensionEnabled.setter
+	def pretensionEnabled(self):
+		pass
+
 	def remove(self,items):
 		"""
 		Removes one or more BoundaryConditions/Grounded PartsConnectors to this load case.
-    
+
     Args:
       items (Union[Union[BoundaryCondition, PartsConnector], list[Union[BoundaryCondition, PartsConnector]]]) : List of entities to add to loadcase.
 
     Returns:
-      bool : Returns True, if removed from load case, else False.    
+      bool : Returns True, if removed from load case, else False.
+    
+		"""
+		pass
+
+	def removePretensionGroup(self,pretensionGroup):
+		"""
+		Removes a pretension group from this load case.
+
+    Args:
+      pretensionGroup (PretensionGroup) : Pretension group to be removed from
+        load case.
+    
+		"""
+		pass
+
+	@property
+	def scaleFactor(self):
+		pass
+	@scaleFactor.setter
+	def scaleFactor(self):
+		pass
+
+	def setBrowserName(self,name):
+		pass
+
+	def setPretensionForce(self,fastener, value):
+		"""
+		Set the pretension force to the fastener group.
+
+    Args:
+      fastener (Fastener) : Fastener to set the force.
+      value (float) : Pretension force to be set.
     
 		"""
 		pass
@@ -41088,6 +45719,40 @@ A collection of BoundaryConditions/Grounded PartsConnectors (Fastener, Joint).
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def solutionSettings(self):
+		pass
+	@solutionSettings.setter
+	def solutionSettings(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def type(self):
+		pass
+	@type.setter
+	def type(self):
 		pass
 
 	@property
@@ -41149,7 +45814,7 @@ Return the computed Force, Torque and Accelerations on parts
 		"""
 		pass
 
-	def part(self,i2mObject, **kwds):
+	def part(self,i2mObject, mbdObject):
 		pass
 
 	def populate(self):
@@ -41269,6 +45934,12 @@ Store a location relative to another entity.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -41316,30 +45987,25 @@ Store a location relative to another entity.
 	def loadValue(self,obj, value):
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
 		pass
 
-	def setGuiValue(self,obj, value, component):
-		"""
-		Called by browser to set value.
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
 
-    Must be overloaded to handle the component when getGuiComponentNames
-    returns values.
-    
-		"""
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -41363,7 +46029,7 @@ Store a location relative to another entity.
 	def usingUnits(self,units):
 		pass
 
-MOTIONSOLVE="MOTIONSOLVE"
+MOTIONSOLVE=MOTIONSOLVE
 
 class Marker:
 	def __init__(self,manager=None, inspireObject=None, **kwds):
@@ -41649,7 +46315,7 @@ Creates a Point and a Marker on a part. If part is unspecified, the marker
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -41683,6 +46349,12 @@ Creates a Point and a Marker on a part. If part is unspecified, the marker
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -42180,7 +46852,7 @@ Called from one of our objects after the mdl markers are
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -42214,6 +46886,12 @@ Called from one of our objects after the mdl markers are
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -42457,9 +47135,9 @@ A material is the physical substance that a part is made of, such as steel,
 	def destroy(self):
 		"""
 		Removes the material from the database.
-    
+
     Returns:
-      bool : True, if deleted, else False. 
+      bool : True, if deleted, else False.
     
 		"""
 		pass
@@ -42501,7 +47179,7 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -42512,6 +47190,51 @@ A material is the physical substance that a part is made of, such as steel,
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -42548,17 +47271,13 @@ A material is the physical substance that a part is made of, such as steel,
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -42569,6 +47288,20 @@ A material is the physical substance that a part is made of, such as steel,
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -42620,6 +47353,12 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getMaterials(self):
 		"""
 		Returns a dictionary of the defined material keys to the material name.
@@ -42644,7 +47383,18 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -42670,10 +47420,16 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -42692,8 +47448,18 @@ A material is the physical substance that a part is made of, such as steel,
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -42719,13 +47485,16 @@ A material is the physical substance that a part is made of, such as steel,
 	def poissonRatio(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setDefault(self,material):
 		"""
 		Sets projects default material.
 
     Args:
       material (Material) : Material to be set for the project.
-        
+
     Returns:
       Material : The default material.
     
@@ -42768,11 +47537,28 @@ A material is the physical substance that a part is made of, such as steel,
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def stress(self):
 		pass
 	@stress.setter
 	def stress(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
 		pass
 
 	@property
@@ -42787,6 +47573,9 @@ A material is the physical substance that a part is made of, such as steel,
 		pass
 	@thermalExpansion.setter
 	def thermalExpansion(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -42841,8 +47630,8 @@ An analysis of the model using MotionSolve
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -42852,7 +47641,7 @@ An analysis of the model using MotionSolve
 	def analyze(self,mbdModel=None, end=None, dtout=None, type=None, animate=None, validate=True, **kwds):
 		"""
 		Run a analysis on the model
-    
+
        end[float]     : Number of seconds to run the analysis.
        dtout[float]   : Time between consecutive output steps.
        type[str]      : TRANSIENT or STATICS or "STATICS TRANSIENT".
@@ -42905,7 +47694,7 @@ An analysis of the model using MotionSolve
 	def getContactRunData(self,obj, component, frame=None):
 		"""
 		Get run data from contact. Can request: location, normal, tangential,
-       regionLocation, regionNormal, regionTangential, off of a Contact object. 
+       regionLocation, regionNormal, regionTangential, off of a Contact object.
     
 		"""
 		pass
@@ -42947,12 +47736,12 @@ An analysis of the model using MotionSolve
 	def getRunComponentNames(self,obj, withPlotLabels="flat"):
 		"""
 		To see available components for use in getRunData.
-    
+
     Args:
       obj (Named)
       withPlotLabels (bool | 'flat'):
         Useful to find component name for a specific curve in Plot Manager.
-    
+
     Returns:
       if not withPlotLabels:
         list[str]: Flat list of names
@@ -42978,12 +47767,12 @@ An analysis of the model using MotionSolve
       frame (None | int): If you need data for a specific frame.
         Avoids doing unnecessary unit conversions for other frames.
 
-       To get the force magnitude for a CoilSpring 
+       To get the force magnitude for a CoilSpring
          self.getRunData (spring, "FORCE.FM", 'force')
 
     Returns:
       float if frame passed else list[float].
-      
+
       An empty list if the data can not be found because the component is
       invalid or the Requests are turned off.
     
@@ -43001,7 +47790,7 @@ An analysis of the model using MotionSolve
 	def getRunPartPosition(self,part, frame):
 		"""
 		Return a Matrix44 for the part at the specified frame
-       Used by MbdLoads to position transforce vectors to design position 
+       Used by MbdLoads to position transforce vectors to design position
     
 		"""
 		pass
@@ -43025,7 +47814,7 @@ An analysis of the model using MotionSolve
 		"""
 		Return a list of output time frames
        This is a derived list of derived doubles
-       It looks like the run timeSteps with additional functionality to 
+       It looks like the run timeSteps with additional functionality to
        make it useful in  animation and plotting:
        it supports usingUnits
        can be filter out static and or intermediate (contact) steps
@@ -43054,7 +47843,7 @@ An analysis of the model using MotionSolve
        time steps.  This so we can pass the list to the analimation frame as
        the time values, and when the user drags the animation tool bar slider
        we can get the true animation frame for setting the models part positions
- 
+
        use self.getRunTimeSteps for things like plotting where the number of
        xs need to match the number of ys since we dont filter non-time run data
     
@@ -43132,7 +47921,7 @@ An analysis of the model using MotionSolve
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -43161,7 +47950,7 @@ An analysis of the model using MotionSolve
 
 	def openHG(self):
 		"""
-		Opens the current analyis results file in HG. Requires analysis to be run 
+		Opens the current analyis results file in HG. Requires analysis to be run
        in same session.
     
 		"""
@@ -43169,7 +47958,7 @@ An analysis of the model using MotionSolve
 
 	def openHV(self):
 		"""
-		Opens the current analyis results file in HV. Requires analysis to be run 
+		Opens the current analyis results file in HV. Requires analysis to be run
        in same session.
     
 		"""
@@ -43214,7 +48003,7 @@ An analysis of the model using MotionSolve
 
 	def setupEvent(self,mbdModel=None, end=None, dtout=None, type=None):
 		"""
-		Creates and returns an mbd.Event populated with input arguments if 
+		Creates and returns an mbd.Event populated with input arguments if
        specified or mbdModel.analysisSettings if they were not specified
     
 		"""
@@ -43314,10 +48103,10 @@ Listen to MbdAnalysis events during an analyze or animation
 		"""
 		pass
 
-	def onAnalysisProblem(self,analysis, problem: hwx_module.inspire.core.Problem.Problem):
+	def onAnalysisProblem(self,analysis, problem: hwx.inspire.core.Problem.Problem):
 		"""
 		Reimplement if interested when a problem occurs during analyze.
-    
+
     Problem can occur due to:
     - Validation
     - Solver message
@@ -43672,7 +48461,7 @@ Loads (forces, torques, accelerations) from an MbdAnalysis that are
 		pass
 
 class MbdModel:
-	def __init__(self,inspireModel=None,units: str="solver", oldmv=False, realizeForAnalysis=False, **kwds):
+	def __init__(self,inspireModel=None,units: str="solver", oldmv=False, realizeForAnalysis=False, validate=False, **kwds):
 		"""
 Inspire Model to mdl.Model realization manager
   
@@ -43795,6 +48584,9 @@ Inspire Model to mdl.Model realization manager
 		"""
 		Used by writeMdl to generate an mdl.Event from the analysis settings
 		"""
+		pass
+
+	def createTemplates(self,solver):
 		pass
 
 	def createTopology(self):
@@ -44098,7 +48890,7 @@ Inspire Model to mdl.Model realization manager
 		"""
 		
     Return the left instance of a Pair if the symmetry is LEFT.  The right
-    instance of the symmetry is RIGHT or None if the object is either a 
+    instance of the symmetry is RIGHT or None if the object is either a
     single or the Pair symmetry is NONE
     
 		"""
@@ -44458,7 +49250,7 @@ Inspire Model to mdl.Model realization manager
 		Create a System and move all non-internal objects to the System
 
        This is to support exporting Inspire models to MotionView where
-       we want the Inspire model to be in a System      
+       we want the Inspire model to be in a System
     
 		"""
 		pass
@@ -44470,8 +49262,8 @@ Inspire Model to mdl.Model realization manager
 		"""
 		Override to configure how to populate the components of the run object,
        which were defined in onRunPopulate, with the states provided by the
-       solver. 
-       If this method is not defined, but onRunPopulate did define new 
+       solver.
+       If this method is not defined, but onRunPopulate did define new
        runobjects, default component names will be assigned for the states.
     
 		"""
@@ -44550,7 +49342,7 @@ Inspire Model to mdl.Model realization manager
 	def pushObject(self,obj):
 		"""
 		Set the current Inspire object being realized.
-       This is used to map the IntpsireObjects <-> the mdl objects 
+       This is used to map the IntpsireObjects <-> the mdl objects
        This is called from Model.sendToMbd before each object's sendToMbd is
        called
     
@@ -44749,6 +49541,22 @@ Inspire Model to mdl.Model realization manager
 		"""
 		pass
 
+class MbdModel2:
+	"""
+
+An mdl model representation of the current Inspire model
+  - send to MotionSolve
+  - create/access run data
+  - create plots
+  - create loads
+  - write files
+    - adm
+    - mdl
+    - mspy
+
+"""
+	pass
+
 class MbdPartLoad:
 	def __init__(self,**kwds):
 		"""
@@ -44864,7 +49672,7 @@ Plot definitions created by objects in MbdModel.py
 	def part(self):
 		pass
 
-	def partAngularDisplacement(self,**kwds):
+	def partAngularDisplacement(self,menuContainer=[], **kwds):
 		pass
 
 	def populate(self):
@@ -44909,6 +49717,9 @@ The results of a Motion analysis
 	def appendTimeStep(self,time):
 		pass
 
+	def body(self,i2mObject, mbdObject):
+		pass
+
 	def contact(self,i2mContact, mdlContact):
 		"""
 		Called from MbdModel.addRunObject to create storage for Contacts
@@ -44932,7 +49743,7 @@ The results of a Motion analysis
 	def emitSignal(self,name, *args, **kwds):
 		pass
 
-	def flexBody(self,i2mPart, mdlPart):
+	def flexBody(self,i2mObject, mbdObject):
 		"""
 		Called from MbdModel.addRunObject to create storage for FlexBody
     
@@ -44954,7 +49765,7 @@ The results of a Motion analysis
 		Called from PlotManager to get a compoment given its name
 
       This should support backward compatability for template files
-      If the  
+      If the
     
 		"""
 		pass
@@ -44962,7 +49773,7 @@ The results of a Motion analysis
 	def getContactRunData(self,obj, component, frame=None):
 		"""
 		Get run data from contact. Can request: location, normal, tangential,
-       regionLocation, regionNormal, regionTangential, off of a Contact object. 
+       regionLocation, regionNormal, regionTangential, off of a Contact object.
     
 		"""
 		pass
@@ -44993,7 +49804,7 @@ The results of a Motion analysis
 	def getRunObjects(self):
 		"""
 		Return a list of all the RunObjects for this analysis
-       This is mainly used in testing (test_MbdModel,py) 
+       This is mainly used in testing (test_MbdModel,py)
     
 		"""
 		pass
@@ -45002,7 +49813,7 @@ The results of a Motion analysis
 		"""
 		Return a list of output time frames
        This is a derived list of derived doubles
-       It looks like the run timeSteps with additional functionality to 
+       It looks like the run timeSteps with additional functionality to
        make it useful in  animation and plotting:
        it supports usingUnits
        can be filter out static and or intermediate (contact) steps
@@ -45037,14 +49848,14 @@ The results of a Motion analysis
 		"""
 		pass
 
-	def part(self,i2mPart, mdlPart):
+	def part(self,i2mObject, mbdObject):
 		"""
 		Called from MbdModel.addRunObject to create storage for Parts
     
 		"""
 		pass
 
-	def pointMass(self,i2mPart, mdlPart):
+	def pointMass(self,i2mObject, mbdObject):
 		"""
 		Called from MbdModel.addRunObject to create storage for PointMasses
     
@@ -45086,7 +49897,7 @@ Measures the distance between two points, the length of a feature or an angle be
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -45116,7 +49927,7 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -45127,6 +49938,51 @@ Measures the distance between two points, the length of a feature or an angle be
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -45163,17 +50019,13 @@ Measures the distance between two points, the length of a feature or an angle be
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -45184,6 +50036,20 @@ Measures the distance between two points, the length of a feature or an angle be
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -45225,6 +50091,12 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -45239,7 +50111,18 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -45265,10 +50148,16 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -45301,8 +50190,18 @@ Measures the distance between two points, the length of a feature or an angle be
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -45326,6 +50225,9 @@ Measures the distance between two points, the length of a feature or an angle be
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -45364,6 +50266,23 @@ Measures the distance between two points, the length of a feature or an angle be
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	@property
 	def textColor(self):
 		pass
@@ -45376,6 +50295,9 @@ Measures the distance between two points, the length of a feature or an angle be
 		pass
 	@textHeader.setter
 	def textHeader(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -45441,7 +50363,7 @@ Create mesh controls to assign an element size to parts or faces.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -45478,7 +50400,7 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -45489,6 +50411,51 @@ Create mesh controls to assign an element size to parts or faces.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -45525,17 +50492,13 @@ Create mesh controls to assign an element size to parts or faces.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -45546,6 +50509,20 @@ Create mesh controls to assign an element size to parts or faces.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -45587,6 +50564,12 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -45601,7 +50584,18 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -45627,10 +50621,16 @@ Create mesh controls to assign an element size to parts or faces.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -45656,8 +50656,18 @@ Create mesh controls to assign an element size to parts or faces.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -45681,6 +50691,9 @@ Create mesh controls to assign an element size to parts or faces.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -45717,6 +50730,26 @@ Create mesh controls to assign an element size to parts or faces.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -45966,7 +50999,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 
     Args:
       points (list[math.Point]): List of points used to create the SplineCurve part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list [Part] : List of created parts.
@@ -45980,7 +51013,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates an empty part.
 
     Args:
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       Part
@@ -46010,7 +51043,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 
     Args:
       points (list[math.Point]): List of points to create the Polyline part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list[Part]: List of created parts.
@@ -46022,12 +51055,24 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		Creates a circle centered at the origin in the XY plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float)
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): Radius of the sheet. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '1 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet circle.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        sheet = model.createSheetCircle(xRadius= 'radius', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -46036,13 +51081,26 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		Creates a regular polygon centered at the origin in the XY-plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The distance from the center to a vertex.
-      nsides (int): The number of sides. Must be > 2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The distance from the center to a vertex. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      nsides (int | str): The number of sides. Must be > 2. Can be a integer, a string without units (e.g., '10'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet polygon.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        sheet = model.createSheetPolygon(radius= 'radius', nsides='numberOfSides', sheetThickness = '1 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -46051,13 +51109,26 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		Creates a rectangle centered at the origin.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      x (float): The length. 
-      y (float): The width.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width.  Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness ...
 
     Returns:
-      Part
+      Part: The created sheet.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('length',type='Length',expression= '24 cm') # Adding a model variable with a name 'length'.
+        model.variables.add ('width',type='Length',expression= '12 cm') # Adding a model variable with a name 'width'.
+        sheet = model.createSheetRectangle(x= 'length', y='width', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -46066,31 +51137,57 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		Creates a solid block with the center of the base at the origin.
 
+        By default, the solid block is positioned such that its bottom face lies on the XY plane,
+        with the Z-dimension extending upwards. If stacking or precise placement is needed,
+        use the `location` argument to adjust its placement along the Z-axis.
     Args:
-      x (float): The length.
-      y (float): The width.
-      z (float): The height.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width. Can be a float, a string with units, (e.g., '10 ft'), or a variable name.
+      z (float | str): The height. Can be a float, a string with units,(e.g., '10 in'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
-    
+      Part: The created solid block.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('depth',type='Length',expression= '4 m') # Adding a model variable with a name 'depth'.
+        block = model.createSolidBlock(x=2.0, y='3 m', z='depth', color="YELLOW", location = (0,0,0) , name = 'Part 1')
+        
 		"""
 		pass
 
 	def createSolidCone(self,radius=1, height=1, semiangle="0", **kwds):
 		"""
-		Creates a a solid cone with the base centered at the origin in the XY 
+		Creates a solid cone with the base centered at the origin in the XY
     plane and the height extending along the z-axis.
 
+    By default, the solid cone is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      semiangle (float): The angle the cone makes with the z-axis. Must be > 0 < pi/2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      semiangle (float | str): The angle the cone makes with the z-axis. Must be 0 < semiangle < pi/2. Can be a float,
+      a string with units (e.g., '10 deg'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid Cone.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('semiangle',type='angle',expression= '45 deg') # Adding a model variable with a name 'semiangle'.
+        block = model.createSolidCone(radius= 'radius', height= '4 in', semiangle ='semiangle' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -46100,13 +51197,28 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates a solid cylinder with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid cylinder is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 ft'), or
+      a variable name.
+
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid cylinder.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('height',type='Length',expression= '4 m') # Adding a model variable with a name 'height'.
+        block = model.createSolidCylinder(radius=2.0, height='height', color="RED", location = (0,0,0) , name = 'Cylinder 1')
+
     
 		"""
 		pass
@@ -46116,13 +51228,22 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates a solid ellipsoid centered at the origin.
 
     Args:
-      xRadius (float): The radius in x-axis.
-      yRadius (float): The radius in y-axis.
-      zRadius (float): The radius in z-axis.
-      **kwds: Part attributes like name, position, color...
+      xRadius (float | str): The radius in x-axis. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      yRadius (float | str): The radius in y-axis. Can be a float, a string with units (e.g., '10 mm'), or a variable name.
+      zRadius (float | str): The radius in z-axis. Can be a float, a string with units (e.g., '10 in'), or a variable name.
+
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Ellipsoid.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('xRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'xRadius'.
+        ellipsoid = model.createSolidEllipsoid(xRadius= 'majorRadius', yRadius = '12 cm', zRadius =0.12, location = (0,0,0))
+
     
 		"""
 		pass
@@ -46132,15 +51253,31 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates a solid prism with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid prism is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      nsides (int): The number of facets. Must be > 2.
-      blendradius (float): The radius used to round the corners.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      nsides (int | str): The number of facets. Must be > 2. Can be an integer, a string without units (e.g., '10'), or a variable name.
+      blendradius (float | str): The radius used to round the corners. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid prism.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        block = model.createSolidPrism(radius= 'radius', height= '4 ft', nsides ='numberOfSides' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -46150,11 +51287,20 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates a solid sphere with centre at origin.
 
     Args:
-      radius (float)
-      **kwds: Part attributes like name, location, color...
+      radius (float | str): Radius of the sphere. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Sphere.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        sphere = model.createSolidSphere(radius= 'radius', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
 		pass
@@ -46164,14 +51310,27 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Creates a solid torus centered at the origin, located in the XY-plane 
     with the z-axis sticking through the hole.
 
+    By default, the solid torus is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      majorRadius (float): The radius from the hole's center to the rim's midline.
-      minorRadius (float): The radius of the cross section of the rim. 
-        Must be less than majorRadius.
-      **kwds: Part attributes like name, position, color...
+      majorRadius (float | str): The radius from the hole's center to the rim's midline. Can be a float, a string with
+      units (e.g., '10 cm'), or a variable name.
+      minorRadius (float | str): The radius of the cross section of the rim and Must be less than majorRadius. Can be
+      a float, a string with units (e.g., '10 cm'), or a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Torus.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('majorRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'majorRadius'.
+        torus = model.createSolidTorus(majorRadius= 'majorRadius', minorRadius = '12 cm', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
 		pass
@@ -46256,7 +51415,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -46267,6 +51426,51 @@ The active Inspire model. Model is a subclass of Assembly class.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -46316,17 +51520,13 @@ The active Inspire model. Model is a subclass of Assembly class.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -46337,6 +51537,20 @@ The active Inspire model. Model is a subclass of Assembly class.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -46358,10 +51572,10 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def getFeature(self,name=None):
 		"""
 		Find feature by its __str__/__repr__.
-    
+
     Args:
       name (str)
-    
+
     Returns:
       Feature
     
@@ -46411,6 +51625,12 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getMass(self,includeGround=True):
 		"""
 		Returns the mass of the assembly.
@@ -46438,13 +51658,18 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getSkinMesh(self,parts, local=False):
 		"""
 		Returns a dictionary of parts to the skin mesh (nodes and faces).
-       
+
     Args:
       parts (list[Part]) : Specify the parts to skin mesh.
       local (bool) : If True, uses the local part collection, else occurrence collection.
@@ -46453,6 +51678,12 @@ The active Inspire model. Model is a subclass of Assembly class.
     Returns:
       dict: Dictionary of parts to the skin mesh (nodes and faces).
     
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
 		"""
 		pass
 
@@ -46521,6 +51752,9 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def holes(self):
 		pass
 
+	def importPart(self,fileName, **kwds):
+		pass
+
 	@property
 	def initialConditions(self):
 		pass
@@ -46535,10 +51769,28 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
+	def isImportingFile(self):
+		pass
+
+	def isLoadingFile(self):
+		"""
+		Check if a File->Open or File->Import is in progress
+		"""
+		pass
+
+	def isOpeningFile(self):
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -46651,7 +51903,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -46706,6 +51958,16 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def movable(self):
 		pass
 
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
+		pass
+
 	@property
 	def name(self):
 		pass
@@ -46742,6 +52004,13 @@ The active Inspire model. Model is a subclass of Assembly class.
 		pass
 
 	@property
+	def pretensionGroups(self):
+		pass
+	@pretensionGroups.setter
+	def pretensionGroups(self):
+		pass
+
+	@property
 	def proximities(self):
 		pass
 	@proximities.setter
@@ -46766,7 +52035,7 @@ The active Inspire model. Model is a subclass of Assembly class.
 		"""
 		Save the model to the path specified in file.
 
-    If selected only these get saved, similar to save selected in the 
+    If selected only these get saved, similar to save selected in the
     Inspire application.
 
     Args:
@@ -46776,6 +52045,9 @@ The active Inspire model. Model is a subclass of Assembly class.
         Parasolid can be converted to stl but not vice versa.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -46819,6 +52091,9 @@ The active Inspire model. Model is a subclass of Assembly class.
 		pass
 	@shapeVariables.setter
 	def shapeVariables(self):
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
@@ -46897,6 +52172,20 @@ The active Inspire model. Model is a subclass of Assembly class.
 	def spotWelds(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def switchToDesignParts(self):
 		"""
 		Change all part alternatives to the design space
@@ -46932,6 +52221,9 @@ The active Inspire model. Model is a subclass of Assembly class.
 		pass
 	@temperatures.setter
 	def temperatures(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -46976,7 +52268,7 @@ The active Inspire model. Model is a subclass of Assembly class.
     Always call before querying Contact objects.
 
     Note that this may also delete contacts, for example between grounded parts.
-    
+
     Args:
       solver (str | None): OptiStruct, SimSolid
         None uses preference: Run Options -> Analysis solver.
@@ -47055,8 +52347,8 @@ Listens to the data model for object creation, modification and deletion.
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -47103,7 +52395,7 @@ Listens to the data model for object creation, modification and deletion.
 	def onObjectDeleted(self,obj):
 		"""
 		Implement if interested when an object is destroyed.
-    
+
     This can be caused by:
       - Explicit obj.destroy()
       - Undo of create.
@@ -47130,7 +52422,7 @@ Listens to the data model for object creation, modification and deletion.
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -47358,7 +52650,7 @@ class MotionAnalysisSettings:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -47451,7 +52743,7 @@ class MotionAnalysisSettings:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -47462,6 +52754,45 @@ class MotionAnalysisSettings:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -47498,17 +52829,13 @@ class MotionAnalysisSettings:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -47552,7 +52879,7 @@ class MotionAnalysisSettings:
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -47576,7 +52903,12 @@ class MotionAnalysisSettings:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -47644,13 +52976,19 @@ class MotionAnalysisSettings:
 	def integratorKmax(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isSuppressed(self,message, key):
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -47697,7 +53035,7 @@ class MotionAnalysisSettings:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -47708,6 +53046,16 @@ class MotionAnalysisSettings:
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -47794,6 +53142,9 @@ class MotionAnalysisSettings:
 	def sensorValue(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -47830,6 +53181,9 @@ class MotionAnalysisSettings:
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def signalType(self):
 		pass
@@ -47858,6 +53212,13 @@ class MotionAnalysisSettings:
 	def supportType(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	def suppressWarning(self,message, key):
 		pass
 
@@ -47873,6 +53234,9 @@ class MotionAnalysisSettings:
 		pass
 	@timeEquilibrium.setter
 	def timeEquilibrium(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	def unSuppressWarning(self,message):
@@ -47985,7 +53349,7 @@ Base class for Motion Objects that connect
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -48056,7 +53420,7 @@ Base class for Motion Objects that connect
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -48067,6 +53431,45 @@ Base class for Motion Objects that connect
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -48103,17 +53506,13 @@ Base class for Motion Objects that connect
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -48147,7 +53546,7 @@ Base class for Motion Objects that connect
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -48171,7 +53570,12 @@ Base class for Motion Objects that connect
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -48198,13 +53602,6 @@ Base class for Motion Objects that connect
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def inputType(self):
 		pass
 	@inputType.setter
@@ -48218,6 +53615,12 @@ Base class for Motion Objects that connect
 	def inputs(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isValidConnection(self,connection):
 		"""
 		Can Face mode connector be created out of passed connection object -
@@ -48229,7 +53632,7 @@ Base class for Motion Objects that connect
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -48269,7 +53672,7 @@ Base class for Motion Objects that connect
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -48280,6 +53683,16 @@ Base class for Motion Objects that connect
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -48352,6 +53765,9 @@ Base class for Motion Objects that connect
 	def rotation(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -48388,6 +53804,16 @@ Base class for Motion Objects that connect
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
@@ -48400,6 +53826,9 @@ Base class for Motion Objects that connect
 		pass
 	@timeOffset.setter
 	def timeOffset(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -48513,7 +53942,7 @@ Creates an object that generates a contact force between a collection of parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -48592,7 +54021,7 @@ Creates an object that generates a contact force between a collection of parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -48603,6 +54032,45 @@ Creates an object that generates a contact force between a collection of parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -48639,17 +54107,13 @@ Creates an object that generates a contact force between a collection of parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -48699,7 +54163,7 @@ Creates an object that generates a contact force between a collection of parts.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -48740,7 +54204,12 @@ Creates an object that generates a contact force between a collection of parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -48779,11 +54248,10 @@ Creates an object that generates a contact force between a collection of parts.
 	def hmax_factor(self):
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isValidPart(self,part):
@@ -48802,7 +54270,7 @@ Creates an object that generates a contact force between a collection of parts.
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -48856,7 +54324,7 @@ Creates an object that generates a contact force between a collection of parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -48867,6 +54335,16 @@ Creates an object that generates a contact force between a collection of parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -49016,6 +54494,9 @@ Creates an object that generates a contact force between a collection of parts.
 	def restitution_coefficient(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -49058,6 +54539,9 @@ Creates an object that generates a contact force between a collection of parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def stictionTransitionVelocity(self):
 		pass
@@ -49080,10 +54564,20 @@ Creates an object that generates a contact force between a collection of parts.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -49148,7 +54642,7 @@ class MotionFlexBodyRun:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -49197,7 +54691,7 @@ class MotionFlexBodyRun:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -49208,6 +54702,51 @@ class MotionFlexBodyRun:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -49244,17 +54783,13 @@ class MotionFlexBodyRun:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -49265,6 +54800,20 @@ class MotionFlexBodyRun:
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -49306,6 +54855,12 @@ class MotionFlexBodyRun:
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -49320,7 +54875,18 @@ class MotionFlexBodyRun:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -49370,6 +54936,12 @@ class MotionFlexBodyRun:
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	@property
 	def isValid(self):
 		pass
@@ -49380,7 +54952,7 @@ class MotionFlexBodyRun:
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -49399,8 +54971,18 @@ class MotionFlexBodyRun:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -49461,6 +55043,16 @@ class MotionFlexBodyRun:
 	def progress(self):
 		pass
 
+	@property
+	def resultImported(self):
+		pass
+	@resultImported.setter
+	def resultImported(self):
+		pass
+
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -49497,6 +55089,9 @@ class MotionFlexBodyRun:
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -49509,6 +55104,23 @@ class MotionFlexBodyRun:
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -49562,7 +55174,7 @@ Base class for all Motion Objects
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -49592,7 +55204,7 @@ Base class for all Motion Objects
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -49603,6 +55215,45 @@ Base class for all Motion Objects
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -49639,17 +55290,13 @@ Base class for all Motion Objects
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -49693,7 +55340,7 @@ Base class for all Motion Objects
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -49711,7 +55358,12 @@ Base class for all Motion Objects
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -49737,17 +55389,16 @@ Base class for all Motion Objects
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -49766,7 +55417,7 @@ Base class for all Motion Objects
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -49777,6 +55428,16 @@ Base class for all Motion Objects
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -49805,6 +55466,9 @@ Base class for all Motion Objects
 		Marks the object that needs to be redrawn in the graphics window.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -49843,11 +55507,24 @@ Base class for all Motion Objects
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
 	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -49935,7 +55612,7 @@ class MotionResults:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -49946,6 +55623,51 @@ class MotionResults:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -49982,17 +55704,13 @@ class MotionResults:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -50003,6 +55721,20 @@ class MotionResults:
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -50044,6 +55776,12 @@ class MotionResults:
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -50058,7 +55796,18 @@ class MotionResults:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -50098,10 +55847,16 @@ class MotionResults:
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -50126,8 +55881,18 @@ class MotionResults:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -50151,6 +55916,9 @@ class MotionResults:
 		pass
 	@progress.setter
 	def progress(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setMotionFlexResults(self):
@@ -50195,6 +55963,9 @@ class MotionResults:
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -50207,6 +55978,23 @@ class MotionResults:
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -50254,8 +56042,8 @@ Load MbdAnalysis when file opened or destroy undone
 		"""
 		Activates or start listening to the data model and call the handlers,
       when the specified types are created, destroyed or modified.
-    
-    Args:    
+
+    Args:
        *typesOrObjects (Part, BC, Motor, ...): Types or objects to listen to.
         Sub classes of Named (Features are not supported).
     
@@ -50302,7 +56090,7 @@ Load MbdAnalysis when file opened or destroy undone
 	def onPartAnimationPositionModified(self,part):
 		"""
 		Implemented if interested when a part's animationPosition changes.
-    
+
     This is a temporary state that isn't recorded in history.
 
     Args:
@@ -50332,7 +56120,7 @@ class MotionReviewSettings:
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -50369,7 +56157,7 @@ class MotionReviewSettings:
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -50380,6 +56168,45 @@ class MotionReviewSettings:
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -50416,17 +56243,13 @@ class MotionReviewSettings:
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -50470,7 +56293,7 @@ class MotionReviewSettings:
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -50488,7 +56311,12 @@ class MotionReviewSettings:
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -50521,10 +56349,16 @@ class MotionReviewSettings:
 	def hideForceClasses(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -50543,7 +56377,7 @@ class MotionReviewSettings:
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -50554,6 +56388,16 @@ class MotionReviewSettings:
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -50610,6 +56454,9 @@ class MotionReviewSettings:
 		pass
 	@scaleTorque.setter
 	def scaleTorque(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -50669,6 +56516,9 @@ class MotionReviewSettings:
 	def showImplicitJoints(self):
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def showNormals(self):
 		pass
@@ -50726,10 +56576,20 @@ class MotionReviewSettings:
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -50893,7 +56753,7 @@ Creates a Motor.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -51020,7 +56880,7 @@ Creates a Motor.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -51031,6 +56891,45 @@ Creates a Motor.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -51067,17 +56966,13 @@ Creates a Motor.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -51111,7 +57006,7 @@ Creates a Motor.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -51142,7 +57037,12 @@ Creates a Motor.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getShaftRadius(self):
@@ -51182,13 +57082,6 @@ Creates a Motor.
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def indVarComp(self):
 		pass
 	@indVarComp.setter
@@ -51223,6 +57116,12 @@ Creates a Motor.
 	def inputs(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	@property
 	def isHoleBased(self):
 		pass
@@ -51246,7 +57145,7 @@ Creates a Motor.
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -51314,7 +57213,7 @@ Creates a Motor.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -51339,6 +57238,16 @@ Creates a Motor.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -51467,6 +57376,9 @@ Creates a Motor.
 	def sdProfile(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -51545,6 +57457,9 @@ Creates a Motor.
 	def shaftRotation(self):
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def signalsProfile(self):
 		pass
@@ -51595,6 +57510,13 @@ Creates a Motor.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
@@ -51613,6 +57535,9 @@ Creates a Motor.
 		pass
 	@timeOffset.setter
 	def timeOffset(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -51781,6 +57706,24 @@ Get/set a Signals object
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -51819,6 +57762,18 @@ Get/set a Signals object
 	def loadValue(self,obj, value):
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -51831,19 +57786,6 @@ Get/set a Signals object
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -51891,7 +57833,7 @@ Base class for all data model objects except Features.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -51921,7 +57863,7 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -51932,6 +57874,51 @@ Base class for all data model objects except Features.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -51968,17 +57955,13 @@ Base class for all data model objects except Features.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -51989,6 +57972,20 @@ Base class for all data model objects except Features.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -52030,6 +58027,12 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -52044,7 +58047,18 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -52070,10 +58084,16 @@ Base class for all data model objects except Features.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -52092,8 +58112,18 @@ Base class for all data model objects except Features.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -52110,6 +58140,9 @@ Base class for all data model objects except Features.
 		pass
 	@parent.setter
 	def parent(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -52146,6 +58179,26 @@ Base class for all data model objects except Features.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -52231,6 +58284,24 @@ class NonLinearStiffness:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj, **kwds):
 		pass
 
@@ -52269,20 +58340,19 @@ class NonLinearStiffness:
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def setGuiValue(self,obj, value, component):
@@ -52361,6 +58431,12 @@ map inspire objects to/from mdl objects
 		pass
 
 	def isListenerActive(self):
+		pass
+
+	def listenerInactive(self):
+		"""
+		Temporarily disable signals
+		"""
 		pass
 
 	def onObjectCreated(self,obj):
@@ -52544,7 +58620,7 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -52555,6 +58631,51 @@ Base class for Model, Assembly and Part.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -52591,17 +58712,13 @@ Base class for Model, Assembly and Part.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -52612,6 +58729,20 @@ Base class for Model, Assembly and Part.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -52653,6 +58784,12 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -52667,7 +58804,18 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -52714,10 +58862,16 @@ Base class for Model, Assembly and Part.
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -52767,7 +58921,7 @@ Base class for Model, Assembly and Part.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -52792,6 +58946,16 @@ Base class for Model, Assembly and Part.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -52835,6 +58999,9 @@ Base class for Model, Assembly and Part.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -52869,6 +59036,9 @@ Base class for Model, Assembly and Part.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
@@ -52934,6 +59104,20 @@ Base class for Model, Assembly and Part.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	@property
 	def symmetryConstraints(self):
 		pass
 	@symmetryConstraints.setter
@@ -52945,6 +59129,9 @@ Base class for Model, Assembly and Part.
 		pass
 	@temperatures.setter
 	def temperatures(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -53302,7 +59489,7 @@ class OneContact:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -53336,6 +59523,12 @@ class OneContact:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -53571,7 +59764,7 @@ Run structural analysis using OptiStruct
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -53613,7 +59806,7 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -53624,6 +59817,51 @@ Run structural analysis using OptiStruct
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -53660,17 +59898,13 @@ Run structural analysis using OptiStruct
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -53681,6 +59915,20 @@ Run structural analysis using OptiStruct
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -53722,6 +59970,12 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -53736,7 +59990,18 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -53779,10 +60044,16 @@ Run structural analysis using OptiStruct
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -53801,8 +60072,18 @@ Run structural analysis using OptiStruct
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -53842,6 +60123,9 @@ Run structural analysis using OptiStruct
 	def progress(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -53878,6 +60162,9 @@ Run structural analysis using OptiStruct
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -53890,6 +60177,23 @@ Run structural analysis using OptiStruct
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -53943,7 +60247,7 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -53985,7 +60289,7 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -53996,6 +60300,51 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -54032,17 +60381,13 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -54053,6 +60398,20 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -54094,6 +60453,12 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -54108,7 +60473,18 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -54151,10 +60527,16 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -54173,8 +60555,18 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -54214,6 +60606,9 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 	def progress(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -54250,6 +60645,9 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -54262,6 +60660,23 @@ Run an OptiStructAnalysis on an optimization's generated shape.
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -54644,7 +61059,7 @@ class Output:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -54678,6 +61093,12 @@ class Output:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -55235,7 +61656,7 @@ Support for the f1 and f5 components of an Output
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -55269,6 +61690,12 @@ Support for the f1 and f5 components of an Output
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -55851,7 +62278,7 @@ Force based Motor.
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -55888,6 +62315,12 @@ Force based Motor.
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -56343,11 +62776,14 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -56358,7 +62794,7 @@ A geometric object made up of any combination of solids, surfaces, and
 	def currentRepresentation(self):
 		pass
 
-	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5, drapeTargetSurface=None, drapeMethod="UV_MAPPING", drapeUParameter="0.0", drapeVParameter="0.0", elevation="0", drapeAngle="0", drapeUScale="0", drapeVScale="0", drapeReverseSurface=False, anchorAxis=None, reverseAnchorAxis=False):
 		"""
 		Deform parts within a specified region.
 
@@ -56370,6 +62806,7 @@ A geometric object made up of any combination of solids, surfaces, and
       - TAPER
       - SHEAR
       - STRETCH
+      - DRAPE
     deformAxis (str): Deform Axis.
       - X
       - Y
@@ -56404,6 +62841,21 @@ A geometric object made up of any combination of solids, surfaces, and
     origin (mat.Points): Origin values in x,y,z direction to deform parts.
     trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
     trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+    drapeTargetSurface (list[Feature]): Drape target surface to deform parts.
+    drapeMethod (str): Drape method.
+      - UV_MAPPING
+      - MINIMIZE_STRETCH
+    drapeUParameter (float | str): Drape U parameter to deform parts.
+    drapeVParameter (float | str): Drape V parameter to deform parts.
+    elevation (float | str): Elevation to deform parts.
+    drapeAngle (float | str): Drape angle to deform parts.
+    drapeUScale (float | str): Drape U scale to deform parts.
+    drapeVScale (float | str): Drape V scale to deform parts.
+    drapeReverseSurface (bool): If True, Drape reverse surface to deform parts
+      otherwise not.
+    anchorAxis (list[FeatureLinear]): Anchor axis to deform parts.
+    reverseAnchorAxis (bool): If True, reverse anchor axis to deform parts
+      otherwise not.
 
   Returns:
     list[Part]: New parts created.
@@ -56470,10 +62922,10 @@ A geometric object made up of any combination of solids, surfaces, and
 	def findMinimumSeparation(self,other):
 		"""
 		Find closest points between two parts
-    
+
     Args:
       other (Part): The 2nd part.
-      
+
     Returns:
       namedtuple("ClosestPoints", "point1 point2 distance feature1 feature2")
     
@@ -56511,7 +62963,7 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -56522,6 +62974,51 @@ A geometric object made up of any combination of solids, surfaces, and
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -56558,17 +63055,13 @@ A geometric object made up of any combination of solids, surfaces, and
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -56586,6 +63079,20 @@ A geometric object made up of any combination of solids, surfaces, and
 	def getClosestPoint(self,point):
 		"""
 		Get closest point on part from passed point
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
 		"""
 		pass
 
@@ -56614,13 +63121,13 @@ A geometric object made up of any combination of solids, surfaces, and
 		Returns a list of features based on specified filters.
 
     Args:
-      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the 
+      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the
         features based on type.
       rep (str): Feature representation. See part.representations for options
       **kwds : Additional attributes to consider while filtering.
 
     Returns:
-      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of 
+      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of
         features that satisfies all the filter criteria.
     
 		"""
@@ -56649,6 +63156,9 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
+	def getIcon(self):
+		pass
+
 	def getRayIntersections(self,origin, direction):
 		"""
 		Find list of points where ray intersects part
@@ -56669,7 +63179,18 @@ A geometric object made up of any combination of solids, surfaces, and
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -56729,7 +63250,7 @@ A geometric object made up of any combination of solids, surfaces, and
           - frustum
           - axi-symmetric gear
           - rack
-          
+
     Returns:
       Box,Ellipsoid,Sphere.. : The identified shape.
     
@@ -56801,10 +63322,16 @@ A geometric object made up of any combination of solids, surfaces, and
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -56997,7 +63524,7 @@ A geometric object made up of any combination of solids, surfaces, and
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -57041,7 +63568,7 @@ Args:
 
 
 .. deprecated:: 2025
-   This will be removed in 2025.2. Use the move2 function instead
+   This will be removed in 2026. Use the move2 function instead
 		"""
 		pass
 
@@ -57154,6 +63681,53 @@ Args:
 		"""
 		pass
 
+	def patternAlongSurface(self,input, surface, copiesAlongU=3, copiesAlongV=3, orientation="PATH_DIRECTION", alignment="PATH_NORMAL", retainSource=True, firstCopy="RETAIN_POSITION", origin=None, startU="0", endU=1, startV="0", endV=1, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None):
+		"""
+		Pattern part along surface.
+
+   Args:
+    input (Part): Part to create pattern along the surface.
+    surface (list[FeatureArea]): Surface for pattern.
+    copiesAlongU (int | str): Number of copies along U direction.
+    copiesAlongV (int | str): Number of copies along V direction.
+    orientation (str): Orientation of pattern along surface.
+      - PATH_DIRECTION
+      - KEEP_ORIGINAL
+    alignment (str): Alignment of pattern along surface.
+      - PATH_NORMAL
+      - FIXED
+    retainSource (bool): If True, retain source otherwise not.
+    firstCopy (str): First copy of pattern along surface.
+      - RETAIN_POSITION
+      - MOVE_ORIGIN
+      - ADJUST
+    origin (FeaturePoint): Origin of pattern along surface.
+    startU (float | str): Start U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endU (float | str): End U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    startV (float | str): Start V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endV (float | str): End V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    result (str): Result type of pattern along path.
+      - COMBINE
+      - SUBTRACT
+      - INTERSECT
+      - NEW_PART
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeParts.
+    mergeParts (list[Part]): Parts to be merged with pattern along path.
+    copiesToSkip (dict{Part: list[indicesToSkip]}): Set copies to skip. It's
+      basically a dictionary which contains Part as a key and list of indices to
+      skip as values.
+
+  Returns:
+  list[Part]: List of parts created.
+  
+		"""
+		pass
+
 	@property
 	def position(self):
 		pass
@@ -57221,7 +63795,7 @@ Args:
 		"""
 		pass
 
-	def replaceFromFile(self,part, filePath):
+	def replaceFromFile(self,part, filePath, orient=False):
 		"""
 		Replace part with the contents of a file.
 
@@ -57352,6 +63926,9 @@ Args:
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -57393,6 +63970,9 @@ Args:
 		pass
 	@sheetThickness.setter
 	def sheetThickness(self):
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def shrinkWrap(self,parts=None, voxelSize=-1, merge=True, sharpen=False):
@@ -57517,6 +64097,20 @@ Args:
 	def stressCalculation(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
 		"""
 		Creates curves from two intersecting surfaces.
@@ -57560,6 +64154,9 @@ Args:
     symmetric (bool): If True, offsets symmetrically on both sides of the part surface.
   
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	def translate(self,part, x="0", y=None, z=None):
@@ -57670,7 +64267,7 @@ Args:
 		pass
 
 class PartLoad:
-	def __init__(self,i2mObject):
+	def __init__(self,i2mObject, mdlBody):
 		pass
 
 	@property
@@ -57704,7 +64301,11 @@ class PartLoad:
 	def getRotationalVelocity(self,frame):
 		pass
 
-	def getRunDataPrefix(self):
+	@property
+	def isImplicit(self):
+		pass
+	@isImplicit.setter
+	def isImplicit(self):
 		pass
 
 	def isOnPart(self,part):
@@ -57881,7 +64482,7 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -57892,6 +64493,51 @@ Base class for Part and Sketch Part.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -57928,17 +64574,13 @@ Base class for Part and Sketch Part.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -57949,6 +64591,20 @@ Base class for Part and Sketch Part.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -57978,13 +64634,13 @@ Base class for Part and Sketch Part.
 		Returns a list of features based on specified filters.
 
     Args:
-      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the 
+      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the
         features based on type.
       rep (str): Feature representation. See part.representations for options
       **kwds : Additional attributes to consider while filtering.
 
     Returns:
-      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of 
+      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of
         features that satisfies all the filter criteria.
     
 		"""
@@ -58013,6 +64669,12 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -58027,7 +64689,18 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -58074,10 +64747,16 @@ Base class for Part and Sketch Part.
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -58127,7 +64806,7 @@ Base class for Part and Sketch Part.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -58152,6 +64831,16 @@ Base class for Part and Sketch Part.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -58202,6 +64891,9 @@ Base class for Part and Sketch Part.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -58236,6 +64928,9 @@ Base class for Part and Sketch Part.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
@@ -58301,6 +64996,20 @@ Base class for Part and Sketch Part.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	@property
 	def symmetryConstraints(self):
 		pass
 	@symmetryConstraints.setter
@@ -58312,6 +65021,9 @@ Base class for Part and Sketch Part.
 		pass
 	@temperatures.setter
 	def temperatures(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -58375,7 +65087,7 @@ class PartsConnector:
 	def __init__(self):
 		"""
 PartsConnectors are generally used to connect two or more parts together.
-  
+
   Base class for part based connectors line 'Fastener', 'Joint'.
   
 """
@@ -58437,10 +65149,16 @@ PartsConnectors are generally used to connect two or more parts together.
 	def connectionRadius(self):
 		pass
 
+	def deprecatedGetter(self,type="force"):
+		pass
+
+	def deprecatedSetter(self,value):
+		pass
+
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -58515,7 +65233,7 @@ PartsConnectors are generally used to connect two or more parts together.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -58526,6 +65244,51 @@ PartsConnectors are generally used to connect two or more parts together.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -58562,17 +65325,13 @@ PartsConnectors are generally used to connect two or more parts together.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -58583,6 +65342,20 @@ PartsConnectors are generally used to connect two or more parts together.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -58624,6 +65397,12 @@ PartsConnectors are generally used to connect two or more parts together.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -58638,7 +65417,18 @@ PartsConnectors are generally used to connect two or more parts together.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -58671,10 +65461,16 @@ PartsConnectors are generally used to connect two or more parts together.
 	def grounded(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -58707,8 +65503,18 @@ PartsConnectors are generally used to connect two or more parts together.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -58762,6 +65568,9 @@ PartsConnectors are generally used to connect two or more parts together.
 	def radius(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -58810,6 +65619,26 @@ PartsConnectors are generally used to connect two or more parts together.
 		pass
 	@shearStiffness.setter
 	def shearStiffness(self):
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -59186,7 +66015,7 @@ A PenaltyMotor motor is a closed loop position controlled force motor
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -59223,6 +66052,12 @@ A PenaltyMotor motor is a closed loop position controlled force motor
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -59438,6 +66273,157 @@ A PenaltyMotor motor is a closed loop position controlled force motor
        This can be used by the GUI to make sure the user entered value is ok
     
 		"""
+		pass
+
+class Percent:
+	def __init__(self,default="0",doc: str="", **kwds):
+		pass
+
+	def apply(self,**kwds):
+		"""
+		Context manager to specify Attribute constructor kwds
+    Useful to avoid repeating kwds while defining a related group
+    
+		"""
+		pass
+
+	def castForGet(self,obj, value):
+		"""
+		Converts and returns the attribute value to its external type.
+
+    Args:
+      obj (GeneralObject): Object this attribute belongs to.
+      value (Any): Value of the attribute to be converted.
+
+    Returns:
+      value (Any): Converted value.
+    
+		"""
+		pass
+
+	def castForSet(self,obj, value):
+		pass
+
+	def classifyObject(self,obj):
+		pass
+
+	def create(self,obj):
+		pass
+
+	def createList(self,listAttr, obj):
+		pass
+
+	def createListList(self,listAttr, obj):
+		pass
+
+	def disable(self,obj):
+		"""
+		Called by GeneralObject when destroyed (or undo of a create)
+		"""
+		pass
+
+	def enable(self,obj):
+		"""
+		Called by GeneralObject when created (or undo of a destroy)
+		"""
+		pass
+
+	def getCreateArgs(self):
+		"""
+		Helper used in create methods
+		"""
+		pass
+
+	def getDisplayName(self,obj):
+		pass
+
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
+	def getGuiValue(self,obj, format="modeling"):
+		pass
+
+	def getInCoreValue(self,obj):
+		pass
+
+	def getReadonly(self,obj):
+		pass
+
+	def getUnits(self,obj):
+		pass
+
+	def getValue(self,obj):
+		pass
+
+	def getValueList(self,obj):
+		pass
+
+	def getValueListList(self,obj):
+		pass
+
+	def initialize(self,objCls, name):
+		"""
+		Initializes the attribute.
+
+    Args:
+      objCls (class): Object class this attribute belongs to.
+      name (str): Name of the attribute.
+    
+		"""
+		pass
+
+	def loadValue(self,obj, value):
+		"""
+		Called by GeneralObject.loadAttributeValues during stmod deserialization
+		"""
+		pass
+
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		pass
+
+	def setInCoreValue(self,obj, value):
+		pass
+
+	def setValue(self,obj, value):
+		pass
+
+	def setValueList(self,obj, value):
+		pass
+
+	def setValueListList(self,obj, value):
+		pass
+
+	def usingUnits(self,units):
 		pass
 
 class PlotDataHierarchy:
@@ -59797,11 +66783,14 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		Creates tag for any geometry part or feature.
 
-  Args:
-    input (list[Part | Feature]): Entities to create a tag.
-    name (str): Name of the tag.
-    value (str): Value of the tag.
-  
+Args:
+  input (list[Part | Feature]): Entities to create a tag.
+  name (str): Name of the tag.
+  value (str): Value of the tag.
+
+
+.. deprecated:: 2025.1
+   This will be removed in 2026.1. Use the tag manager to created tag.
 		"""
 		pass
 
@@ -59812,7 +66801,7 @@ Create free-form solid geometry that is smooth and continuous.
 	def currentRepresentation(self):
 		pass
 
-	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5):
+	def deform(self,parts, deformType="TWIST", deformAxis="Z", twistType="ANGLE", twistAngle=360, twistTurns=1, twistSmoothing="0", bendType="RADIUS", bendRadius=1.273, bendAngle=45, taperFactor=1, shearAngle=45, stretchCurve=None, stretchAngle="0", stretchCurveOffset="0", stretchAlongCurve=False, stretchMoveToCurve=True, stretchReverseCurve=False, reapplyFillets=False, accuracy=0.8, eulerAngles=None, origin=None, trimPlane1Offset=-0.5, trimPlane2Offset=0.5, drapeTargetSurface=None, drapeMethod="UV_MAPPING", drapeUParameter="0.0", drapeVParameter="0.0", elevation="0", drapeAngle="0", drapeUScale="0", drapeVScale="0", drapeReverseSurface=False, anchorAxis=None, reverseAnchorAxis=False):
 		"""
 		Deform parts within a specified region.
 
@@ -59824,6 +66813,7 @@ Create free-form solid geometry that is smooth and continuous.
       - TAPER
       - SHEAR
       - STRETCH
+      - DRAPE
     deformAxis (str): Deform Axis.
       - X
       - Y
@@ -59858,10 +66848,35 @@ Create free-form solid geometry that is smooth and continuous.
     origin (mat.Points): Origin values in x,y,z direction to deform parts.
     trimPlane1Offset (float | str): TrimPlane1 offset to deform parts.
     trimPlane2Offset (float | str): TrimPlane2 offset to deform parts.
+    drapeTargetSurface (list[Feature]): Drape target surface to deform parts.
+    drapeMethod (str): Drape method.
+      - UV_MAPPING
+      - MINIMIZE_STRETCH
+    drapeUParameter (float | str): Drape U parameter to deform parts.
+    drapeVParameter (float | str): Drape V parameter to deform parts.
+    elevation (float | str): Elevation to deform parts.
+    drapeAngle (float | str): Drape angle to deform parts.
+    drapeUScale (float | str): Drape U scale to deform parts.
+    drapeVScale (float | str): Drape V scale to deform parts.
+    drapeReverseSurface (bool): If True, Drape reverse surface to deform parts
+      otherwise not.
+    anchorAxis (list[FeatureLinear]): Anchor axis to deform parts.
+    reverseAnchorAxis (bool): If True, reverse anchor axis to deform parts
+      otherwise not.
 
   Returns:
     list[Part]: New parts created.
   
+		"""
+		pass
+
+	def deleteFaces(self,faces):
+		"""
+		Remove faces.
+
+    Args:
+      faces (list[FeatureArea])
+    
 		"""
 		pass
 
@@ -59936,10 +66951,10 @@ Create free-form solid geometry that is smooth and continuous.
 	def findMinimumSeparation(self,other):
 		"""
 		Find closest points between two parts
-    
+
     Args:
       other (Part): The 2nd part.
-      
+
     Returns:
       namedtuple("ClosestPoints", "point1 point2 distance feature1 feature2")
     
@@ -60021,7 +67036,7 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -60032,6 +67047,51 @@ Create free-form solid geometry that is smooth and continuous.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -60068,17 +67128,13 @@ Create free-form solid geometry that is smooth and continuous.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -60096,6 +67152,20 @@ Create free-form solid geometry that is smooth and continuous.
 	def getClosestPoint(self,point):
 		"""
 		Get closest point on part from passed point
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
 		"""
 		pass
 
@@ -60148,6 +67218,9 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
+	def getIcon(self):
+		pass
+
 	def getRayIntersections(self,origin, direction):
 		"""
 		Find list of points where ray intersects part
@@ -60168,7 +67241,18 @@ Create free-form solid geometry that is smooth and continuous.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -60228,7 +67312,7 @@ Create free-form solid geometry that is smooth and continuous.
           - frustum
           - axi-symmetric gear
           - rack
-          
+
     Returns:
       Box,Ellipsoid,Sphere.. : The identified shape.
     
@@ -60300,10 +67384,16 @@ Create free-form solid geometry that is smooth and continuous.
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -60504,7 +67594,7 @@ Create free-form solid geometry that is smooth and continuous.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -60548,7 +67638,7 @@ Args:
 
 
 .. deprecated:: 2025
-   This will be removed in 2025.2. Use the move2 function instead
+   This will be removed in 2026. Use the move2 function instead
 		"""
 		pass
 
@@ -60696,6 +67786,53 @@ Args:
 		"""
 		pass
 
+	def patternAlongSurface(self,input, surface, copiesAlongU=3, copiesAlongV=3, orientation="PATH_DIRECTION", alignment="PATH_NORMAL", retainSource=True, firstCopy="RETAIN_POSITION", origin=None, startU="0", endU=1, startV="0", endV=1, result="NEW_PART", mergeWithAllParts=True, mergeParts=None, copiesToSkip=None):
+		"""
+		Pattern part along surface.
+
+   Args:
+    input (Part): Part to create pattern along the surface.
+    surface (list[FeatureArea]): Surface for pattern.
+    copiesAlongU (int | str): Number of copies along U direction.
+    copiesAlongV (int | str): Number of copies along V direction.
+    orientation (str): Orientation of pattern along surface.
+      - PATH_DIRECTION
+      - KEEP_ORIGINAL
+    alignment (str): Alignment of pattern along surface.
+      - PATH_NORMAL
+      - FIXED
+    retainSource (bool): If True, retain source otherwise not.
+    firstCopy (str): First copy of pattern along surface.
+      - RETAIN_POSITION
+      - MOVE_ORIGIN
+      - ADJUST
+    origin (FeaturePoint): Origin of pattern along surface.
+    startU (float | str): Start U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endU (float | str): End U value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    startV (float | str): Start V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    endV (float | str): End V value of pattern along surface. Valid values
+      range - 0 to 1, strictly + ive values only.
+    result (str): Result type of pattern along path.
+      - COMBINE
+      - SUBTRACT
+      - INTERSECT
+      - NEW_PART
+    mergeWithAllParts (bool): If True, merge with All parts otherwise merge with
+      parts supplied in mergeParts.
+    mergeParts (list[Part]): Parts to be merged with pattern along path.
+    copiesToSkip (dict{Part: list[indicesToSkip]}): Set copies to skip. It's
+      basically a dictionary which contains Part as a key and list of indices to
+      skip as values.
+
+  Returns:
+  list[Part]: List of parts created.
+  
+		"""
+		pass
+
 	@property
 	def position(self):
 		pass
@@ -60763,7 +67900,7 @@ Args:
 		"""
 		pass
 
-	def replaceFromFile(self,part, filePath):
+	def replaceFromFile(self,part, filePath, orient=False):
 		"""
 		Replace part with the contents of a file.
 
@@ -60894,6 +68031,9 @@ Args:
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setPointLocations(self,locations):
 		"""
 		Moves points to an exact location.
@@ -60971,6 +68111,9 @@ Args:
         If invalid thickness, is passed in, it will be computed.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def shrinkWrap(self,parts=None, voxelSize=-1, merge=True, sharpen=False):
@@ -61112,6 +68255,20 @@ Args:
 	def stressCalculation(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def surfaceIntersection(self,surface1, surface2, combineCurves=True):
 		"""
 		Creates curves from two intersecting surfaces.
@@ -61155,6 +68312,9 @@ Args:
     symmetric (bool): If True, offsets symmetrically on both sides of the part surface.
   
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	def translate(self,part, x="0", y=None, z=None):
@@ -61285,7 +68445,7 @@ Modify the location of cage points (defined by Shape variables) to
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -61327,7 +68487,7 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -61338,6 +68498,51 @@ Modify the location of cage points (defined by Shape variables) to
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -61374,17 +68579,13 @@ Modify the location of cage points (defined by Shape variables) to
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -61395,6 +68596,20 @@ Modify the location of cage points (defined by Shape variables) to
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -61436,6 +68651,12 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -61450,7 +68671,18 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -61493,10 +68725,16 @@ Modify the location of cage points (defined by Shape variables) to
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -61515,8 +68753,18 @@ Modify the location of cage points (defined by Shape variables) to
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -61540,6 +68788,9 @@ Modify the location of cage points (defined by Shape variables) to
 		pass
 	@progress.setter
 	def progress(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -61578,6 +68829,9 @@ Modify the location of cage points (defined by Shape variables) to
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -61590,6 +68844,23 @@ Modify the location of cage points (defined by Shape variables) to
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -61689,6 +68960,24 @@ Store a Matrix44
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -61728,6 +69017,18 @@ Store a Matrix44
 	def loadValue(self,obj, value):
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -61740,19 +69041,6 @@ Store a Matrix44
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -61810,6 +69098,13 @@ A pressure is a distributed force that acts perpendicular to every point
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -61833,7 +69128,7 @@ A pressure is a distributed force that acts perpendicular to every point
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -61891,7 +69186,7 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -61902,6 +69197,51 @@ A pressure is a distributed force that acts perpendicular to every point
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -61938,17 +69278,13 @@ A pressure is a distributed force that acts perpendicular to every point
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -61959,6 +69295,20 @@ A pressure is a distributed force that acts perpendicular to every point
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -62000,6 +69350,12 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -62014,7 +69370,18 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -62074,10 +69441,16 @@ A pressure is a distributed force that acts perpendicular to every point
 	def inward(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -62131,8 +69504,18 @@ A pressure is a distributed force that acts perpendicular to every point
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -62163,6 +69546,9 @@ A pressure is a distributed force that acts perpendicular to every point
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -62211,6 +69597,33 @@ A pressure is a distributed force that acts perpendicular to every point
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -62220,10 +69633,500 @@ A pressure is a distributed force that acts perpendicular to every point
 
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
+		pass
+
+	@property
+	def variable_name(self):
+		pass
+	@variable_name.setter
+	def variable_name(self):
+		pass
+
+	@property
+	def visible(self):
+		pass
+	@visible.setter
+	def visible(self):
+		pass
+
+	def wasValueSet(self,attr):
+		"""
+		Check if attribute was set
+
+    Args:
+      attr (str): Attribute name to check it value set or not
+
+    Returns:
+      bool: True, if value was set else false.
+    
+		"""
+		pass
+
+class PretensionGroup:
+	def __init__(self,fasteners,name: str="", **kwds):
+		"""
+Creates a config of type fasterner group.
+"""
+		pass
+
+	@property
+	def active(self):
+		pass
+	@active.setter
+	def active(self):
+		pass
+
+	def addFastener(self,fastener, force):
+		"""
+		Set the fastener to the pretension group.
+
+    Args:
+      fastener (Fastener) : Fastener to be set.
+      force (float) : Pretension force to be set.
+    
+		"""
+		pass
+
+	def addFasteners(self,fastnersWithForce):
+		"""
+		Set the fasteners of the pretension group.
+
+    Args:
+      fastnersWithForce (list(tuple(Fastener, Force))) : Fastener and Force
+      value to be set. for example [(fastener1, force1), (fastener2, force2)...]
+      here fastener1, fastener2 are fasteners and force1, force2 are the force
+      values.
+    
+		"""
+		pass
+
+	def destroy(self):
+		"""
+		Delete the object removing it from the model.
+
+    The object may come back due to an undo/redo.
+    
+		"""
+		pass
+
+	@property
+	def fasteners(self):
+		pass
+	@fasteners.setter
+	def fasteners(self):
+		pass
+
+	def getAllChildren(self,type=None, **kwds):
+		"""
+		Returns a list of all children that matches the specified type.
+
+    Args:
+      type (list[Named]): Filter to use to get the children based on object type.
+      **kwds : Additional keyword arguments to match other attributes of the object.
+
+    Returns:
+      list[Union[Part, Motor, BoundaryCondition, ...]]: The list of children that satisfy the supplied filters.
+    
+		"""
+		pass
+
+	def getAttribute(self,name):
+		"""
+		Returns the Attribute off the class, not the value.
+
+    Args:
+      name (str): Attribute name to find its class.
+    
+		"""
+		pass
+
+	def getAttributes(self,**kwds):
+		"""
+		Return an dict of the attributes.
+    Pass type and kwds to filter by type and Attribute properties
+
+    Args:
+      type (type): Filters the attribute based on type
+      **kwds : Additional kwds argument to filter attribute by its properties
+
+    Returns:
+      dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
+    
+		"""
+		pass
+
+	def getChild(self,name=None, recursive=False, **kwds):
+		"""
+		Returns the child of the object which matches the specified unique name.
+
+    Args:
+      name (str): The name of the child object.
+      recursive (bool):  Search all descendents.
+      **kwds : Additional keyword arguments to match attributes of the object.
+
+    Returns:
+      Named: The child object which satisfies the specified filters.
+    
+		"""
+		pass
+
+	def getChildren(self,type=None, recursive=False, sorted=False, **kwds):
+		"""
+		Returns a list of children that is of the specified type.
+
+    Args:
+      type (Type[Named]): Filter objects by class.
+      recursive (bool): True to get all descendent Parts and Assemblies.
+      sorted (bool): Sort the children base on id.
+
+    Returns:
+      list[Named]
+    
+		"""
+		pass
+
+	def getClass(self,className):
+		"""
+		Get class by name.
+
+    Args:
+      className (str | tuple)
+
+    Returns:
+      type | tuple[type]
+    
+		"""
+		pass
+
+	def getClassAttribute(self,name):
+		"""
+		Returns the Attribute off the class, not the value
+
+    Args:
+      name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
+    
+		"""
+		pass
+
+	def getDependents(self,recursive=False, **kwds):
+		"""
+		Get objects that reference this object through a Reference attribute.
+
+    Args:
+      recursive (bool)
+      **kwds : Filter objects using isa.
+
+    Returns:
+      set[Named]
+    
+		"""
+		pass
+
+	def getGuiAttributeNames(self):
+		"""
+		Return list of the attribute names that are in the gui
+
+    Returns:
+      list: Returns list of active gui attribute
+    
+		"""
+		pass
+
+	def getGuiValue(self,attr, **kwds):
+		"""
+		Get value formatted to be shown in the gui
+
+    Args:
+      attr (str): Attribute name to gets its gui value.
+
+    Returns:
+      str: Returns a string of the value with its gui units, like "5 mm/s".
+    
+		"""
+		pass
+
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
+	def getPretensionForce(self,fastener):
+		"""
+		Get/Set the pretension force to the fastener group.
+
+    Args:
+      fastener (Fastener) : Fastener to get the force.
+
+    Returns:
+      float : Pretension force of the fastener group.
+    
+		"""
+		pass
+
+	def getReferences(self,recursive=False, **kwds):
+		"""
+		Get objects this object references through a Reference attribute.
+
+    Args:
+      recursive (bool)
+      **kwds : Filter objects using isa.
+
+    Returns:
+      set[Named]
+    
+		"""
+		pass
+
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
+		pass
+
+	def getValue(self,attr):
+		"""
+		Return the attribute value for passed attribute name.
+    
+    Args:
+      attr (String): Attribute name to gets its value.
+
+    Returns:
+      str: Returns the attribute value
+    
+		"""
+		pass
+
+	def getVariable(self,propName):
+		"""
+		Get associated variable for the given property.
+
+    Args:
+     propName (str): Property name to get the associated variable.
+    
+		"""
+		pass
+
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
+	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
+		"""
+		Determines if the object matches the specified settings or not.
+
+    Args:
+      type (Union[Part, Assembly, Contact..]): The type of the object.
+      filter (method): Return value of specified callback method.
+      name (str): Name that matches exactly with object name.
+      wildcard (str): A pattern to match exactly with the object name.
+      **kwds : Additional keyword arguments to match other attributes.
+
+    Returns:
+      bool : True, if a match is found, otherwise False.
+    
+		"""
+		pass
+
+	@property
+	def method(self):
+		pass
+	@method.setter
+	def method(self):
+		pass
+
+	def modelPositions(self):
+		"""
+		Forces all objects to return the original model positions instead of the
+    current analysis positions.
+
+    Useful when defining draw methods on GeneralObjects where behaviour is
+    different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
+		pass
+
+	@property
+	def name(self):
+		pass
+	@name.setter
+	def name(self):
+		pass
+
+	@property
+	def parent(self):
+		pass
+	@parent.setter
+	def parent(self):
+		pass
+
+	def removeAllFasteners(self):
+		"""
+		Reset the fasteners of the pretension group.
+		"""
+		pass
+
+	def removeFastener(self,fastener):
+		"""
+		Remove the fastener from the pretension group.
+
+    Args:
+      fastener (Fastener) : Fastener to be removed.
+    
+		"""
+		pass
+
+	def setBrowserName(self,name):
+		pass
+
+	def setPretensionForce(self,fastener, value):
+		"""
+		Set the pretension force to the fastener group.
+
+    Args:
+      fastener (Fastener) : Fastener to set the force.
+      value (float) : Pretension force to be set.
+    
+		"""
+		pass
+
+	def setValue(self,attr, value):
+		"""
+		Alias for setattr (attr, value)
+    Args:
+      attr (str): Attribute name to sets its value.
+      value (str): Attribute value to set .
+    
+		"""
+		pass
+
+	def setValues(self,**kwds):
+		"""
+		Sets passed name/value pairs.
+    
+    Values are set in a standard order (the order the attribute is defined
+    on the class) which is required in certain cases when an attribute's
+    setter expects another attribute to have already been set.
+    For example, setting a reference before a location that is wrt it.
+    
+    Args:
+      **kwds: Set attributes in one go.
+    
+		"""
+		pass
+
+	def setVariable(self,propName, varName):
+		"""
+		Associate property to variable for named object.
+
+    Args:
+      propName (str): Property name to associate with variable.
+      varName (str): The name of the variable to associate the attribute with.
+    
+		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -62273,7 +70176,7 @@ Utilites to create parts with primitive shapes.
 
     Args:
       points (list[math.Point]): List of points used to create the SplineCurve part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list [Part] : List of created parts.
@@ -62287,7 +70190,7 @@ Utilites to create parts with primitive shapes.
 		Creates an empty part.
 
     Args:
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       Part
@@ -62317,7 +70220,7 @@ Utilites to create parts with primitive shapes.
 
     Args:
       points (list[math.Point]): List of points to create the Polyline part.
-      **kwds: Part attributes like name, position, color...
+      **kwds: Part attributes like name, location, color...
 
     Returns:
       list[Part]: List of created parts.
@@ -62329,12 +70232,24 @@ Utilites to create parts with primitive shapes.
 		"""
 		Creates a circle centered at the origin in the XY plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float)
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): Radius of the sheet. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '1 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet circle.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        sheet = model.createSheetCircle(xRadius= 'radius', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -62343,13 +70258,26 @@ Utilites to create parts with primitive shapes.
 		"""
 		Creates a regular polygon centered at the origin in the XY-plane.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The distance from the center to a vertex.
-      nsides (int): The number of sides. Must be > 2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The distance from the center to a vertex. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      nsides (int | str): The number of sides. Must be > 2. Can be a integer, a string without units (e.g., '10'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness...
 
     Returns:
-      Part
+      Part: The created sheet polygon.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '24 cm') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        sheet = model.createSheetPolygon(radius= 'radius', nsides='numberOfSides', sheetThickness = '1 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -62358,13 +70286,26 @@ Utilites to create parts with primitive shapes.
 		"""
 		Creates a rectangle centered at the origin.
 
+    By default, the sheet is positioned such that its bottom face lies on the XY plane.
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      x (float): The length. 
-      y (float): The width.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width.  Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      sheetThickness (float | str ): Thickness of the sheet. Can be a float, a string with units (e.g., '2 mm').
+      **kwds: Part attributes like name, location, color, material, sheetThickness ...
 
     Returns:
-      Part
+      Part: The created sheet.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('length',type='Length',expression= '24 cm') # Adding a model variable with a name 'length'.
+        model.variables.add ('width',type='Length',expression= '12 cm') # Adding a model variable with a name 'width'.
+        sheet = model.createSheetRectangle(x= 'length', y='width', sheetThickness = '2 mm', location = (0,0,0))
+
     
 		"""
 		pass
@@ -62373,31 +70314,57 @@ Utilites to create parts with primitive shapes.
 		"""
 		Creates a solid block with the center of the base at the origin.
 
+        By default, the solid block is positioned such that its bottom face lies on the XY plane,
+        with the Z-dimension extending upwards. If stacking or precise placement is needed,
+        use the `location` argument to adjust its placement along the Z-axis.
     Args:
-      x (float): The length.
-      y (float): The width.
-      z (float): The height.
-      **kwds: Part attributes like name, position, color...
+      x (float | str): The length. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      y (float | str): The width. Can be a float, a string with units, (e.g., '10 ft'), or a variable name.
+      z (float | str): The height. Can be a float, a string with units,(e.g., '10 in'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
-    
+      Part: The created solid block.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('depth',type='Length',expression= '4 m') # Adding a model variable with a name 'depth'.
+        block = model.createSolidBlock(x=2.0, y='3 m', z='depth', color="YELLOW", location = (0,0,0) , name = 'Part 1')
+        
 		"""
 		pass
 
 	def createSolidCone(self,radius=1, height=1, semiangle="0", **kwds):
 		"""
-		Creates a a solid cone with the base centered at the origin in the XY 
+		Creates a solid cone with the base centered at the origin in the XY
     plane and the height extending along the z-axis.
 
+    By default, the solid cone is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      semiangle (float): The angle the cone makes with the z-axis. Must be > 0 < pi/2.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      semiangle (float | str): The angle the cone makes with the z-axis. Must be 0 < semiangle < pi/2. Can be a float,
+      a string with units (e.g., '10 deg'), or a variable name.
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid Cone.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('semiangle',type='angle',expression= '45 deg') # Adding a model variable with a name 'semiangle'.
+        block = model.createSolidCone(radius= 'radius', height= '4 in', semiangle ='semiangle' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -62407,13 +70374,28 @@ Utilites to create parts with primitive shapes.
 		Creates a solid cylinder with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid cylinder is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 ft'), or
+      a variable name.
+
+      **kwds: Part attributes like name, location, color...
 
     Returns:
-      Part
+      Part: The created solid cylinder.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('height',type='Length',expression= '4 m') # Adding a model variable with a name 'height'.
+        block = model.createSolidCylinder(radius=2.0, height='height', color="RED", location = (0,0,0) , name = 'Cylinder 1')
+
     
 		"""
 		pass
@@ -62423,13 +70405,22 @@ Utilites to create parts with primitive shapes.
 		Creates a solid ellipsoid centered at the origin.
 
     Args:
-      xRadius (float): The radius in x-axis.
-      yRadius (float): The radius in y-axis.
-      zRadius (float): The radius in z-axis.
-      **kwds: Part attributes like name, position, color...
+      xRadius (float | str): The radius in x-axis. Can be a float, a string with units (e.g., '10 cm'), or a variable name.
+      yRadius (float | str): The radius in y-axis. Can be a float, a string with units (e.g., '10 mm'), or a variable name.
+      zRadius (float | str): The radius in z-axis. Can be a float, a string with units (e.g., '10 in'), or a variable name.
+
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Ellipsoid.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('xRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'xRadius'.
+        ellipsoid = model.createSolidEllipsoid(xRadius= 'majorRadius', yRadius = '12 cm', zRadius =0.12, location = (0,0,0))
+
     
 		"""
 		pass
@@ -62439,15 +70430,31 @@ Utilites to create parts with primitive shapes.
 		Creates a solid prism with the base centered at the origin in the XY 
     plane and the height extending along the z-axis.
 
+    By default, the solid prism is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      radius (float): The radius in the XY-plane.
-      height (float): The height along z-axis.
-      nsides (int): The number of facets. Must be > 2.
-      blendradius (float): The radius used to round the corners.
-      **kwds: Part attributes like name, position, color...
+      radius (float | str): The radius in the XY-plane. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      height (float | str): The height along z-axis. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      nsides (int | str): The number of facets. Must be > 2. Can be an integer, a string without units (e.g., '10'), or a variable name.
+      blendradius (float | str): The radius used to round the corners. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid prism.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        model.variables.add ('numberOfSides',type='Unitless',expression= 6) # Adding a model variable with a name 'numberOfSides'.
+        block = model.createSolidPrism(radius= 'radius', height= '4 ft', nsides ='numberOfSides' ,color="RED", location = (0,0,0) , material = "Plastic (ABS)")
+
     
 		"""
 		pass
@@ -62457,11 +70464,20 @@ Utilites to create parts with primitive shapes.
 		Creates a solid sphere with centre at origin.
 
     Args:
-      radius (float)
-      **kwds: Part attributes like name, location, color...
+      radius (float | str): Radius of the sphere. Can be a float, a string with units (e.g., '10 cm'), or
+      a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Sphere.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('radius',type='Length',expression= '4 m') # Adding a model variable with a name 'radius'.
+        sphere = model.createSolidSphere(radius= 'radius', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
 		pass
@@ -62471,16 +70487,32 @@ Utilites to create parts with primitive shapes.
 		Creates a solid torus centered at the origin, located in the XY-plane 
     with the z-axis sticking through the hole.
 
+    By default, the solid torus is positioned such that its bottom face lies on the XY plane,
+    with the Z-dimension extending upwards. If stacking or precise placement is needed,
+    use the `location` argument to adjust its placement along the Z-axis.
+
     Args:
-      majorRadius (float): The radius from the hole's center to the rim's midline.
-      minorRadius (float): The radius of the cross section of the rim. 
-        Must be less than majorRadius.
-      **kwds: Part attributes like name, position, color...
+      majorRadius (float | str): The radius from the hole's center to the rim's midline. Can be a float, a string with
+      units (e.g., '10 cm'), or a variable name.
+      minorRadius (float | str): The radius of the cross section of the rim and Must be less than majorRadius. Can be
+      a float, a string with units (e.g., '10 cm'), or a variable name.
+      **kwds: Part attributes like name, location, color, material...
 
     Returns:
-      Part
+      Part: The created solid Torus.
+
+    .. code-block:: python
+
+        from hwx import inspire # Import the 'inspire' module from the 'hwx' package
+        model = inspire.getModel() # Retrieve the current model
+        model.variables.add ('majorRadius',type='Length',expression= '24 cm') # Adding a model variable with a name 'majorRadius'.
+        torus = model.createSolidTorus(majorRadius= 'majorRadius', minorRadius = '12 cm', material = "nylon", color = "YELLOW", location = (0,0,0))
+
     
 		"""
+		pass
+
+	def importPart(self,fileName, **kwds):
 		pass
 
 class Problem:
@@ -62581,6 +70613,24 @@ Access the profile properties as a 'struct'
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -62622,6 +70672,18 @@ Access the profile properties as a 'struct'
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -62634,19 +70696,6 @@ Access the profile properties as a 'struct'
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -62756,6 +70805,24 @@ class ProfileSpline:
 		"""
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -62807,6 +70874,18 @@ class ProfileSpline:
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -62819,19 +70898,6 @@ class ProfileSpline:
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -62974,7 +71040,7 @@ Display the minimum distance between 2 parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -63011,7 +71077,7 @@ Display the minimum distance between 2 parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -63022,6 +71088,45 @@ Display the minimum distance between 2 parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -63068,17 +71173,13 @@ Display the minimum distance between 2 parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -63122,7 +71223,7 @@ Display the minimum distance between 2 parts.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -63140,7 +71241,12 @@ Display the minimum distance between 2 parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -63166,17 +71272,16 @@ Display the minimum distance between 2 parts.
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -63202,7 +71307,7 @@ Display the minimum distance between 2 parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -63213,6 +71318,16 @@ Display the minimum distance between 2 parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -63257,6 +71372,9 @@ Display the minimum distance between 2 parts.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -63293,11 +71411,21 @@ Display the minimum distance between 2 parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def showText(self):
 		pass
 	@showText.setter
 	def showText(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
 		pass
 
 	@property
@@ -63312,6 +71440,9 @@ Display the minimum distance between 2 parts.
 		pass
 	@thickness.setter
 	def thickness(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -63347,6 +71478,540 @@ Fetch data and create new stl part/s for given data.
   
 """
 	pass
+
+class RealizationInterface:
+	def __init__(self,manager=None, inspireObject=None, **kwds):
+		pass
+
+	def addListener(self,listener):
+		"""
+		Add a class derived off Listener that gets called when a signal
+       is emitter
+    
+		"""
+		pass
+
+	def addLoads(self,loader):
+		"""
+		Virtual method to create the loads
+		"""
+		pass
+
+	def addObjectReference(self,obj):
+		"""
+		Add the object(s) to the list of things this references
+       and add this to the list of things the object depends on
+    
+		"""
+		pass
+
+	def addPlots(self,plotter):
+		"""
+		Virtual method to create the plots
+		"""
+		pass
+
+	def addRunObject(self,runObjects):
+		"""
+		Virtual method to create the run objects
+		"""
+		pass
+
+	@property
+	def analysisSettings(self):
+		pass
+	@analysisSettings.setter
+	def analysisSettings(self):
+		pass
+
+	def castValue(self,name, value):
+		"""
+		Cast the value of the named property to the correct type
+       This raises an exception if the cast is invalid
+    
+		"""
+		pass
+
+	def createMdl(self):
+		"""
+		Virtual method to create the mdl objects
+		"""
+		pass
+
+	def createMdl_entityRequests(self,entity):
+		pass
+
+	def createMdl_plantRequests(self,poutput):
+		"""
+		Creates requests with POUVAL expressions for all the signals contained
+    in a plant output
+    
+		"""
+		pass
+
+	def delete(self):
+		pass
+
+	def emitCreated(self,**kwds):
+		"""
+		Overloaded to make sure parent signals are emitted before self
+		"""
+		pass
+
+	def emitDeleted(self):
+		"""
+		Overloaded to clear select list when deleting anything
+    
+		"""
+		pass
+
+	def emitModified(self,propertyName, old, new):
+		pass
+
+	def emitObjectsSelected(self,objects):
+		"""
+		Emit the objects as selected
+		"""
+		pass
+
+	def emitSelected(self):
+		"""
+		Make this the select list
+		"""
+		pass
+
+	def emitSignal(self,signal, *params, **kwds):
+		"""
+		Internal method to emit the signals
+		"""
+		pass
+
+	def generateName(self,parent):
+		"""
+		Return unique name
+       This can used when an object is created to auto generate a name
+       It uses the getCreateNamePrefix adding incremental values until
+       the name does not exist in the parent
+    
+		"""
+		pass
+
+	def getAllChildren(self,**kwds):
+		"""
+		Return all desendants of this object that satisfiles the 'isa' method
+		"""
+		pass
+
+	def getAllObjects(self,**kwds):
+		"""
+		Return all desendants of this object that satisfiles the 'isa' method
+		"""
+		pass
+
+	def getAncestor(self,includeSelf=False, **kwds):
+		"""
+		Return self, parent, parents parent, on up the heirarchy until
+       it satisfies the 'isa' method
+    
+		"""
+		pass
+
+	def getAncestors(self,includeSelf=False, wrt=None, **kwds):
+		"""
+		Return list of ancestors
+       wrt removes ancestors at and above passed object
+    
+		"""
+		pass
+
+	def getChild(self,name=None, **kwds):
+		"""
+		Return a child of this object that satisfies the 'isa' method
+		"""
+		pass
+
+	def getChildren(self,**kwds):
+		"""
+		Return a list of this objects children that satisfies the 'isa' method
+		"""
+		pass
+
+	def getClass(self,className):
+		"""
+		return the class for the specified className
+       className can be simple or qualified (with namespace)
+       if the name is simple, we prepend the cls._namespace
+       className can be a class, this simplifies code that supports both
+       classes and names, like the isinstance method
+    
+		"""
+		pass
+
+	def getClassLabel(self):
+		"""
+		Return the 'user' label for the class
+		"""
+		pass
+
+	def getClassName(self,qualified=False):
+		"""
+		Return the name of this class
+       If qualified is True, prepend the class namesapce
+    
+		"""
+		pass
+
+	def getClassProperties(self):
+		"""
+		Return a list of the classes Properties.
+       It includes the __bases__ properties
+    
+		"""
+		pass
+
+	def getCreateNamePrefix(self):
+		"""
+		Return the prefix used by generateName
+		"""
+		pass
+
+	def getCreateRequests(self):
+		pass
+
+	def getDependants(self,recursive=True):
+		"""
+		Return a set of all the objects that reference this
+       Overloaded from HasProperties to add children depenants
+    
+		"""
+		pass
+
+	def getFullName(self,wrt=None):
+		"""
+		Return a dot separated name
+       wrt makes the name relative to an ancestor
+    
+		"""
+		pass
+
+	def getGuiLabel(self,incontext=False):
+		"""
+		Return label to be displayed in the GUI
+       if incontext==False, the label is returned
+       if incontext==True,  return a dash separated hieracical label
+    
+		"""
+		pass
+
+	def getGuiPropertyNames(self):
+		"""
+		Return a list of the property anmes that are exposed in the GUI
+    
+		"""
+		pass
+
+	def getIconName(self):
+		"""
+		Return the filename for the icon that represents the object in the GUI
+    
+		"""
+		pass
+
+	def getInspireObject(self,obj):
+		"""
+		Return the inspireObject that created this
+		"""
+		pass
+
+	def getLabel(self):
+		"""
+		Return the instance label if specified, otherwise return the name
+		"""
+		pass
+
+	def getMdlBody(self,part):
+		pass
+
+	def getMdlObject(self,obj=None, **kwds):
+		"""
+		Return the mdl object created by the specified object
+       obj defaults to self
+       kwds are used to filter objects: name=, type=, filter=...
+    
+		"""
+		pass
+
+	def getMdlObjects(self,obj=None, **kwds):
+		"""
+		Return a list of mdl objects created by the specified object
+       obj defaults to self
+       kwds are used to filter objects: name=, type=, filter=...
+    
+		"""
+		pass
+
+	def getMdlParent(self):
+		pass
+
+	def getObjectFromPath(self,path):
+		"""
+		Return the value specified in the dot separated path
+       This is the string version of the Python command
+    
+		"""
+		pass
+
+	def getParentNameLabel(self,defaultName: str=""):
+		"""
+		Commonize topology when creating the mdl objects
+		"""
+		pass
+
+	def getProperties(self):
+		"""
+		Return an OrderedDict of the properties.
+       It includes the __base__ properties
+    
+		"""
+		pass
+
+	def getProperty(self,name):
+		"""
+		Return the named property or None if the property is not found.
+    
+		"""
+		pass
+
+	def getPropertyNames(self,why=None):
+		"""
+		Return a list the property names return from the getProperties method
+       The why parameter is depricated, use getGuiPropertyNames
+    
+		"""
+		pass
+
+	def getReferences(self,recursive=True):
+		"""
+		Return a set of all the objects this references
+       Overloaded from HasProperties to add children references
+    
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
+		"""
+		pass
+
+	def getRunObjectName(self):
+		"""
+		What is the hierarchy of the run data?
+    
+		"""
+		pass
+
+	def getValue(self,name, type=None):
+		"""
+		Return the named property value.
+       This is syntactic sugar for getattr except that:
+         - the name can be a dot separated name
+         - no exceptions is raised if the name is not valid.
+         - if type is specified and value not that type return None
+    
+		"""
+		pass
+
+	def getValueFromPath(self,path):
+		"""
+		Return the value specified in the dot separated path
+       This is the string version of the Python command
+    
+		"""
+		pass
+
+	def hasInstance(self,instance):
+		"""
+		Has the Instance property been created yet?
+       
+       testing using obj.instance creates the instance
+    
+		"""
+		pass
+
+	def hasProperty(self,name):
+		"""
+		Does this object have a property with the specified name?
+    
+		"""
+		pass
+
+	def initialize(self):
+		"""
+		initialization for derived classes
+		"""
+		pass
+
+	@property
+	def inspireModel(self):
+		pass
+	@inspireModel.setter
+	def inspireModel(self):
+		pass
+
+	def isADescendantOf(self,parent, includeSelf=False):
+		"""
+		Is parent anywhere in the parent tree
+		"""
+		pass
+
+	def isa(self,type=None, filter=None, name=None, wildcard=None, internal=None, **kwds):
+		"""
+		Does this object match the specified settings
+         name     - exact match on the name
+         wildcard - glob like match of name
+         type     - 
+         filter   - return value of the specified method
+    
+		"""
+		pass
+
+	def isaBlackbox(self):
+		"""
+		Should this objects children NOT be displayed in the session tree?
+       This can be used to make a composite object look like a primative
+    
+		"""
+		pass
+
+	def isinstance(self,*types):
+		"""
+		Deprecated.  use istype
+		"""
+		pass
+
+	def isinternal(self,name=None):
+		"""
+		Is this, or the named property flagged as internal
+       internal objects are not visible in the GUI
+    
+		"""
+		pass
+
+	def istype(self,*types):
+		"""
+		Deprecated.  use istype
+		"""
+		pass
+
+	def makeAndSetAllInstances(self,recursive=True):
+		"""
+		Instance properties are not created until referenced
+       When they are created they are chldren of this object
+       Walking the children will miss instances that were not referenced
+       This method ensures all instances have beem created.
+    
+		"""
+		pass
+
+	@property
+	def mdlModel(self):
+		pass
+	@mdlModel.setter
+	def mdlModel(self):
+		pass
+
+	def popMdlSystem(self):
+		pass
+
+	def propertyValueChanged(self,propertyName):
+		"""
+		Called when a property value changes
+    
+		"""
+		pass
+
+	def pushMdlSystem(self,name, **kwds):
+		pass
+
+	def registerClass(self):
+		"""
+		Internal method used to implement derived classes.
+       Let the derived class extend the class registration
+    
+		"""
+		pass
+
+	def removeListener(self,listener):
+		"""
+		Remove a listener
+		"""
+		pass
+
+	def removeObjectReference(self,obj):
+		"""
+		Remove the object(s) from the list of things this references
+       and remove this from the list of things the object depends on
+    
+		"""
+		pass
+
+	def setDefaultValues(self,kwds):
+		"""
+		Internal method to initialize this instance with the default property
+       values. kwds are the arguments pass into the constuctor
+    
+		"""
+		pass
+
+	def setValue(self,name, value):
+		"""
+		Set the named property to the specified value.
+       This is syntactic sugar for setattr except name can be a dot separated
+       name.
+    
+		"""
+		pass
+
+	def setValues(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+       This is called from __init__ to process the kwds
+    
+		"""
+		pass
+
+	def setValuesFromObject(self,obj):
+		"""
+		Called from the initializer to set the property values from the
+       Inspire object properties.
+
+       For example, when Core.Torque.sendToMbd is called, it calls the
+       manager.sforce method and only passes in the type.
+       The manager instantiate the Sforce class
+       The Sforce.__init__ method calls this method which gets the
+       location, direction, magnitude, and distributed property values
+       from the Inspire Torque object
+    
+		"""
+		pass
+
+	def showInSessionTree(self):
+		"""
+		Should this object be displayed in the session tree?
+       Returning False basically hides the object from the user
+       This can be used to implement internal objects
+    
+		"""
+		pass
+
+	def validateValue(self,name, value):
+		"""
+		Return True if the value is valid for the named property
+       This can be used by the GUI to make sure the user entered value is ok
+    
+		"""
+		pass
 
 class Reference:
 	def __init__(self,type=None, **kwds):
@@ -63407,6 +72072,24 @@ Store a Named entity or Feature.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -63448,20 +72131,19 @@ Store a Named entity or Feature.
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def setGuiValue(self,obj, value, component):
@@ -63660,7 +72342,7 @@ Group of parts which don't move relative to each other and are realized to
 	def create(self,**kwds):
 		"""
 		Creates and returns a Rigid Group.
-    
+
     Args:
       **name (str) : Name of the rigid group.
       **parts (list[Part]) : Specify a part or list of parts to create rigid group.
@@ -63674,7 +72356,7 @@ Group of parts which don't move relative to each other and are realized to
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -63721,7 +72403,7 @@ Group of parts which don't move relative to each other and are realized to
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -63732,6 +72414,51 @@ Group of parts which don't move relative to each other and are realized to
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -63768,17 +72495,13 @@ Group of parts which don't move relative to each other and are realized to
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -63789,6 +72512,20 @@ Group of parts which don't move relative to each other and are realized to
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -63830,6 +72567,12 @@ Group of parts which don't move relative to each other and are realized to
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -63844,7 +72587,18 @@ Group of parts which don't move relative to each other and are realized to
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -63884,10 +72638,16 @@ Group of parts which don't move relative to each other and are realized to
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -63920,8 +72680,18 @@ Group of parts which don't move relative to each other and are realized to
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -63966,6 +72736,9 @@ Group of parts which don't move relative to each other and are realized to
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -64000,6 +72773,26 @@ Group of parts which don't move relative to each other and are realized to
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -64063,6 +72856,13 @@ Global rotation velocity and acceleration of the model.
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -64086,7 +72886,7 @@ Global rotation velocity and acceleration of the model.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -64144,7 +72944,7 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -64155,6 +72955,51 @@ Global rotation velocity and acceleration of the model.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -64191,17 +73036,13 @@ Global rotation velocity and acceleration of the model.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -64212,6 +73053,20 @@ Global rotation velocity and acceleration of the model.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -64253,6 +73108,12 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -64267,7 +73128,18 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -64313,10 +73185,16 @@ Global rotation velocity and acceleration of the model.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -64363,8 +73241,18 @@ Global rotation velocity and acceleration of the model.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -64395,6 +73283,9 @@ Global rotation velocity and acceleration of the model.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -64443,10 +73334,37 @@ Global rotation velocity and acceleration of the model.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -64554,6 +73472,12 @@ class RotationalDampingTriple:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -64592,30 +73516,25 @@ class RotationalDampingTriple:
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
 		pass
 
-	def setGuiValue(self,obj, value, component):
-		"""
-		Called by browser to set value.
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
 
-    Must be overloaded to handle the component when getGuiComponentNames
-    returns values.
-    
-		"""
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -64695,6 +73614,12 @@ class RotationalStiffnessTriple:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -64733,30 +73658,25 @@ class RotationalStiffnessTriple:
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
 		pass
 
-	def setGuiValue(self,obj, value, component):
-		"""
-		Called by browser to set value.
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
 
-    Must be overloaded to handle the component when getGuiComponentNames
-    returns values.
-    
-		"""
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -64850,6 +73770,24 @@ Access the profile properties as a 'struct'
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -64891,6 +73829,18 @@ Access the profile properties as a 'struct'
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -64903,19 +73853,6 @@ Access the profile properties as a 'struct'
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -65106,7 +74043,7 @@ Creates and view a 2D section planes from the model.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -65157,7 +74094,7 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -65168,6 +74105,51 @@ Creates and view a 2D section planes from the model.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -65204,17 +74186,13 @@ Creates and view a 2D section planes from the model.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -65225,6 +74203,20 @@ Creates and view a 2D section planes from the model.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -65266,6 +74258,12 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -65280,7 +74278,18 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -65306,10 +74315,16 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -65335,8 +74350,18 @@ Creates and view a 2D section planes from the model.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -65360,6 +74385,9 @@ Creates and view a 2D section planes from the model.
 		pass
 	@parent.setter
 	def parent(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -65398,11 +74426,31 @@ Creates and view a 2D section planes from the model.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	@property
 	def thickness(self):
 		pass
 	@thickness.setter
 	def thickness(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -65711,7 +74759,7 @@ class Sensor:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -65745,6 +74793,12 @@ class Sensor:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -66294,7 +75348,7 @@ class Sforce:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -66328,6 +75382,12 @@ class Sforce:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -66558,7 +75618,7 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -66595,7 +75655,7 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -66606,6 +75666,51 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -66642,17 +75747,13 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -66663,6 +75764,20 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -66711,6 +75826,12 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -66725,7 +75846,18 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -66751,10 +75883,16 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -66773,8 +75911,18 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -66798,6 +75946,9 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
 		pass
 	@pointDirections.setter
 	def pointDirections(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -66834,6 +75985,26 @@ Define which directions PolyNURBS cage points can move during PolyNURBS optimiza
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -66880,7 +76051,7 @@ Run structural analysis using SimSolid
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -66922,7 +76093,7 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -66933,6 +76104,51 @@ Run structural analysis using SimSolid
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -66969,17 +76185,13 @@ Run structural analysis using SimSolid
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -66990,6 +76202,20 @@ Run structural analysis using SimSolid
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -67031,6 +76257,12 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReactionForces(self,loadCases=None, parts=None):
 		"""
 		Returns the reaction forces for simsolid analysis.
@@ -67059,7 +76291,18 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -67102,10 +76345,16 @@ Run structural analysis using SimSolid
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -67124,8 +76373,18 @@ Run structural analysis using SimSolid
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -67165,6 +76424,9 @@ Run structural analysis using SimSolid
 	def progress(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -67201,6 +76463,9 @@ Run structural analysis using SimSolid
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -67213,6 +76478,23 @@ Run structural analysis using SimSolid
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -67551,10 +76833,10 @@ Inspire version of the core Sketch class. Redefines the initialization to
        by center Point, and Line for major axis and Line for minor axis.
 
     Args:
-      center (Point | tuple[float, float]): The center of the ellipse.
+      center (Point | tuple[float, float] | Point): The center of the ellipse.
       verticalAxis (Line | tuple[float, float]): For a Line, the majorAxis,
         otherwise the vertical axis of the ellipse.
-      majorRadius (Line | float):  For a Line, the minor axis, otherwie the
+      majorRadius (Line | float):  For a Line, the minor axis, otherwise the
         major radius of the ellipse.
       minorRadius (float): The minor radius of the ellipse.
 
@@ -67578,13 +76860,15 @@ Inspire version of the core Sketch class. Redefines the initialization to
 		"""
 		pass
 
-	def addLineSegment(self,point1, point2):
+	def addLineSegment(self,point1, point2, type=None):
 		"""
 		Adds a line segment defined by two endpoints.
 
     Args:
       point1 (Point | tuple[float, float]): The endpoint of the line.
       point2 (Point | tuple[float, float]): The endpoint of the line.
+      type (str): The type of line segment. Can be "END_POINT_LINE" or
+        "MIDPOINT_LINE".
 
     Returns:
       Line: The new line segment.
@@ -67740,6 +77024,27 @@ Inspire version of the core Sketch class. Redefines the initialization to
 
     Returns:
       CircularPattern: CircularPattern Object.
+    
+		"""
+		pass
+
+	def convertGlobalToLocalPoint(self,point):
+		"""
+		
+    Convert a 3D global point to a 2D local point in the sketch plane.
+
+    This function transforms a given 3D point in global coordinates to its
+    corresponding 2D point in the local sketch plane, based on the current
+    workplane of the sketch.
+
+    Args:
+        point (tuple[float, float, float]): The 3D point in global coordinates.
+
+    Returns:
+        tuple[float, float]: The 2D point (x, y) in the local sketch plane.
+
+    Raises:
+        AttributeError: If the workplane is not defined for the sketch.
     
 		"""
 		pass
@@ -68401,7 +77706,7 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -68412,6 +77717,51 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -68448,17 +77798,13 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -68469,6 +77815,20 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -68498,13 +77858,13 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		Returns a list of features based on specified filters.
 
     Args:
-      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the 
+      type ((FeaturePoint, FeatureArea, FeatureCylindrical..etc)): Filters the
         features based on type.
       rep (str): Feature representation. See part.representations for options
       **kwds : Additional attributes to consider while filtering.
 
     Returns:
-      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of 
+      list [FeaturePoint, FeatureArea, FeatureCylindrical..etc)]: List of
         features that satisfies all the filter criteria.
     
 		"""
@@ -68533,6 +77893,12 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -68547,7 +77913,18 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -68594,10 +77971,16 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 	def ip(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -68647,7 +78030,7 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -68672,6 +78055,16 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -68722,6 +78115,9 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -68756,6 +78152,9 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
 		pass
 
 	def simplifyHoles(self,entity, minSize="0", maxSize=None):
@@ -68821,6 +78220,20 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	@property
 	def symmetryConstraints(self):
 		pass
 	@symmetryConstraints.setter
@@ -68832,6 +78245,9 @@ A sketch of a part on a plane. Can be push or pulled into a 3d part
 		pass
 	@temperatures.setter
 	def temperatures(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -68958,7 +78374,7 @@ class Sphere:
 class Spider:
 	def __init__(self,*features, **kwds):
 		"""
-Creates bonding connection between two or more parts by features separated 
+Creates bonding connection between two or more parts by features separated
   in space.
   
 """
@@ -68998,7 +78414,7 @@ Creates bonding connection between two or more parts by features separated
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -69035,7 +78451,7 @@ Creates bonding connection between two or more parts by features separated
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -69046,6 +78462,51 @@ Creates bonding connection between two or more parts by features separated
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -69082,17 +78543,13 @@ Creates bonding connection between two or more parts by features separated
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -69103,6 +78560,20 @@ Creates bonding connection between two or more parts by features separated
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -69144,6 +78615,12 @@ Creates bonding connection between two or more parts by features separated
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -69158,7 +78635,18 @@ Creates bonding connection between two or more parts by features separated
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -69184,10 +78672,16 @@ Creates bonding connection between two or more parts by features separated
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -69213,8 +78707,18 @@ Creates bonding connection between two or more parts by features separated
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -69250,7 +78754,7 @@ Creates bonding connection between two or more parts by features separated
 	def removeSecondaryFeature(self,feature):
 		"""
 		Removes secondary spider connection with supplied features.
-    
+
     Args:
       feature (Feature) : Specify feature to remove from secondary features.
     
@@ -69262,6 +78766,9 @@ Creates bonding connection between two or more parts by features separated
 		pass
 	@secondaryFeatures.setter
 	def secondaryFeatures(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -69298,6 +78805,26 @@ Creates bonding connection between two or more parts by features separated
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -69376,6 +78903,24 @@ A ListOfList of Doubles containing spline points (xs,ys)
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		pass
 
@@ -69406,6 +78951,18 @@ A ListOfList of Doubles containing spline points (xs,ys)
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -69418,19 +78975,6 @@ A ListOfList of Doubles containing spline points (xs,ys)
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -69501,7 +79045,7 @@ Spot welds two or more parts together.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -69538,7 +79082,7 @@ Spot welds two or more parts together.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -69549,6 +79093,51 @@ Spot welds two or more parts together.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -69585,17 +79174,13 @@ Spot welds two or more parts together.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -69606,6 +79191,20 @@ Spot welds two or more parts together.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -69647,6 +79246,12 @@ Spot welds two or more parts together.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -69661,7 +79266,18 @@ Spot welds two or more parts together.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -69687,10 +79303,16 @@ Spot welds two or more parts together.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -69723,8 +79345,18 @@ Spot welds two or more parts together.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -69755,6 +79387,9 @@ Spot welds two or more parts together.
 		pass
 	@points.setter
 	def points(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -69791,6 +79426,26 @@ Spot welds two or more parts together.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -69908,6 +79563,24 @@ Store string value
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -69949,6 +79622,18 @@ Store string value
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -69961,19 +79646,6 @@ Store string value
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -70008,17 +79680,17 @@ class SymmetryConstraint:
 		"""
 Symmetry and Cyclic Shape Controls.
 
-  Symmetry and cyclic repetition are used to create optimized shapes with 
-  repeating patterns and/or nearly symmetric results. Both are valid for 
-  optimization but not analysis. There are two kinds of cyclic shapes: those with 
-  symmetric sectors and those with asymmetric sectors. 
+  Symmetry and cyclic repetition are used to create optimized shapes with
+  repeating patterns and/or nearly symmetric results. Both are valid for
+  optimization but not analysis. There are two kinds of cyclic shapes: those with
+  symmetric sectors and those with asymmetric sectors.
 
   You can only apply one type of symmetry constraint to a design space.
 
     - Choose SYMMETRIC to apply symmetry planes to a design space.
     - Choose CYCLIC_SYMMETRIC to apply cyclic symmetric repetition to a design space.
     - Choose CYCLIC to apply cyclic repetition to a design space.
-    
+
   
 """
 		pass
@@ -70035,6 +79707,13 @@ Symmetry and Cyclic Shape Controls.
 		pass
 	@activePlanes.setter
 	def activePlanes(self):
+		pass
+
+	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
 		pass
 
 	@property
@@ -70061,7 +79740,7 @@ Symmetry and Cyclic Shape Controls.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -70119,7 +79798,7 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -70130,6 +79809,51 @@ Symmetry and Cyclic Shape Controls.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -70166,17 +79890,13 @@ Symmetry and Cyclic Shape Controls.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -70187,6 +79907,20 @@ Symmetry and Cyclic Shape Controls.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -70228,6 +79962,12 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -70242,7 +79982,18 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -70288,10 +80039,16 @@ Symmetry and Cyclic Shape Controls.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -70338,8 +80095,18 @@ Symmetry and Cyclic Shape Controls.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -70377,6 +80144,9 @@ Symmetry and Cyclic Shape Controls.
 		pass
 	@sectors.setter
 	def sectors(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setPlaneNormal(self,planeType, normal):
@@ -70437,6 +80207,33 @@ Symmetry and Cyclic Shape Controls.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	@property
 	def type(self):
 		pass
@@ -70446,8 +80243,8 @@ Symmetry and Cyclic Shape Controls.
 
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -70497,7 +80294,7 @@ Information about an optimization
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -70527,7 +80324,7 @@ Information about an optimization
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -70538,6 +80335,51 @@ Information about an optimization
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -70574,17 +80416,13 @@ Information about an optimization
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -70595,6 +80433,20 @@ Information about an optimization
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -70636,6 +80488,12 @@ Information about an optimization
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -70650,7 +80508,18 @@ Information about an optimization
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -70683,10 +80552,16 @@ Information about an optimization
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -70705,8 +80580,18 @@ Information about an optimization
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -70730,6 +80615,9 @@ Information about an optimization
 		pass
 	@progress.setter
 	def progress(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -70768,6 +80656,9 @@ Information about an optimization
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -70780,6 +80671,23 @@ Information about an optimization
 		pass
 	@status.setter
 	def status(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -70836,7 +80744,7 @@ System defines an orthonormal, right-handed coordinate system.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -70866,7 +80774,7 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -70877,6 +80785,51 @@ System defines an orthonormal, right-handed coordinate system.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -70913,17 +80866,13 @@ System defines an orthonormal, right-handed coordinate system.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -70934,6 +80883,20 @@ System defines an orthonormal, right-handed coordinate system.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -70975,6 +80938,12 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -70989,7 +80958,18 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -71015,10 +80995,16 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -71044,8 +81030,18 @@ System defines an orthonormal, right-handed coordinate system.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -71106,6 +81102,9 @@ System defines an orthonormal, right-handed coordinate system.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -71140,6 +81139,26 @@ System defines an orthonormal, right-handed coordinate system.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -71194,6 +81213,13 @@ Creates temperature load on supplied parts.
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -71217,7 +81243,7 @@ Creates temperature load on supplied parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -71275,7 +81301,7 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -71286,6 +81312,51 @@ Creates temperature load on supplied parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -71322,17 +81393,13 @@ Creates temperature load on supplied parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -71343,6 +81410,20 @@ Creates temperature load on supplied parts.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -71384,6 +81465,12 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -71398,7 +81485,18 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -71444,10 +81542,16 @@ Creates temperature load on supplied parts.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -71494,8 +81598,18 @@ Creates temperature load on supplied parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -71526,6 +81640,9 @@ Creates temperature load on supplied parts.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -71574,10 +81691,37 @@ Creates temperature load on supplied parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
+		pass
+
 	def updatePosition(self,m44):
 		"""
-		Sets the design space positions of all the inspire parts to their 
-    position in the current analysis frame.    
+		Sets the design space positions of all the inspire parts to their
+    position in the current analysis frame.
     
 		"""
 		pass
@@ -71626,7 +81770,7 @@ Concurrently run a topography and gauge optimization.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -71668,7 +81812,7 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -71679,6 +81823,51 @@ Concurrently run a topography and gauge optimization.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -71715,17 +81904,13 @@ Concurrently run a topography and gauge optimization.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -71736,6 +81921,20 @@ Concurrently run a topography and gauge optimization.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -71777,6 +81976,12 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -71791,7 +81996,18 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -71834,10 +82050,16 @@ Concurrently run a topography and gauge optimization.
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -71856,8 +82078,18 @@ Concurrently run a topography and gauge optimization.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -71900,6 +82132,9 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -71936,6 +82171,9 @@ Concurrently run a topography and gauge optimization.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -71950,10 +82188,27 @@ Concurrently run a topography and gauge optimization.
 	def status(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def switchToOptimizedParts(self):
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -72011,7 +82266,7 @@ An advanced form of shape optimization that generates beads or swages on a
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -72053,7 +82308,7 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -72064,6 +82319,51 @@ An advanced form of shape optimization that generates beads or swages on a
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -72100,17 +82400,13 @@ An advanced form of shape optimization that generates beads or swages on a
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -72121,6 +82417,20 @@ An advanced form of shape optimization that generates beads or swages on a
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -72162,6 +82472,12 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -72176,7 +82492,18 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -72219,10 +82546,16 @@ An advanced form of shape optimization that generates beads or swages on a
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -72241,8 +82574,18 @@ An advanced form of shape optimization that generates beads or swages on a
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -72285,6 +82628,9 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -72321,6 +82667,9 @@ An advanced form of shape optimization that generates beads or swages on a
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -72335,10 +82684,27 @@ An advanced form of shape optimization that generates beads or swages on a
 	def status(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def switchToOptimizedParts(self):
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -72394,7 +82760,7 @@ Carve material away from design spaces, creating the lightest structure
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -72436,7 +82802,7 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -72447,6 +82813,51 @@ Carve material away from design spaces, creating the lightest structure
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -72483,17 +82894,13 @@ Carve material away from design spaces, creating the lightest structure
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -72504,6 +82911,20 @@ Carve material away from design spaces, creating the lightest structure
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -72545,6 +82966,12 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -72559,7 +82986,18 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -72602,10 +83040,16 @@ Carve material away from design spaces, creating the lightest structure
 	def imported(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -72624,8 +83068,18 @@ Carve material away from design spaces, creating the lightest structure
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -72668,6 +83122,9 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -72704,6 +83161,9 @@ Carve material away from design spaces, creating the lightest structure
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverType(self):
 		pass
@@ -72718,10 +83178,27 @@ Carve material away from design spaces, creating the lightest structure
 	def status(self):
 		pass
 
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
 	def switchToOptimizedParts(self):
 		"""
 		Change part alternatives to this result.
 		"""
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -72777,6 +83254,13 @@ A torque is a twisting force.
 		pass
 
 	@property
+	def bearing(self):
+		pass
+	@bearing.setter
+	def bearing(self):
+		pass
+
+	@property
 	def color(self):
 		pass
 	@color.setter
@@ -72800,7 +83284,7 @@ A torque is a twisting force.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -72858,7 +83342,7 @@ A torque is a twisting force.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -72869,6 +83353,51 @@ A torque is a twisting force.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -72905,17 +83434,13 @@ A torque is a twisting force.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -72926,6 +83451,20 @@ A torque is a twisting force.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -72967,6 +83506,12 @@ A torque is a twisting force.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -72981,7 +83526,18 @@ A torque is a twisting force.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -73027,10 +83583,16 @@ A torque is a twisting force.
 	def inahole(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -73084,8 +83646,18 @@ A torque is a twisting force.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -73116,6 +83688,9 @@ A torque is a twisting force.
 		pass
 	@parts.setter
 	def parts(self):
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setSystem(self,system):
@@ -73162,6 +83737,33 @@ A torque is a twisting force.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
+		pass
+
+	@property
+	def traction(self):
+		pass
+	@traction.setter
+	def traction(self):
 		pass
 
 	def updatePosition(self,m44):
@@ -73329,7 +83931,7 @@ Creates a Torsion Spring.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -73444,7 +84046,7 @@ Creates a Torsion Spring.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -73455,6 +84057,45 @@ Creates a Torsion Spring.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -73491,17 +84132,13 @@ Creates a Torsion Spring.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -73535,7 +84172,7 @@ Creates a Torsion Spring.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -73575,7 +84212,12 @@ Creates a Torsion Spring.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -73616,13 +84258,6 @@ Creates a Torsion Spring.
 		pass
 
 	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
-		pass
-
-	@property
 	def inputType(self):
 		pass
 	@inputType.setter
@@ -73643,6 +84278,12 @@ Creates a Torsion Spring.
 	def installedAngle(self):
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isValidConnection(self,connection):
 		"""
 		Determines if the torsion spring can be created from the Joint.
@@ -73659,7 +84300,7 @@ Creates a Torsion Spring.
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -73741,7 +84382,7 @@ Creates a Torsion Spring.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -73759,6 +84400,16 @@ Creates a Torsion Spring.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -73859,6 +84510,9 @@ Creates a Torsion Spring.
 	def rotation(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -73895,11 +84549,21 @@ Creates a Torsion Spring.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	@property
 	def solverVariables(self):
 		pass
 	@solverVariables.setter
 	def solverVariables(self):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
 		pass
 
 	@property
@@ -73914,6 +84578,9 @@ Creates a Torsion Spring.
 		pass
 	@timeOffset.setter
 	def timeOffset(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -73994,7 +84661,7 @@ A point in the model that traces out a path during Motion Runs
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -74031,7 +84698,7 @@ A point in the model that traces out a path during Motion Runs
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -74042,6 +84709,45 @@ A point in the model that traces out a path during Motion Runs
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -74078,17 +84784,13 @@ A point in the model that traces out a path during Motion Runs
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -74138,7 +84840,7 @@ A point in the model that traces out a path during Motion Runs
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -74165,7 +84867,12 @@ A point in the model that traces out a path during Motion Runs
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -74194,17 +84901,16 @@ A point in the model that traces out a path during Motion Runs
 	def hideTraces(self):
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -74230,8 +84936,18 @@ A point in the model that traces out a path during Motion Runs
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -74292,6 +85008,9 @@ A point in the model that traces out a path during Motion Runs
 		"""
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -74328,12 +85047,22 @@ A point in the model that traces out a path during Motion Runs
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	def showTraces(self,analysis=True, frames=(0, None), ignoreTrails=True, **kwds):
 		"""
 		Show trace lines for all Tracers in the model. Limit what frames are 
        drawn by passing in (startFrame, endFrame).
     
 		"""
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
 		pass
 
 	@property
@@ -74348,6 +85077,9 @@ A point in the model that traces out a path during Motion Runs
 		pass
 	@thickness.setter
 	def thickness(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -74463,6 +85195,12 @@ class TranslationalDampingTriple:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -74501,30 +85239,25 @@ class TranslationalDampingTriple:
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
 		pass
 
-	def setGuiValue(self,obj, value, component):
-		"""
-		Called by browser to set value.
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
 
-    Must be overloaded to handle the component when getGuiComponentNames
-    returns values.
-    
-		"""
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -74830,7 +85563,7 @@ class TranslationalIc:
 		"""
 		pass
 
-	def getParentNameLabel(self,name=None, label=None):
+	def getParentNameLabel(self,defaultName: str=""):
 		"""
 		Commonize topology when creating the mdl objects
 		"""
@@ -74864,6 +85597,12 @@ class TranslationalIc:
 		Return a set of all the objects this references
        Overloaded from HasProperties to add children references
     
+		"""
+		pass
+
+	def getRunDataPrefix(self):
+		"""
+		Prefix added to run data component names specified in addLoads.
 		"""
 		pass
 
@@ -75096,7 +85835,7 @@ Defines translational velocity for one or more parts.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -75133,7 +85872,7 @@ Defines translational velocity for one or more parts.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -75144,6 +85883,45 @@ Defines translational velocity for one or more parts.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -75180,17 +85958,13 @@ Defines translational velocity for one or more parts.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -75234,7 +86008,7 @@ Defines translational velocity for one or more parts.
 
 	def getIcon(self):
 		"""
-		Specifies the icon used to display in Model Browser, Object Tables etc
+		Overload to specify different icons depending on the object.
 		"""
 		pass
 
@@ -75252,7 +86026,12 @@ Defines translational velocity for one or more parts.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -75284,17 +86063,16 @@ Defines translational velocity for one or more parts.
 		"""
 		pass
 
-	@property
-	def inbrowser(self):
-		pass
-	@inbrowser.setter
-	def inbrowser(self):
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
 		pass
 
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -75327,7 +86105,7 @@ Defines translational velocity for one or more parts.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
     
 		"""
@@ -75338,6 +86116,16 @@ Defines translational velocity for one or more parts.
 		pass
 	@movable.setter
 	def movable(self):
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
+    
+		"""
 		pass
 
 	@property
@@ -75396,6 +86184,9 @@ Defines translational velocity for one or more parts.
 	def rigidGroups(self):
 		pass
 
+	def setBrowserName(self,name):
+		pass
+
 	def setValue(self,attr, value):
 		"""
 		Alias for setattr (attr, value)
@@ -75438,6 +86229,9 @@ Defines translational velocity for one or more parts.
 		"""
 		pass
 
+	def showInModelBrowser(self,show):
+		pass
+
 	def snapToCG(self):
 		"""
 		Snaps the initial condition object to first part's center of gravity.
@@ -75445,10 +86239,20 @@ Defines translational velocity for one or more parts.
 		pass
 
 	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
 	def suppressible(self):
 		pass
 	@suppressible.setter
 	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -75547,6 +86351,12 @@ class TranslationalStiffnessTriple:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -75585,30 +86395,25 @@ class TranslationalStiffnessTriple:
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
+	def populateGuiComponentValue(self,obj, prop, component=None):
 		pass
 
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
 		pass
 
-	def setGuiValue(self,obj, value, component):
-		"""
-		Called by browser to set value.
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
 
-    Must be overloaded to handle the component when getGuiComponentNames
-    returns values.
-    
-		"""
+	def setGuiValue(self,obj, value, component):
 		pass
 
 	def setInCoreValue(self,obj, value):
@@ -75694,6 +86499,24 @@ Store 3 float values.
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -75732,18 +86555,30 @@ Store 3 float values.
 		"""
 		pass
 
-	def populateGuiValue(self,obj, prop, component=None):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
+		"""
+		Override to customize, prop.value, displayValue, allowedValues.
+    
+    The prop.value type determines which editor widget used:
+    - bool -> checkbox
+    - str  -> line edit
+    - hwtypes.Color -> color picker
+    
+    Setting prop.allowedValues yields a ComboBox.
+    
+    prop.displayValue is a str shown when the editor loses focus.
     
 		"""
 		pass
@@ -75797,18 +86632,18 @@ Utility class used to convert values from one set of units to another.
 		"""
 		pass
 
-	def convert(self,value, units, formula, toBase):
+	def convert(self,value, units, unit, toBase):
 		"""
 		Converts the specified value to/from base units.
 
     Args:
-      value (Union[float, list[float], str, list[str]]): The value to convert.
-      units (str): The units to convert.
-      formula (str): The string conversion expression: m, mm, in, etc.
-      toBase (bool): Determines whether to convert to base units or not.
+      value (float | list[float]): The value to convert.
+      units (str): length, mass, force, ...
+      unit (str): m, kg, N, ... None to use this system's user unit.
+      toBase (bool): Determines whether to convert to or from base units.
 
     Raises:
-      ValueError: If units is invalid.
+      ValueError: If unit is invalid.
 
     Returns:
       float: The converted value.
@@ -76127,21 +86962,6 @@ Manages the various unit systems used throughout the application.
 	def solver(self):
 		pass
 
-	def usingUnits(self,system):
-		"""
-		Context to specify the current units.
-    
-    Args:
-      system (str) : System can be
-
-        - base : always SI units, internal units of the data model, this is default.
-        - gui : user specified gui units and angle=deg, ang_velocity=rpm.
-        - solver : "Model units" from preferences and angle=rad.
-        - any unit system: "MKS", "MMKS", "IPS, "MPA", ...
-    
-		"""
-		pass
-
 class UnitsUnion:
 	def __init__(self,getUnits, *args, **kwds):
 		"""
@@ -76228,6 +87048,24 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj):
 		"""
 		Returns the formatted value, as shown in the Property Editor.
@@ -76276,6 +87114,18 @@ Group of mutually exclusive attributes where only one is active at at time.
 		"""
 		pass
 
+	def populateGuiProperty(self,obj, prop, component):
+		"""
+		Display attribute in browsers like the Property Editor and ObjectTables.
+    
+    Args:
+      obj (GeneralObject)
+      prop (hwt::Property): Property Editor interface.
+      component (str | None): Name from getGuiComponentNames.
+    
+		"""
+		pass
+
 	def populateGuiValue(self,obj, prop):
 		"""
 		Override to customize, prop.value, displayValue, allowedValues.
@@ -76288,19 +87138,6 @@ Group of mutually exclusive attributes where only one is active at at time.
     Setting prop.allowedValues yields a ComboBox.
     
     prop.displayValue is a str shown when the editor loses focus.
-    
-		"""
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
-		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
-    
-    Args:
-      obj (GeneralObject)
-      prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
     
 		"""
 		pass
@@ -76649,6 +87486,24 @@ class Variable:
 	def getDisplayName(self,obj):
 		pass
 
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		"""
+		To edit sub-components of the attribute value in the Property Editor.
+
+    E.G Location attribute is shown as:
+      Location X
+      Location Y
+      Location Z
+
+    Returns:
+      list[str] | None
+    
+		"""
+		pass
+
 	def getGuiValue(self,obj, format="modeling"):
 		pass
 
@@ -76676,20 +87531,19 @@ class Variable:
 	def loadValue(self,obj, value):
 		pass
 
-	def populateGuiValue(self,obj, prop):
-		pass
-
-	def populatePropertyEditor(self,obj, prop, **kwds):
+	def populateGuiProperty(self,obj, prop, component):
 		"""
-		Customize how attribute appears in Property Editor and ObjectTables.
+		Display attribute in browsers like the Property Editor and ObjectTables.
     
     Args:
       obj (GeneralObject)
       prop (hwt::Property): Property Editor interface.
-      component (int): 0, 1, 2
-        Only passed when showing Triples 1 value at a time.
+      component (str | None): Name from getGuiComponentNames.
     
 		"""
+		pass
+
+	def populateGuiValue(self,obj, prop):
 		pass
 
 	def setGuiValue(self,obj, value, component):
@@ -76733,13 +87587,13 @@ Group of Welds.
 
 	def add(self,welds):
 		"""
-		Adds weld or welds to the weld group. 
+		Adds weld or welds to the weld group.
     If any weld or welds is in another WeldGroup it gets moved to this WeldGroup.
     If any weld or welds is already in the WeldGroup nothing happens for it.
 
     Args:
         welds (Union[list[SpotWeld], SpotWeld]): The welds or weld to add.
-    
+
     Raisess:
         ValueError: In case any of the passed welds is not of type SpotWeld.
     
@@ -76749,7 +87603,7 @@ Group of Welds.
 	def destroy(self):
 		"""
 		Delete the object removing it from the model.
-    
+
     The object may come back due to an undo/redo.
     
 		"""
@@ -76779,7 +87633,7 @@ Group of Welds.
 		"""
 		pass
 
-	def getAttributes(self,type=None, **kwds):
+	def getAttributes(self,**kwds):
 		"""
 		Return an dict of the attributes.
     Pass type and kwds to filter by type and Attribute properties
@@ -76790,6 +87644,51 @@ Group of Welds.
 
     Returns:
       dict: Return an OrderedDict of the attributes
+    
+		"""
+		pass
+
+	def getBrowserFolder(self,flatView):
+		"""
+		Group objects by folder under getBrowserParent().
+
+    Use None for no folder.
+
+    Always specify a folder if flatView.
+    
+		"""
+		pass
+
+	def getBrowserListenTo(self):
+		"""
+		Specify objects that gui attribute values depend on.
+
+    To make sure the Property Editor refreshes when they are modified.
+    
+		"""
+		pass
+
+	def getBrowserName(self):
+		"""
+		Name shown in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameAddon(self):
+		"""
+		Specifies extra information about the object appended to its name in the Model Browser.
+		"""
+		pass
+
+	def getBrowserNameWithAddon(self):
+		"""
+		Name shown in the Model Browser with addon.
+		"""
+		pass
+
+	def getBrowserParent(self):
+		"""
+		Show hierarchy in Model Browser.
     
 		"""
 		pass
@@ -76826,17 +87725,13 @@ Group of Welds.
 
 	def getClass(self,className):
 		"""
-		Returns the class of the object.
-    
-    It can be simple or qualified (with namespace). If the name is simple, we 
-    prepend the cls.namespace.
+		Get class by name.
 
     Args:
-      className (Union[Part, Occurrence, Named..]) : The class name. 
-     
-    Returns:
-      Union[Part, Occurrence, Named..] : The class for the specified className. 
+      className (str | tuple)
 
+    Returns:
+      type | tuple[type]
     
 		"""
 		pass
@@ -76847,6 +87742,20 @@ Group of Welds.
 
     Args:
       name (str): Name of the attribute
+    
+		"""
+		pass
+
+	def getContextMenu(self):
+		"""
+		Returns list of MenuItem objects to populate the context menu.
+
+      Also supports shorthand:
+
+          - 'action name'
+          - (text, callable),
+          - (text, [sub menu])
+          - '-' for section/separator line
     
 		"""
 		pass
@@ -76888,6 +87797,12 @@ Group of Welds.
 		"""
 		pass
 
+	def getIcon(self):
+		"""
+		Overload to specify different icons depending on the object.
+		"""
+		pass
+
 	def getReferences(self,recursive=False, **kwds):
 		"""
 		Get objects this object references through a Reference attribute.
@@ -76902,7 +87817,18 @@ Group of Welds.
 		"""
 		pass
 
-	def getSerializedAttributeValues(self):
+	def getSecondaryIcon(self):
+		"""
+		Show a second icon next to primary icon in Model Browser tree.
+    Commonly used to show warning icon widgetTaskWarning-12.png.
+    
+		"""
+		pass
+
+	def getToolTip(self):
+		"""
+		Specifies the tooltip when object is hovered
+		"""
 		pass
 
 	def getValue(self,attr):
@@ -76928,10 +87854,16 @@ Group of Welds.
 		"""
 		pass
 
+	def isBrowserNameModified(self,attr):
+		"""
+		Do we need to refresh the name in the Model Browser due to an onObjectModified?
+		"""
+		pass
+
 	def isa(self,type=None, filter=None, name=None, wildcard=None, **kwds):
 		"""
 		Determines if the object matches the specified settings or not.
-    
+
     Args:
       type (Union[Part, Assembly, Contact..]): The type of the object.
       filter (method): Return value of specified callback method.
@@ -76950,8 +87882,18 @@ Group of Welds.
 		Forces all objects to return the original model positions instead of the
     current analysis positions.
 
-    Useful when defining draw methods on GeneralObjects where behaviour is 
+    Useful when defining draw methods on GeneralObjects where behaviour is
     different while animating.
+    
+		"""
+		pass
+
+	def move(self,delta):
+		"""
+		Called when object moved by move tool.
+
+    Args:
+      delta (math.Matrix44)
     
 		"""
 		pass
@@ -76977,11 +87919,14 @@ Group of Welds.
 
     Args:
         welds (Union[list[SpotWeld], SpotWeld]): The welds or weld to remove.
-    
+
     Raises:
         ValueError: In case any of the passed welds is not of type SpotWeld.
     
 		"""
+		pass
+
+	def setBrowserName(self,name):
 		pass
 
 	def setValue(self,attr, value):
@@ -77018,6 +87963,26 @@ Group of Welds.
       varName (str): The name of the variable to associate the attribute with.
     
 		"""
+		pass
+
+	def showInModelBrowser(self,show):
+		pass
+
+	@property
+	def suppress(self):
+		pass
+	@suppress.setter
+	def suppress(self):
+		pass
+
+	@property
+	def suppressible(self):
+		pass
+	@suppressible.setter
+	def suppressible(self):
+		pass
+
+	def toDict(self):
 		pass
 
 	@property
@@ -77060,10 +88025,36 @@ A mathematical represenation of a Vector in 3D space.
 """
 	pass
 
+class XYZInPropertyEditor:
+	def __init__(self):
+		pass
+
+	def getGuiComponentDisplayName(self,obj, component):
+		pass
+
+	def getGuiComponentNames(self,obj):
+		pass
+
+	def populateGuiComponentValue(self,obj, prop, component=None):
+		pass
+
+	def populateGuiValue(self,obj, prop, component=None):
+		pass
+
+	def setGuiValue(self,obj, value, component):
+		pass
+
 class abc:
 	"""
 Abstract Base Classes (ABCs) according to PEP 3119.
 """
+	pass
+
+class cached_classproperty:
+	def __init__(self,fget):
+		pass
+
+def canConvertToAnalyst(obj):
 	pass
 
 class cf:
@@ -77072,7 +88063,7 @@ class cf:
 def classify(obj):
 	"""
 Convert hwfdmcore proxy objects to python API equivalent
-  
+
   Args:
     obj (SWIG object) : SWIG object to convert into python native one.
 
@@ -77087,11 +88078,11 @@ class classproperty:
 	def __init__(self,fget=None, fset=None, fdel=None, doc=None):
 		"""
 Like classmethod but for properties.
-  
-  Used to give cls.attr a docstring and run a function.
-  
-  Use inspect.getattr_static to get the descriptor.
-  
+
+    Used to give cls.attr a docstring and run a function.
+
+    Use inspect.getattr_static to get the descriptor.
+    
 """
 		pass
 
@@ -77162,6 +88153,9 @@ def contextmanager(func):
 """
 	pass
 
+def convertToAnalyst(objects=None):
+	pass
+
 def convertToTriangleMesh(parts):
 	"""
 Convert Parts to triangle mesh.
@@ -77176,6 +88170,9 @@ class core:
 	pass
 
 def createAnalysis(**kwds):
+	pass
+
+def defaultName_(parent, prefix):
 	pass
 
 class defaultdict:
@@ -77200,9 +88197,9 @@ Prints internal inspire messaging to command window.
     level (str) : level defines the lowest level of messaging that should be seen.
       Defaults to ALL.
       Level can be,
-      ERROR - prints internal inspire error messaging to command window.     
+      ERROR - prints internal inspire error messaging to command window.
       WARN  - prints internal inspire warning messaging to command window.
-      INFO  - prints internal inspire error, warning and info messaging 
+      INFO  - prints internal inspire error, warning and info messaging
             to command window.
       False - passed as boolean and disables all messaging.
   
@@ -77263,7 +88260,7 @@ class geometry:
 def getActiveModel():
 	"""
 The root of the Inspire data model tree.
-  
+
   Its not explicitly created. It exists as a singleton for the lifetime of the
   application. Multiple models may be supported in future releases.
 
@@ -77306,6 +88303,12 @@ def getCurrentResultsExplorer():
 """
 	pass
 
+def getHistory():
+	"""
+History: Undo/redo manager.
+"""
+	pass
+
 def getInfoFromLastVariableChange():
 	"""
 Returns object modified/Created when the variable value change.
@@ -77328,7 +88331,7 @@ def getMbdModel(**kwds):
 def getModel():
 	"""
 The root of the Inspire data model tree.
-  
+
   Its not explicitly created. It exists as a singleton for the lifetime of the
   application. Multiple models may be supported in future releases.
 
@@ -77524,9 +88527,9 @@ def importFile(file):
 	"""
 Imports and merges a saved model with the current model.
 
-  The imported model is inserted as an assembly under the top-level folder in 
+  The imported model is inserted as an assembly under the top-level folder in
   the Model Browser.
-  
+
   Args:
     file (str): Path to the file.
   
@@ -77721,6 +88724,9 @@ class ipMgr:
 	def CreatePatternAlongCurve(self):
 		pass
 
+	def CreatePatternAlongSurface(self):
+		pass
+
 	def CreatePipe(self):
 		pass
 
@@ -77824,6 +88830,9 @@ class ipMgr:
 		pass
 
 	def CreateSweep(self):
+		pass
+
+	def CreateSystem(self):
 		pass
 
 	def CreateTracerCurve(self):
@@ -78111,7 +89120,10 @@ Cache return value until any object of type namedCls is modified
 """
 	pass
 
-def motionResultsListener():
+class motion:
+	pass
+
+class motionResultsListener:
 	"""
 Load MbdAnalysis when file opened or destroy undone
 """
@@ -78131,6 +89143,9 @@ Clear the model resetting it back to its initial/empty state.
 	pass
 
 class nfx:
+	pass
+
+class onGuiModeChange:
 	pass
 
 def openFile(file):
@@ -78491,10 +89506,13 @@ Saves the results graphic window and analysis explorer dialog to a file.
 """
 	pass
 
+def setGuiMode(newMode):
+	pass
+
 def setSetting(setting, value):
 	"""
 Sets the user preference value for a given setting.
-  
+
   Args:
     setting (str) : Path to preference option.
     value (bool | int | float | str)
@@ -78608,9 +89626,6 @@ Creates a new part/parts from the selected parts with a single isosurface
     Part: Returns a new shrink wrapped part
   
 """
-	pass
-
-class sigslot:
 	pass
 
 class staticproperty:
@@ -78803,7 +89818,7 @@ def validName(name):
 	pass
 
 class virtualMethodDecorator:
-	def __init__(self,default=None,exceptions: str=("<class Exception>")):
+	def __init__(self,default=None,exceptions: str="<class Exception>"):
 		"""
 Decorate overloaded virtual methods to handle Python Exceptions
 
@@ -78836,6 +89851,12 @@ Loop until condition becomes True.
       Warning: Anything could happen while waiting. User may delete the model!
     pollInterval: Sleep time between checking condition when not keepGuiActive.
   
+"""
+	pass
+
+class warnings:
+	"""
+Python part of the warnings subsystem.
 """
 	pass
 

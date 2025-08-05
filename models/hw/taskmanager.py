@@ -505,7 +505,7 @@ def getTaskManager():
 
     Returns the Task Manager singleton object.
     
-"""
+    """
     return TaskManager()
 
 class gui:
@@ -521,11 +521,7 @@ class utils:
     pass
 
 class TaskManager:
-
     def __init__(self):
-        """
-        A singleton class representing the Task Manager. The instance of the Task Manager can be retrieved using getTaskManager function
-        """
         pass
 
     def addOnCloseCommand(fullcommandasstring: str):
@@ -731,6 +727,7 @@ class TaskManager:
     @property
     def title(self):
         pass
+
     @title.setter
     def title(self):
         pass    
@@ -738,6 +735,7 @@ class TaskManager:
     @property
     def saveonclose(self):
         pass
+
     @saveonclose.setter
     def saveonclose(self):
         pass 

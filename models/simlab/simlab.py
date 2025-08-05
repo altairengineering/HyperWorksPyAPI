@@ -1066,6 +1066,15 @@ def getSelectedBodies():
 """
 	pass
 
+def getSelectedCADBodies():
+	"""
+
+
+    This function returns a list of selected CAD body names along with their corresponding indices.
+    
+"""
+	pass
+
 def getSelectedEntities(pEntityType):
 	"""
 

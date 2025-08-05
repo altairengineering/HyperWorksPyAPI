@@ -10,36 +10,32 @@ class CollectionRule:
 	pass
 class Collection:
 	pass
-class MDIMetaobject:
+class MDIObject:
 	pass
 class hm_module:
 	class mdi:
 		class apis:
-			class Model:
+			class HmModel:
 				pass
 	class Collection:
 		pass
-class hw_module:
-	class mdi:
-		class base:
-			class TMDIObject:
-				pass
-			class MDIObject:
-				pass
 class mdi_module:
 	class base:
 		class TMDIObject:
 			pass
 		class MDIObject:
 			pass
+	class collection:
+		class Collection:
+			pass
 	class adaptors:
 		class datasource:
 			class DataSource:
-				pass	
+				pass
 	class attribute:
-		class Attribute:
-			pass
 		class Action:
+			pass
+		class Attribute:
 			pass
 class Uid:
 	pass
@@ -49,14 +45,11 @@ class hwUIntList:
 	pass
 class EntityFullType:
 	pass
-class hwmathbasic_module:
-	def hwTriple(self, *args):
-		pass
 class hwIntList:
 	pass
-class hwStringList:
-	pass
 class hwDoubleList:
+	pass
+class hwStringList:
 	pass
 class EntityList:
 	pass
@@ -68,11 +61,20 @@ class EntityList2:
 	pass
 class hwBoolList:
 	pass
-class collection:
+class hwdescriptor_module:
+	class Identifier:
+		pass
 	class Collection:
 		pass
-class hwdescriptor_module:
-	class Model:
+	class CollectionSet:
+		pass
+	class Entity:
+		pass
+	class Metaobject:
+		pass
+	class MDIFormat:
+		pass
+	class EntityFullType:
 		pass
 class hwTripleIList:
 	pass
@@ -116,6 +118,9 @@ class EntityClass:
 	pass
 class ostream:
 	pass
+class hwmathbasic_module:
+	def hwTriple(self, *args):
+		pass
 
 CONTAINMENT_FULL=1
 
@@ -143,6 +148,9 @@ class Collection:
 """
 		pass
 
+	def GetValues(self,identifier: Identifier, value: Value):
+		pass
+
 	def TestValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -155,7 +163,7 @@ class Collection:
 	def complement(self):
 		pass
 
-	def contains(self,obj: MDIMetaobject):
+	def contains(self,obj: MDIObject):
 		pass
 
 	def delete_items(self):
@@ -180,6 +188,9 @@ class Collection:
 	def get_attribute_definition(self,identifier: str):
 		pass
 
+	def get_values(self,identifier: str):
+		pass
+
 	def intersect(self,other: Collection):
 		pass
 
@@ -190,7 +201,7 @@ class Collection:
 	def mdimodel(self):
 		pass
 
-	def set_items(self,identifier: str, value):
+	def set_values(self,identifier: str, value):
 		pass
 
 	def subtract(self,rule: CollectionRule, source: Collection = None):
@@ -203,19 +214,19 @@ class Collection:
 	def thisown(self):
 		pass
 
-def CollectionByAdjacent(model: hm_module.mdi.apis.Model, source: hm_module.Collection):
+def CollectionByAdjacent(model: hm_module.mdi.apis.HmModel, source: hm_module.Collection):
 	pass
 
-def CollectionByAttached(model: hm_module.mdi.apis.Model, source: hm_module.Collection):
+def CollectionByAttached(model: hm_module.mdi.apis.HmModel, source: hm_module.Collection):
 	pass
 
-def CollectionByDisplayed(model: hm_module.mdi.apis.Model, entity_class: EntityClass):
+def CollectionByDisplayed(model: hm_module.mdi.apis.HmModel, entity_class: EntityClass):
 	pass
 
-def CollectionByFace(model: hm_module.mdi.apis.Model, source: hm_module.Collection, across_t_junctions: bool = False):
+def CollectionByFace(model: hm_module.mdi.apis.HmModel, source: hm_module.Collection, across_t_junctions: bool = False):
 	pass
 
-def CollectionByInteractiveSelection(model: hm_module.mdi.apis.Model, entity_class: EntityClass, message: str =" ", highlight: bool = False):
+def CollectionByInteractiveSelection(model: hm_module.mdi.apis.HmModel, entity_class: EntityClass, message: str =" ", highlight: bool = False):
 	pass
 
 class CollectionRule:
@@ -297,6 +308,9 @@ class Entity:
 		pass
 
 	def GetTopologyIndexRef(self,*args):
+		pass
+
+	def IsValid(self):
 		pass
 
 	def Serialize(self,stream: ostream):
@@ -1041,7 +1055,7 @@ class FilterByPlane:
 		pass
 
 class FilterBySolid:
-	def __init__(self,aclass: EntityClass, relative_location="0", containment=1, displayed_only=False, tolerance="0.0"):
+	def __init__(self,aclass: EntityClass, relative_location="0", containment=1, displayed_only=False, tolerance="0_module.0"):
 		pass
 
 	def DownCast(self,o: CollectionRule):
@@ -1262,7 +1276,7 @@ class Model:
 	def AE_AttachmentControlDefaultCreate(self,reserved1: hwString , reserved2: int):
 		pass
 
-	def AE_AttachmentCreateWithOptions(self,target_collection: Collection, location_collection: Collection, search_type: hwString , attachmentcontrol: var0  =0, maxdiameter: float  =0.0, mindiameter: float  =0.0, tolerance: float  =0.0, snaptocenter: int  =0):
+	def AE_AttachmentCreateWithOptions(self,target_collection: Collection, location_collection: Collection, search_type: hwString , control: var0  =0, maxdiameter: float  =0.0, mindiameter: float  =0.0, tolerance: float  =0.0, snaptocenter: int  =0):
 		pass
 
 	def AE_ConvertBoltLinkToAttachment(self,collection: Collection):
@@ -1272,6 +1286,9 @@ class Model:
 		pass
 
 	def AE_Unrealize(self,collection: Collection):
+		pass
+
+	def AE_UpdateClosestLink(self,ae_markmask: Collection, link_markmask: Collection, tolerances: hwDoubleList, scratch_or_add: var0):
 		pass
 
 	def AE_UpdateLink(self,collection: Collection, uid: hwString , pid: var0 =0):
@@ -1301,10 +1318,10 @@ class Model:
 	def CE_AddLinkEntitiesWithXYZs(self,connector_collection: Collection, entity_collection: Collection, entity_state: var0, ce_rules: var0, ce_le_rule: var0, locator: var0, xyz_array: hwDoubleList):
 		pass
 
-	def CE_AutoCreateAreaConnectors(self,inputCollection: Collection, searchTolerance: float):
+	def CE_AutoCreateAreaConnectors(self,inputCollection: Collection, searchTolerance: float, shellThicknessOption: int =0, shellThicknessValue: float =0.0):
 		pass
 
-	def CE_AutoCreateMatingConnectors(self,collection: Collection, Allow_Hole_to_Tube: bool  = False, Allow_mismatched_shapes: bool  = True, Allow_Self: bool  = False, Center_CE: bool  = False, Hole_Type: var0  = 7, Lateral_Distance: bool  = True, Max_Angle: float  =" 1_module.0", Max_dia: float  =" 10.0", Max_Distance: float  =" 10.0", Max_lateral_factor: float  =0.0, Min_dia: float  =0.0, Lateral_Factor: bool  = False, Max_lateral_distance: float  =" 1_module.0"):
+	def CE_AutoCreateMatingConnectors(self,collection: Collection, Allow_Hole_to_Tube: bool  = False, Allow_mismatched_shapes: bool  = True, Allow_Self: bool  = False, Center_CE: bool  = False, Hole_Type: var0  = 7, Lateral_Distance: bool  = True, Max_Angle: float  =" 1_module.0", Max_dia: float  =" 10_module.0", Max_Distance: float  =" 10_module.0", Max_lateral_factor: float  =0.0, Min_dia: float  =0.0, Lateral_Factor: bool  = False, Max_lateral_distance: float  =" 1_module.0"):
 		pass
 
 	def CE_AutoReorganize(self,cemarkmask: Collection, criteria: var0):
@@ -1355,7 +1372,7 @@ class Model:
 	def CE_ConnectorCreateByAutopitch(self,collection: Collection, feature_angle: float, consider_thin_solids: int, max_flange_width: float, max_proximity_distance: float, autopitch_interval: float, autopitch_offset: float, autopitch_to_edge_distance: float, create_points_in_middle: int, max_variation_percent: float):
 		pass
 
-	def CE_ConnectorCreateByAutopitchNew(self,collection: Collection, maxProximityDistance: float , autopitchInterval: float , autopitchToEdgeDistance: float , autopitchFeatureEdgeDistance: float , autopitchOffset: float  =0.0, considerThinSolids: var0  = 1, createPointsInMiddle: var0  =0, featureAngle: float  =" 180.0", maxFlangeWidth: float  =0.0, maxVariationPercent: float  =0.0, combineSpots: int  =0, maxLinks: int  = 2, excludeHolesWithWidthLessThan: float  =0.0):
+	def CE_ConnectorCreateByAutopitchNew(self,collection: Collection, maxProximityDistance: float , autopitchInterval: float , autopitchToEdgeDistance: float , autopitchFeatureEdgeDistance: float , autopitchOffset: float  =0.0, considerThinSolids: var0  = 1, createPointsInMiddle: var0  =0, featureAngle: float  =" 180_module.0", maxFlangeWidth: float  =0.0, maxVariationPercent: float  =0.0, combineSpots: int  =0, maxLinks: int  = 2, excludeHolesWithWidthLessThan: float  =0.0):
 		pass
 
 	def CE_ConnectorCreateByAutoseam(self,collection: Collection, options: hwString ):
@@ -1375,7 +1392,7 @@ class Model:
 
 	def CE_ConnectorCreateByListWithCC(self,*args, **kwargs):
 		"""
-		CE_ConnectorCreateByListWithCC(HMAPI self, EntityList list, hwString const & ce_style, int num_links, Collection link_collection, EntityFullType cc_type, hwString const & cc_name, double const area_mesh_size=1.000000, int const area_mesh_type=0, double const area_offset=0.000000, double const area_width=1.000000, double const line_density=0.000000, double const line_offset=0.000000, int const line_offset_flag=0, double const line_spacing=1.000000, hwString const & link_elems_geom="geom", hwString const & link_rule="none", hwString const & relink_rule="none", int const seam_area_group=0, double const tol=0.000000, int const tol_flag=0)
+		CE_ConnectorCreateByListWithCC(HMAPI self, EntityList list, hwString const & ce_style, int num_links, Collection link_collection, EntityFullType cc_type, hwString const & cc_name, double const area_mesh_size=1.000000, int const area_mesh_type=0, double const area_offset=0.000000, double const area_width=1.000000, double const line_density=0.000000, double const line_offset=0.000000, int const line_offset_flag=0, double const line_spacing=1.000000, hwString const & link_elems_geom="geom", hwString const & link_rule="none", hwString const & relink_rule="none", int const seam_area_group=0, double const tol=0.000000, int const tol_flag=0, double const end_offset=0.000000, int const grouplinks=0, unsigned int const line_preserve_joints=0, unsigned int const line_preserve_nodes=0, unsigned int const smooth_curve_nodes=0, double const start_offset=0.000000)
 		"""
 		pass
 
@@ -1564,7 +1581,7 @@ class Model:
 
 	def CE_FE_AbsorbUsingControl(self,*args, **kwargs):
 		"""
-		CE_FE_AbsorbUsingControl(HMAPI self, int dim, hwString const & control, hwIntList elem_filter, Collection ent_mark=s_defaultCollection, int const check_for_material=0, int const combine=0, int const conn_at_centernode=0, int const force_proj=0, int const link_by_card=0, int const link_by_interface=0, hwString const & mcf="", int const org=0, hwString const & rul="None", hwString const & shell_connect="none", hwString const & t_connect="none", int const thickness_type=0, double const tol=0.000000, int const type2_interface=0, hwString const & weld_cfg_name="", int const weld_type_num=0, hwString const & weld_type_name="", int const area_absorption=0, int const area_headonly=0, int const area_in_middle=0, int const cluster_identify=0, int const group_links=0, int const seam_absorption=0, int const seam_headonly=0, int const select_special=0, int const tie_contact=0)
+		CE_FE_AbsorbUsingControl(HMAPI self, int dim, hwString const & control, hwIntList elem_filter, Collection collection=s_defaultCollection, int const check_for_material=0, int const combine=0, int const conn_at_centernode=0, int const force_proj=0, int const link_by_card=0, int const link_by_interface=0, hwString const & mcf="", int const org=0, hwString const & rul="None", hwString const & shell_connect="none", hwString const & t_connect="none", int const thickness_type=0, double const tol=0.000000, int const type2_interface=0, hwString const & weld_cfg_name="", int const weld_type_num=0, hwString const & weld_type_name="", int const area_absorption=0, int const area_headonly=0, int const area_in_middle=0, int const cluster_identify=0, int const group_links=0, int const seam_absorption=0, int const seam_headonly=0, int const select_special=0, int const tie_contact=0, int const attach_link=0, int const apply_prop=0, EntityFullType link_type=hwDescriptor::EntityFullType((unsigned int)0))
 		"""
 		pass
 
@@ -1781,6 +1798,9 @@ class Model:
 	def CheckBinderSetting(self,collection1: Collection, collection2: Collection):
 		pass
 
+	def Clone(self,*args):
+		pass
+
 	def Connect(self,*args):
 		pass
 
@@ -1799,7 +1819,10 @@ class Model:
 	def CreateCollectionByFace(self,source: mdi_module.collection.Collection, across_t_junctions: bool = False):
 		pass
 
-	def CreateCollectionByInteractiveSelection(self,aclass: mdi_module.base.TMDIObject, message:str=" ", highlight: bool = False):
+	def CreateCollectionByInteractiveSelection(self,aclass: mdi_module.base.TMDIObject,message:str=" ", highlight: bool = False):
+		pass
+
+	def CreateSelector(self,key: hwString ):
 		pass
 
 	def Delete(self,entity: Entity):
@@ -1835,6 +1858,24 @@ class Model:
 	def ExportAssemblyAndGlobalEntities(self,file_path: hwString ):
 		pass
 
+	def FE_geometry_clonefromCAD(self,*args, **kwargs):
+		"""
+		FE_geometry_clonefromCAD(HMAPI self, Collection collection, int const clone_mode=0, int const current_component=0, int const break_connectivity=0, int const stl_remesh=0, int const stl_order=1, hwString const & stl_resolution="normal", int const stl_trias_only=1, double const stl_angle=0.000000, double const stl_deviation=0.000000, double const stl_max_size=0.000000, double const stl_min_size=0.000000, int const stl_unmeshed=1)
+		"""
+		pass
+
+	def FE_geometry_converttoelements(self,*args, **kwargs):
+		"""
+		FE_geometry_converttoelements(HMAPI self, Collection collection=hwDescriptor::Collection(), int const keep_fe_geometry=0, int const convert_vertices=1, int const convert_free_lines=1, int const original_component=0, hwString const & edges_component="", hwString const & vertices_component="")
+		"""
+		pass
+
+	def FE_geometry_createfromelements(self,collection: Collection, topology_mode_fr_1d: int  =0, break_connectivity: int  =0, component_edges: int  = 1, create_solids: int  = 1, current_component: int  =0, edge_angle: float  =0.0, edge_method: int  = 2, remove_open_features: int  = 1, selection_boundary_edges: int  =0, separate_bodies: int  = 1, vertex_angle: float  =0.0, vertex_method: int  = 1, ignore_topo_assoc_elems: int  =0):
+		pass
+
+	def FE_geometry_updatefromelements(self,collection: Collection, component_edges: int  = 1, edge_angle: float  =0.0, edge_method: int  = 2, keep_existing: int  =0, remove_open_features: int  = 1, selection_boundary_edges: int  =0, vertex_angle: float  =0.0, vertex_method: int  = 1):
+		pass
+
 	def Fixed_Addendum_Machine(self,action: int, type: int, collection1: Collection, collection2: Collection, linlist: EntityList, radius1: float, radius2: float, radius3: float, fixed: int, split: int):
 		pass
 
@@ -1848,6 +1889,9 @@ class Model:
 		pass
 
 	def GetName(self):
+		pass
+
+	def GetSelector(self,key: hwString ):
 		pass
 
 	def GetSession(self):
@@ -2003,6 +2047,9 @@ class Model:
 		"""
 		pass
 
+	def ME_PartsetCreateByAssemblyMark(self,assemblymarkmask: Collection, options: hwString ):
+		pass
+
 	def ME_SingleEntityParametersChangedEmit(self,tbd: hwString , id: int):
 		pass
 
@@ -2060,7 +2107,7 @@ class Model:
 		"""
 		pass
 
-	def absorbentities(self,collection: Collection, value_rule: var0, tolerance: float, location_unit_rule: var0, topology_rule: var0, face_angle: float =" 30.0", edge_angle: float =" 180.0", preserve_flag: var0 = 1, max_cluster_count: var0 = 4):
+	def absorbentities(self,entity_type: EntityFullType, absorb_set: CollectionSet, value_rule: var0 =0, tolerance: float =0.0, location_unit_rule: var0 =0, topology_rule: var0 =0, face_angle: float =" 30_module.0", edge_angle: float =" 180_module.0", preserve_flag: var0 = 1, max_cluster_count: var0 = 4):
 		pass
 
 	def absorbloads(self,collection: Collection, disable_value_comparison: var0, renumber_flag: var0, compression_status: var0):
@@ -2068,7 +2115,7 @@ class Model:
 
 	def absorbmember(self,*args, **kwargs):
 		"""
-		absorbmember(HMAPI self, Collection collection=hwDescriptor::Collection(), double const break_angle=1.000000, int const create_legs=0, hwString const & prefix="")
+		absorbmember(HMAPI self, Collection collection, double const break_angle, unsigned int const create_legs, unsigned int const along_line=0, unsigned int const auto_detect_thin_solids=0, unsigned int const autoweld=0, unsigned int const create_member_sections=0, unsigned int const create_sketch=0, hwString const & elemconfig="", double const elemdensity=0.000000, double const elemsize=0.000000, hwString const & elemtype="", double const planelength=0.000000, double const planewidth=0.000000, hwString const & prefix="", unsigned int const realize=0, hwString const & sectiontype="none", bool const useelemdensity=False, double const vertex_angle=0.000000, unsigned int const numcontrollocs=0, unsigned int const intersectingentitytype=0)
 		"""
 		pass
 
@@ -2216,7 +2263,7 @@ class Model:
 	def aic_addparts(self,classifier: hwString , label: hwString , part_collection: Collection):
 		pass
 
-	def aic_classify(self,classifier: hwString , pFilename: hwString , part_collection: Collection, certainity_ratio: float =" 0.8"):
+	def aic_classify(self,classifier: hwString , pFilename: hwString , part_collection: Collection, certainity_ratio: float =" 0_module.8"):
 		pass
 
 	def aic_createnew(self,option: hwString , value: hwString ):
@@ -2235,6 +2282,12 @@ class Model:
 		pass
 
 	def aic_train(self,classifier: hwString , flag: int):
+		pass
+
+	def airbagfoldpreview(self,*args, **kwargs):
+		"""
+		airbagfoldpreview(HMAPI self, int const foldid, int const method, hwTriple linestart=hwTriple(0.000000, 0.000000, 0.000000), hwTriple lineend=hwTriple(1000.000000, 0.000000, 0.000000), double const angle=0.000000, int const sideid=0, int const recompute=0, Collection fixedmark=hwDescriptor::Collection(), int const tooltype=0, double const tooldimension=0.000000, int const rotationnums=0, double const rolloffset=0.000000, int const doubletuckbool=0, int const doubletuckpercent=0, int const restoreview=0, int const lastposition=0, int const position=0, double const zigzagangle=0.000000, double const zigzaglength=0.000000, int const zigzagnbplies=0)
+		"""
 		pass
 
 	def align1delemsbysystem(self,*args, **kwargs):
@@ -2258,7 +2311,7 @@ class Model:
 	def alignnode3(self,end_node1: Entity, end_node2: Entity, collection: Collection):
 		pass
 
-	def aligntoedges(self,line_collection: Collection, node_collection: Collection, FailureCountTolerance: float  =" 0.1", FailureIndexTolerance: float  =" 0.05", GlobalFailureCountTolerance: float  =" 0.1", GlobalFailureIndexTolerance: float  =" 0.05", OrientationMismatchPenalty: float  =0.0, LengthDistortionPenalty: float  =0.0, EdgeDeviationPenalty: float  =0.0, WigglePenalty: float  =0.0, NumIterations: float  =0.0):
+	def aligntoedges(self,line_collection: Collection, node_collection: Collection, FailureCountTolerance: float  =" 0_module.1", FailureIndexTolerance: float  =" 0_module.05", GlobalFailureCountTolerance: float  =" 0_module.1", GlobalFailureIndexTolerance: float  =" 0_module.05", OrientationMismatchPenalty: float  =0.0, LengthDistortionPenalty: float  =0.0, EdgeDeviationPenalty: float  =0.0, WigglePenalty: float  =0.0, NumIterations: float  =0.0):
 		pass
 
 	def allsuppressactive(self,state: int):
@@ -2300,15 +2353,6 @@ class Model:
 	def analysiscurve_setsimulationrange(self,lbound: int, ubound: int):
 		pass
 
-	def analysiscurvecreate(self,collection: Collection, x_data_type: hwString , y_data_type: hwString , x_component: hwString , y_component: hwString ):
-		pass
-
-	def analysiscurvecreatecomplex(self,collection: Collection, x_data_type: hwString , y_data_type: hwString , x_component: hwString , y_component: hwString ):
-		pass
-
-	def analysisfilesetwithsolverids(self,filename: hwString ):
-		pass
-
 	def animatelegendsetrange(self,mindef: int, minimum: float, maxdef: int, maximum: float):
 		pass
 
@@ -2336,6 +2380,12 @@ class Model:
 	def applydisplayattributes(self,style: int, colortype: int):
 		pass
 
+	def applyinitialgeometry(self,igmark: Collection):
+		pass
+
+	def applypositionstonodes(self,nodesids: hwIntList, positions: hwDoubleList):
+		pass
+
 	def applyresults(self,collection: Collection, scale: float, component: hwString ):
 		pass
 
@@ -2360,9 +2410,6 @@ class Model:
 	def assigncardimagetosetswithnocardimage(self):
 		pass
 
-	def assignedplot(self,title: hwString , legend_min: int, legend_min_value: float, legend_max: int, legend_max_value: float, mesh_color: int, scale_factor: float, full_size: int, reserved: int, vector_comp: hwString , mult: float, min_max_titles: int, plot_info_title: int):
-		pass
-
 	def assignidpooltocweldelements(self):
 		pass
 
@@ -2383,7 +2430,7 @@ class Model:
 
 	def associate_nodes_to_geom(self,*args, **kwargs):
 		"""
-		associate_nodes_to_geom(HMAPI self, Collection mesh_entity_collection, int const manual_association, double const assoc_tol, double const snap_tol, int const snap_nodes, int const override_assoc, EntityFullType geom_entity=hwDescriptor::EntityFullType((unsigned int)0))
+		associate_nodes_to_geom(HMAPI self, Collection mesh_entity_collection, int const manual_association, double const assoc_tol, double const snap_tol, int const snap_nodes, int const override_assoc, Collection geom_entity_collection=hwDescriptor::Collection())
 		"""
 		pass
 
@@ -2498,10 +2545,7 @@ class Model:
 	def automesh_mc(self,entity_collection: Collection, mesh_control_collection: Collection, mode: int):
 		pass
 
-	def automesh_params(self,*args, **kwargs):
-		"""
-		automesh_params(HMAPIBase self, int const mapmethod=0, int const smoothmethod=0, int const mindensity=1, double const mindensitycurvratio=0.0, double const mindensitylength=0.0, int const triamapflow=-2, Entity triamapflow_entity=hwDescriptor::Entity())
-		"""
+	def automesh_params(self,mapmethod: int  =0, smoothmethod: int  = 1, mindensity: int  = 1, mindensitycurvratio: float  =0.0, mindensitylength: float  =0.0, triamapflow: int  = -2):
 		pass
 
 	def autotopocleanup(self,surfcollection: Collection, criteria_filename: hwString , param_filename: hwString ):
@@ -2531,7 +2575,7 @@ class Model:
 	def bar3element(self,node1: Entity, node2: Entity, node3: Entity, vector: hwTriple, orientation_node: Entity, y_dir: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, property_name: hwString ):
 		pass
 
-	def bar3elementcreatewithoffsets(self,node1: Entity, node2: Entity, node3: Entity, vector: hwTriple, orientation_node: Entity, y_dir: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, property_name: hwString , offset_system_a: int, offset_x_a: float, offset: float, y_a: float, offset_z_a: int, offset_system_b: float, offset_x_b: float, offset_y_b: float):
+	def bar3elementcreatewithoffsets(self,node1: Entity, node2: Entity, node3: Entity, vector: hwTriple, orientation_node: Entity, y_dir: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, property_name: hwString , offset_system_a: int, offset_x_a: float, offset_y_a: float, offset_z_a: float, offset_system_b: int, offset_x_b: float, offset_y_b: float, offset_z_b: float):
 		pass
 
 	def bardirectionupdate(self,collection: Collection, orientation_node: Entity, y_dir: int):
@@ -2561,7 +2605,7 @@ class Model:
 	def barelementupdatelocal(self,collection: Collection, update_vector: int, vector: hwTriple, update_pins: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, update_property: int, property_name: hwString ):
 		pass
 
-	def barelementupdatewithoffsets(self,collection: Collection, update_vector: int, vector_option: int, vector: hwTriple, update_pins: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, update_property: int, property_name: hwString , update_orientation: int, orientation_node: int, y_dir: int, update_offset_a: int, offset_system_a: int, offset_x_a: float, offset: float, y_a: float, offset_z_a: int, update_offset_b: int, offset_system_b: float, offset_x_b: float, offset_y_b: float):
+	def barelementupdatewithoffsets(self,collection: Collection, update_vector: int, vector_option: int, vector: hwTriple, update_pins: int, pin_flags_a: hwBoolList, pin_flags_b: hwBoolList, update_property: int, property_name: hwString , update_orientation: int, orientation_node: int, y_dir: int, update_offset_a: int, offset_system_a: int, offset_x_a: float, offset_y_a: float, offset_z_a: float, update_offset_b: int, offset_system_b: int, offset_x_b: float, offset_y_b: float, offset_z_b: float):
 		pass
 
 	def baroffset(self,element_entity: Entity, offset_x_a: float, offset_y_a: float, offset_z_a: float, offset_x_b: float, offset_y_b: float, offset_z_b: float):
@@ -2837,7 +2881,7 @@ class Model:
 	def buildfetopology(self,filepath: hwString ):
 		pass
 
-	def cadwrapper(self,ety: EntityFullType, mask_main: Collection, param_str: hwString , graphicsDB: int =0):
+	def cadwrapper(self,collection: Collection, param_str: hwString , graphicsDB: int ):
 		pass
 
 	def calc_autotipping(self,collection: Collection, vector: hwTriple, plane_normal: hwTriple, plane_base: hwTriple, angle: hwDoubleList, basenode: Entity):
@@ -2942,10 +2986,10 @@ class Model:
 	def cmdUpdateAnalysisType(self,analysisType1: int, analysisType2: int, analysisType3: int, friction: float, cb_include: hwString , collection1: Collection, collection2: Collection):
 		pass
 
-	def coarsen_and_decimate_mesh2(self,comps_collection: Collection, nodes_collection: Collection, failed_comps_collection: Collection, elem_size: float, elem_type: int, feature_angle: float, max_diameter: float, options: int, delete_comp_size: float  =0.0, max_compsize_factor: float  =0.0, elsize_autoreduce_factor: float  =0.0, area_compare_factor: float  =" 1_module.1", area_low_factor: float  =" 0.5", feat_angle_area_compare: float  =0.0, area_low_factor_min: float  =" 0.25", delete_isolated_small_parts: float  =0.0, max_adjust_iters: int  = 4, delete_duplicated: int  =0, mesh_by_connected_parts: int  =0, delete_smallparts_after_mesh: int  =0, delete_small_t_con_shells: int  =0, generate_plotel_for_orphan_fixed_nodes: bool  = False, area_compare_factor_max: float  =" 1_module.25", big_part_elems_count: int  = 30, small_feat_angle: float  =" 30.0", small_feat_angle_big_parts: float  =" 9_module.0", coarsen_to_different_comp: bool  = False, max_node_count_per_comp: int  =0):
+	def coarsen_and_decimate_mesh2(self,comps_collection: Collection, nodes_collection: Collection, failed_comps_collection: Collection, elem_size: float, elem_type: int, feature_angle: float, max_diameter: float, options: int, delete_comp_size: float  =0.0, max_compsize_factor: float  =0.0, elsize_autoreduce_factor: float  =0.0, area_compare_factor: float  =" 1_module.1", area_low_factor: float  =" 0_module.5", feat_angle_area_compare: float  =0.0, area_low_factor_min: float  =" 0_module.25", delete_isolated_small_parts: float  =0.0, max_adjust_iters: int  = 4, delete_duplicated: int  =0, mesh_by_connected_parts: int  =0, delete_smallparts_after_mesh: int  =0, delete_small_t_con_shells: int  =0, generate_plotel_for_orphan_fixed_nodes: bool  = False, area_compare_factor_max: float  =" 1_module.25", big_part_elems_count: int  = 30, small_feat_angle: float  =" 30_module.0", small_feat_angle_big_parts: float  =" 9_module.0", coarsen_to_different_comp: bool  = False, max_node_count_per_comp: int  =0):
 		pass
 
-	def coarsening_mesh(self,comps_collection: Collection, nodes_collection: Collection, failed_comps_collection: Collection, elem_size: float, elem_type: int, feature_angle: float, max_diameter: float, update_rigids: int):
+	def coarsening_mesh(self,comps_collection: Collection, nodes_collection: Collection, failed_comps_collection: Collection, elem_size: float, elem_type: int, feature_angle: float, max_diameter: float, options: int):
 		pass
 
 	def collectionmovetoinclude(self,collection: Collection, file: var0, writeform: var0):
@@ -2978,7 +3022,7 @@ class Model:
 	def collisionmanualfix_temp(self,elemcollection: Collection, nodecollection: Collection, distance: float, mode: int, i1: int, i2: int, i3: int):
 		pass
 
-	def collisionrecheck_temp(self,entity_type: EntityFullType, collection: Collection):
+	def collisionrecheck_temp(self,collection: Collection):
 		pass
 
 	def collisionsetoutdated(self,outdatedcompids: hwIntList):
@@ -2999,10 +3043,10 @@ class Model:
 	def combineplotels(self,collection: Collection):
 		pass
 
-	def compactsubmodelids(self,submodel_id: hwString , id: var0, entity_type: hwString , pool_id: var0):
+	def compactsets(self,markmask: Collection):
 		pass
 
-	def complexanimatemodal(self,title: hwString , max_deflection: float, frames: int, display_mode: int):
+	def compactsubmodelids(self,submodel_id: hwString , id: var0, entity_type: hwString , pool_id: var0):
 		pass
 
 	def compositeanalysis_bycollection(self,*args, **kwargs):
@@ -3028,13 +3072,13 @@ class Model:
 
 	def compute_midmesh_thickness(self,*args, **kwargs):
 		"""
-		compute_midmesh_thickness(HMAPI self, Collection mesh_collection, Collection geom_collection, double const AbsoluteGroupingTolerance=0.000000, int const AppendToTable=0, int const AssignMidIntervalAsThickness=0, hwString const & CardImage="", double const ConnectionInterpolationFactor=0.000000, double const CornerThicknessCorrectionThreshold=1.500000, double const FeatureAngle=30.000000, double const FixedInterval=0.000000, int const GroupThickness=0, double const GroupingTolerance=0.200000, int const HighlightCorrected=0, hwString const & LogFile="", double const MaxInclinationOfMidMeshWithSolid=35.000000, double const MaxRelativeChordalDeviation=0.100000, double const MaxSearchDistance=0.000000, double const MaxThickness=0.000000, double const MaxThicknessGradient=2.000000, double const MinThickness=0.000000, int const NeedOffset=0, hwString const & NewPropertyPrefix="thickness", int const NumDecimals=1, double const RegroupThicknessVariationFactor=0.200000, int const RenameRetainedComponents=0, hwString const & SampleProperty="", int const SkipOutsideMeshFromCorrection=0, double const StartThickness=0.000000, hwString const & ThicknessAssignMethod="Average", hwString const & ThicknessCorrectionMethod="Interpolation", hwString const & ThicknessOutputOption="", int const WriteToInclude=0)
+		compute_midmesh_thickness(HMAPI self, Collection mesh_collection, Collection geom_collection, double const AbsoluteGroupingTolerance=0.000000, int const AppendToTable=0, int const AssignMidIntervalAsThickness=0, hwString const & CardImage="", double const ConnectionInterpolationFactor=0.000000, double const CornerThicknessCorrectionThreshold=1.500000, double const FeatureAngle=30.000000, double const FixedInterval=0.000000, int const GroupThickness=0, double const GroupingTolerance=0.200000, int const HighlightCorrected=0, hwString const & LogFile="", double const MaxInclinationOfMidMeshWithSolid=35.000000, double const MaxRelativeChordalDeviation=0.100000, double const MaxSearchDistance=0.000000, double const MaxThickness=0.000000, double const MaxThicknessGradient=2.000000, double const MinThickness=0.000000, int const NeedOffset=0, hwString const & NewPropertyPrefix="thickness", hwString const & NumDecimals="", double const RegroupThicknessVariationFactor=0.200000, int const RenameRetainedComponents=0, hwString const & SampleProperty="", int const SkipOutsideMeshFromCorrection=0, double const StartThickness=0.000000, hwString const & ThicknessAssignMethod="Average", hwString const & ThicknessCorrectionMethod="Interpolation", hwString const & ThicknessOutputOption="", int const WriteToInclude=0, hwString const & ThicknessMeasurementLocation="", hwString const & NumDecimalsOffset="")
 		"""
 		pass
 
 	def computeboundarylayerthickness(self,*args, **kwargs):
 		"""
-		computeboundarylayerthickness(HMAPIBase self, Collection bl_collection, Collection non_bl_collection, double const first_layer_thicknessconst, double number_of_layersconst, double layer_growth_rateconst, double minimum_core_to_boundary_layer_thickness_ratioconst, double corner_thickness_scaling_factorconst, double check_for_closure_flag, hwString const & logfile="")
+		computeboundarylayerthickness(HMAPIBase self, Collection bl_collection, Collection non_bl_collection, double const first_layer_thickness, double const number_of_layers, double const layer_growth_rate, double const minimum_core_to_boundary_layer_thickness_ratio, double const corner_thickness_scaling_factor, double const check_for_closure_flag, hwString const & logfile="")
 		"""
 		pass
 
@@ -3047,7 +3091,7 @@ class Model:
 	def connect(self,connection: mdi_module.adaptors.datasource.DataSource):
 		pass
 
-	def connect_surfaces_11(self,source_collection: Collection, target_collection: Collection, extend_mode: int, trim_mode: int, distance: float, min_angle_to_target_surf: float, max_angle_edge_to_surf: float, lines_to_extend_over: Collection, guide_mode: int, ignore_guide_edges: Collection, guide_angle: float, advanced_options: int, reserved: int):
+	def connect_surfaces_11(self,source_collection: Collection, target_collection: Collection, extend_mode: int, trim_mode: int, distance: float, min_angle_to_target_surf: float, max_angle_edge_to_surf: float, lines_to_extend_over: Collection, guide_mode: int, ignore_guide_edges: Collection, guide_angle: float, advanced_options: int, additional_options: int):
 		pass
 
 	@property
@@ -3064,9 +3108,6 @@ class Model:
 		pass
 
 	def contactsurfcreatewithshells(self,name: hwString , color: int, collection: Collection, reverse_normals: int):
-		pass
-
-	def contourplot(self,title: hwString , legend_min: int, legend_min_value: float, legend_max: int, legend_max_value: float, mesh_color: int, scale_factor: float, full_size: int, reserved: int, vector_comp: hwString , mult: float, min_max_titles: int, plot_info_title: int):
 		pass
 
 	def control_sum_print(self,*args, **kwargs):
@@ -3103,6 +3144,15 @@ class Model:
 		pass
 
 	def convertpressureloads(self,srcSolverName: hwString , destSolverName: hwString , srcLoadType: hwString , destLoadType: hwString ):
+		pass
+
+	def convertradiosssets(self,srcSolverName: hwString , conversionMode: int):
+		pass
+
+	def convertsets(self,srcSolverName: hwString , destSolverName: hwString ):
+		pass
+
+	def convertsetstoradioss(self,srcSolverName: hwString , conversionMode: int):
 		pass
 
 	def convertthermalloads(self,source_solver: hwString , target_solver: hwString , source_card: hwString , target_card: hwString ):
@@ -3232,6 +3282,12 @@ class Model:
 		pass
 
 	def createairbag(self,entities: EntityFullType, markmask: int, name: hwString ):
+		pass
+
+	def createairbagsequence(self,*args, **kwargs):
+		"""
+		createairbagsequence(HMAPI self, Collection airbagmark, Collection tablemark, Collection systemmark, hwString const & exportdir="")
+		"""
 		pass
 
 	def createandadjustmass(self,*args, **kwargs):
@@ -3407,7 +3463,7 @@ class Model:
 
 	def createfbdsummarytable(self,*args, **kwargs):
 		"""
-		createfbdsummarytable(HMAPIBase self, EntityList freebodysection_ids, hwTripleIList subcase_ids, double const arrLen=25.000000, int const arrowOrigin=0, unsigned int const colorfx=3, unsigned int const colorfy=4, unsigned int const colorfz=5, unsigned int const colorfxy=1, unsigned int const colorfyz=2, unsigned int const colorfxz=7, unsigned int const colorfxyz=6, unsigned int const colormx=3, unsigned int const colormy=4, unsigned int const colormz=5, unsigned int const colormxy=1, unsigned int const colormyz=2, unsigned int const colormxz=7, unsigned int const colormxyz=6, int const createField=1, int const createLoad=1, int const decLim=2, int const display=1, int const displacement=0, int const freenode=2, int const fx=0, int const fxy=0, int const fxyz=0, int const fxz=0, int const fy=0, int const fyz=0, int const fz=0, int const mx=0, int const mxy=0, int const mxyz=0, int const mxz=0, int const my=0, int const myz=0, int const mz=0, int const resFileID=INT_MAX, int const resolveInSys=0, Entity resultID=hwDescriptor::Entity(), int const rotation=0, int const scID=0, int const scientific=0, int const showValue=0, int const sizeScale=0, int const stepID=0, double const tolerance=0.001000, Entity userSysID=hwDescriptor::Entity(), int const vecStyle=0, int const gpf=0, int const intf=0, int const mpcf=0, int const sumAt=0, int const sysProj=0, int const spcf=0, int const appf=0, int const absolute=0, int const color=0, int const createTable=0, int const displayAt=0, int const envelope=0, hwString const & fieldName="", int const interpolate=0, double const maxVal=0.000000, int const midArrow=0, int const minMax=0, int const normalLoad=0, int const oneLems=0, int const onNodes=0, int const plotDir=0, int const range=0, hwString const & reportTablename="", int const resultant=0, int const summf=0, int const tangentialLoad=0)
+		createfbdsummarytable(HMAPIBase self, EntityList freebodysection_ids, hwTripleIList subcase_ids, double const arrLen=25.000000, int const arrowOrigin=0, unsigned int const colorfx=3, unsigned int const colorfy=4, unsigned int const colorfz=5, unsigned int const colorfxy=1, unsigned int const colorfyz=2, unsigned int const colorfxz=7, unsigned int const colorfxyz=6, unsigned int const colormx=3, unsigned int const colormy=4, unsigned int const colormz=5, unsigned int const colormxy=1, unsigned int const colormyz=2, unsigned int const colormxz=7, unsigned int const colormxyz=6, int const createField=1, int const createLoad=1, int const decLim=2, int const display=1, int const displacement=0, int const freenode=0, int const fx=0, int const fxy=0, int const fxyz=0, int const fxz=0, int const fy=0, int const fyz=0, int const fz=0, int const mx=0, int const mxy=0, int const mxyz=0, int const mxz=0, int const my=0, int const myz=0, int const mz=0, int const resFileID=INT_MAX, int const resolveInSys=0, Entity resultID=hwDescriptor::Entity(), int const rotation=0, int const scID=1, int const scientific=0, int const showValue=0, int const sizeScale=0, int const stepID=0, double const tolerance=0.001000, Entity userSysID=hwDescriptor::Entity(), int const vecStyle=0, int const gpf=0, int const intf=0, int const mpcf=0, int const sumAt=0, int const sysProj=0, int const spcf=0, int const appf=0, int const absolute=0, int const color=0, int const createTable=0, int const displayAt=0, int const envelope=0, hwString const & fieldName="", int const interpolate=0, double const maxVal=0.000000, int const midArrow=0, int const minMax=0, int const normalLoad=0, int const oneLems=0, int const onNodes=0, int const plotDir=0, int const range=0, hwString const & reportTablename="", int const resultant=0, int const summf=0, int const tangentialLoad=0)
 		"""
 		pass
 
@@ -3501,7 +3557,13 @@ class Model:
 	def createmultiplespotwelds(self,nodecol1_collection: Collection, nodecol2_collection: Collection, tolerance: float, length_given: int, length: float, systems: int, movenode: int, remesh: int, configval: int, property: hwString ):
 		pass
 
-	def createnodesandspotweldelems(self,surf1_collection: Collection, surf2_collection: Collection, tol: float, createplot: int, configval: int, syst: int, code: int, num_nodes: int, entities: EntityFullType, collection: Collection, biasstyle: int, biasingintensity: float, spacing: float, offset_type: int, endoffset: float, property: hwString ):
+	def createnewsetandsubobject(self,*args, **kwargs):
+		"""
+		createnewsetandsubobject(HMAPI self, EntityFullType entitytype, hwString const & name="", unsigned int const config=0, unsigned int const element_type=0, hwIntList entity_ids=hwIntList())
+		"""
+		pass
+
+	def createnodesandspotweldelems(self,surf1_collection: Collection, surf2_collection: Collection, tol: float , createplot: int , configval: int , syst: int , code: int , num_nodes: int , collection: Collection, biasstyle: int , biasingintensity: float , spacing: float , offset_type: int , endoffset: float , property: hwString ):
 		pass
 
 	def createnodesbetweennodelist(self,nodelist: EntityList, numberofnodes: int, biasstyle: int, biasingintensity: float):
@@ -3579,7 +3641,19 @@ class Model:
 	def createsolidsfromshells(self,input_collection: Collection, output_collection: Collection, comp_create_option: int =0, solid_layers: int =0, fill_gaps: int =0, delete_shells: int =0, property_create: int =0, reserved1: var0 =0, reserved2: float =0.0, reserved3: float =0.0):
 		pass
 
+	def createsolverkeyword(self,*args, **kwargs):
+		"""
+		createsolverkeyword(HMAPI self, hwString const & keyword, EntityFullType type=hwDescriptor::EntityFullType((unsigned int)0), hwString const & includeFile="")
+		"""
+		pass
+
 	def createspotweld(self,independent: Entity, dependent: Entity, length_given: int, length: float, systems: int, movenode: int, remesh: int, configval: int, property: hwString ):
+		pass
+
+	def createtargetfold(self,*args, **kwargs):
+		"""
+		createtargetfold(HMAPI self, int const sequenceid, int const method, Collection nodesmark=hwDescriptor::Collection(), hwTriple linestart=hwTriple(0.000000, 0.000000, 0.000000), hwTriple lineend=hwTriple(1000.000000, 0.000000, 0.000000), Collection fixedmark=hwDescriptor::Collection(), double const angle=0.000000, int const tooltype=0, double const tooldimension=0.000000, int const rotationnums=0, double const totruntime=0.000000, double const openwidth=0.000000, int const doubletuckbool=0, int const doubletuckpercent=0, double const rolloffset=0.000000, double const zigzagangle=0.000000, double const zigzaglength=0.000000, int const zigzagnbplies=0)
+		"""
 		pass
 
 	def createtuckfold(self,*args, **kwargs):
@@ -3629,11 +3703,11 @@ class Model:
 
 	def cut_hole(self,*args, **kwargs):
 		"""
-		cut_hole(HMAPI self, Collection base_collection, hwString const & type, int const count, hwDoubleList planenormal, hwDoubleList centerpoints=hwDoubleList(), hwIntList num_centerpoints=hwIntList(), Entity centerlines=hwDescriptor::Entity(), hwDoubleList radius=hwDoubleList(), hwDoubleList radius1=hwDoubleList(), hwDoubleList radius2=hwDoubleList(), int const cappedends=0, hwIntList num_vertices=hwIntList(), hwDoubleList vertexpoints=hwDoubleList(), hwDoubleList origin=hwDoubleList(), hwDoubleList x_axis=hwDoubleList(), hwDoubleList y_axis=hwDoubleList(), hwDoubleList length=hwDoubleList(), hwDoubleList width=hwDoubleList(), int const dorebuild=0, int const scaleparams=0)
+		cut_hole(HMAPI self, Collection base_collection, hwString const & type, hwDoubleList planenormal, hwDoubleList centerpoints=hwDoubleList(), hwIntList num_centerpoints=hwIntList(), Entity centerlines=hwDescriptor::Entity(), hwDoubleList radius=hwDoubleList(), hwDoubleList radius1=hwDoubleList(), hwDoubleList radius2=hwDoubleList(), int const cappedends=0, hwIntList num_vertices=hwIntList(), hwDoubleList vertexpoints=hwDoubleList(), hwDoubleList origin=hwDoubleList(), hwDoubleList x_axis=hwDoubleList(), hwDoubleList y_axis=hwDoubleList(), hwDoubleList length=hwDoubleList(), hwDoubleList width=hwDoubleList(), int const dorebuild=0, int const scaleparams=0, int const count=1)
 		"""
 		pass
 
-	def cuttingplanereverse(self,id: int):
+	def cuttingplanereverse(self,axis: int):
 		pass
 
 	def deactivatelegacynasoselementidpools(self,state: int):
@@ -3655,9 +3729,6 @@ class Model:
 		pass
 
 	def defaultremeshsurf(self,collection: Collection, elem_size: float, elem_type: int, elem_type_2: int, previous_settings: int, comp_mode: int, size_control: int, skew_control: int, mesh_type: int, min_size: float, max_size: float, chordal_dev: float, max_angle: float):
-		pass
-
-	def deformedshape(self,title: hwString , undeformed_color: int, deformed_color: int, scale_factor: float, hidden_line: int, full_size: int):
 		pass
 
 	def delaunay_2d_3d(self,type: int, collection: Collection, reserved: hwString ):
@@ -3759,7 +3830,7 @@ class Model:
 	def detachelements(self,collection: Collection, offset: float):
 		pass
 
-	def detectandcreateface2facecontacts(collection: Collection, tolerance: float, reverse_angle: float, use_shell_thickness: var0, consolidate_surfaces: var0, run_intersection_check: var0, contact_type: var0, main_entity_type: var0, secondary_entity_type: var0, property_option: var0, contact_property_id: var0, static_friction_value: float, contact_material_id: var0, contact_main_sensor_id: var0, contact_secondary_sensor_id: var0, skip_preview: var0, consider_self: var0, thickness_type: var0, thickness_value: float, friction_direction: hwString , set_name_prefix: hwString , csurf_name_prefix: hwString , include_whole_components: var0, copy_tolerance_to_contact: var0):
+	def detectandcreateface2facecontacts(collection: Collection, tolerance: float, reverse_angle: float, use_shell_thickness: var0, consolidate_surfaces: var0, run_intersection_check: var0, contact_type: var0, main_entity_type: var0, secondary_entity_type: var0, property_option: var0, contact_property_id: var0, static_friction_value: float, contact_material_id: var0, contact_main_sensor_id: var0, contact_secondary_sensor_id: var0, skip_preview: var0, consider_self: var0, thickness_type: var0, thickness_value: float, friction_direction: hwString , set_name_prefix: hwString , csurf_name_prefix: hwString , include_whole_components: var0, copy_tolerance_to_contact: var0, numExtraMainLayers: var0, featureAngleForLayers: float):
 		pass
 
 	def detectandcreatefeatures(self,*args, **kwargs):
@@ -4083,7 +4154,7 @@ class Model:
 	def elemoffset(self,collection: Collection, density: int, bias_style: int, bias: float, initial_offset: float, corner_type: int, thickness_type: int, thickness: float, shells_only: int, offset_type: int, component_flag: int):
 		pass
 
-	def elemoffset_thinsolid(self,entity_type_source: EntityFullType, collection_source: Collection, entity_type_target: EntityFullType, collection_target: Collection, entity_type_along: EntityFullType, collection_along: Collection, modes: int, density: int, bias: float, string_array: hwStringList, batchmesh_source: int =0):
+	def elemoffset_thinsolid(self,collection_source: Collection, collection_target: Collection, collection_along: Collection, modes: int , density: int , biasing: float , string_array: hwStringList, batchmesh_source: int ):
 		pass
 
 	def elempatchdecraction(self):
@@ -4349,13 +4420,19 @@ class Model:
 	def fetosurfs(self,collection_2d: Collection, collection_1d: Collection, options: int, complexity: int, tolerance: float, reserved: int):
 		pass
 
+	def fileupdate(self,*args, **kwargs):
+		"""
+		fileupdate(HMAPI self, hwString const & name, hwString const & comparerule="1", hwString const & keepremovedparts="", hwString const & keywordstofilter="")
+		"""
+		pass
+
 	def filewrite_components_geometry(self,comps_collection: Collection, filename: hwString , compressed_format: int):
 		pass
 
 	def filewritecomponentgeometry(self,filename: hwString , component: hwString , compression: int):
 		pass
 
-	def filewriteentities(self,collection: Collection, filename: hwString , reserved: int, ce_realizedflag: int =0):
+	def filewriteentities(self,inputmark: Collection, filename: hwString , reserved: int, ce_realizedflag: int =0):
 		pass
 
 	def fill_circular_holes(self,collection: Collection, radius_limit: float):
@@ -4553,7 +4630,7 @@ class Model:
 		"""
 		pass
 
-	def gap_sealing(self,collection: Collection, ctrl: hwString , database: int =0):
+	def gap_sealing(self,collection: Collection, mark20: Collection, ctrl: hwString , database: int =0):
 		pass
 
 	def gapelement(self,node1: Entity, node2: Entity, property: hwString , name: Entity):
@@ -4598,7 +4675,7 @@ class Model:
 	def geomvectorupdate(self,vector_collection: Collection, geom_collection: Collection, node_tol: float, magnitude: float, parlen: int, reverse: int, update_geom: int, update_mag: int, update_reverse: int):
 		pass
 
-	def get(self,entity: hwdescriptor_module.Entity):
+	def get(self,entity: hwdescriptor_module.Entity, check_exists: bool = True):
 		pass
 
 	def get_from_metaobject(self,metaobject: hwdescriptor_module.Metaobject, **kwargs):
@@ -4651,7 +4728,7 @@ class Model:
 
 	def group_matches(self,*args, **kwargs):
 		"""
-		group_matches(HMAPIBase self, Collection collection, Collection reference_collection=s_defaultCollection, int const areaCalcMethod=1, int const compareType=0, double const deformationTolerance=0.000000, int const encoding_algorithm=INT_MAX, double const matchingPercentThreshold=0.000000, hwString const & parentpartsetname="", hwString const & partsetname="", bool const partsetforunmatched=False, hwString const & searchMethod="ByEncoding", int const sphhar_bandwidth=16, double const sphhar_fallof=2.828427, int const sphhar_radii=32, int const resolution=64, hwString const & unmatchedpartsetname="")
+		group_matches(HMAPIBase self, Collection collection, Collection reference_collection=s_defaultCollection, int const areaCalcMethod=1, int const compareType=0, double const deformationTolerance=0.000000, int const encoding_algorithm=INT_MAX, double const matchingPercentThreshold=0.000000, hwString const & parentpartsetname="", hwString const & partsetname="", bool const partsetforunmatched=False, hwString const & searchMethod="ByEncoding", int const sphhar_bandwidth=16, double const sphhar_fallof=2.828427, int const sphhar_radii=32, int const resolution=64, hwString const & unmatchedpartsetname="", int const hold_license=0, hwString const import_encoding_file="", hwString const export_encoding_file="", double const isotropy_tol=DBL_MAX, int const reuse_ps=0)
 		"""
 		pass
 
@@ -5183,16 +5260,31 @@ class Model:
 	def hm_ce_getprojectiondata(self,collection1: Collection, collection2: Collection, numproj: int , tolerance: float , order: int , output: int , projFlag: int , projFlag2: int ):
 		pass
 
+	def hm_ce_getresolvedlinkentities(self,connector: Entity, link_entity_type: EntityFullType):
+		pass
+
+	def hm_ce_globalget(self,global_type: hwString , global_name: hwString ):
+		pass
+
 	def hm_ce_linkprojectionorderget_bycollection(self,collection: Collection, option: var0 ):
 		pass
 
 	def hm_ce_linkprojectionorderget_byentity(self,entity: Entity, option: var0 ):
 		pass
 
+	def hm_ce_mesh_imprint_option_get(self,name: hwString ):
+		pass
+
+	def hm_ce_mesh_imprint_option_set(self,name: hwString , value: var0 ):
+		pass
+
 	def hm_ce_read_mcf(self,mcfName: hwString ):
 		pass
 
 	def hm_ce_tooclosetoedgecheck(self,collection1: Collection, collection2: Collection, distance: float , feature_angle: float , edge_option: int , auto_fix: int ):
+		pass
+
+	def hm_checkproximity(self,collection: Collection, max_proximity: float , mode: var0  = 1, check_side: var0  = 3, proximity_scheme: var0  = 1, proximity_by_edge: var0  =0, min_angle_limit: float  =0.0, max_angle_limit: float  =0.0):
 		pass
 
 	def hm_clearmarker(self,*args, **kwargs):
@@ -5417,7 +5509,7 @@ class Model:
 	def hm_defaultstatus_byname(self,entity: EntityFullType, entityName: hwString , attributeName: hwString ):
 		pass
 
-	def hm_detectmeshpatterns(self,input_collection: Collection, output_collection: Collection, define_topology_by_1d: int  = 1, detect_singularity: int  = 1, smoothness: int  = 1, threshold_index: float  =" 0.5", tria_cluster: int  = 1, tria_on_edge: int  = 1):
+	def hm_detectmeshpatterns(self,input_collection: Collection, output_collection: Collection, define_topology_by_1d: int  = 1, detect_singularity: int  = 1, smoothness: int  = 1, threshold_index: float  =" 0_module.5", tria_cluster: int  = 1, tria_on_edge: int  = 1):
 		pass
 
 	def hm_detectselfsymmetry(self,collection: Collection):
@@ -5448,6 +5540,30 @@ class Model:
 		pass
 
 	def hm_entityincollector_byname(self,collector: EntityFullType, collector_name: hwString , entity_type: EntityFullType, config_num: int , type_num: int ):
+		pass
+
+	def hm_entityinfo_configid(self,entity_type: EntityFullType, config_name: hwString ):
+		pass
+
+	def hm_entityinfo_configids(self,entity_type: EntityFullType):
+		pass
+
+	def hm_entityinfo_configs(self,entity_type: EntityFullType):
+		pass
+
+	def hm_entityinfo_configtype(self,entity_type: EntityFullType, config_name: hwString ):
+		pass
+
+	def hm_entityinfo_configtypeids(self,entity_type: EntityFullType, config_name: hwString ):
+		pass
+
+	def hm_entityinfo_configtypes(self,entity_type: EntityFullType, config_name: hwString ):
+		pass
+
+	def hm_entityinfo_dimension(self,entity_type: EntityFullType, config_name: hwString ):
+		pass
+
+	def hm_entityinfo_named(self,entity_type: EntityFullType):
 		pass
 
 	def hm_entityisdirty(self,*args, **kwargs):
@@ -5549,7 +5665,7 @@ class Model:
 	def hm_finddeviation(self,source_collection: Collection, target_collection: Collection, tolerance_value: float ):
 		pass
 
-	def hm_findnarrowsurfaces(self,collection: Collection, width_threshold: float , output_surfs_flag: int  =0, sharp_angle_threshold: float  =" 10.0", reserved: int  =0):
+	def hm_findnarrowsurfaces(self,collection: Collection, width_threshold: float , output_surfs_flag: int  =0, sharp_angle_threshold: float  =" 10_module.0", reserved: int  =0):
 		pass
 
 	def hm_findpolygonselection(self,elements: EntityList):
@@ -5573,7 +5689,7 @@ class Model:
 	def hm_flangedetectionfindflanges(self,find: int ):
 		pass
 
-	def hm_flangedetectionfindmates(self,max_search_dist: float , min_search_dist: float , mode: int  =0, percent_mate_area_tol: float  =" 0.1", search_scope: int  =0):
+	def hm_flangedetectionfindmates(self,max_search_dist: float , min_search_dist: float , mode: int  =0, percent_mate_area_tol: float  =" 0_module.1", search_scope: int  =0):
 		pass
 
 	def hm_flangedetectiongetflangedetails(self,index: int ):
@@ -5582,7 +5698,7 @@ class Model:
 	def hm_flangedetectiongetflangemates(self,index: int ):
 		pass
 
-	def hm_flangedetectiongetflangemidline(self,index: int , offset_distance: float , max_chordal_deviation: float  =" 0.1"):
+	def hm_flangedetectiongetflangemidline(self,index: int , offset_distance: float , max_chordal_deviation: float  =" 0_module.1"):
 		pass
 
 	def hm_flangedetectiongetmatingentities(self,index1: int , index2: int ):
@@ -5678,6 +5794,9 @@ class Model:
 	def hm_getcentroid(self,entityCollection: Collection):
 		pass
 
+	def hm_getclosedshelllayerelems(self,collection: Collection, layer_1_collection: Collection, layer_2_collection: Collection):
+		pass
+
 	def hm_getclosestnode(self,*args, **kwargs):
 		"""
 		hm_getclosestnode(HMAPI self, double const x, double const y, double const z, Collection elemCollection=hwDescriptor::Collection(), Collection nodeCollection=hwDescriptor::Collection())
@@ -5697,6 +5816,12 @@ class Model:
 		pass
 
 	def hm_getconfigtypecountincol_byname(self,collector_type: EntityFullType, collector_name: hwString , entity_type: EntityFullType):
+		pass
+
+	def hm_getconfigtypeincol(self,*args, **kwargs):
+		"""
+		hm_getconfigtypeincol(HMAPI self, hwString const & collectorType, hwString const & entityType, hwString const & nameOrID, hwString const & searchType="-byname")
+		"""
 		pass
 
 	def hm_getconfigtypeincol_byentity(self,collector_entity: Entity, entity_type: EntityFullType):
@@ -5771,13 +5896,16 @@ class Model:
 	def hm_getedgesfromvertex(self,point: Entity):
 		pass
 
-	def hm_getelemcheckbounds(self,elements: Collection, dimension: int , check_type: hwString , time_failure: float  =" 0.0005"):
+	def hm_getelemcheckbounds(self,elements: Collection, dimension: int , check_type: hwString , time_failure: float  =" 0_module.0005"):
 		pass
 
-	def hm_getelemcheckelems(self,elementsCollection: Collection, dimension: int , check_type: hwString , check_mode: hwString , threshold: float  =0.0, tolerance: float  =0.0, time_failure: float  =" 0.005"):
+	def hm_getelemcheckelems(self,elementsCollection: Collection, dimension: int , check_type: hwString , check_mode: hwString , threshold: float  =0.0, tolerance: float  =0.0, time_failure: float  =" 0_module.005"):
 		pass
 
-	def hm_getelemcheckvalues(self,elements: Collection, dimension: int , check_type: hwString , time_failure: float  =" 0.0005"):
+	def hm_getelemchecksummary3d(self,collection: Collection, option: hwString ):
+		pass
+
+	def hm_getelemcheckvalues(self,elements: Collection, dimension: int , check_type: hwString , time_failure: float  =" 0_module.0005"):
 		pass
 
 	def hm_getelementcheckmethod(self,check_name: hwString , get_method_mode: int  = 2):
@@ -5795,6 +5923,9 @@ class Model:
 		"""
 		pass
 
+	def hm_getelementvolumes(self,collection: Collection):
+		pass
+
 	def hm_getentities_dirty(self,*args, **kwargs):
 		"""
 		hm_getentities_dirty(HMAPI self, EntityFullType entity_type, hwString const & dirtiness_aspect="dirty_for_export")
@@ -5806,7 +5937,7 @@ class Model:
 
 	def hm_getentitybasename(self,*args, **kwargs):
 		"""
-		hm_getentitybasename(HMAPIBase self, EntityFullType entity_type, int const style=INT_MAX)
+		hm_getentitybasename(HMAPIBase self, hwString const & entity_type, int const style=INT_MAX)
 		"""
 		pass
 
@@ -6167,6 +6298,18 @@ class Model:
 	def hm_getsolverids_byname(self,entity_type: EntityFullType, entity_names: hwStringList, groupbypoolname: bool  = False):
 		pass
 
+	def hm_getsolverkeyworddiagnosis(self,*args, **kwargs):
+		"""
+		hm_getsolverkeyworddiagnosis(HMAPI self, EntityFullType entitytype=hwDescriptor::EntityFullType((unsigned int)0), hwString const & keyword="", int const showall=0)
+		"""
+		pass
+
+	def hm_getsolverkeywordinfo(self,entitytype: EntityFullType, format: int  =0):
+		pass
+
+	def hm_getsolverkeywordinfoall(self,format: int  =0):
+		pass
+
 	def hm_getsolverusessegmentsets(self):
 		pass
 
@@ -6222,6 +6365,9 @@ class Model:
 		pass
 
 	def hm_gettablecolumndata_byname(self,table_name: hwString , column_id: int , eval_flag: bool  = False):
+		pass
+
+	def hm_gettargetentitiesfromset(self,setmark: Collection, targettype: EntityFullType, directflag: int  =0):
 		pass
 
 	def hm_gettgofpointsonline(self,line_entity: Entity, u_parameter_list: hwString ):
@@ -6383,6 +6529,21 @@ class Model:
 	def hm_latestentityid(self,entity_type: EntityFullType, num: int  =0):
 		pass
 
+	def hm_libraryget_finditems(self,*args, **kwargs):
+		"""
+		hm_libraryget_finditems(HMAPI self, EntityFullType entity_type, hwString const & request, hwString const & u_id="", hwString const & major_revision="", hwString const & study_revision="", hwString const & result_type="library_id")
+		"""
+		pass
+
+	def hm_libraryget_info(self,*args, **kwargs):
+		"""
+		hm_libraryget_info(HMAPI self, EntityFullType entity_type, hwString const & request, hwStringList list_of_attrs, CollectionSet collection=hwDescriptor::CollectionSet(), hwString const & u_id="", hwString const & major_revision="", hwString const & study_revision="", hwString const & library_id="", hwString const & result_key="hm_proto_id")
+		"""
+		pass
+
+	def hm_libraryget_status(self,entity_type: EntityFullType, request: hwString , request_value: hwString ):
+		pass
+
 	def hm_linegetorderelems(self,lineCollection: Collection, tolerance: float  =" -1_module.0"):
 		pass
 
@@ -6465,6 +6626,27 @@ class Model:
 		pass
 
 	def hm_modent_getconstraintruleoptions(self):
+		pass
+
+	def hm_modent_getcontententitytypes(self,entity: Entity):
+		pass
+
+	def hm_modent_getcontentsbymark(self,entity: Entity, output_collection: Collection):
+		pass
+
+	def hm_modent_getentityparent(self,entity: Entity, parent_entity_type: EntityFullType):
+		pass
+
+	def hm_modent_getincludes(self,entity: Entity, childrenincludes: var0 , sorted: var0  =0):
+		pass
+
+	def hm_modent_getmodifiedbyids(self,collection: Collection):
+		pass
+
+	def hm_modent_getrepresentationdefinitions(self,*args, **kwargs):
+		"""
+		hm_modent_getrepresentationdefinitions(HMAPI self, Collection collection, unsigned int const ignoretransient=1, unsigned int const libraryinfo=0, hwString const & attribute="")
+		"""
 		pass
 
 	def hm_morph_getdomainangle(self,*args, **kwargs):
@@ -6605,10 +6787,10 @@ class Model:
 	def hm_proximitygetelementdistance(self,element_entity: Entity):
 		pass
 
-	def hm_proximityinit(self,collection: Collection, max_distance: float , mode: var0  = 1, check_side: var0  = 3, proximity_scheme: var0  = 1, proximity_by_edge: var0  =0, min_angle_limit: float  =0.0, max_angle_limit: float  =" 180.0"):
+	def hm_proximityinit(self,collection: Collection, max_distance: float , mode: var0  = 1, check_side: var0  = 3, proximity_scheme: var0  = 1, proximity_by_edge: var0  =0, min_angle_limit: float  =0.0, max_angle_limit: float  =" 180_module.0"):
 		pass
 
-	def hm_proximityinitwithtarget(self,source_collection: Collection, target_collection: Collection, max_proximity_distance: float , check_side: var0  = 3, proximity_scheme: var0  = 1, proximity_by_edge: var0  =0, min_angle_limit: float  =0.0, max_angle_limit: float  =" 180.0"):
+	def hm_proximityinitwithtarget(self,source_collection: Collection, target_collection: Collection, max_proximity_distance: float , check_side: var0  = 3, proximity_scheme: var0  = 1, proximity_by_edge: var0  =0, min_angle_limit: float  =0.0, max_angle_limit: float  =" 180_module.0"):
 		pass
 
 	def hm_proximitymarkcomponentallelementpairs(self,component_pair_index: var0 , collection1: Collection, collection2: Collection):
@@ -6633,6 +6815,9 @@ class Model:
 		pass
 
 	def hm_setsolver(self,name: hwString ):
+		pass
+
+	def hm_tabletomark(self,tableName: hwString ):
 		pass
 
 	def hm_triplecos(self,start: hwTriple, end: hwTriple):
@@ -6668,7 +6853,7 @@ class Model:
 	def hm_wadlinesgetdebugtracelines(self,line_type: int , offset_distance: float  =0.0, protocol_method: int  =0):
 		pass
 
-	def hm_wadlinesgetgridpoints(self,wad_child_min: float , wad_child_max: float , wad_adult_min: float , wad_adult_max: float , side_tolerance: float , protocol_method: int  =0, protocol_version: float  =" 7_module.0", grid_spacing: float  =" 100.0", vertical_spacing: float  =" 100.0"):
+	def hm_wadlinesgetgridpoints(self,wad_child_min: float , wad_child_max: float , wad_adult_min: float , wad_adult_max: float , side_tolerance: float , protocol_method: int  =0, protocol_version: float  =" 7_module.0", grid_spacing: float  =" 100_module.0", vertical_spacing: float  =" 100_module.0"):
 		pass
 
 	def hm_wadlinesgetgridpointsleg(self,*args, **kwargs):
@@ -6677,7 +6862,7 @@ class Model:
 		"""
 		pass
 
-	def hm_wadlinesgetinternalbumperline(self,spacing: float , max_depth: float  =" 10.0", max_height: float  =" 520.0"):
+	def hm_wadlinesgetinternalbumperline(self,spacing: float , max_depth: float  =" 10_module.0", max_height: float  =" 520_module.0"):
 		pass
 
 	def hm_wadlinesgetleggridline(self):
@@ -6868,7 +7053,7 @@ class Model:
 
 	def imprint_mesh(self,*args, **kwargs):
 		"""
-		imprint_mesh(HMAPIBase self, Collection src_collection, Collection tgt_collection, EntityList src_node_list=s_defaultEntityList, int const close_node_list=0, Collection anchor_nodes_collection=hwDescriptor::Collection(), int const remain=1, int const projection=0, hwTriple projection_vector=hwTriple(0.000000, 0.000000, 0.000000), int const to_dest_component=0, int const do_not_remesh_rebuild_extn=0, int const do_not_add_fixed_points_edges=0, int const remesh_mode=0, int const remesh_layers=2, double const angle=25.000000, double const max_distance=0.000000, double const mesh_size=0.000000, int const mesh_type=0)
+		imprint_mesh(HMAPIBase self, Collection tgt_collection, Collection src_collection=hwDescriptor::Collection(), EntityList src_node_list=s_defaultEntityList, int const close_node_list=0, Collection anchor_nodes_collection=hwDescriptor::Collection(), int const remain=1, int const projection=0, hwTriple projection_vector=hwTriple(0.000000, 0.000000, 0.000000), int const to_dest_component=0, int const do_not_remesh_rebuild_extn=0, int const do_not_add_fixed_points_edges=0, int const remesh_mode=0, int const remesh_layers=2, double const angle=25.000000, double const max_distance=0.000000, double const mesh_size=0.000000, int const mesh_type=0, int const create_joint_elems=0)
 		"""
 		pass
 
@@ -7145,6 +7330,9 @@ class Model:
 	def linemesh_saveparameters(self,segment: int, density: int, bias: float, bias_style: int):
 		pass
 
+	def linemesh_saveparams(self,line: Entity, break_angle: float  =0.0, segment_id: int  = -1, elem_density: int  =0, bias_intensity: float  =" -1_module.0", bias_style: int  = -1, use_chordal_values: var0  =0, min_size: float  =0.0, max_size: float  =0.0, max_deviation: float  =0.0, max_angle: float  =0.0):
+		pass
+
 	def lineplot(self,title: hwString , full_size: int):
 		pass
 
@@ -7211,9 +7399,6 @@ class Model:
 	def loadcreateonentity_function(self,collection: Collection, config: int, type: int, comp1: float, comp2: float, comp3: float, comp4: float, comp5: float, comp6: float, xlocation: float, ylocation: float, zlocation: float, function: hwString ):
 		pass
 
-	def loadcreateonentitywithvars(self,collection: Collection, config: int, type: int, comp1_var: hwString , comp2_var: hwString , comp3_var: hwString , comp4_var: hwString , comp5_var: hwString , comp6_var: hwString ):
-		pass
-
 	def loadcreatewithsystem(self,collection: Collection, config: int, type: int, comp1: float, comp2: float, comp3: float, comp4: float, comp5: float, comp6: float, system: Entity, transformflag: int):
 		pass
 
@@ -7224,9 +7409,6 @@ class Model:
 		pass
 
 	def loadcreatewithsystemonentity_function(self,collection: Collection, config: int, type: int, comp1: float, comp2: float, comp3: float, comp4: float, comp5: float, comp6: float, sysptr: Entity, transform_flag: int, xlocation: float, ylocation: float, zlocation: float, function: hwString ):
-		pass
-
-	def loadcreatewithsystemonentitywithvars(self,collection: Collection, config: int, type: int, comp1_var: hwString , comp2_var: hwString , comp3_var: hwString , comp4_var: hwString , comp5_var: hwString , comp6_var: hwString , system_entity: Entity):
 		pass
 
 	def loaddefaultattributevaluesfromxml(self,xmlfilename: hwString ):
@@ -7386,9 +7568,6 @@ class Model:
 		pass
 
 	def masselement(self,collection: Collection, mass: float, property: hwString , name: Entity):
-		pass
-
-	def masselementwithvar(self,collection: Collection, mass_var: hwString ):
 		pass
 
 	def massmagnitudeupdate(self,collection: Collection, massMag: float, admasType: int):
@@ -7577,7 +7756,7 @@ class Model:
 	def mesh_create_size_ctrl(self,pars_str: hwString ):
 		pass
 
-	def mesh_fusing(self,destination_collection: Collection, target_collection: Collection, string_options: hwString ):
+	def mesh_fusing(self,destination_collection: Collection, source_collection: Collection, string_options: hwString ):
 		pass
 
 	def mesh_size_tree_setup(self,type: int, dbls_str: hwString ):
@@ -7703,7 +7882,7 @@ class Model:
 		"""
 		pass
 
-	def midmesh_inspect_init(self,SourceCollection: Collection, TargetCollection: Collection, CheckMinElemSize: int  = 1, MinEdgeOffEdgeDeviation: float  =" 0.1", MinElemCenterDeviation: float  =" 0.1", MinNodeOffMidDeviation: float  =" 0.1", MinNodeOffSolidEdgeDeviation: float  =" 0.1", MinNodeOutOfSolidDeviation: float  =" 0.1"):
+	def midmesh_inspect_init(self,SourceCollection: Collection, TargetCollection: Collection, CheckMinElemSize: int  = 1, MinEdgeOffEdgeDeviation: float  =" 0_module.1", MinElemCenterDeviation: float  =" 0_module.1", MinNodeOffMidDeviation: float  =" 0_module.1", MinNodeOffSolidEdgeDeviation: float  =" 0_module.1", MinNodeOutOfSolidDeviation: float  =" 0_module.1"):
 		pass
 
 	def midmesh_repair(self,mode: hwString , string_array: hwStringList):
@@ -7870,7 +8049,7 @@ class Model:
 
 	def modent_addcontentsbymark(self,*args, **kwargs):
 		"""
-		modent_addcontentsbymark(HMAPI self, Entity modular_entity, Collection content_collection, hwString const & representation_key=s_defaultString)
+		modent_addcontentsbymark(HMAPI self, Entity modular_entity, Collection content_collection, hwString const & representation_key=s_defaultString, unsigned int position=0)
 		"""
 		pass
 
@@ -7886,7 +8065,7 @@ class Model:
 	def modent_deletebymark(self,collection: Collection, keep_contents: var0 =0):
 		pass
 
-	def modent_deleterepresentation(self,collection: Collection, content_entity_type: hwString , representation_key: var0 =0):
+	def modent_deleterepresentation(self,collection: Collection, representation_key: hwString , delete_representation_file: var0 =0):
 		pass
 
 	def modent_export(self,entity: Entity, file_name: hwString , options: hwString ):
@@ -8082,6 +8261,9 @@ class Model:
 		pass
 
 	def morphconverttomlines(self,ecollection: Collection, nseg: int, tol: float, radtol: float):
+		pass
+
+	def morphcreateanimationfile(self,smark: Collection, nframes: int):
 		pass
 
 	def morphcreatedomaindc(self,elemcollection: Collection, type: int, part: int, rethand: int, bydom: int, bycomp: int):
@@ -8609,7 +8791,7 @@ class Model:
 	def movevectorstodesvar(self,collection: Collection, collector: hwString ):
 		pass
 
-	def multi_surfs_lines_merge(self,surf_collection: Collection, line_collection: Collection, options: int):
+	def multi_surfs_lines_merge(self,surf_collection: Collection, line_collection: Collection, options: int, tolerance: float =0.0):
 		pass
 
 	def multi_trim_by_offset_edges(self,surfaces: Collection, lines: Collection, offset_distance: float  =0.0, offset_count: int  = 1):
@@ -8688,7 +8870,7 @@ class Model:
 	def nodemodify(self,nodeentity: Entity, x: float, y: float, z: float):
 		pass
 
-	def nodeplaceatxyz(self,node: Entity, surface: Entity, location: float, y: float, z: float):
+	def nodeplaceatxyz(self,node: Entity, surface: Entity, x: float, y: float, z: float):
 		pass
 
 	def nodesandelemsclear(self):
@@ -8715,7 +8897,7 @@ class Model:
 	def normalsadjust2(self,collection: Collection, mode: int, orientation_element: Entity, size: float, display: int, vector: hwTriple, feature_angle: float):
 		pass
 
-	def normalsadjustbynodes(self,entity_type: EntityFullType, collection: Collection, node_collection: Collection, size: float, display: int):
+	def normalsadjustbynodes(self,collection: Collection, node_collection: Collection, size: float , display: int ):
 		pass
 
 	def normalsdisplay(self,collection: Collection, size: float):
@@ -8733,7 +8915,7 @@ class Model:
 	def numbersclear(self):
 		pass
 
-	def numbersmark(self,type: Collection, mar: int):
+	def numbersmark(self,collection: Collection, on: int):
 		pass
 
 	def offset_elements_to_middle(self,source_elements: Collection, target_elements: Collection, to_current_comp: int):
@@ -8766,6 +8948,12 @@ class Model:
 	def organizecomponents(self,policy: int , preserve_element_include: bool  = False):
 		pass
 
+	def organizevoxels(self,*args, **kwargs):
+		"""
+		organizevoxels(HMAPI self, Collection collection, Collection secondary_collection, hwString const & comp_name="", bool const check_connections=False)
+		"""
+		pass
+
 	def orient_normals_outside_solid(self,collection: Collection, orientation: int):
 		pass
 
@@ -8788,6 +8976,12 @@ class Model:
 		pass
 
 	def panelcreation(self,collection: Collection, name: hwString , findPanel: int):
+		pass
+
+	def parametrize_bycollection(self,collection: Collection, identifier: hwString , parameter_entity: Entity):
+		pass
+
+	def parametrize_byentity(self,entity: Entity, identifier: hwString , parameter_entity: Entity):
 		pass
 
 	def parmtran(self,filename: hwString ):
@@ -9012,7 +9206,10 @@ class Model:
 	def qismoothfixfailed(self,smoothcollection: Collection, anchorcollection: Collection, criteria_file: hwString , feature_angle: float, ignore_features: int, freenodesmovelimit: float, breaknodesmovelimit: float, smoothedgenodesmovelimit: float, flgs: int, max_iterations: int):
 		pass
 
-	def quad_split(self,collection: Collection, _ctrls: hwString ):
+	def quad_split(self,*args, **kwargs):
+		"""
+		quad_split(HMAPI self, Collection collection, hwString const & ctrls=s_defaultString)
+		"""
 		pass
 
 	def quatrotate(self,q0: float, q1: float, q2: float, q3: float):
@@ -9067,6 +9264,12 @@ class Model:
 		pass
 
 	def realizeabaqussurfacetosets(self):
+		pass
+
+	def realizeairbagsequence(self,*args, **kwargs):
+		"""
+		realizeairbagsequence(HMAPI self, int const id, hwString const & exportdir="")
+		"""
 		pass
 
 	def realizecontactsurfstosets(self,card_image: hwString ):
@@ -9128,7 +9331,7 @@ class Model:
 
 	def realizehmentity(self,*args, **kwargs):
 		"""
-		realizehmentity(HMAPI self, Collection markmask, EntityFullType targetentitytype=hwDescriptor::EntityFullType((unsigned int)2))
+		realizehmentity(HMAPI self, Collection collection, EntityFullType targetentitytype=hwDescriptor::EntityFullType((unsigned int)2))
 		"""
 		pass
 
@@ -9150,6 +9353,15 @@ class Model:
 	def rebuild_mesh_advanced(self,*args, **kwargs):
 		"""
 		rebuild_mesh_advanced(HMAPIBase self, Collection collection, hwTripleList flow_guides=hwTripleList(), hwString const & keep_selection="", hwString const & mode="")
+		"""
+		pass
+
+	def recalculaterigidmainnode(self,collection: Collection):
+		pass
+
+	def recalculatetol(self,*args, **kwargs):
+		"""
+		recalculatetol(HMAPI self, hwString const & cleanuptol="", hwString const & nodetol="")
 		"""
 		pass
 
@@ -9507,7 +9719,7 @@ class Model:
 	def rod(self,node1: Entity, node2: Entity, property: hwString ):
 		pass
 
-	def rotate(self,axis: float, angle: float):
+	def rotate(self,axis_angle: float, rotation_angle: float):
 		pass
 
 	def rotateabout(self,overridedefault: int, x: float, y: float, z: float):
@@ -9648,7 +9860,7 @@ class Model:
 	def serializepartnodeenggids(self,mainid: var0):
 		pass
 
-	def set_acousticmesh_options(self,NumElemPerWaveLength: int  = 6, WaveSpeed: float  =" 340000.0", DisplayCavities: int  =0):
+	def set_acousticmesh_options(self,NumElemPerWaveLength: int  = 6, WaveSpeed: float  =" 340000_module.0", DisplayCavities: int  =0):
 		pass
 
 	def set_default_quality_criteria(self,elementsize: float):
@@ -9744,7 +9956,7 @@ class Model:
 	def setelemparamvisualpriority(self,param_id: int, priority: int):
 		pass
 
-	def setelemqualityparamactive(self,param_id: int, activ: int):
+	def setelemqualityparamactive(self,param_id: int, active: int):
 		pass
 
 	def setelemqualityviewoption(self,tagname: hwString , option: float):
@@ -9942,10 +10154,10 @@ class Model:
 	def setviewangles(self,thetax: float, thetay: float, thetaz: float):
 		pass
 
-	def shapevarcreate_xproduct(self,basenode: Entity, shape: Entity, variable: Entity, A: float):
+	def shapevarcreate_xproduct(self,basenode: Entity, shape_variable_a: Entity, shape_variable_b: Entity, magnitude: float):
 		pass
 
-	def shapevarupdate_xproduct(self,collection: Collection, basenode: Entity, shape_variable_a: Entity, shape_variable_b: Entity, baseflag: float, directionflag: int, magnitude: int):
+	def shapevarupdate_xproduct(self,collection: Collection, basenode: Entity, shape_variable_a: Entity, shape_variable_b: Entity, magnitude: float, baseflag: int, directionflag: int):
 		pass
 
 	def shell_mesh_smoother(self,collection: Collection, fix_nodes_collection: Collection, mesh_shape_weight: float, node_displacement_weight: float, iterations: int):
@@ -10008,6 +10220,9 @@ class Model:
 	def sizedesvarsupdate(self,name: hwString , upperbound: float, initialvalue: float, lowerbound: float, delxv: float):
 		pass
 
+	def sketchdatasync(self,sketcherID: var0):
+		pass
+
 	def sketchdisassociateentities(self,sketch_id: var0):
 		pass
 
@@ -10038,7 +10253,7 @@ class Model:
 	def slivertetrafix(self,collection: Collection, options: hwString ):
 		pass
 
-	def smooth3d(self,entity_type: EntityFullType, collection: Collection, options: hwString ):
+	def smooth3d(self,collection: Collection, options: hwString ):
 		pass
 
 	def smoothelements(self,faceindex: var0, smoothmethod: int, iterations: int):
@@ -10125,7 +10340,7 @@ class Model:
 	def solidmap_equivalence(self,tolerance: float, find_faces: int):
 		pass
 
-	def solidmap_equivalence2(self,tolerance: Collection, find_faces: float, isAlsoFindFaces: int):
+	def solidmap_equivalence2(self,collection: Collection, tolerance: float, find_faces: int):
 		pass
 
 	def solidmap_evaluate_mappable_count(self,solentity: Entity):
@@ -10141,6 +10356,12 @@ class Model:
 		pass
 
 	def solidmap_solids_begin2(self,solid_collection: Collection, source_surface_collection: Collection, destination_surface_collection: Collection, options: var0, elem_size: float):
+		pass
+
+	def solidmap_solids_begin3(self,*args, **kwargs):
+		"""
+		solidmap_solids_begin3(HMAPI self, Collection solidcollection, double const elemsize, Collection dest_hint_collection=s_defaultCollection, unsigned int const elem_type=2, unsigned int const orthogonal_extrusion=0, Collection src_hint_collection=s_defaultCollection)
+		"""
 		pass
 
 	def solidmap_solids_end(self):
@@ -10170,7 +10391,7 @@ class Model:
 	def solidrc(self,mesh_collection: Collection, _ctrls: hwString , graphicsDB: int =0):
 		pass
 
-	def solidrc_fillhole_nodelist(self,nodeList: EntityList, graphicsDB: int =0):
+	def solidrc_fillhole_nodelist(self,nodeList: EntityList, flag_elements: int =0):
 		pass
 
 	def solids_create_from_surfaces(self,surfs_collection: Collection, depth_mode: int, depth_level: int, comp_mode: int):
@@ -10236,10 +10457,10 @@ class Model:
 	def split_elements_by_structure_pattern(self,refine_collection: Collection, transition_collection: Collection, refine_size: float, num_layers: int =0):
 		pass
 
-	def split_elements_by_structure_pattern_freeselection(self,entity_type: EntityFullType, collection: Collection, refine_size: float, adjacent_layers: int):
+	def split_elements_by_structure_pattern_freeselection(self,collection: Collection, refine_size: float , adjacent_layers: float ):
 		pass
 
-	def split_hex_continuum(self,node_array: hwIntList, entity_type: EntityFullType, collection: Collection, layers: int, growth_rate: float, action: int, component: int):
+	def split_hex_continuum(self,node_array: hwIntList, collection: Collection, layers: int , growth_rate: float , action: int , component: int ):
 		pass
 
 	def splitcontactfromcontactgroup(self,id: var0):
@@ -10250,7 +10471,7 @@ class Model:
 
 	def splitelementbyelemselect(self,*args, **kwargs):
 		"""
-		splitelementbyelemselect(HMAPI self, Collection elem_collection, unsigned int const consider1ds=2, hwString const & dividequadsoptions="none", hwString const & midpointoptions="none", unsigned int const reverseorientation=2, hwString const & splitallsidesoptions="none", unsigned int const splitnumberedges=0, hwString const & splitoptions="none", unsigned int const useinferredgeometry=2, unsigned int const useadjacentlayer=2)
+		splitelementbyelemselect(HMAPI self, Collection elem_collection, unsigned int const consider1ds=2, hwString const & dividequadsoptions="none", hwString const & midpointoptions="none", bool const reverseorientation=False, hwString const & splitallsidesoptions="none", unsigned int const splitnumberedges=0, hwString const & splitoptions="none", unsigned int const useinferredgeometry=2, unsigned int const useadjacentlayer=2, bool const splitfreeedges=True)
 		"""
 		pass
 
@@ -10272,7 +10493,7 @@ class Model:
 	def springos(self,node_entity1: Entity, node_entity2: Entity, property_name: hwString , vector_entity: Entity, direction_node_entity: Entity, orient_x: float, orient_y: float, orient_z: float, orient_comps_flag: int, system_entity: Entity):
 		pass
 
-	def springsosupdate(self,collection: Collection, property_flag: int, propery_name: hwString , vector_flag: int, vector_entity: Entity, direction_node_entity: Entity, orient_x: float, orient_y: float, orient_z: float, orient_comps_flag: int, system_entity: Entity, update_orient_flag: int):
+	def springsosupdate(self,collection: Collection, property_flag: int, property_name: hwString , vector_flag: int, vector_entity: Entity, direction_node_entity: Entity, orient_x: float, orient_y: float, orient_z: float, orient_comps_flag: int, system_entity: Entity, update_orient_flag: int):
 		pass
 
 	def springsupdate(self,collection: Collection, dofflag: int, dof: hwBoolList, propertyflag: int, property: hwString , vectorflag: int, vectorentity: Entity):
@@ -10323,10 +10544,10 @@ class Model:
 	def submodleoffset(self,submodel: hwString , id: var0, shortname: hwString , entities: hwString , poolid: var0, offset: var0):
 		pass
 
-	def summary(self,template_file: hwString , output_file: hwString , _print: int, all: int):
+	def summary(self,template_file: hwString , output_file: hwString , print_flag: int, all: int):
 		pass
 
-	def superelementset(self,collection: Collection, super: int):
+	def superelementset(self,collection: Collection, super_id: int):
 		pass
 
 	def surface_patch(self,*args, **kwargs):
@@ -10398,7 +10619,7 @@ class Model:
 	def surfacedisplaynormals(self,collection: Collection, size: float):
 		pass
 
-	def surfacefilletremove(self,entity_type: Collection, collection: Collection, size: Collection):
+	def surfacefilletremove(self,surfs_collection: Collection, lines_collection1: Collection, lines_collection2: Collection):
 		pass
 
 	def surfaceimprintpoints(self,collection: Collection, float_array: hwDoubleList, max_distance: float):
@@ -10573,6 +10794,12 @@ class Model:
 		pass
 
 	def syncpropertybeamsectionvalues(self,collection: Collection):
+		pass
+
+	def system(self,*args, **kwargs):
+		"""
+		system(HMAPI self, EntityFullType entity_type, hwString const & axisname="", int const axisnode=0, double const axisx=0.000000, double const axisy=0.000000, double const axisz=0.000000, Collection nodeCollection=hwDescriptor::Collection(), hwString const & planename="", int const originnode=0, double const originx=0.000000, double const originy=0.000000, double const originz=0.000000, int const planenode=0, double const planex=0.000000, double const planey=0.000000, double const planez=0.000000, int const system=0, int const type=-1)
+		"""
 		pass
 
 	def systemcommand(self,command: hwString ):
@@ -10765,7 +10992,7 @@ class Model:
 	def trimcreateline(self,collection: Collection, lineflag: int):
 		pass
 
-	def trueview(self,plane_normal: hwTriple, plane_base: hwTriple, id: int):
+	def trueview(self,plane_normal: hwTriple, plane_base: hwTriple, flip_normal: int =0):
 		pass
 
 	def try_far_tria_reduction(self,smoothcollection: Collection, elemsize: float, minelemsize: float, maxelemsize: float, minangle: float, maxangle: float):
@@ -10835,6 +11062,9 @@ class Model:
 		pass
 
 	def updateairbag(self,collection: Collection, name: hwString ):
+		pass
+
+	def updatebeamdirection(self,srcSolverName: hwString , destSolverName: hwString ):
 		pass
 
 	def updateblankholder(self,name: hwString , bhpressure: float, tonnage: float, friction: float, color: int, collection: Collection):
@@ -10925,9 +11155,6 @@ class Model:
 		pass
 
 	def vectorcreate_xproduct(self,basenode: Entity, vector_a: Entity, vector_b: Entity, magnitude: float):
-		pass
-
-	def vectorplot(self,title: hwString , vector_size: float, mesh_color: int, full_size: int, constant_size: int):
 		pass
 
 	def vectorsoff(self):
@@ -11217,7 +11444,7 @@ Get a list of models in session
 	def define_attribute(self,handle: int, attribute: mdi_module.attribute.Attribute):
 		pass
 
-	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False, mixins="{}"):
+	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False, mixins="{}", isroot=False):
 		pass
 
 	def define_uid_attribute(self,handle: int, attribute_uid: str, attribute_revision: str, attribute_branch: str):
@@ -11238,7 +11465,7 @@ Get a list of models in session
 	def get_entityfulltype_from_metaclass(self,handle: int):
 		pass
 
-	def get_propertysheetview_factory(self,adaptor: str):
+	def get_propertysheetview_factory(self,adaptor:str=" "):
 		pass
 
 	def get_uid_attributename(self,fulltype):
@@ -11275,6 +11502,9 @@ Get a list of models in session
 		pass
 
 	def set_ownership(self,owner_handle: int, child, attribute_handle: int, override: bool):
+		pass
+
+	def update_configuration(self,path: str):
 		pass
 
 class TMDIObject:
@@ -11419,6 +11649,7 @@ Internal indicator of special typing constructs.
 """
 		pass
 
+UserProfilePath:str
 altair_home:str
 class coreCollection:
 	def __init__(self,*args, **kwargs):
@@ -11441,6 +11672,9 @@ class coreCollection:
 """
 		pass
 
+	def GetValues(self,identifier: Identifier, value: Value):
+		pass
+
 	def TestValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11453,7 +11687,7 @@ class coreCollection:
 	def complement(self):
 		pass
 
-	def contains(self,obj: MDIMetaobject):
+	def contains(self,obj: MDIObject):
 		pass
 
 	def delete_items(self):
@@ -11478,6 +11712,9 @@ class coreCollection:
 	def get_attribute_definition(self,identifier: str):
 		pass
 
+	def get_values(self,identifier: str):
+		pass
+
 	def intersect(self,other: Collection):
 		pass
 
@@ -11488,7 +11725,7 @@ class coreCollection:
 	def mdimodel(self):
 		pass
 
-	def set_items(self,identifier: str, value):
+	def set_values(self,identifier: str, value):
 		pass
 
 	def subtract(self,rule: CollectionRule, source: Collection = None):

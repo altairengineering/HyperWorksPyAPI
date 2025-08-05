@@ -1,5 +1,11 @@
 from typing import TypeVar
 class hw_module:
+	class window:
+		class Window:
+			pass
+	class page:
+		class Page:
+			pass
 	class hv:
 		class model:
 			class Model:
@@ -19,12 +25,7 @@ class hw_module:
 		class legend:
 			class ResultPlotType:
 				pass
-	class window:
-		class Window:
-			pass
-	class page:
-		class Page:
-			pass
+
 class Any:
 	pass
 class range:
@@ -48,6 +49,279 @@ Internal indicator of special typing constructs.
     See _doc instance attribute for specific docs.
     
 """
+		pass
+
+class ApplyStyle:
+	def __init__(self,**kwargs):
+		"""
+
+    Class representing the applying style of the current model to another on the current page, or on a different target page/window in the session.
+
+    :param kwargs: Attributes of the ApplyStyle object.
+    :type kwargs: dict
+
+    
+"""
+		pass
+
+	def apply(self):
+		"""
+		Method to apply the ApplyStyle options from the source window to specific target windows.
+
+        
+		"""
+		pass
+
+	@property
+	def axisymmetry(self):
+		pass
+	@axisymmetry.setter
+	def axisymmetry(self):
+		pass
+
+	@property
+	def boundaryGeometry(self):
+		pass
+	@boundaryGeometry.setter
+	def boundaryGeometry(self):
+		pass
+
+	@property
+	def collision(self):
+		pass
+	@collision.setter
+	def collision(self):
+		pass
+
+	@property
+	def contour(self):
+		pass
+	@contour.setter
+	def contour(self):
+		pass
+
+	@property
+	def deformedShape(self):
+		pass
+	@deformedShape.setter
+	def deformedShape(self):
+		pass
+
+	@property
+	def entityAttributes(self):
+		pass
+	@entityAttributes.setter
+	def entityAttributes(self):
+		pass
+
+	@property
+	def explosion(self):
+		pass
+	@explosion.setter
+	def explosion(self):
+		pass
+
+	@property
+	def fbd(self):
+		pass
+	@fbd.setter
+	def fbd(self):
+		pass
+
+	def getTarget(self,windowListOnly: bool = False):
+		"""
+		Method to get the target that has been set for ApplyStyle.
+        
+        :param windowListOnly: If this flag is True then the method returns a list of windows, else a mixed list (windows and pages).
+        :type windowListOnly: bool
+        
+		"""
+		pass
+
+	@property
+	def imagePlane(self):
+		pass
+	@imagePlane.setter
+	def imagePlane(self):
+		pass
+
+	@property
+	def isoValue(self):
+		pass
+	@isoValue.setter
+	def isoValue(self):
+		pass
+
+	@property
+	def legend(self):
+		pass
+	@legend.setter
+	def legend(self):
+		pass
+
+	@property
+	def measures(self):
+		pass
+	@measures.setter
+	def measures(self):
+		pass
+
+	@property
+	def modelAttributes(self):
+		pass
+	@modelAttributes.setter
+	def modelAttributes(self):
+		pass
+
+	@property
+	def modelInfo(self):
+		pass
+	@modelInfo.setter
+	def modelInfo(self):
+		pass
+
+	@property
+	def notes(self):
+		pass
+	@notes.setter
+	def notes(self):
+		pass
+
+	@property
+	def resultSteps(self):
+		pass
+	@resultSteps.setter
+	def resultSteps(self):
+		pass
+
+	@property
+	def sectionCut(self):
+		pass
+	@sectionCut.setter
+	def sectionCut(self):
+		pass
+
+	@property
+	def set(self):
+		pass
+	@set.setter
+	def set(self):
+		pass
+
+	def setAllAttributes(self,option: bool|str = None):
+		"""
+		Method to set different options in the current choice of ApplyStyle attributes.
+
+        :param option: This value indicates whether we set all the ApplyStyle options equal to True, False or restore them in default settings ("default") or reverse the current choice ("reverse").
+        :type option: Union[bool, str]
+        
+		"""
+		pass
+
+	def setAttributes(self,**kwargs):
+		"""
+		Method to set the ApplyStyle attributes.
+
+        :param kwargs: Attributes
+        :type kwargs: dict
+        
+		"""
+		pass
+
+	def setTarget(self,target: str|list|hw_module.window.Window|hw_module.page.Page = None, checkTarget: bool = True):
+		"""
+		Method to set the target windows or pages for ApplyStyle.
+
+        :param target: Target of the ApplyStyle tool. It can be a window, a page, a list of windows or pages or a string representing either the current page ("currentPage") or all pages ("allPages").
+        :type target: Union[str,list,win.Window,pg.Page]
+        :param checkTarget: A flag that indicates if ApplyStyle process stops if at least one page inside the target list has no HyperView window. By default is checked if all target pages have at least one HyperView window.
+        :type checkTarget: bool
+        
+		"""
+		pass
+
+	@property
+	def source(self):
+		pass
+	@source.setter
+	def source(self):
+		pass
+
+	@property
+	def stressCharacterizationLine(self):
+		pass
+	@stressCharacterizationLine.setter
+	def stressCharacterizationLine(self):
+		pass
+
+	@property
+	def symmetry(self):
+		pass
+	@symmetry.setter
+	def symmetry(self):
+		pass
+
+	@property
+	def system(self):
+		pass
+	@system.setter
+	def system(self):
+		pass
+
+	@property
+	def systemPlot(self):
+		pass
+	@systemPlot.setter
+	def systemPlot(self):
+		pass
+
+	@property
+	def tensor(self):
+		pass
+	@tensor.setter
+	def tensor(self):
+		pass
+
+	@property
+	def tracing(self):
+		pass
+	@tracing.setter
+	def tracing(self):
+		pass
+
+	@property
+	def tracking(self):
+		pass
+	@tracking.setter
+	def tracking(self):
+		pass
+
+	@property
+	def userViews(self):
+		pass
+	@userViews.setter
+	def userViews(self):
+		pass
+
+	@property
+	def vector(self):
+		pass
+	@vector.setter
+	def vector(self):
+		pass
+
+	@property
+	def viewOrientation(self):
+		pass
+	@viewOrientation.setter
+	def viewOrientation(self):
+		pass
+
+	@property
+	def visibility(self):
+		pass
+	@visibility.setter
+	def visibility(self):
 		pass
 
 class Collection:
@@ -542,13 +816,6 @@ class ExportModelGLBinPPT:
 		pass
 
 	@property
-	def modelHierarchy(self):
-		pass
-	@modelHierarchy.setter
-	def modelHierarchy(self):
-		pass
-
-	@property
 	def page(self):
 		pass
 	@page.setter
@@ -780,6 +1047,13 @@ class ExportModelH3DinHTML:
 		"""
 		Method to set the ExportModelH3DinHTML attributes.
 		"""
+		pass
+
+	@property
+	def steplist(self):
+		pass
+	@steplist.setter
+	def steplist(self):
 		pass
 
 	@property
@@ -1178,7 +1452,7 @@ class LegendScalar:
 		"""
 		Method to get the category label list of the legend.
 
-        :return: Bounding box.
+        :return: label list.
         :rtype: list  
         
 		"""
@@ -1358,6 +1632,20 @@ class LegendScalar:
         
         :param kwargs: attributes
         :type kwargs: dict
+        
+		"""
+		pass
+
+	def setCategoryLabel(self,level_index: Any =" 0", level_label: str = None):
+		"""
+		Method to set the category label of level in legend.
+
+        :param level_index: level index. 
+        :type level_index: int
+
+        :param level_label: label. 
+        :type level_label: str.
+
         
 		"""
 		pass
@@ -1598,7 +1886,7 @@ class LegendTensor:
 		"""
 		Method to get the category label list of the legend.
 
-        :return: Bounding box.
+        :return: label list.
         :rtype: list  
         
 		"""
@@ -1764,6 +2052,20 @@ class LegendTensor:
         
         :param kwargs: attributes
         :type kwargs: dict
+        
+		"""
+		pass
+
+	def setCategoryLabel(self,level_index: Any =" 0", level_label: str = None):
+		"""
+		Method to set the category label of level in legend.
+
+        :param level_index: level index. 
+        :type level_index: int
+
+        :param level_label: label. 
+        :type level_label: str.
+
         
 		"""
 		pass
@@ -2004,7 +2306,7 @@ class LegendVector:
 		"""
 		Method to get the category label list of the legend.
 
-        :return: Bounding box.
+        :return: label list.
         :rtype: list  
         
 		"""
@@ -2170,6 +2472,20 @@ class LegendVector:
         
         :param kwargs: attributes
         :type kwargs: dict
+        
+		"""
+		pass
+
+	def setCategoryLabel(self,level_index: Any =" 0", level_label: str = None):
+		"""
+		Method to set the category label of level in legend.
+
+        :param level_index: level index. 
+        :type level_index: int
+
+        :param level_label: label. 
+        :type level_label: str.
+
         
 		"""
 		pass
@@ -6009,6 +6325,14 @@ class Model:
 		pass
 
 	def exportSets(self,filename:str=" "):
+		"""
+		Method to export sets information.
+
+        :param filename: file path.
+        :type filename: str.
+
+        
+		"""
 		pass
 
 	def get(self,tag, id_or_lab, pool=None):
@@ -6026,6 +6350,28 @@ class Model:
 
         :return: Requested entity object.
         :rtype: Union[Element, Node, Part, PartSet, PartAssembly, System]  
+        
+		"""
+		pass
+
+	def getModelFile(self):
+		"""
+		Method to get the loaded model file.
+
+        :return: Model file.
+        :rtype: str.
+
+        
+		"""
+		pass
+
+	def getResultFile(self):
+		"""
+		Method to get the loaded result file.
+
+        :return: Model file.
+        :rtype: str.
+
         
 		"""
 		pass
@@ -6048,6 +6394,14 @@ class Model:
 		pass
 
 	def importSets(self,filename:str=" "):
+		"""
+		Method to import sets into HV.
+
+        :param filename: file path.
+        :type filename: str.
+
+        
+		"""
 		pass
 
 	def isolate(self,colobj):
@@ -6844,6 +7198,13 @@ PurePath subclass that can make system calls.
 		"""
 		
         Check if this path is a POSIX mount point
+        
+		"""
+		pass
+
+	def is_relative_to(self,*other):
+		"""
+		Return True if the path is relative to another path or False.
         
 		"""
 		pass
@@ -9821,6 +10182,9 @@ A decorator indicating abstract methods.
 """
 	pass
 
+class applystyle:
+	pass
+
 class co:
 	pass
 
@@ -10048,6 +10412,18 @@ class measurestaticminmax:
 
 class measureyawpitchroll:
 	pass
+
+class methodcaller:
+	def __init__(self):
+		"""
+methodcaller(name, ...) --> methodcaller object
+
+Return a callable object that calls the given method on its operand.
+After f = methodcaller('name'), the call f(r) returns r.name().
+After g = methodcaller('name', 'date', foo=1), the call g(r) returns
+r.name('date', foo=1).
+"""
+		pass
 
 class mod:
 	pass

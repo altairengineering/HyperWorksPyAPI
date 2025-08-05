@@ -478,6 +478,15 @@ def getSelectedBodies():
 """
 	pass
 
+def getSelectedCADBodies():
+	"""
+
+
+    This function returns a list of selected CAD body names along with their corresponding indices.
+    
+"""
+	pass
+
 def getSelectedEntities(pEntityType):
 	"""
 
@@ -614,7 +623,7 @@ def offsetPlane(PlanePoint1, PlanePoint2, PlanePoint3, dOffsetDistance):
 	pass
 
 class pauseprocess:
-	def __init__(self,message,pos: str="<hwui.uiPoint; proxy of <Swig Object of type uiPoint * at 0x00000196DCE61690> >",title: str="SimLab",Button1: str="OK",Button2: str="Cancel"):
+	def __init__(self,message,pos: str="<hwui.uiPoint; proxy of <Swig Object of type uiPoint * at 0x0000018E893232A0> >",title: str="SimLab",Button1: str="OK",Button2: str="Cancel"):
 		"""
 This function is used for to pause the script and user can interact the user interface to do manual operations.
 

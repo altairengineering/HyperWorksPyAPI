@@ -70,7 +70,7 @@ var67=TypeVar('Variant',str)
 var68=TypeVar('ObjectRenderer',str)
 
 class Action:
-	def __init__(self,parent=None,name: str="", **kwds):
+	def __init__(self,parent=None,name: str="", replaceExisting=False, **kwds):
 		"""
 GUI command used in Menus and ToolBars.
 
@@ -1661,7 +1661,7 @@ Abstract base class for all buttons.
 		pass
 
 class ButtonGroup:
-	def __init__(self,buttons):
+	def __init__(self,buttons=[]):
 		"""
 A ButtonGroup is a group of mutually exclusive buttons.
 
@@ -1860,6 +1860,9 @@ A ButtonGroup is a group of mutually exclusive buttons.
 		pass
 
 	def UUID(self):
+		pass
+
+	def add(self,button):
 		pass
 
 	@property
@@ -2066,7 +2069,7 @@ A CheckBox is a bool control with a text label.
 		"""
 		pass
 
-	def set(self,v):
+	def set(self,v, emit=False):
 		pass
 
 	def setF1HelpTopic(self,helptopic):
@@ -2134,7 +2137,7 @@ A CheckBox is a bool control with a text label.
 		pass
 
 class Checkboxes:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of Checkboxes. Any number of checkbox can be checked within the same
   container.
@@ -2228,6 +2231,13 @@ Group of Checkboxes. Any number of checkbox can be checked within the same
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -2359,13 +2369,13 @@ Group of Checkboxes. Any number of checkbox can be checked within the same
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -2707,8 +2717,384 @@ A Frame with a flat button and subfame that is toggled visible/invisible
 	def width(self):
 		pass
 
+class CollectorButton:
+	def __init__(self,**kwds):
+		"""
+A CollectorButton is a widget that is used to pick graphically
+  or using the advanced selection.
+
+  
+"""
+		pass
+
+	@property
+	def accel(self):
+		pass
+	@accel.setter
+	def accel(self):
+		pass
+
+	@property
+	def active(self):
+		pass
+	@active.setter
+	def active(self):
+		pass
+
+	def addChildren(self,children):
+		"""
+		Add child widgets/layouts into this widget.
+    
+    Widget children get layed out using a VBoxLayout.
+
+    Typically, you'll pass the parent/children into the constructor instead of
+    calling this function directly.
+
+    Args:
+      children (list[Widget] | Layout)
+    
+		"""
+		pass
+
+	@property
+	def advancedTooltip(self):
+		pass
+	@advancedTooltip.setter
+	def advancedTooltip(self):
+		pass
+
+	@property
+	def autoRepeat(self):
+		pass
+	@autoRepeat.setter
+	def autoRepeat(self):
+		pass
+
+	@property
+	def checkable(self):
+		pass
+	@checkable.setter
+	def checkable(self):
+		pass
+
+	@property
+	def checked(self):
+		pass
+	@checked.setter
+	def checked(self):
+		pass
+
+	@property
+	def chevronButton(self):
+		pass
+	@chevronButton.setter
+	def chevronButton(self):
+		pass
+
+	@property
+	def children(self):
+		pass
+	@children.setter
+	def children(self):
+		pass
+
+	@property
+	def color(self):
+		pass
+	@color.setter
+	def color(self):
+		pass
+
+	@property
+	def command(self):
+		pass
+	@command.setter
+	def command(self):
+		pass
+
+	@property
+	def descendents(self):
+		pass
+	@descendents.setter
+	def descendents(self):
+		pass
+
+	def destroy(self):
+		"""
+		Deletes this and all its children.
+		"""
+		pass
+
+	@property
+	def dialog(self):
+		pass
+	@dialog.setter
+	def dialog(self):
+		pass
+
+	def enableGlobalActions(self,enable):
+		"""
+		Sets the state of Global Actions.
+
+    Disable the global actions to get key events.
+
+    Args:
+      enable (bool): Determines whether to enable or disable global actions.
+    
+		"""
+		pass
+
+	@property
+	def enabled(self):
+		pass
+	@enabled.setter
+	def enabled(self):
+		pass
+
+	@property
+	def flat(self):
+		pass
+	@flat.setter
+	def flat(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	def get(self):
+		pass
+
+	def getMousePosition(self):
+		"""
+		Returns the mouse position.
+		"""
+		pass
+
+	def getRelativeMousePosition(self):
+		"""
+		Returns the mouse position relative to this widget.
+		"""
+		pass
+
+	@property
+	def height(self):
+		pass
+	@height.setter
+	def height(self):
+		pass
+
+	@property
+	def helpTopic(self):
+		pass
+	@helpTopic.setter
+	def helpTopic(self):
+		pass
+
+	def hide(self):
+		"""
+		Hides the widget.
+		"""
+		pass
+
+	@property
+	def hoverColor(self):
+		pass
+	@hoverColor.setter
+	def hoverColor(self):
+		pass
+
+	@property
+	def icon(self):
+		pass
+	@icon.setter
+	def icon(self):
+		pass
+
+	@property
+	def layout(self):
+		pass
+	@layout.setter
+	def layout(self):
+		pass
+
+	@property
+	def mainButton(self):
+		pass
+	@mainButton.setter
+	def mainButton(self):
+		pass
+
+	@property
+	def maximumHeight(self):
+		pass
+	@maximumHeight.setter
+	def maximumHeight(self):
+		pass
+
+	@property
+	def maximumWidth(self):
+		pass
+	@maximumWidth.setter
+	def maximumWidth(self):
+		pass
+
+	@property
+	def minimumHeight(self):
+		pass
+	@minimumHeight.setter
+	def minimumHeight(self):
+		pass
+
+	@property
+	def minimumWidth(self):
+		pass
+	@minimumWidth.setter
+	def minimumWidth(self):
+		pass
+
+	@property
+	def moreButton(self):
+		pass
+	@moreButton.setter
+	def moreButton(self):
+		pass
+
+	@property
+	def name(self):
+		pass
+	@name.setter
+	def name(self):
+		pass
+
+	def onCommand(self,event=None):
+		pass
+
+	@property
+	def outlineColor(self):
+		pass
+	@outlineColor.setter
+	def outlineColor(self):
+		pass
+
+	@property
+	def parent(self):
+		pass
+	@parent.setter
+	def parent(self):
+		pass
+
+	@property
+	def resetButton(self):
+		pass
+	@resetButton.setter
+	def resetButton(self):
+		pass
+
+	def saveAsPng(self,fname):
+		"""
+		Saves the widget as a .png file.
+
+    Args:
+      fname (str): The file name for the .png
+
+    Returns:
+      bool : True if it was saved succesfully, False otherwise. 
+    
+		"""
+		pass
+
+	@property
+	def selectColor(self):
+		pass
+	@selectColor.setter
+	def selectColor(self):
+		pass
+
+	@property
+	def selected(self):
+		pass
+	@selected.setter
+	def selected(self):
+		pass
+
+	def set(self,v):
+		pass
+
+	def setF1HelpTopic(self,helptopic):
+		"""
+		Popup web-browser helps when the user hits F1 when over this.
+
+    Args:
+      helptopic (str): Topic name user needs help in.
+    
+		"""
+		pass
+
+	def setProperties(self,kwds):
+		"""
+		Ensure proper order of setting properties.
+
+    Args:
+      kwds: A dict so the  order of the properties are set is unpredictable
+        checkable must be set before checked, or checked will not take effect.
+    
+		"""
+		pass
+
+	def show(self):
+		"""
+		Shows the widget.
+		"""
+		pass
+
+	@property
+	def size(self):
+		pass
+	@size.setter
+	def size(self):
+		pass
+
+	@property
+	def text(self):
+		pass
+	@text.setter
+	def text(self):
+		pass
+
+	@property
+	def tooltip(self):
+		pass
+	@tooltip.setter
+	def tooltip(self):
+		pass
+
+	@property
+	def value(self):
+		pass
+	@value.setter
+	def value(self):
+		pass
+
+	@property
+	def visible(self):
+		pass
+	@visible.setter
+	def visible(self):
+		pass
+
+	@property
+	def width(self):
+		pass
+	@width.setter
+	def width(self):
+		pass
+
 class ComboBox:
-	def __init__(self,values=None, **kwds):
+	def __init__(self,values=None, labels=None, **kwds):
 		"""
 A ComboBox is used for displaying various options.
   Only one option can be selected.
@@ -2898,7 +3284,7 @@ A ComboBox is used for displaying various options.
 		"""
 		pass
 
-	def set(self,value):
+	def set(self,value, emit=False):
 		pass
 
 	def setF1HelpTopic(self,helptopic):
@@ -2917,7 +3303,7 @@ A ComboBox is used for displaying various options.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Update options user can select.
 
@@ -2969,7 +3355,7 @@ A ComboBox is used for displaying various options.
 		pass
 
 class ComboButton:
-	def __init__(self,values=None, value=None, icons=None, tooltips=None, advancedTooltips=None, **kwds):
+	def __init__(self,icons, values=[], tooltips=None, advancedTooltips=None, **kwds):
 		"""
 A combobox-like button with popup items that are images.
   
@@ -3177,15 +3563,13 @@ A combobox-like button with popup items that are images.
 		"""
 		pass
 
-	def setValues(self,values=None, value=None, icons=None, tooltips=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
-		Change the contents if value is specified, set with the specified value.
+		Set button options.
 
     Args:
-      values (str,list[str]): values to set for the ComboButton.
-      value (str): value to set for the CombooButton.
-      icons (list[str]): list of icon names to be set.
-      tooltips (list[str]): list of tooltips to be set.
+      values (list[tuple[str, str]): value, tooltip pairs
+      value (str): value becomes unset if not passed
     
 		"""
 		pass
@@ -3757,13 +4141,13 @@ A Dialog that prompts for read/write csv file names.
 """
 		pass
 
-	def getOpenFileName(self,filter: str="Comma Separated Values *.csv", remember:  str="write_csv", **kwds):
+	def getOpenFileName(self,filter:str = "Comma Separated Values *.csv", remember:str = "write_csv", **kwds):
 		"""
 		Returns the csv filename opened.
 		"""
 		pass
 
-	def getSaveFileName(self,filter: str="Comma Separated Values *.csv", remember:  str="write_csv", **kwds):
+	def getSaveFileName(self,filter:str = "Comma Separated Values *.csv", remember:str = "write_csv", **kwds):
 		"""
 		Returns the csv filename saved.
 		"""
@@ -5803,7 +6187,7 @@ The ExtensionManager class is used to register and load user-defined extensions
     This runs the plugin script making it active.
 
     Args:
-      name (str): The name specified in the extensions's plugin.xml
+      name (str): The name specified in the extensions's extension.xml
     
 		"""
 		pass
@@ -5828,7 +6212,7 @@ The ExtensionManager class is used to register and load user-defined extensions
     Use extensionManager.load to activate it.
 
     Args:
-      path (str): Path to a plugin.xml or a directory containing one.
+      path (str): Path to a extension.xml or a directory containing one.
 
     Raises:
         FileNotFoundError
@@ -5843,7 +6227,7 @@ The ExtensionManager class is used to register and load user-defined extensions
     Any Actions added by the plugin are removed from the gui.
 
     Args:
-      name (str): The name specified in the extensions's plugin.xml
+      name (str): The name specified in the extensions's extension.xml
     
 		"""
 		pass
@@ -5853,9 +6237,262 @@ The ExtensionManager class is used to register and load user-defined extensions
 		Unregister an extension.
 
     Args:
-      name (str): The name specified in the extensions's plugin.xml
+      name (str): The name specified in the extensions's extension.xml
     
 		"""
+		pass
+
+class Figure:
+	def __init__(self,figure, **kwds):
+		pass
+
+	@property
+	def active(self):
+		pass
+	@active.setter
+	def active(self):
+		pass
+
+	def addChildren(self,children):
+		"""
+		Add child widgets/layouts into this widget.
+    
+    Widget children get layed out using a VBoxLayout.
+
+    Typically, you'll pass the parent/children into the constructor instead of
+    calling this function directly.
+
+    Args:
+      children (list[Widget] | Layout)
+    
+		"""
+		pass
+
+	@property
+	def advancedTooltip(self):
+		pass
+	@advancedTooltip.setter
+	def advancedTooltip(self):
+		pass
+
+	@property
+	def children(self):
+		pass
+	@children.setter
+	def children(self):
+		pass
+
+	@property
+	def command(self):
+		pass
+	@command.setter
+	def command(self):
+		pass
+
+	@property
+	def descendents(self):
+		pass
+	@descendents.setter
+	def descendents(self):
+		pass
+
+	def destroy(self):
+		"""
+		Deletes this and all its children.
+		"""
+		pass
+
+	def enableGlobalActions(self,enable):
+		"""
+		Sets the state of Global Actions.
+
+    Disable the global actions to get key events.
+
+    Args:
+      enable (bool): Determines whether to enable or disable global actions.
+    
+		"""
+		pass
+
+	@property
+	def enabled(self):
+		pass
+	@enabled.setter
+	def enabled(self):
+		pass
+
+	@property
+	def font(self):
+		pass
+	@font.setter
+	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
+		pass
+
+	def get(self):
+		pass
+
+	def getMousePosition(self):
+		"""
+		Returns the mouse position.
+		"""
+		pass
+
+	def getRelativeMousePosition(self):
+		"""
+		Returns the mouse position relative to this widget.
+		"""
+		pass
+
+	@property
+	def height(self):
+		pass
+	@height.setter
+	def height(self):
+		pass
+
+	@property
+	def helpTopic(self):
+		pass
+	@helpTopic.setter
+	def helpTopic(self):
+		pass
+
+	def hide(self):
+		"""
+		Hides the widget.
+		"""
+		pass
+
+	@property
+	def layout(self):
+		pass
+	@layout.setter
+	def layout(self):
+		pass
+
+	@property
+	def maximumHeight(self):
+		pass
+	@maximumHeight.setter
+	def maximumHeight(self):
+		pass
+
+	@property
+	def maximumWidth(self):
+		pass
+	@maximumWidth.setter
+	def maximumWidth(self):
+		pass
+
+	@property
+	def minimumHeight(self):
+		pass
+	@minimumHeight.setter
+	def minimumHeight(self):
+		pass
+
+	@property
+	def minimumWidth(self):
+		pass
+	@minimumWidth.setter
+	def minimumWidth(self):
+		pass
+
+	@property
+	def name(self):
+		pass
+	@name.setter
+	def name(self):
+		pass
+
+	def onCommand(self,event=None):
+		pass
+
+	@property
+	def parent(self):
+		pass
+	@parent.setter
+	def parent(self):
+		pass
+
+	def saveAsPng(self,fname):
+		"""
+		Saves the widget as a .png file.
+
+    Args:
+      fname (str): The file name for the .png
+
+    Returns:
+      bool : True if it was saved succesfully, False otherwise. 
+    
+		"""
+		pass
+
+	def set(self,v):
+		pass
+
+	def setF1HelpTopic(self,helptopic):
+		"""
+		Popup web-browser helps when the user hits F1 when over this.
+
+    Args:
+      helptopic (str): Topic name user needs help in.
+    
+		"""
+		pass
+
+	def setProperties(self,kwds):
+		"""
+		Internal method called from constructors.
+		"""
+		pass
+
+	def show(self):
+		"""
+		Shows the widget.
+		"""
+		pass
+
+	@property
+	def size(self):
+		pass
+	@size.setter
+	def size(self):
+		pass
+
+	@property
+	def tooltip(self):
+		pass
+	@tooltip.setter
+	def tooltip(self):
+		pass
+
+	@property
+	def value(self):
+		pass
+	@value.setter
+	def value(self):
+		pass
+
+	@property
+	def visible(self):
+		pass
+	@visible.setter
+	def visible(self):
+		pass
+
+	@property
+	def width(self):
+		pass
+	@width.setter
+	def width(self):
 		pass
 
 class Float:
@@ -6599,7 +7236,7 @@ A popup dialog.
 	def executeCreateandExitButton(self,command, **kwds):
 		"""
 		Shortcut for creating green check button that
-      executes the command, calls clearAllLists, then calls .pop().
+      executes the command, and hides the guidebar.
 
     Args:
       command (callback): Callback method to be called when the button is clicked.
@@ -6625,8 +7262,8 @@ A popup dialog.
 
 	def exitButton(self,**kwds):
 		"""
-		Shortcut for creating a button that has the red x icon and pops the
-       context.
+		Shortcut for creating a button that has the red x icon and by default hides
+    the guidebar.
 
     Args:
       kwds (dict): Any other properties user wants to set for the exit button.
@@ -6770,8 +7407,7 @@ A popup dialog.
 
 	def resetButton(self,**kwds):
 		"""
-		Shortcut for creating a button that has the reset icon and calls
-      clearAllLists.
+		Shortcut for creating a button that has the reset icon.
 
     Returns:
       Button: The new reset button.
@@ -7965,15 +8601,15 @@ The GuidePanelButtons class provides a widget that contains the OK,
 	def advancedTooltip(self):
 		pass
 
-	def applyButton(self):
+	def applyButton(self,command=None):
 		"""
-		Returns apply push button.
+		Shortcut for creating a play button and executes the given command if any.
 		"""
 		pass
 
-	def cancelButton(self):
+	def cancelButton(self,command=None):
 		"""
-		Returns cancel push button.
+		Shortcut for creating a button with the red x icon and executes the given command if any.
 		"""
 		pass
 
@@ -8021,6 +8657,24 @@ The GuidePanelButtons class provides a widget that contains the OK,
 		pass
 	@enabled.setter
 	def enabled(self):
+		pass
+
+	def executeCreateandExitButton(self,command=None):
+		"""
+		Shortcut for creating green check button and executes the command if any.
+		"""
+		pass
+
+	def executePlayButton(self,command=None):
+		"""
+		Shortcut for creating a play button and executes the given command if any.
+		"""
+		pass
+
+	def exitButton(self,command=None):
+		"""
+		Shortcut for creating a button with the red x icon and executes the given command if any.
+		"""
 		pass
 
 	@property
@@ -8107,9 +8761,9 @@ The GuidePanelButtons class provides a widget that contains the OK,
 	def name(self):
 		pass
 
-	def okButton(self):
+	def okButton(self,command=None):
 		"""
-		Returns ok push button.
+		Shortcut for creating green check button and executes the command if any.
 		"""
 		pass
 
@@ -8123,9 +8777,9 @@ The GuidePanelButtons class provides a widget that contains the OK,
 	def parent(self):
 		pass
 
-	def resetButton(self):
+	def resetButton(self,command=None):
 		"""
-		Returns reset push button.
+		Shortcut for creating a button with the reset icon and executes the given command if any.
 		"""
 		pass
 
@@ -9041,7 +9695,7 @@ Layout widgets horizontally.
 		pass
 
 class HCheckboxes:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of Checkboxes layed out horizontally.
   
@@ -9134,6 +9788,13 @@ Group of Checkboxes layed out horizontally.
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -9265,13 +9926,13 @@ Group of Checkboxes layed out horizontally.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -9578,7 +10239,7 @@ A Frame with a HBoxLayout.
 		pass
 
 class HRadioButtons:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of mutually exclusive RadioButtons layed out horizontally.
   
@@ -9671,6 +10332,13 @@ Group of mutually exclusive RadioButtons layed out horizontally.
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -9802,13 +10470,13 @@ Group of mutually exclusive RadioButtons layed out horizontally.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -10772,6 +11440,9 @@ Get TreeItem from uiListViewItem
 		pass
 
 	def get(self,item):
+		pass
+
+	def items(self):
 		pass
 
 	def remove(self,item):
@@ -12106,6 +12777,13 @@ A popup message dialog.
 		pass
 
 	@property
+	def caption(self):
+		pass
+	@caption.setter
+	def caption(self):
+		pass
+
+	@property
 	def children(self):
 		pass
 	@children.setter
@@ -13346,6 +14024,13 @@ PurePath subclass that can make system calls.
 		"""
 		
         Check if this path is a POSIX mount point
+        
+		"""
+		pass
+
+	def is_relative_to(self,*other):
+		"""
+		Return True if the path is relative to another path or False.
         
 		"""
 		pass
@@ -14653,16 +15338,6 @@ A PushButton.
 	def width(self):
 		pass
 
-class PygmentStyles:
-	"""
-Defines 2 new pygments syntax highlighting styles (Light, Dark) for use in
-the Python Window and Python API Demos.
-
-Use getCurrentStyle() to choose the style based on the Unity theme.
-
-"""
-	pass
-
 class RadioButton:
 	def __init__(self,text=None, **kwds):
 		"""
@@ -14984,7 +15659,7 @@ A RadioButton
 		pass
 
 class RadioButtons:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of mutually exclusive RadioButtons.
 
@@ -15084,6 +15759,13 @@ Group of mutually exclusive RadioButtons.
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -15215,13 +15897,13 @@ Group of mutually exclusive RadioButtons.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -17077,6 +17759,9 @@ class ScrollLayout:
 	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
 		pass
 
+	def SetUsingNativeChild(self,value: bool):
+		pass
+
 	def SetVScrollBarMode(self,arg0: int):
 		pass
 
@@ -17555,14 +18240,28 @@ A sub Ribbon containing a list of SpriteActionGroups that appears under
 class Signal:
 	def __init__(self,wraps=None, emit=None, doc=None):
 		"""
-Wrap a C++ signal
+Wrap a C++ signal or create a pure python one.
+  
+  Signal class is a descriptor which creates slots per object.
+    class MyClass:
+      signal = sigslot.Signal()
+
+  For a global signal do:
+    globalSignal = sigslot.Signal.Slots()
+  
 """
 		pass
 
 	def connect(self,obj, slot):
+		"""
+		Overload to connect to C++ signal(s).
+		"""
 		pass
 
 	def emit(self,slots, *args):
+		"""
+		Overload to wrap and forward C++ signal args to slots
+		"""
 		pass
 
 class Slider:
@@ -18235,7 +18934,7 @@ A Widget that adds a horizontal and vertical spacer.
 	def ClassName(self):
 		pass
 
-	def DownCast(self,o: var30):
+	def DownCast(self,o: var3):
 		pass
 
 	def Expanding(self):
@@ -18281,7 +18980,7 @@ A Widget that adds a horizontal and vertical spacer.
 	def p_layoutitem(self):
 		pass
 
-	def resize(self,width, height, spacing: str = "horizontal"):
+	def resize(self,width, height, spacing:str="horizontal"):
 		"""
 		Resize the spacer item is empty.
 
@@ -18891,7 +19590,7 @@ A Splitter Widget.
 		pass
 
 class SpriteAction:
-	def __init__(self,parent=None,name: str="", **kwds):
+	def __init__(self,parent=None,name: str="", replaceExisting=False, **kwds):
 		"""
 A SpriteAction is a palette of PushButtons with icons.
 
@@ -19163,7 +19862,7 @@ Syntactic sugar for groups which one action
 	pass
 
 class SpriteCounterAction:
-	def __init__(self,parent=None,name: str="", **kwds):
+	def __init__(self,parent=None,name: str="", replaceExisting=False, **kwds):
 		"""
 A type of SpriteAction to display numbers.
   
@@ -20572,7 +21271,7 @@ A widget that presents data in a spreadsheet-like table view and
 	def numRows(self):
 		pass
 
-	def onCommand(self,event=None):
+	def onCommand(self,*args, **kwds):
 		pass
 
 	@property
@@ -21947,6 +22646,12 @@ Hierarchical list of items.
 	def hideColumn(self,column):
 		pass
 
+	def items(self):
+		"""
+		Returns all the items in the tree.
+		"""
+		pass
+
 	@property
 	def layout(self):
 		pass
@@ -22322,7 +23027,7 @@ Layout widgets vertically.
 		pass
 
 class VCheckboxes:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of Checkboxes layed out verically.
   
@@ -22415,6 +23120,13 @@ Group of Checkboxes layed out verically.
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -22546,13 +23258,13 @@ Group of Checkboxes layed out verically.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -22859,7 +23571,7 @@ A Frame with a VBoxLayout.
 		pass
 
 class VRadioButtons:
-	def __init__(self,values, value=0, **kwds):
+	def __init__(self,values=None, value=None, **kwds):
 		"""
 Group of mutually exclusive RadioButtons layed out verically.
   
@@ -22952,6 +23664,13 @@ Group of mutually exclusive RadioButtons layed out verically.
 		pass
 	@font.setter
 	def font(self):
+		pass
+
+	@property
+	def frameShape(self):
+		pass
+	@frameShape.setter
+	def frameShape(self):
 		pass
 
 	def get(self):
@@ -23083,13 +23802,13 @@ Group of mutually exclusive RadioButtons layed out verically.
 		"""
 		pass
 
-	def setValues(self,values, value=None):
+	def setValues(self,values, labels=None, value=None):
 		"""
 		Specify the options. A button is created for each option.
 
     Args:
       values (list[str, str]): list of (value, displayName) tuples.
-      value (list[str] | list[int] ): Set new values.
+      value (str | int): value becomes unset if not passed.
     
 		"""
 		pass
@@ -24011,11 +24730,11 @@ class classproperty:
 	def __init__(self,fget=None, fset=None, fdel=None, doc=None):
 		"""
 Like classmethod but for properties.
-  
-  Used to give cls.attr a docstring and run a function.
-  
-  Use inspect.getattr_static to get the descriptor.
-  
+
+    Used to give cls.attr a docstring and run a function.
+
+    Use inspect.getattr_static to get the descriptor.
+    
 """
 		pass
 
@@ -24062,6 +24781,13 @@ Lookup full file path in folders added to gui.addResourcePath(...).
 """
 	pass
 
+class functools:
+	"""
+functools.py - Tools for working with functions and callable objects
+
+"""
+	pass
+
 def getAction(action):
 	"""
 Gets the named action for the current profile
@@ -24072,6 +24798,15 @@ Gets the named action for the current profile
   Returns:
     Profile: returns the action from the current profile
   
+"""
+	pass
+
+def getCentralWidget():
+	pass
+
+def getColorIcon(color=None):
+	"""
+Returns the color iconset.
 """
 	pass
 
@@ -24368,17 +25103,28 @@ defined by the C standard.
 """
 	pass
 
-def onIdle(func, *args, **kwds):
+def onIdle(callback, *args, **kwds):
 	"""
-Delay executing the function until we process idle events.  
+Append func to the event loop to be called later.
+
+    It will be called after all the currently scheduled ui events which usually
+    coincides with the gui becoming idle.
+
+    It will also get called during a manual call to processEvents!
     
-       Arguments can be specified via args, kwds - for convenience.
 """
 	pass
 
-class onIdleOnceDecorator:
-	def __init__(self):
-		pass
+def onIdleOnceDecorator():
+	"""
+Decorate methods you don't want to be called immediately, but
+     once we start processing idle events.
+
+     If the same function is called multiple times with the same arguments
+     (all done before events are processed), it will only be called once.
+  
+"""
+	pass
 
 class os:
 	"""
@@ -26022,6 +26768,9 @@ class uiAbstractItemView:
 		pass
 
 	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
+		pass
+
+	def SetUsingNativeChild(self,value: bool):
 		pass
 
 	def SetVScrollBarMode(self,arg0: int):
@@ -27681,6 +28430,9 @@ class uiHeader:
 		pass
 
 	def SetUsesMicroDialogBorderSettings(self,useMicroDlgBorderSettings: bool):
+		pass
+
+	def SetUsingNativeChild(self,value: bool):
 		pass
 
 	def SetVScrollBarMode(self,arg0: int):

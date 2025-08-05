@@ -28,6 +28,8 @@ class Entity:
 	pass
 class Identifier2BagMap:
 	pass
+class UnitsDimensionality:
+	pass
 class Value:
 	pass
 class EntityList:
@@ -87,6 +89,9 @@ class Accelerometer:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -97,15 +102,6 @@ class Accelerometer:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -142,7 +138,7 @@ class Accelerometer:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -162,6 +158,9 @@ class Accelerometer:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -176,7 +175,484 @@ class Accelerometer:
 	def name_attribute(self):
 		pass
 
-	def name_onupdate(self):
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class Airbag:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class Airbagfold:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
+		pass
+
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class Airbagfoldingsequence:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -253,6 +729,9 @@ class Alefsiprojection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -263,15 +742,6 @@ class Alefsiprojection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -308,7 +778,7 @@ class Alefsiprojection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -328,6 +798,9 @@ class Alefsiprojection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -340,9 +813,6 @@ class Alefsiprojection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -419,6 +889,9 @@ class Alereferencesystemcurve:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -429,15 +902,6 @@ class Alereferencesystemcurve:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -474,7 +938,7 @@ class Alereferencesystemcurve:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -494,6 +958,9 @@ class Alereferencesystemcurve:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -506,9 +973,6 @@ class Alereferencesystemcurve:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -585,6 +1049,9 @@ class Alereferencesystemgroup:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -595,15 +1062,6 @@ class Alereferencesystemgroup:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -640,7 +1098,7 @@ class Alereferencesystemgroup:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -660,6 +1118,9 @@ class Alereferencesystemgroup:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -672,9 +1133,6 @@ class Alereferencesystemgroup:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -751,6 +1209,9 @@ class Alereferencesystemnode:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -761,15 +1222,6 @@ class Alereferencesystemnode:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -806,7 +1258,7 @@ class Alereferencesystemnode:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -826,6 +1278,9 @@ class Alereferencesystemnode:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -838,9 +1293,6 @@ class Alereferencesystemnode:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -917,6 +1369,9 @@ class Alereferencesystemswitch:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -927,15 +1382,6 @@ class Alereferencesystemswitch:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -972,7 +1418,7 @@ class Alereferencesystemswitch:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -992,6 +1438,9 @@ class Alereferencesystemswitch:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1004,9 +1453,6 @@ class Alereferencesystemswitch:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1083,6 +1529,9 @@ class Alesmoothing:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1093,15 +1542,6 @@ class Alesmoothing:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1138,7 +1578,7 @@ class Alesmoothing:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1158,6 +1598,9 @@ class Alesmoothing:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1170,9 +1613,6 @@ class Alesmoothing:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1249,6 +1689,9 @@ class Aletanktest:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1259,15 +1702,6 @@ class Aletanktest:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1304,7 +1738,7 @@ class Aletanktest:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1324,6 +1758,9 @@ class Aletanktest:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1336,9 +1773,6 @@ class Aletanktest:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1415,6 +1849,9 @@ class Analysis:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1425,15 +1862,6 @@ class Analysis:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1470,7 +1898,7 @@ class Analysis:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1490,6 +1918,9 @@ class Analysis:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1502,9 +1933,6 @@ class Analysis:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1581,6 +2009,9 @@ class Analysisparameter:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1591,15 +2022,6 @@ class Analysisparameter:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1636,7 +2058,7 @@ class Analysisparameter:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1656,6 +2078,9 @@ class Analysisparameter:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1668,9 +2093,6 @@ class Analysisparameter:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1747,6 +2169,9 @@ class Attachment:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1757,15 +2182,6 @@ class Attachment:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1802,7 +2218,7 @@ class Attachment:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1822,6 +2238,9 @@ class Attachment:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -1834,9 +2253,6 @@ class Attachment:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -1913,6 +2329,9 @@ class Attachmentcontrol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -1923,15 +2342,6 @@ class Attachmentcontrol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -1968,7 +2378,7 @@ class Attachmentcontrol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -1988,6 +2398,9 @@ class Attachmentcontrol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2000,9 +2413,6 @@ class Attachmentcontrol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2079,6 +2489,9 @@ class Attachmentcontroldefault:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2089,15 +2502,6 @@ class Attachmentcontroldefault:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2134,7 +2538,7 @@ class Attachmentcontroldefault:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2154,6 +2558,9 @@ class Attachmentcontroldefault:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2166,9 +2573,6 @@ class Attachmentcontroldefault:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2245,6 +2649,9 @@ class Axisymmetry:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2255,15 +2662,6 @@ class Axisymmetry:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2300,7 +2698,7 @@ class Axisymmetry:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2320,6 +2718,9 @@ class Axisymmetry:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2332,9 +2733,6 @@ class Axisymmetry:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2411,6 +2809,9 @@ class Bag:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2421,15 +2822,6 @@ class Bag:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2466,7 +2858,7 @@ class Bag:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2486,6 +2878,9 @@ class Bag:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2498,9 +2893,6 @@ class Bag:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2577,6 +2969,9 @@ class Beamsectcol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2587,15 +2982,6 @@ class Beamsectcol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2632,7 +3018,7 @@ class Beamsectcol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2652,6 +3038,9 @@ class Beamsectcol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2664,9 +3053,6 @@ class Beamsectcol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2743,6 +3129,9 @@ class Beamsection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2753,15 +3142,6 @@ class Beamsection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2798,7 +3178,7 @@ class Beamsection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2818,6 +3198,9 @@ class Beamsection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2830,9 +3213,6 @@ class Beamsection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -2909,6 +3289,9 @@ class Behavior:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -2919,15 +3302,6 @@ class Behavior:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -2964,7 +3338,7 @@ class Behavior:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -2984,6 +3358,9 @@ class Behavior:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -2996,9 +3373,6 @@ class Behavior:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3075,6 +3449,9 @@ class Block:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3085,15 +3462,6 @@ class Block:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3130,7 +3498,7 @@ class Block:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3150,6 +3518,9 @@ class Block:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3162,9 +3533,6 @@ class Block:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3241,6 +3609,9 @@ class Body:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3251,15 +3622,6 @@ class Body:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3296,7 +3658,7 @@ class Body:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3316,6 +3678,9 @@ class Body:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3328,9 +3693,6 @@ class Body:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3407,6 +3769,9 @@ class Box:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3417,15 +3782,6 @@ class Box:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3462,7 +3818,7 @@ class Box:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3482,6 +3838,9 @@ class Box:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3494,9 +3853,6 @@ class Box:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3573,6 +3929,9 @@ class Card:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3583,15 +3942,6 @@ class Card:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3628,7 +3978,7 @@ class Card:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3648,6 +3998,9 @@ class Card:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3660,9 +4013,6 @@ class Card:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3739,6 +4089,9 @@ class Chart:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3749,15 +4102,6 @@ class Chart:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3794,7 +4138,7 @@ class Chart:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3814,6 +4158,9 @@ class Chart:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3826,9 +4173,6 @@ class Chart:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -3905,6 +4249,9 @@ class Clearance:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -3915,15 +4262,6 @@ class Clearance:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -3960,7 +4298,7 @@ class Clearance:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -3980,6 +4318,9 @@ class Clearance:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -3992,9 +4333,6 @@ class Clearance:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4071,6 +4409,9 @@ class Collection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4081,15 +4422,6 @@ class Collection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4126,7 +4458,7 @@ class Collection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4146,6 +4478,9 @@ class Collection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4158,9 +4493,6 @@ class Collection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4237,6 +4569,9 @@ class Collision:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4247,15 +4582,6 @@ class Collision:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4292,7 +4618,7 @@ class Collision:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4312,6 +4638,9 @@ class Collision:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4324,9 +4653,6 @@ class Collision:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4403,6 +4729,9 @@ class Comment:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4413,15 +4742,6 @@ class Comment:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4458,7 +4778,7 @@ class Comment:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4478,6 +4798,9 @@ class Comment:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4490,9 +4813,6 @@ class Comment:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4569,6 +4889,9 @@ class Component:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4579,15 +4902,6 @@ class Component:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4624,7 +4938,7 @@ class Component:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4644,6 +4958,9 @@ class Component:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4656,9 +4973,6 @@ class Component:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4735,6 +5049,9 @@ class Configuration:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4745,15 +5062,6 @@ class Configuration:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4790,7 +5098,7 @@ class Configuration:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4810,6 +5118,9 @@ class Configuration:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4822,9 +5133,6 @@ class Configuration:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -4901,6 +5209,9 @@ class Connector:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -4911,15 +5222,6 @@ class Connector:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -4956,7 +5258,7 @@ class Connector:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -4976,6 +5278,9 @@ class Connector:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -4988,9 +5293,6 @@ class Connector:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5067,6 +5369,9 @@ class Connectorcontrol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5077,15 +5382,6 @@ class Connectorcontrol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5122,7 +5418,7 @@ class Connectorcontrol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5142,6 +5438,9 @@ class Connectorcontrol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5154,9 +5453,6 @@ class Connectorcontrol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5233,6 +5529,9 @@ class Connectorcontroldefault:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5243,15 +5542,6 @@ class Connectorcontroldefault:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5288,7 +5578,7 @@ class Connectorcontroldefault:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5308,6 +5598,9 @@ class Connectorcontroldefault:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5320,9 +5613,6 @@ class Connectorcontroldefault:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5399,6 +5689,9 @@ class Connectorset:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5409,15 +5702,6 @@ class Connectorset:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5454,7 +5738,7 @@ class Connectorset:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5474,6 +5758,9 @@ class Connectorset:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5486,9 +5773,6 @@ class Connectorset:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5565,6 +5849,9 @@ class Constrainedextranode:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5575,15 +5862,6 @@ class Constrainedextranode:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5620,7 +5898,7 @@ class Constrainedextranode:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5640,6 +5918,9 @@ class Constrainedextranode:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5652,9 +5933,6 @@ class Constrainedextranode:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5731,6 +6009,9 @@ class Constrainedrigidbody:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5741,15 +6022,6 @@ class Constrainedrigidbody:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5786,7 +6058,7 @@ class Constrainedrigidbody:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5806,6 +6078,9 @@ class Constrainedrigidbody:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5818,9 +6093,6 @@ class Constrainedrigidbody:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -5897,6 +6169,9 @@ class Constraint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -5907,15 +6182,6 @@ class Constraint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -5952,7 +6218,7 @@ class Constraint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -5972,6 +6238,9 @@ class Constraint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -5984,9 +6253,6 @@ class Constraint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6063,6 +6329,9 @@ class Contactbehavior:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6073,15 +6342,6 @@ class Contactbehavior:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6118,7 +6378,7 @@ class Contactbehavior:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6138,6 +6398,9 @@ class Contactbehavior:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6150,9 +6413,6 @@ class Contactbehavior:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6229,6 +6489,9 @@ class Contactgroup:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6239,15 +6502,6 @@ class Contactgroup:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6284,7 +6538,7 @@ class Contactgroup:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6304,6 +6558,9 @@ class Contactgroup:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6316,9 +6573,6 @@ class Contactgroup:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6395,6 +6649,9 @@ class Contactsurf:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6405,15 +6662,6 @@ class Contactsurf:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6450,7 +6698,7 @@ class Contactsurf:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6470,6 +6718,9 @@ class Contactsurf:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6482,9 +6733,6 @@ class Contactsurf:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6561,6 +6809,9 @@ class Controlvol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6571,15 +6822,6 @@ class Controlvol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6616,7 +6858,7 @@ class Controlvol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6636,6 +6878,9 @@ class Controlvol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6648,9 +6893,6 @@ class Controlvol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6727,6 +6969,9 @@ class Crosssection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6737,15 +6982,6 @@ class Crosssection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6782,7 +7018,7 @@ class Crosssection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6802,6 +7038,9 @@ class Crosssection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6814,9 +7053,6 @@ class Crosssection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -6893,6 +7129,9 @@ class Curve:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -6903,15 +7142,6 @@ class Curve:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -6948,7 +7178,7 @@ class Curve:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -6968,6 +7198,9 @@ class Curve:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -6980,9 +7213,6 @@ class Curve:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7059,6 +7289,9 @@ class Damping:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7069,15 +7302,6 @@ class Damping:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7114,7 +7338,7 @@ class Damping:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7134,6 +7358,9 @@ class Damping:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7146,9 +7373,6 @@ class Damping:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7225,6 +7449,9 @@ class Ddval:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7235,15 +7462,6 @@ class Ddval:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7280,7 +7498,7 @@ class Ddval:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7300,6 +7518,9 @@ class Ddval:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7312,9 +7533,6 @@ class Ddval:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7391,6 +7609,9 @@ class Dequation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7401,15 +7622,6 @@ class Dequation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7446,7 +7658,7 @@ class Dequation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7466,6 +7678,9 @@ class Dequation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7478,9 +7693,6 @@ class Dequation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7557,6 +7769,9 @@ class DesignpointImpactPoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7567,15 +7782,6 @@ class DesignpointImpactPoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7612,7 +7818,7 @@ class DesignpointImpactPoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7632,6 +7838,9 @@ class DesignpointImpactPoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7644,9 +7853,6 @@ class DesignpointImpactPoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7723,6 +7929,9 @@ class DesignpointTargetPoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7733,15 +7942,6 @@ class DesignpointTargetPoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7778,7 +7978,7 @@ class DesignpointTargetPoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7798,6 +7998,9 @@ class DesignpointTargetPoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7810,9 +8013,6 @@ class DesignpointTargetPoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -7889,6 +8089,9 @@ class DesignpointUndefined:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -7899,15 +8102,6 @@ class DesignpointUndefined:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -7944,7 +8138,7 @@ class DesignpointUndefined:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -7964,6 +8158,9 @@ class DesignpointUndefined:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -7976,9 +8173,6 @@ class DesignpointUndefined:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8055,6 +8249,9 @@ class DesignpointmethodESAComp:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8065,15 +8262,6 @@ class DesignpointmethodESAComp:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8110,7 +8298,7 @@ class DesignpointmethodESAComp:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8130,6 +8318,9 @@ class DesignpointmethodESAComp:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8142,9 +8333,6 @@ class DesignpointmethodESAComp:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8221,6 +8409,9 @@ class DesignpointmethodUndefined:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8231,15 +8422,6 @@ class DesignpointmethodUndefined:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8276,7 +8458,7 @@ class DesignpointmethodUndefined:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8296,6 +8478,9 @@ class DesignpointmethodUndefined:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8308,9 +8493,6 @@ class DesignpointmethodUndefined:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8387,6 +8569,9 @@ class DesignpointsetBeam:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8397,15 +8582,6 @@ class DesignpointsetBeam:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8442,7 +8618,7 @@ class DesignpointsetBeam:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8462,6 +8638,9 @@ class DesignpointsetBeam:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8474,9 +8653,6 @@ class DesignpointsetBeam:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8553,6 +8729,9 @@ class DesignpointsetBeamJoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8563,15 +8742,6 @@ class DesignpointsetBeamJoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8608,7 +8778,7 @@ class DesignpointsetBeamJoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8628,6 +8798,9 @@ class DesignpointsetBeamJoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8640,9 +8813,6 @@ class DesignpointsetBeamJoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8719,6 +8889,9 @@ class DesignpointsetBeamMember:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8729,15 +8902,6 @@ class DesignpointsetBeamMember:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8774,7 +8938,7 @@ class DesignpointsetBeamMember:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8794,6 +8958,9 @@ class DesignpointsetBeamMember:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8806,9 +8973,6 @@ class DesignpointsetBeamMember:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -8885,6 +9049,9 @@ class DesignpointsetBeamShell:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -8895,15 +9062,6 @@ class DesignpointsetBeamShell:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -8940,7 +9098,7 @@ class DesignpointsetBeamShell:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -8960,6 +9118,9 @@ class DesignpointsetBeamShell:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -8972,9 +9133,6 @@ class DesignpointsetBeamShell:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9051,6 +9209,9 @@ class DesignpointsetBeamShellMember:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9061,15 +9222,6 @@ class DesignpointsetBeamShellMember:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9106,7 +9258,7 @@ class DesignpointsetBeamShellMember:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9126,6 +9278,9 @@ class DesignpointsetBeamShellMember:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9138,9 +9293,6 @@ class DesignpointsetBeamShellMember:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9217,6 +9369,9 @@ class DesignpointsetBeamShellSingle:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9227,15 +9382,6 @@ class DesignpointsetBeamShellSingle:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9272,7 +9418,7 @@ class DesignpointsetBeamShellSingle:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9292,6 +9438,9 @@ class DesignpointsetBeamShellSingle:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9304,9 +9453,6 @@ class DesignpointsetBeamShellSingle:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9383,6 +9529,9 @@ class DesignpointsetDummy:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9393,15 +9542,6 @@ class DesignpointsetDummy:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9438,7 +9578,7 @@ class DesignpointsetDummy:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9458,6 +9598,9 @@ class DesignpointsetDummy:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9470,9 +9613,6 @@ class DesignpointsetDummy:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9549,6 +9689,9 @@ class DesignpointsetGeneric:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9559,15 +9702,6 @@ class DesignpointsetGeneric:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9604,7 +9738,7 @@ class DesignpointsetGeneric:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9624,6 +9758,9 @@ class DesignpointsetGeneric:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9636,9 +9773,6 @@ class DesignpointsetGeneric:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9715,6 +9849,9 @@ class DesignpointsetInstrumentPanelImpactPoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9725,15 +9862,6 @@ class DesignpointsetInstrumentPanelImpactPoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9770,7 +9898,7 @@ class DesignpointsetInstrumentPanelImpactPoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9790,6 +9918,9 @@ class DesignpointsetInstrumentPanelImpactPoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9802,9 +9933,6 @@ class DesignpointsetInstrumentPanelImpactPoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -9881,6 +10009,9 @@ class DesignpointsetPanelComposite:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -9891,15 +10022,6 @@ class DesignpointsetPanelComposite:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -9936,7 +10058,7 @@ class DesignpointsetPanelComposite:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -9956,6 +10078,9 @@ class DesignpointsetPanelComposite:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -9968,9 +10093,6 @@ class DesignpointsetPanelComposite:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10047,6 +10169,9 @@ class DesignpointsetPanelMetallic:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10057,15 +10182,6 @@ class DesignpointsetPanelMetallic:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10102,7 +10218,7 @@ class DesignpointsetPanelMetallic:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10122,6 +10238,9 @@ class DesignpointsetPanelMetallic:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10134,9 +10253,6 @@ class DesignpointsetPanelMetallic:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10213,6 +10329,9 @@ class DesignpointsetPanelStiffened:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10223,15 +10342,6 @@ class DesignpointsetPanelStiffened:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10268,7 +10378,7 @@ class DesignpointsetPanelStiffened:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10288,6 +10398,9 @@ class DesignpointsetPanelStiffened:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10300,9 +10413,6 @@ class DesignpointsetPanelStiffened:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10379,6 +10489,9 @@ class DesignpointsetPedestrian:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10389,15 +10502,6 @@ class DesignpointsetPedestrian:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10434,7 +10538,7 @@ class DesignpointsetPedestrian:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10454,6 +10558,9 @@ class DesignpointsetPedestrian:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10466,9 +10573,6 @@ class DesignpointsetPedestrian:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10545,6 +10649,9 @@ class DesignpointsetRivets:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10555,15 +10662,6 @@ class DesignpointsetRivets:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10600,7 +10698,7 @@ class DesignpointsetRivets:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10620,6 +10718,9 @@ class DesignpointsetRivets:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10632,9 +10733,6 @@ class DesignpointsetRivets:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10711,6 +10809,9 @@ class DesignpointsetSprings:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10721,15 +10822,6 @@ class DesignpointsetSprings:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10766,7 +10858,7 @@ class DesignpointsetSprings:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10786,6 +10878,9 @@ class DesignpointsetSprings:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10798,9 +10893,6 @@ class DesignpointsetSprings:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -10877,6 +10969,9 @@ class Designvar:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -10887,15 +10982,6 @@ class Designvar:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -10932,7 +11018,7 @@ class Designvar:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -10952,6 +11038,9 @@ class Designvar:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -10964,9 +11053,6 @@ class Designvar:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11043,6 +11129,9 @@ class Desvarlink:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11053,15 +11142,6 @@ class Desvarlink:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11098,7 +11178,7 @@ class Desvarlink:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11118,6 +11198,9 @@ class Desvarlink:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11130,9 +11213,6 @@ class Desvarlink:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11209,6 +11289,9 @@ class Directmatrixinput:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11219,15 +11302,6 @@ class Directmatrixinput:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11264,7 +11338,7 @@ class Directmatrixinput:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11284,6 +11358,9 @@ class Directmatrixinput:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11296,9 +11373,6 @@ class Directmatrixinput:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11375,6 +11449,9 @@ class Dobjref:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11385,15 +11462,6 @@ class Dobjref:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11430,7 +11498,7 @@ class Dobjref:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11450,6 +11518,9 @@ class Dobjref:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11462,9 +11533,6 @@ class Dobjref:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11541,6 +11609,9 @@ class Domain:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11551,15 +11622,6 @@ class Domain:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11596,7 +11658,7 @@ class Domain:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11616,6 +11678,9 @@ class Domain:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11628,9 +11693,6 @@ class Domain:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11707,6 +11769,9 @@ class Dvprel:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11717,15 +11782,6 @@ class Dvprel:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11762,7 +11818,7 @@ class Dvprel:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11782,6 +11838,9 @@ class Dvprel:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11794,9 +11853,6 @@ class Dvprel:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -11873,6 +11929,9 @@ class Element:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -11883,15 +11942,6 @@ class Element:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -11928,7 +11978,7 @@ class Element:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -11948,6 +11998,9 @@ class Element:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -11960,9 +12013,6 @@ class Element:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12039,6 +12089,9 @@ class Elementbehavior:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12049,15 +12102,6 @@ class Elementbehavior:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12094,7 +12138,7 @@ class Elementbehavior:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12114,6 +12158,9 @@ class Elementbehavior:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12126,9 +12173,6 @@ class Elementbehavior:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12205,6 +12249,9 @@ class Elementcluster:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12215,15 +12262,6 @@ class Elementcluster:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12260,7 +12298,7 @@ class Elementcluster:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12280,6 +12318,9 @@ class Elementcluster:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12292,9 +12333,6 @@ class Elementcluster:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12371,6 +12409,9 @@ class Encryption:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12381,15 +12422,6 @@ class Encryption:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12426,7 +12458,7 @@ class Encryption:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12446,6 +12478,9 @@ class Encryption:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12458,9 +12493,6 @@ class Encryption:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12537,6 +12569,9 @@ class Enginefile:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12547,15 +12582,6 @@ class Enginefile:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12592,7 +12618,7 @@ class Enginefile:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12612,6 +12638,9 @@ class Enginefile:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12624,9 +12653,6 @@ class Enginefile:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12703,6 +12729,9 @@ class Equation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12713,15 +12742,6 @@ class Equation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12758,7 +12778,7 @@ class Equation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12778,6 +12798,9 @@ class Equation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12790,9 +12813,6 @@ class Equation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -12869,6 +12889,9 @@ class Exploration:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -12879,15 +12902,6 @@ class Exploration:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -12924,7 +12938,7 @@ class Exploration:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -12944,6 +12958,9 @@ class Exploration:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -12956,9 +12973,6 @@ class Exploration:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13035,6 +13049,9 @@ class Face:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13045,15 +13062,6 @@ class Face:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13090,7 +13098,7 @@ class Face:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13110,6 +13118,9 @@ class Face:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13122,9 +13133,6 @@ class Face:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13201,6 +13209,9 @@ class Failure:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13211,15 +13222,6 @@ class Failure:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13256,7 +13258,7 @@ class Failure:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13276,6 +13278,9 @@ class Failure:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13288,9 +13293,6 @@ class Failure:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13367,6 +13369,9 @@ class Feature:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13377,15 +13382,6 @@ class Feature:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13422,7 +13418,7 @@ class Feature:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13442,6 +13438,9 @@ class Feature:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13454,9 +13453,6 @@ class Feature:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13533,6 +13529,9 @@ class Field:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13543,15 +13542,6 @@ class Field:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13588,7 +13578,7 @@ class Field:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13608,6 +13598,9 @@ class Field:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13620,9 +13613,6 @@ class Field:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13699,6 +13689,9 @@ class Freebodygroup:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13709,15 +13702,6 @@ class Freebodygroup:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13754,7 +13738,7 @@ class Freebodygroup:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13774,6 +13758,9 @@ class Freebodygroup:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13786,9 +13773,6 @@ class Freebodygroup:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -13865,6 +13849,9 @@ class Freebodysection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -13875,15 +13862,6 @@ class Freebodysection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -13920,7 +13898,7 @@ class Freebodysection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -13940,6 +13918,9 @@ class Freebodysection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -13952,9 +13933,6 @@ class Freebodysection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14031,6 +14009,9 @@ class Frequency:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14041,15 +14022,6 @@ class Frequency:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14086,7 +14058,7 @@ class Frequency:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14106,6 +14078,9 @@ class Frequency:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14118,9 +14093,6 @@ class Frequency:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14197,6 +14169,9 @@ class Frequencyset:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14207,15 +14182,6 @@ class Frequencyset:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14252,7 +14218,7 @@ class Frequencyset:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14272,6 +14238,9 @@ class Frequencyset:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14284,9 +14253,6 @@ class Frequencyset:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14363,6 +14329,9 @@ class Friction:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14373,15 +14342,6 @@ class Friction:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14418,7 +14378,7 @@ class Friction:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14438,6 +14398,9 @@ class Friction:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14450,9 +14413,6 @@ class Friction:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14529,6 +14489,9 @@ class Geometricrepresentation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14539,15 +14502,6 @@ class Geometricrepresentation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14584,7 +14538,7 @@ class Geometricrepresentation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14604,6 +14558,9 @@ class Geometricrepresentation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14616,9 +14573,6 @@ class Geometricrepresentation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14695,6 +14649,9 @@ class Group:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14705,15 +14662,6 @@ class Group:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14750,7 +14698,7 @@ class Group:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14770,6 +14718,9 @@ class Group:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14782,9 +14733,6 @@ class Group:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -14861,6 +14809,9 @@ class Handle:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -14871,15 +14822,6 @@ class Handle:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -14916,7 +14858,7 @@ class Handle:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -14936,6 +14878,9 @@ class Handle:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -14948,9 +14893,6 @@ class Handle:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15027,6 +14969,9 @@ class Hourglass:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15037,15 +14982,6 @@ class Hourglass:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15082,7 +15018,7 @@ class Hourglass:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15102,6 +15038,9 @@ class Hourglass:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15114,9 +15053,6 @@ class Hourglass:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15193,6 +15129,9 @@ class Initialstate:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15203,15 +15142,6 @@ class Initialstate:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15248,7 +15178,7 @@ class Initialstate:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15268,6 +15198,9 @@ class Initialstate:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15280,9 +15213,6 @@ class Initialstate:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15359,6 +15289,9 @@ class Integrationrule:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15369,15 +15302,6 @@ class Integrationrule:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15414,7 +15338,7 @@ class Integrationrule:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15434,6 +15358,9 @@ class Integrationrule:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15446,9 +15373,6 @@ class Integrationrule:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15525,6 +15449,9 @@ class Interfacecomponent:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15535,15 +15462,6 @@ class Interfacecomponent:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15580,7 +15498,7 @@ class Interfacecomponent:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15600,6 +15518,9 @@ class Interfacecomponent:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15612,9 +15533,6 @@ class Interfacecomponent:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15691,6 +15609,9 @@ class Interfacelinking:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15701,15 +15622,6 @@ class Interfacelinking:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15746,7 +15658,7 @@ class Interfacelinking:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15766,6 +15678,9 @@ class Interfacelinking:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15778,9 +15693,6 @@ class Interfacelinking:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -15857,6 +15769,9 @@ class Joint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -15867,15 +15782,6 @@ class Joint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -15912,7 +15818,7 @@ class Joint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -15932,6 +15838,9 @@ class Joint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -15944,9 +15853,6 @@ class Joint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16023,6 +15929,9 @@ class Laminate:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16033,15 +15942,6 @@ class Laminate:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16078,7 +15978,7 @@ class Laminate:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16098,6 +15998,9 @@ class Laminate:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16110,9 +16013,6 @@ class Laminate:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16189,6 +16089,9 @@ class Legend:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16199,15 +16102,6 @@ class Legend:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16244,7 +16138,7 @@ class Legend:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16264,6 +16158,9 @@ class Legend:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16276,9 +16173,6 @@ class Legend:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16355,6 +16249,9 @@ class Line:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16365,15 +16262,6 @@ class Line:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16410,7 +16298,7 @@ class Line:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16430,6 +16318,9 @@ class Line:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16442,9 +16333,6 @@ class Line:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16521,6 +16409,9 @@ class List:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16531,15 +16422,6 @@ class List:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16576,7 +16458,7 @@ class List:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16596,6 +16478,9 @@ class List:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16608,9 +16493,6 @@ class List:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16687,6 +16569,9 @@ class LoadAcceleration:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16697,15 +16582,6 @@ class LoadAcceleration:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16742,7 +16618,7 @@ class LoadAcceleration:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16762,6 +16638,9 @@ class LoadAcceleration:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16774,9 +16653,6 @@ class LoadAcceleration:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -16853,6 +16729,9 @@ class LoadConstraint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -16863,15 +16742,6 @@ class LoadConstraint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -16908,7 +16778,7 @@ class LoadConstraint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -16928,6 +16798,9 @@ class LoadConstraint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -16940,9 +16813,6 @@ class LoadConstraint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17019,6 +16889,9 @@ class LoadFlux:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17029,15 +16902,6 @@ class LoadFlux:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17074,7 +16938,7 @@ class LoadFlux:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17094,6 +16958,9 @@ class LoadFlux:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17106,9 +16973,6 @@ class LoadFlux:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17185,6 +17049,9 @@ class LoadForce:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17195,15 +17062,6 @@ class LoadForce:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17240,7 +17098,7 @@ class LoadForce:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17260,6 +17118,9 @@ class LoadForce:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17272,9 +17133,6 @@ class LoadForce:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17351,6 +17209,9 @@ class LoadMoment:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17361,15 +17222,6 @@ class LoadMoment:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17406,7 +17258,7 @@ class LoadMoment:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17426,6 +17278,9 @@ class LoadMoment:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17438,9 +17293,6 @@ class LoadMoment:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17517,6 +17369,9 @@ class LoadPressure:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17527,15 +17382,6 @@ class LoadPressure:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17572,7 +17418,7 @@ class LoadPressure:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17592,6 +17438,9 @@ class LoadPressure:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17604,9 +17453,6 @@ class LoadPressure:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17683,6 +17529,9 @@ class LoadTemperature:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17693,15 +17542,6 @@ class LoadTemperature:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17738,7 +17578,7 @@ class LoadTemperature:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17758,6 +17598,9 @@ class LoadTemperature:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17770,9 +17613,6 @@ class LoadTemperature:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -17849,6 +17689,9 @@ class LoadVelocity:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -17859,15 +17702,6 @@ class LoadVelocity:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -17904,7 +17738,7 @@ class LoadVelocity:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -17924,6 +17758,9 @@ class LoadVelocity:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -17936,9 +17773,6 @@ class LoadVelocity:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18015,6 +17849,9 @@ class Loadcol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18025,15 +17862,6 @@ class Loadcol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18070,7 +17898,7 @@ class Loadcol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18090,6 +17918,9 @@ class Loadcol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18102,9 +17933,6 @@ class Loadcol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18181,6 +18009,9 @@ class Loadstep:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18191,15 +18022,6 @@ class Loadstep:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18236,7 +18058,7 @@ class Loadstep:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18256,6 +18078,9 @@ class Loadstep:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18268,9 +18093,6 @@ class Loadstep:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18347,6 +18169,9 @@ class Material:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18357,15 +18182,6 @@ class Material:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18402,7 +18218,7 @@ class Material:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18422,6 +18238,9 @@ class Material:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18434,9 +18253,6 @@ class Material:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18513,6 +18329,9 @@ class Materialbehavior:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18523,15 +18342,6 @@ class Materialbehavior:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18568,7 +18378,7 @@ class Materialbehavior:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18588,6 +18398,9 @@ class Materialbehavior:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18600,9 +18413,6 @@ class Materialbehavior:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18679,6 +18489,9 @@ class Mechanism:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18689,15 +18502,6 @@ class Mechanism:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18734,7 +18538,7 @@ class Mechanism:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18754,6 +18558,9 @@ class Mechanism:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18766,9 +18573,6 @@ class Mechanism:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -18845,6 +18649,9 @@ class Mechanismconstraint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -18855,15 +18662,6 @@ class Mechanismconstraint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -18900,7 +18698,7 @@ class Mechanismconstraint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -18920,6 +18718,9 @@ class Mechanismconstraint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -18932,9 +18733,6 @@ class Mechanismconstraint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19011,6 +18809,9 @@ class Member:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19021,15 +18822,6 @@ class Member:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19066,7 +18858,7 @@ class Member:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19086,6 +18878,9 @@ class Member:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19098,9 +18893,6 @@ class Member:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19177,6 +18969,9 @@ class Memberjoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19187,15 +18982,6 @@ class Memberjoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19232,7 +19018,7 @@ class Memberjoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19252,6 +19038,9 @@ class Memberjoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19264,9 +19053,6 @@ class Memberjoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19343,6 +19129,9 @@ class Memberpanel:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19353,15 +19142,6 @@ class Memberpanel:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19398,7 +19178,7 @@ class Memberpanel:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19418,6 +19198,9 @@ class Memberpanel:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19430,9 +19213,6 @@ class Memberpanel:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19509,6 +19289,9 @@ class Membersection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19519,15 +19302,6 @@ class Membersection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19564,7 +19338,7 @@ class Membersection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19584,6 +19358,9 @@ class Membersection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19596,9 +19373,6 @@ class Membersection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19675,6 +19449,9 @@ class Membersegment:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19685,15 +19462,6 @@ class Membersegment:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19730,7 +19498,7 @@ class Membersegment:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19750,6 +19518,9 @@ class Membersegment:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19762,9 +19533,6 @@ class Membersegment:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -19841,6 +19609,9 @@ class Meshcontrol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -19851,15 +19622,6 @@ class Meshcontrol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -19896,7 +19658,7 @@ class Meshcontrol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -19916,6 +19678,9 @@ class Meshcontrol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -19928,9 +19693,6 @@ class Meshcontrol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20007,6 +19769,9 @@ class Modelcheckcheck:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20017,15 +19782,6 @@ class Modelcheckcheck:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20062,7 +19818,7 @@ class Modelcheckcheck:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20082,6 +19838,9 @@ class Modelcheckcheck:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20094,9 +19853,6 @@ class Modelcheckcheck:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20173,6 +19929,9 @@ class Modelcheckcorrection:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20183,15 +19942,6 @@ class Modelcheckcorrection:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20228,7 +19978,7 @@ class Modelcheckcorrection:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20248,6 +19998,9 @@ class Modelcheckcorrection:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20260,9 +20013,6 @@ class Modelcheckcorrection:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20339,6 +20089,9 @@ class Morphconstraint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20349,15 +20102,6 @@ class Morphconstraint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20394,7 +20138,7 @@ class Morphconstraint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20414,6 +20158,9 @@ class Morphconstraint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20426,9 +20173,6 @@ class Morphconstraint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20505,6 +20249,9 @@ class Morphvolume:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20515,15 +20262,6 @@ class Morphvolume:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20560,7 +20298,7 @@ class Morphvolume:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20580,6 +20318,9 @@ class Morphvolume:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20592,9 +20333,6 @@ class Morphvolume:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20671,6 +20409,9 @@ class Nctlayer:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20681,15 +20422,6 @@ class Nctlayer:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20726,7 +20458,7 @@ class Nctlayer:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20746,6 +20478,9 @@ class Nctlayer:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20758,9 +20493,6 @@ class Nctlayer:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -20837,6 +20569,9 @@ class Node:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -20847,15 +20582,6 @@ class Node:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -20892,7 +20618,7 @@ class Node:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -20912,6 +20638,9 @@ class Node:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -20924,9 +20653,6 @@ class Node:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21003,6 +20729,9 @@ class Noisecontroltreatment:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21013,15 +20742,6 @@ class Noisecontroltreatment:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21058,7 +20778,7 @@ class Noisecontroltreatment:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21078,6 +20798,9 @@ class Noisecontroltreatment:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21090,9 +20813,6 @@ class Noisecontroltreatment:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21169,6 +20889,9 @@ class Objective:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21179,15 +20902,6 @@ class Objective:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21224,7 +20938,7 @@ class Objective:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21244,6 +20958,9 @@ class Objective:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21256,9 +20973,6 @@ class Objective:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21335,6 +21049,9 @@ class Opticonstraint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21345,15 +21062,6 @@ class Opticonstraint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21390,7 +21098,7 @@ class Opticonstraint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21410,6 +21118,9 @@ class Opticonstraint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21422,9 +21133,6 @@ class Opticonstraint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21501,6 +21209,9 @@ class Opticontrol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21511,15 +21222,6 @@ class Opticontrol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21556,7 +21258,7 @@ class Opticontrol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21576,6 +21278,9 @@ class Opticontrol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21588,9 +21293,6 @@ class Opticontrol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21667,6 +21369,9 @@ class Optidscreen:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21677,15 +21382,6 @@ class Optidscreen:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21722,7 +21418,7 @@ class Optidscreen:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21742,6 +21438,9 @@ class Optidscreen:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21754,9 +21453,6 @@ class Optidscreen:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21833,6 +21529,9 @@ class Optiresponse:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -21843,15 +21542,6 @@ class Optiresponse:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -21888,7 +21578,7 @@ class Optiresponse:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -21908,6 +21598,9 @@ class Optiresponse:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -21920,9 +21613,6 @@ class Optiresponse:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -21999,6 +21689,9 @@ class Outputblock:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22009,15 +21702,6 @@ class Outputblock:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22054,7 +21738,7 @@ class Outputblock:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22074,6 +21758,9 @@ class Outputblock:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22086,9 +21773,6 @@ class Outputblock:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22165,6 +21849,9 @@ class Outputrequest:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22175,15 +21862,6 @@ class Outputrequest:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22220,7 +21898,7 @@ class Outputrequest:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22240,6 +21918,9 @@ class Outputrequest:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22252,9 +21933,6 @@ class Outputrequest:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22331,6 +22009,9 @@ class Panel:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22341,15 +22022,6 @@ class Panel:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22386,7 +22058,7 @@ class Panel:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22406,6 +22078,9 @@ class Panel:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22418,9 +22093,6 @@ class Panel:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22497,6 +22169,9 @@ class Parameter:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22507,15 +22182,6 @@ class Parameter:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22552,7 +22218,7 @@ class Parameter:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22572,6 +22238,9 @@ class Parameter:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22584,9 +22253,6 @@ class Parameter:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22663,6 +22329,9 @@ class Part:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22673,15 +22342,6 @@ class Part:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22718,7 +22378,7 @@ class Part:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22738,6 +22398,9 @@ class Part:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22750,9 +22413,6 @@ class Part:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22829,6 +22489,9 @@ class PartInstance:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -22839,15 +22502,6 @@ class PartInstance:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -22884,7 +22538,7 @@ class PartInstance:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -22904,6 +22558,9 @@ class PartInstance:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -22916,9 +22573,6 @@ class PartInstance:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -22995,6 +22649,9 @@ class PartPrototype:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23005,15 +22662,6 @@ class PartPrototype:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23050,7 +22698,7 @@ class PartPrototype:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23070,6 +22718,9 @@ class PartPrototype:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23082,9 +22733,6 @@ class PartPrototype:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23161,6 +22809,9 @@ class PartRealizationFacets:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23171,15 +22822,6 @@ class PartRealizationFacets:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23216,7 +22858,7 @@ class PartRealizationFacets:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23236,6 +22878,9 @@ class PartRealizationFacets:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23248,9 +22893,6 @@ class PartRealizationFacets:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23327,6 +22969,9 @@ class PartRepresentationDefinition:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23337,15 +22982,6 @@ class PartRepresentationDefinition:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23382,7 +23018,7 @@ class PartRepresentationDefinition:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23402,6 +23038,9 @@ class PartRepresentationDefinition:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23414,9 +23053,6 @@ class PartRepresentationDefinition:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23496,6 +23132,9 @@ PartRoot UID is same as model name
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23506,15 +23145,6 @@ PartRoot UID is same as model name
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23551,7 +23181,7 @@ PartRoot UID is same as model name
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23571,6 +23201,9 @@ PartRoot UID is same as model name
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23583,9 +23216,6 @@ PartRoot UID is same as model name
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23662,6 +23292,9 @@ class Partset:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23672,15 +23305,6 @@ class Partset:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23717,7 +23341,7 @@ class Partset:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23737,6 +23361,9 @@ class Partset:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23749,9 +23376,6 @@ class Partset:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23828,6 +23452,9 @@ class Perturbation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -23838,15 +23465,6 @@ class Perturbation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -23883,7 +23501,7 @@ class Perturbation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -23903,6 +23521,9 @@ class Perturbation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -23915,9 +23536,6 @@ class Perturbation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -23994,6 +23612,9 @@ class Physicalquantity:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24004,15 +23625,6 @@ class Physicalquantity:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24049,7 +23661,7 @@ class Physicalquantity:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24069,6 +23681,9 @@ class Physicalquantity:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24081,9 +23696,6 @@ class Physicalquantity:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24160,6 +23772,9 @@ class Plot:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24170,15 +23785,6 @@ class Plot:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24215,7 +23821,7 @@ class Plot:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24235,6 +23841,9 @@ class Plot:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24247,9 +23856,6 @@ class Plot:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24326,6 +23932,9 @@ class PlotcontrolContour:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24336,15 +23945,6 @@ class PlotcontrolContour:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24381,7 +23981,7 @@ class PlotcontrolContour:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24401,6 +24001,9 @@ class PlotcontrolContour:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24413,9 +24016,6 @@ class PlotcontrolContour:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24492,6 +24092,9 @@ class PlotcontrolDeformed:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24502,15 +24105,6 @@ class PlotcontrolDeformed:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24547,7 +24141,7 @@ class PlotcontrolDeformed:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24567,6 +24161,9 @@ class PlotcontrolDeformed:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24581,7 +24178,164 @@ class PlotcontrolDeformed:
 	def name_attribute(self):
 		pass
 
-	def name_onupdate(self):
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class PlotcontrolEnvelopeMetric:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24658,6 +24412,9 @@ class PlotcontrolFBD:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24668,15 +24425,6 @@ class PlotcontrolFBD:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24713,7 +24461,7 @@ class PlotcontrolFBD:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24733,6 +24481,9 @@ class PlotcontrolFBD:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24745,9 +24496,6 @@ class PlotcontrolFBD:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24824,6 +24572,9 @@ class PlotcontrolMarker:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -24834,15 +24585,6 @@ class PlotcontrolMarker:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -24879,7 +24621,7 @@ class PlotcontrolMarker:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -24899,6 +24641,9 @@ class PlotcontrolMarker:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -24913,7 +24658,164 @@ class PlotcontrolMarker:
 	def name_attribute(self):
 		pass
 
-	def name_onupdate(self):
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class PlotcontrolPagesInfo:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -24990,6 +24892,9 @@ class PlotcontrolTensor:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25000,15 +24905,6 @@ class PlotcontrolTensor:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25045,7 +24941,7 @@ class PlotcontrolTensor:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25065,6 +24961,9 @@ class PlotcontrolTensor:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25077,9 +24976,6 @@ class PlotcontrolTensor:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25156,6 +25052,9 @@ class PlotcontrolVector:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25166,15 +25065,6 @@ class PlotcontrolVector:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25211,7 +25101,7 @@ class PlotcontrolVector:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25231,6 +25121,9 @@ class PlotcontrolVector:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25243,9 +25136,6 @@ class PlotcontrolVector:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25322,6 +25212,9 @@ class Ply:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25332,15 +25225,6 @@ class Ply:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25377,7 +25261,7 @@ class Ply:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25397,6 +25281,9 @@ class Ply:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25409,9 +25296,6 @@ class Ply:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25488,6 +25372,9 @@ class Point:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25498,15 +25385,6 @@ class Point:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25543,7 +25421,7 @@ class Point:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25563,6 +25441,9 @@ class Point:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25575,9 +25456,6 @@ class Point:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25654,6 +25532,9 @@ class Polycage:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25664,15 +25545,6 @@ class Polycage:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25709,7 +25581,7 @@ class Polycage:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25729,6 +25601,9 @@ class Polycage:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25741,9 +25616,6 @@ class Polycage:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25820,6 +25692,9 @@ class Position:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25830,15 +25705,6 @@ class Position:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -25875,7 +25741,7 @@ class Position:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -25895,6 +25761,9 @@ class Position:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -25907,9 +25776,6 @@ class Position:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -25986,6 +25852,9 @@ class Pretensioner:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -25996,15 +25865,6 @@ class Pretensioner:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26041,7 +25901,7 @@ class Pretensioner:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26061,6 +25921,9 @@ class Pretensioner:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26073,9 +25936,6 @@ class Pretensioner:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26152,6 +26012,9 @@ class Property:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26162,15 +26025,6 @@ class Property:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26207,7 +26061,7 @@ class Property:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26227,6 +26081,9 @@ class Property:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26239,9 +26096,6 @@ class Property:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26318,6 +26172,9 @@ class Referencegeometry:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26328,15 +26185,6 @@ class Referencegeometry:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26373,7 +26221,7 @@ class Referencegeometry:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26393,6 +26241,9 @@ class Referencegeometry:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26405,9 +26256,6 @@ class Referencegeometry:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26484,6 +26332,9 @@ class Region:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26494,15 +26345,6 @@ class Region:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26539,7 +26381,7 @@ class Region:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26559,6 +26401,9 @@ class Region:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26571,9 +26416,6 @@ class Region:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26650,6 +26492,9 @@ class Resource:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26660,15 +26505,6 @@ class Resource:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26705,7 +26541,7 @@ class Resource:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26725,6 +26561,9 @@ class Resource:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26737,9 +26576,6 @@ class Resource:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26816,6 +26652,9 @@ class Response:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26826,15 +26665,6 @@ class Response:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -26871,7 +26701,7 @@ class Response:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -26891,6 +26721,9 @@ class Response:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -26903,9 +26736,6 @@ class Response:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -26982,6 +26812,9 @@ class Result:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -26992,15 +26825,6 @@ class Result:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27037,7 +26861,7 @@ class Result:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27057,6 +26881,9 @@ class Result:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27069,9 +26896,6 @@ class Result:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27148,6 +26972,9 @@ class Resultsimulation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27158,15 +26985,6 @@ class Resultsimulation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27203,7 +27021,7 @@ class Resultsimulation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27223,6 +27041,9 @@ class Resultsimulation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27235,9 +27056,6 @@ class Resultsimulation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27314,6 +27132,9 @@ class Resultsubcase:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27324,15 +27145,6 @@ class Resultsubcase:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27369,7 +27181,7 @@ class Resultsubcase:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27389,6 +27201,9 @@ class Resultsubcase:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27401,9 +27216,6 @@ class Resultsubcase:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27480,6 +27292,9 @@ class ResultsubcaseEnvelope:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27490,15 +27305,6 @@ class ResultsubcaseEnvelope:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27535,7 +27341,7 @@ class ResultsubcaseEnvelope:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27555,6 +27361,9 @@ class ResultsubcaseEnvelope:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27567,9 +27376,6 @@ class ResultsubcaseEnvelope:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27646,6 +27452,9 @@ class ResultsubcaseRSS:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27656,15 +27465,6 @@ class ResultsubcaseRSS:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27701,7 +27501,7 @@ class ResultsubcaseRSS:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27721,6 +27521,9 @@ class ResultsubcaseRSS:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27733,9 +27536,6 @@ class ResultsubcaseRSS:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27812,6 +27612,9 @@ class ResultsubcaseSteps:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27822,15 +27625,6 @@ class ResultsubcaseSteps:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -27867,7 +27661,7 @@ class ResultsubcaseSteps:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -27887,6 +27681,9 @@ class ResultsubcaseSteps:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -27899,9 +27696,6 @@ class ResultsubcaseSteps:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -27978,6 +27772,9 @@ class ResultsubcaseSuperposition:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -27988,15 +27785,6 @@ class ResultsubcaseSuperposition:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28033,7 +27821,7 @@ class ResultsubcaseSuperposition:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28053,6 +27841,9 @@ class ResultsubcaseSuperposition:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28065,9 +27856,6 @@ class ResultsubcaseSuperposition:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28144,6 +27932,9 @@ class Retractor:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28154,15 +27945,6 @@ class Retractor:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28199,7 +27981,7 @@ class Retractor:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28219,6 +28001,9 @@ class Retractor:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28231,9 +28016,6 @@ class Retractor:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28310,6 +28092,9 @@ class Rigidbody:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28320,15 +28105,6 @@ class Rigidbody:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28365,7 +28141,7 @@ class Rigidbody:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28385,6 +28161,9 @@ class Rigidbody:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28397,9 +28176,6 @@ class Rigidbody:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28476,6 +28252,9 @@ class Rigidwall:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28486,15 +28265,6 @@ class Rigidwall:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28531,7 +28301,7 @@ class Rigidwall:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28551,6 +28321,9 @@ class Rigidwall:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28563,9 +28336,6 @@ class Rigidwall:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28642,6 +28412,9 @@ class Scenario:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28652,15 +28425,6 @@ class Scenario:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28697,7 +28461,7 @@ class Scenario:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28717,6 +28481,9 @@ class Scenario:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28729,9 +28496,6 @@ class Scenario:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28808,6 +28572,9 @@ class Seamexcitation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28818,15 +28585,6 @@ class Seamexcitation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -28863,7 +28621,7 @@ class Seamexcitation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -28883,6 +28641,9 @@ class Seamexcitation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -28895,9 +28656,6 @@ class Seamexcitation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -28974,6 +28732,9 @@ class Seamjunction:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -28984,15 +28745,6 @@ class Seamjunction:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29029,7 +28781,7 @@ class Seamjunction:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29049,6 +28801,9 @@ class Seamjunction:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29061,9 +28816,6 @@ class Seamjunction:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29140,6 +28892,9 @@ class Seamsubsystem:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29150,15 +28905,6 @@ class Seamsubsystem:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29195,7 +28941,7 @@ class Seamsubsystem:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29215,6 +28961,9 @@ class Seamsubsystem:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29227,9 +28976,6 @@ class Seamsubsystem:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29306,6 +29052,9 @@ class Seasubsystem:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29316,15 +29065,6 @@ class Seasubsystem:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29361,7 +29101,7 @@ class Seasubsystem:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29381,6 +29121,9 @@ class Seasubsystem:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29393,9 +29136,6 @@ class Seasubsystem:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29472,6 +29212,9 @@ class Seatbelt:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29482,15 +29225,6 @@ class Seatbelt:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29527,7 +29261,7 @@ class Seatbelt:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29547,6 +29281,9 @@ class Seatbelt:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29559,9 +29296,6 @@ class Seatbelt:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29638,6 +29372,9 @@ class Seatbeltcontrolpoint:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29648,15 +29385,6 @@ class Seatbeltcontrolpoint:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29693,7 +29421,7 @@ class Seatbeltcontrolpoint:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29713,6 +29441,9 @@ class Seatbeltcontrolpoint:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29725,9 +29456,6 @@ class Seatbeltcontrolpoint:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29804,6 +29532,9 @@ class Section:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29814,15 +29545,6 @@ class Section:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -29859,7 +29581,7 @@ class Section:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -29879,6 +29601,9 @@ class Section:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -29891,9 +29616,6 @@ class Section:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -29970,6 +29692,9 @@ class Sensor:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -29980,15 +29705,6 @@ class Sensor:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30025,7 +29741,7 @@ class Sensor:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30045,6 +29761,9 @@ class Sensor:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30057,9 +29776,6 @@ class Sensor:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -30136,6 +29852,9 @@ class Sequence:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -30146,15 +29865,6 @@ class Sequence:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30191,7 +29901,7 @@ class Sequence:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30211,6 +29921,9 @@ class Sequence:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30223,9 +29936,6 @@ class Sequence:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -30269,7 +29979,7 @@ class Session:
 	def define_attribute(self,handle: int, attribute: mdi_module.attribute.Attribute):
 		pass
 
-	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False, mixins="{}"):
+	def define_metaclass(self,mdiclass: str, version: str, base: str = None, isabstract=False, mixins="{}", isroot=False):
 		pass
 
 	def define_uid_attribute(self,handle: int, attribute_uid: str, attribute_revision: str, attribute_branch: str):
@@ -30287,7 +29997,7 @@ class Session:
 	def get_entityfulltype_from_metaclass(self,handle: int):
 		pass
 
-	def get_propertysheetview_factory(self,adaptor: str):
+	def get_propertysheetview_factory(self,adaptor:" "str" "=" "):
 		pass
 
 	def get_uid_attributename(self,fulltype):
@@ -30324,6 +30034,9 @@ class Session:
 		pass
 
 	def set_ownership(self,owner_handle: int, child, attribute_handle: int, override: bool):
+		pass
+
+	def update_configuration(self,path: str):
 		pass
 
 class Set:
@@ -30372,6 +30085,9 @@ class Set:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -30382,15 +30098,6 @@ class Set:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30427,7 +30134,7 @@ class Set:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30447,6 +30154,9 @@ class Set:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30459,9 +30169,6 @@ class Set:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -30538,6 +30245,9 @@ class Shape:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -30548,15 +30258,6 @@ class Shape:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30593,7 +30294,7 @@ class Shape:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30613,6 +30314,9 @@ class Shape:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30625,9 +30329,6 @@ class Shape:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -30704,6 +30405,9 @@ class Shape3d:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -30714,15 +30418,6 @@ class Shape3d:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30759,7 +30454,7 @@ class Shape3d:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30779,6 +30474,9 @@ class Shape3d:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30791,9 +30489,6 @@ class Shape3d:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -30870,6 +30565,9 @@ class Skeleton:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -30880,15 +30578,6 @@ class Skeleton:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -30925,7 +30614,7 @@ class Skeleton:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -30945,6 +30634,9 @@ class Skeleton:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -30957,9 +30649,6 @@ class Skeleton:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31036,6 +30725,9 @@ class Sketch:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31046,15 +30738,6 @@ class Sketch:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31091,7 +30774,7 @@ class Sketch:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31111,6 +30794,9 @@ class Sketch:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31123,9 +30809,6 @@ class Sketch:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31202,6 +30885,9 @@ class Slipring:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31212,15 +30898,6 @@ class Slipring:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31257,7 +30934,7 @@ class Slipring:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31277,6 +30954,9 @@ class Slipring:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31289,9 +30969,6 @@ class Slipring:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31368,6 +31045,9 @@ class Solid:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31378,15 +31058,6 @@ class Solid:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31423,7 +31094,7 @@ class Solid:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31443,6 +31114,9 @@ class Solid:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31455,9 +31129,6 @@ class Solid:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31534,6 +31205,9 @@ class Solvermass:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31544,15 +31218,6 @@ class Solvermass:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31589,7 +31254,7 @@ class Solvermass:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31609,6 +31274,9 @@ class Solvermass:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31621,9 +31289,6 @@ class Solvermass:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31700,6 +31365,9 @@ class Solverrepresentation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31710,15 +31378,6 @@ class Solverrepresentation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31755,7 +31414,7 @@ class Solverrepresentation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31775,6 +31434,9 @@ class Solverrepresentation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31787,9 +31449,6 @@ class Solverrepresentation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -31866,6 +31525,9 @@ class Solversetting:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -31876,15 +31538,6 @@ class Solversetting:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -31921,7 +31574,7 @@ class Solversetting:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -31941,6 +31594,9 @@ class Solversetting:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -31953,9 +31609,6 @@ class Solversetting:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32032,6 +31685,9 @@ class Solversubmodel:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32042,15 +31698,6 @@ class Solversubmodel:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32087,7 +31734,7 @@ class Solversubmodel:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32107,6 +31754,9 @@ class Solversubmodel:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32121,7 +31771,164 @@ class Solversubmodel:
 	def name_attribute(self):
 		pass
 
-	def name_onupdate(self):
+	def owned(self,attribute_name: str):
+		pass
+
+	@property
+	def owner(self):
+		pass
+	@owner.setter
+	def owner(self):
+		pass
+
+	def set_attribute_value(self,identifier: str, value):
+		pass
+
+	def set_values(self,**kwds):
+		"""
+		setattr on name/value pairs in the order the properties are specified.
+        This is called from __init__ to process the kwds
+        
+		"""
+		pass
+
+	@property
+	def thisown(self):
+		pass
+	@thisown.setter
+	def thisown(self):
+		pass
+
+class SoundPackagePart:
+	def __init__(self,amodel: Model, uid: hwdescriptor_module.uint_ptr|hwdescriptor_module.Uid = None, connection: str = None,owner: 'MDIObject'=" None", ownership_attribute: hwdescriptor_module.Identifier = None, keyvaluepairs: hwdescriptor_module.DescriptorIdentifierValueMap = None, *args, **kwargs):
+		pass
+
+	def GetActionDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAllReferredBy(self,refEntity2IdentifierList: Entity2IdentifierList):
+		pass
+
+	def GetAllowables(self,identifier: Identifier, allowables: Allowables):
+		pass
+
+	def GetAttributeDefinition(self,identifier: Identifier):
+		pass
+
+	def GetAttributeEditability(self,identifier: Identifier):
+		pass
+
+	def GetAttributeVisibility(self,identifier: Identifier):
+		pass
+
+	def GetAttributes(self,aIdentifier: IdentifierList, onlyVisible: bool  = False, onlyEditable: bool  = False):
+		pass
+
+	def GetEntity(self,entity: Entity):
+		pass
+
+	def GetEntityFullType(self):
+		pass
+
+	def GetMetaclass(self):
+		pass
+
+	def GetModel(self):
+		pass
+
+	def GetOwned(self,*args):
+		pass
+
+	def GetOwner(self,owner: Entity, identifier: Identifier):
+		pass
+
+	def GetReferred(self,referred: Identifier2BagMap):
+		pass
+
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
+	def GetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def InvokeAction(self,identifier: Identifier):
+		pass
+
+	def IsValid(self):
+		pass
+
+	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
+		pass
+
+	def SetValue(self,identifier: Identifier, value: Value):
+		pass
+
+	def TestValue(self,identifier: Identifier, value: Value):
+		pass
+
+	@property
+	def entity(self):
+		pass
+	@entity.setter
+	def entity(self):
+		pass
+
+	def get_action_definition(self,identifier: str):
+		pass
+
+	def get_attribute_definition(self,identifier: str):
+		pass
+
+	def get_attribute_value(self,identifier: str):
+		pass
+
+	def getaction(self,action_name):
+		pass
+
+	def getattribute(self,name):
+		"""
+		
+        return the attribute object if in class, or 
+        # create an attribute on the fly 
+        
+		"""
+		pass
+
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
+		pass
+
+	def getattributes(self,visible=True, editable=False):
+		pass
+
+	def getentitylist(self):
+		"""
+		
+        Return an empty EntityList of objects of this class
+        
+		"""
+		pass
+
+	def getreferredby(self,fromtype, attribute_name: str):
+		pass
+
+	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
+	@property
+	def mdimodel(self):
+		pass
+	@mdimodel.setter
+	def mdimodel(self):
+		pass
+
+	@property
+	def name_attribute(self):
+		pass
+	@name_attribute.setter
+	def name_attribute(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32198,6 +32005,9 @@ class Stateequation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32208,15 +32018,6 @@ class Stateequation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32253,7 +32054,7 @@ class Stateequation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32273,6 +32074,9 @@ class Stateequation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32285,9 +32089,6 @@ class Stateequation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32364,6 +32165,9 @@ class StructuralpropertyBeam:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32374,15 +32178,6 @@ class StructuralpropertyBeam:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32419,7 +32214,7 @@ class StructuralpropertyBeam:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32439,6 +32234,9 @@ class StructuralpropertyBeam:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32451,9 +32249,6 @@ class StructuralpropertyBeam:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32530,6 +32325,9 @@ class StructuralpropertyDummyTargets:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32540,15 +32338,6 @@ class StructuralpropertyDummyTargets:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32585,7 +32374,7 @@ class StructuralpropertyDummyTargets:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32605,6 +32394,9 @@ class StructuralpropertyDummyTargets:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32617,9 +32409,6 @@ class StructuralpropertyDummyTargets:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32696,6 +32485,9 @@ class StructuralpropertyEjectionMitigationIP:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32706,15 +32498,6 @@ class StructuralpropertyEjectionMitigationIP:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32751,7 +32534,7 @@ class StructuralpropertyEjectionMitigationIP:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32771,6 +32554,9 @@ class StructuralpropertyEjectionMitigationIP:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32783,9 +32569,6 @@ class StructuralpropertyEjectionMitigationIP:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -32862,6 +32645,9 @@ class StructuralpropertyGeneric:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -32872,15 +32658,6 @@ class StructuralpropertyGeneric:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -32917,7 +32694,7 @@ class StructuralpropertyGeneric:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -32937,6 +32714,9 @@ class StructuralpropertyGeneric:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -32949,9 +32729,6 @@ class StructuralpropertyGeneric:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33028,6 +32805,9 @@ class StructuralpropertyHeadForm:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33038,15 +32818,6 @@ class StructuralpropertyHeadForm:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33083,7 +32854,7 @@ class StructuralpropertyHeadForm:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33103,6 +32874,9 @@ class StructuralpropertyHeadForm:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33115,9 +32889,6 @@ class StructuralpropertyHeadForm:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33194,6 +32965,9 @@ class StructuralpropertyInstrumentPanelIP:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33204,15 +32978,6 @@ class StructuralpropertyInstrumentPanelIP:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33249,7 +33014,7 @@ class StructuralpropertyInstrumentPanelIP:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33269,6 +33034,9 @@ class StructuralpropertyInstrumentPanelIP:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33281,9 +33049,6 @@ class StructuralpropertyInstrumentPanelIP:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33360,6 +33125,9 @@ class StructuralpropertyLowerLegForm:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33370,15 +33138,6 @@ class StructuralpropertyLowerLegForm:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33415,7 +33174,7 @@ class StructuralpropertyLowerLegForm:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33435,6 +33194,9 @@ class StructuralpropertyLowerLegForm:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33447,9 +33209,6 @@ class StructuralpropertyLowerLegForm:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33526,6 +33285,9 @@ class StructuralpropertyPanelComposite:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33536,15 +33298,6 @@ class StructuralpropertyPanelComposite:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33581,7 +33334,7 @@ class StructuralpropertyPanelComposite:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33601,6 +33354,9 @@ class StructuralpropertyPanelComposite:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33613,9 +33369,6 @@ class StructuralpropertyPanelComposite:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33692,6 +33445,9 @@ class StructuralpropertyPanelMetallic:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33702,15 +33458,6 @@ class StructuralpropertyPanelMetallic:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33747,7 +33494,7 @@ class StructuralpropertyPanelMetallic:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33767,6 +33514,9 @@ class StructuralpropertyPanelMetallic:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33779,9 +33529,6 @@ class StructuralpropertyPanelMetallic:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -33858,6 +33605,9 @@ class StructuralpropertyRivet:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -33868,15 +33618,6 @@ class StructuralpropertyRivet:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -33913,7 +33654,7 @@ class StructuralpropertyRivet:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -33933,6 +33674,9 @@ class StructuralpropertyRivet:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -33945,9 +33689,6 @@ class StructuralpropertyRivet:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34024,6 +33765,9 @@ class StructuralpropertySpring:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34034,15 +33778,6 @@ class StructuralpropertySpring:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34079,7 +33814,7 @@ class StructuralpropertySpring:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34099,6 +33834,9 @@ class StructuralpropertySpring:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34111,9 +33849,6 @@ class StructuralpropertySpring:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34190,6 +33925,9 @@ class StructuralpropertyUndefined:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34200,15 +33938,6 @@ class StructuralpropertyUndefined:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34245,7 +33974,7 @@ class StructuralpropertyUndefined:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34265,6 +33994,9 @@ class StructuralpropertyUndefined:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34277,9 +34009,6 @@ class StructuralpropertyUndefined:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34356,6 +34085,9 @@ class StructuralpropertyUpperLegForm:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34366,15 +34098,6 @@ class StructuralpropertyUpperLegForm:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34411,7 +34134,7 @@ class StructuralpropertyUpperLegForm:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34431,6 +34154,9 @@ class StructuralpropertyUpperLegForm:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34443,9 +34169,6 @@ class StructuralpropertyUpperLegForm:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34522,6 +34245,9 @@ class Study:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34532,15 +34258,6 @@ class Study:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34577,7 +34294,7 @@ class Study:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34597,6 +34314,9 @@ class Study:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34609,9 +34329,6 @@ class Study:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34688,6 +34405,9 @@ class Subsystem:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34698,15 +34418,6 @@ class Subsystem:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34743,7 +34454,7 @@ class Subsystem:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34763,6 +34474,9 @@ class Subsystem:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34775,9 +34489,6 @@ class Subsystem:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -34854,6 +34565,9 @@ class Subsystemconfiguration:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -34864,15 +34578,6 @@ class Subsystemconfiguration:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -34909,7 +34614,7 @@ class Subsystemconfiguration:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -34929,6 +34634,9 @@ class Subsystemconfiguration:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -34941,9 +34649,6 @@ class Subsystemconfiguration:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35020,6 +34725,9 @@ class Subsystemset:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35030,15 +34738,6 @@ class Subsystemset:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35075,7 +34774,7 @@ class Subsystemset:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35095,6 +34794,9 @@ class Subsystemset:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35107,9 +34809,6 @@ class Subsystemset:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35186,6 +34885,9 @@ class Surface:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35196,15 +34898,6 @@ class Surface:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35241,7 +34934,7 @@ class Surface:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35261,6 +34954,9 @@ class Surface:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35273,9 +34969,6 @@ class Surface:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35352,6 +35045,9 @@ class Symmetry:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35362,15 +35058,6 @@ class Symmetry:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35407,7 +35094,7 @@ class Symmetry:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35427,6 +35114,9 @@ class Symmetry:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35439,9 +35129,6 @@ class Symmetry:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35518,6 +35205,9 @@ class Symmetrypivot:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35528,15 +35218,6 @@ class Symmetrypivot:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35573,7 +35254,7 @@ class Symmetrypivot:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35593,6 +35274,9 @@ class Symmetrypivot:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35605,9 +35289,6 @@ class Symmetrypivot:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35684,6 +35365,9 @@ class Systcol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35694,15 +35378,6 @@ class Systcol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35739,7 +35414,7 @@ class Systcol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35759,6 +35434,9 @@ class Systcol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35771,9 +35449,6 @@ class Systcol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -35850,6 +35525,9 @@ class System:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -35860,15 +35538,6 @@ class System:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -35905,7 +35574,7 @@ class System:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -35925,6 +35594,9 @@ class System:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -35937,9 +35609,6 @@ class System:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36016,6 +35685,9 @@ class Table:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36026,15 +35698,6 @@ class Table:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36071,7 +35734,7 @@ class Table:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36091,6 +35754,9 @@ class Table:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36103,9 +35769,6 @@ class Table:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36182,6 +35845,9 @@ class Tag:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36192,15 +35858,6 @@ class Tag:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36237,7 +35894,7 @@ class Tag:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36257,6 +35914,9 @@ class Tag:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36269,9 +35929,6 @@ class Tag:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36348,6 +36005,9 @@ class Termination:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36358,15 +36018,6 @@ class Termination:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36403,7 +36054,7 @@ class Termination:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36423,6 +36074,9 @@ class Termination:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36435,9 +36089,6 @@ class Termination:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36514,6 +36165,9 @@ class Timestepcontrol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36524,15 +36178,6 @@ class Timestepcontrol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36569,7 +36214,7 @@ class Timestepcontrol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36589,6 +36234,9 @@ class Timestepcontrol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36601,9 +36249,6 @@ class Timestepcontrol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36680,6 +36325,9 @@ class Title:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36690,15 +36338,6 @@ class Title:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36735,7 +36374,7 @@ class Title:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36755,6 +36394,9 @@ class Title:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36767,9 +36409,6 @@ class Title:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -36846,6 +36485,9 @@ class Transformation:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -36856,15 +36498,6 @@ class Transformation:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -36901,7 +36534,7 @@ class Transformation:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -36921,6 +36554,9 @@ class Transformation:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -36933,9 +36569,6 @@ class Transformation:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -37012,6 +36645,9 @@ class UpdateOccurrenceWorkflow:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -37022,15 +36658,6 @@ class UpdateOccurrenceWorkflow:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -37053,9 +36680,18 @@ class UpdateOccurrenceWorkflow:
 		pass
 
 	def get_attribute_value(self,identifier: str):
+		"""
+		return either the attribute value or the action object
+		"""
 		pass
 
 	def getaction(self,action_name):
+		pass
+
+	def getaction_definition(self,action_name):
+		pass
+
+	def getactionnames(self):
 		pass
 
 	def getactions(self):
@@ -37070,7 +36706,7 @@ class UpdateOccurrenceWorkflow:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -37084,13 +36720,13 @@ class UpdateOccurrenceWorkflow:
 		"""
 		pass
 
-	def getitems(self):
-		pass
-
 	def getreferredby(self,fromtype, attribute_name: str):
 		pass
 
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
+		pass
+
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
 		pass
 
 	@property
@@ -37105,9 +36741,6 @@ class UpdateOccurrenceWorkflow:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -37184,6 +36817,9 @@ class Vector:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -37194,15 +36830,6 @@ class Vector:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -37239,7 +36866,7 @@ class Vector:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -37259,6 +36886,9 @@ class Vector:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -37271,9 +36901,6 @@ class Vector:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -37350,6 +36977,9 @@ class Vectorcol:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -37360,15 +36990,6 @@ class Vectorcol:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -37405,7 +37026,7 @@ class Vectorcol:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -37425,6 +37046,9 @@ class Vectorcol:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -37437,9 +37061,6 @@ class Vectorcol:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
@@ -37516,6 +37137,9 @@ class Weldline:
 	def GetReferred(self,referred: Identifier2BagMap):
 		pass
 
+	def GetUnitsDimensionality(self,identifier: Identifier, unitsDimensionality: UnitsDimensionality):
+		pass
+
 	def GetValue(self,identifier: Identifier, value: Value):
 		pass
 
@@ -37526,15 +37150,6 @@ class Weldline:
 		pass
 
 	def ReferredBy(self,entitylist: EntityList, fromtype: EntityFullType, identifier: Identifier):
-		pass
-
-	def SetAllowables(self,identifier: Identifier, allowables: Allowables):
-		pass
-
-	def SetAttributeEditability(self,identifier: Identifier, edit: bool = True):
-		pass
-
-	def SetAttributeVisibility(self,identifier: Identifier, visible: bool = True):
 		pass
 
 	def SetValue(self,identifier: Identifier, value: Value):
@@ -37571,7 +37186,7 @@ class Weldline:
 		"""
 		pass
 
-	def getattributenames(self,visible=True, editable=False):
+	def getattributenames(self,visible=True, editable=False, attribute_type=None):
 		pass
 
 	def getattributes(self,visible=True, editable=False):
@@ -37591,6 +37206,9 @@ class Weldline:
 	def invoke(self,identifier: hwdescriptor_module.Identifier):
 		pass
 
+	def isattribute(self,identifier: str, onlyvisible=False, onlyeditable=False):
+		pass
+
 	@property
 	def mdimodel(self):
 		pass
@@ -37603,9 +37221,6 @@ class Weldline:
 		pass
 	@name_attribute.setter
 	def name_attribute(self):
-		pass
-
-	def name_onupdate(self):
 		pass
 
 	def owned(self,attribute_name: str):
